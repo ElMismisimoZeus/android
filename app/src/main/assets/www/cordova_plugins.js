@@ -21,7 +21,7 @@ module.exports = [
     "clobbers": [
       "SQLitePlugin"
     ]
-  },
+  },s
   {
     "id": "onesignal-cordova-plugin.OneSignal",
     "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
