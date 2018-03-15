@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>Epsilon 7.0</title>
+    
+<link rel="stylesheet" type="text/css" href="../styles/style.css">
+<link rel="stylesheet" type="text/css" href="../styles/skin.css">
+<link rel="stylesheet" type="text/css" href="../styles/framework.css">
+<link rel="stylesheet" type="text/css" href="../styles/ionicons.min.css">
+<link rel="stylesheet" href="../styles/wfmi-style.css">
+
+
+    
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript" src="../scripts/plugins.js"></script>
+<script type="text/javascript" src="../scripts/custom.js"></script>
+
+	<script>
+		
+		
+		$(function(){
+			$('.fantasma').change(function(){
+			if(!$(this).prop('checked')){
+				$('#dvOcultar').hide();
+				$('#dvMostrar').show();
+			}else{
+				$('#dvOcultar').show();
+				$('#dvMostrar').hide();
+			}
+		  
+		  })
+		
+		})
+	</script>
+</head>
+
+<body>
+<div id="page-transitions">
+	
+	
+	<div class="header header-logo-left header-dark " align="center">
+		<h3 class="botonInicial"><i class="medical-icon-i-administration"></i> <a href="evaluacion_primaria.html" class="icon icon-round frapBtn-bg btnSig"><i class="ion-forward"></i></a><strong class="color-white">DATOS DEL PACIENTE</strong></h3>
+		
+		
+
+	</div>	
+	
+	<div class="share-socials-bottom">
+				<a href="#" class="bottom-icon-right badge-share show-share-bottom  ">
+					<i class="ion-ios-keypad colorFrap"></i>
+				</a>
+				<a href="home_02.html" class="bottom-icon-left ">
+					<i class="ion-home colorFrap"></i>
+				</a>
+		
+	</div>	
+	
+	<div id="page-content" >		
+				
+			
+			<div class="content full-bottom half-top">
+					<br>
+					<br>
+						
+					<label class="botonInicial" for="cbmostrar">
+					  <input type="checkbox" name="cbmostrar" class="fantasma" unchecked />
+					  Media filiación
+					</label>	
+					
+					<div id="dvMostrar">
+						<form action="" method="post" class="contactForm" id="contactForm">
+					
+											
+								<div class="one-half">
+									<input type="text" class="input-text-line input-red-line inputText" value="" placeholder="Nombre">
+									<input type="text" class="input-text-line input-red-line inputText" value="" placeholder="Apellido Materno">
+			
+								</div>
+								<div class="one-half last-column">
+									<input type="text" class="input-text-line input-red-line inputText" value="" placeholder="Apellido Paterno">
+									<input placeholder="Fecha de nacimiento" type="text" class="input-text-line input-red-line inputText" onfocus="(this.type='date')" onblur="(this.type='text')" id="date">
+	
+								</div>
+								<div class="clear"></div>						
+							<div class="checkboxes-demo">
+								<h4>Sexo: </h4>
+								
+								<div class="fac fac-radio fac-red one-half"><span></span>
+									<input id="box2-fac-radio" type="radio" name="rad" value="1">
+									<label for="box2-fac-radio">Masculino</label>
+								</div>
+								<div class="fac fac-radio fac-red one-half last-column"><span></span>
+									<input id="box3-fac-radio" type="radio" name="rad" value="1">
+									<label for="box3-fac-radio">Femenino</label>
+								</div>
+							</div>  
+							<br>
+							<div class="decoration"></div>
+							<h4 class="botonInicial" align="center">Dirección</h4>
+							<br>
+							<div class="one-half">
+								<div class="select-box ">
+									<select>
+										<option class="select-title" value="o0">Estado</option>
+										<option value="o1">Option 1</option>
+										<option value="o2">Option 2</option>
+										<option value="o3">Option 3</option>
+										<option value="o4">Option 4</option>
+									</select>
+								</div>
+								
+								<div class="select-box ">
+									<select>
+										<option class="select-title" value="o0">Colonia</option>
+										<option value="o1">Option 1</option>
+										<option value="o2">Option 2</option>
+										<option value="o3">Option 3</option>
+										<option value="o4">Option 4</option>
+									</select>
+								</div>
+							</div>
+							
+							<div class="one-half last-column">
+								<div class="select-box ">
+									<select>
+										<option class="select-title" value="o0">Municipio</option>
+										<option value="o1">Option 1</option>
+										<option value="o2">Option 2</option>
+										<option value="o3">Option 3</option>
+										<option value="o4">Option 4</option>
+									</select>
+								</div>
+								
+								<div class="select-box ">
+									<select>
+										<option class="select-title" value="o0">Código Postal</option>
+										<option value="o1">Option 1</option>
+										<option value="o2">Option 2</option>
+										<option value="o3">Option 3</option>
+										<option value="o4">Option 4</option>
+									</select>
+								</div>
+								
+							</div>
+							
+							
+							
+							
+							<input type="text" class="input-text-line input-red-line inputText" value="" placeholder="Calle">
+							
+							<div class="one-half">
+								<input type="number" class="input-text-line input-red-line inputText" value="" placeholder="Número">
+	
+							</div>
+							
+							<div class="one-half last-column">
+								<input type="text" maxlength="10" class="input-text-line input-red-line inputText" value="" placeholder="Teléfono">
+	
+							</div>       
+							<div class="decoration"></div>
+	
+							
+							<div class="select-box ">
+								<select>
+									<option class="select-title" value="o0">Ocupación</option>
+									<option value="o1">Option 1</option>
+									<option value="o2">Option 2</option>
+									<option value="o3">Option 3</option>
+									<option value="o4">Option 4</option>
+								</select>
+							</div>
+	
+							
+							<div class="clear"></div>
+							
+						</form>   	
+					
+					
+						
+					</div>
+					<form action="" method="post" class="contactForm" id="contactForm">
+							<textarea name="contactMessageTextarea" class="contactTextarea input-red-border" ></textarea>
+									
+									<div class="decoration decoration-margins"></div>
+
+									<h4 class="botonInicial">Servicio médico: *</h4>
+
+									<div class="checkboxes-demo last-column">
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box1-fac-radio" type="radio" name="rad" value="1">
+											<label for="box1-fac-radio">Seguro popular</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box2-fac-radio" type="radio" name="rad" value="1">
+											<label for="box2-fac-radio">IMSS</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box3-fac-radio" type="radio" name="rad" value="1">
+											<label for="box3-fac-radio">ISSSTE</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box4-fac-radio" type="radio" name="rad" value="1">
+											<label for="box4-fac-radio">SEMAR</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box5-fac-radio" type="radio" name="rad" value="1">
+											<label for="box5-fac-radio">SEDENA</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box6-fac-radio" type="radio" name="rad" value="1">
+											<label for="box6-fac-radio">Privado</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box7-fac-radio" type="radio" name="rad" value="1">
+											<label for="box7-fac-radio">ISSSTESON</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box8-fac-radio" type="radio" name="rad" value="1">
+											<label for="box8-fac-radio">SSA</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box9-fac-radio" type="radio" name="rad" value="1">
+											<label for="box9-fac-radio">Ninguno</label>
+										</div>
+									</div>  
+									
+									<div class="decoration decoration-margins"></div>
+
+									<h4 class="botonInicial">Motivo de la atención: *</h4>
+									<div class="checkboxes-demo last-column">
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box-fac-radio" type="radio" name="rad2" value="1">
+											<label for="box-fac-radio">Traumatismo</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box10-fac-radio" type="radio" name="rad2" value="1">
+											<label for="box10-fac-radio">Enfermedad</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box11-fac-radio" type="radio" name="rad2" value="1">
+											<label for="box11-fac-radio">Ginecológico</label>
+										</div>
+										<div class="fac fac-radio fac-red"><span></span>
+											<input id="box12-fac-radio" type="radio" name="rad3" value="1">
+											<label for="box12-fac-radio">Accidente vial</label>
+										</div>
+										
+									</div>  
+						</form>
+					
+					
+					
+			</div>
+			 
+	</div>
+	<div class="share-bottom share-light">
+		<h3>Obligatorios</h3>
+		<div class="share-socials-bottom">
+			<a href="signos_vitales02.html">
+				<i class="ion-ios-keypad facebook-bg"></i>
+				Signos 
+			</a>
+			
+			<a href="med_administrados.html">
+				<i class="ion-clipboard twitter-bg"></i>
+				Medicamentos  
+			</a>
+
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+</body>

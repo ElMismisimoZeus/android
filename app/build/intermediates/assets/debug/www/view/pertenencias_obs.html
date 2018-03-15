@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>Epsilon 7.0</title>
+    
+<link rel="stylesheet" type="text/css" href="../styles/style.css">
+<link rel="stylesheet" type="text/css" href="../styles/skin.css">
+<link rel="stylesheet" type="text/css" href="../styles/framework.css">
+<link rel="stylesheet" type="text/css" href="../styles/ionicons.min.css">
+<link rel="stylesheet" href="../styles/wfmi-style.css">
+
+
+    
+<script type="text/javascript" src="../scripts/jquery.js"></script>
+<script type="text/javascript" src="../scripts/plugins.js"></script>
+<script type="text/javascript" src="../scripts/custom.js"></script>
+
+	<script>
+		
+		
+		$(function(){
+			$('.fantasma').change(function(){
+			if(!$(this).prop('checked')){
+				$('#dvOcultar').hide();
+				$('#dvMostrar').show();
+			}else{
+				$('#dvOcultar').show();
+				$('#dvMostrar').hide();
+			}
+		  
+		  })
+		
+		})
+	</script>
+</head>
+
+<body>
+<div id="page-transitions">
+	
+	<div class="header header-logo-left header-dark " align="center">
+		<h3 class="botonInicial"><i class="medical-icon-i-administration"></i> 
+			<a href="resultado_emergencia.html" class="icon icon-round frapBtn-bg btnSig"><i class="ion-forward"></i>
+			<a href="otros.html" class="icon icon-round frapBtn-bg btnAt"><i class="ion-reply"></i>
+		
+			</a><strong class="color-white">PERTENENCIAS Y OBSERVACIONES</strong></h3>
+
+		
+		
+
+	</div>	
+	
+	<div class="share-socials-bottom">
+				
+				<a href="home_02.html" class="bottom-icon-left ">
+					<i class="ion-home colorFrap"></i>
+				</a>
+		
+	</div>	
+	
+	<div id="page-content" >		
+				
+			
+			<div class="content full-bottom half-top">
+					<br>
+					<br>
+						
+					<label class="botonInicial" for="cbmostrar">
+					  <input type="checkbox" name="cbmostrar" class="fantasma" unchecked />
+					  No se tiene contacto con las pertenencias
+					</label>	
+					
+					<div id="dvMostrar">
+						<h5 class="botonInicial" align="center" >Pertenencias: </h5>
+						<input type="text" class="input-text-box input-red-border">
+						<h5 class="botonInicial" align="center" >Recibe pertenencias(parentesco): </h5>
+						<input type="text" class="input-text-box input-red-border">
+						<h6 align="center">Recibe pertenencias</h6>
+						<h5 class="botonInicial" align="center" >Nombre: *</h5>
+						<input type="text" class="input-text-box input-red-border">
+						<a href="firma.html" class="button button-round button-red button-full half-top full-bottom animate-zoom"><h4>Firmar</h4></a>
+					 
+					</div>
+
+					<div class="decoration"></div>
+				
+					<h5 class="botonInicial" align="center" >Observaciones: </h5>
+					<input type="text" class="input-text-box input-red-border">
+					
+					
+					
+			</div>
+			 
+	</div>
+</div>
+</body>

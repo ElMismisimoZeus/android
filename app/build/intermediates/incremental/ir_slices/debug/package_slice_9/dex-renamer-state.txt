@@ -1,0 +1,4 @@
+#Wed Mar 14 08:25:41 CST 2018
+base.0=/Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/build/intermediates/transforms/dexMerger/debug/10
+path.0=classes.dex
+renamed.0=classes.dex
