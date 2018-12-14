@@ -1,0 +1,104 @@
+.seccion{
+    font-size:4vw;
+    font-weight: normal;
+}
+
+.subseccion{
+    font-size:4vw;
+    font-weight: normal;
+}
+
+.labels{
+    font-size: 4.3vmin;
+    font-weight: normal;
+    display: inline-block;
+    margin: 1.5vmin 0vmin 0vmin 0vmin;
+    padding-top: 2vmin;
+
+}
+
+.seleccion{
+    font-size: 4vmin;
+    font-weight: normal;
+    display: inline-block;
+}
+
+.radioB{
+    width:5vmin !important;
+    height:5vmin !important;
+    display: inline-block;
+    margin: 7vmin 0vmin 0vmin 0vmin;
+    padding-top: 9vmin;
+
+
+}
+.radioB_3{
+
+    width:5vmin !important;
+    height:5vmin !important;
+}
+
+.labels_2{
+    font-size: 4.3vw;
+    display: inline-block;
+    margin: -7vmin 0vmin 0vmin 0vmin;
+    text-align: left;
+padding-top: 8vmin;
+
+
+}
+
+.labels_3{
+    font-size: 4.3vw;
+    display: inline-block;
+    margin: -7vmin 0vmin 0vmin 0vmin;
+    text-align: left;
+    padding-left: 9vmin;
+    padding-top: 8vmin;
+
+}
+
+.labels_2 izq{
+    text-align: right;
+    padding-left: 0vmin;
+    padding-top: 8vmin;
+}
+
+.columnas{
+    width: 100%;
+}
+
+.columnas uno{
+
+}
+
+.columnas dos{
+
+}
+
+.columnas tres{
+    width: 30%;
+    float: left;
+}
+
+
+.col-container {
+    display: flex;
+    width: 100%;
+}
+.col {
+    flex: 1;
+    padding: 1vmin;
+}
+
+
+.centerDiv {
+display: inline-block;
+margin: auto;
+text-align: left;
+}
+
+
+.fake-input { position: relative;  width: 90%; }
+.fake-input input { border: solid; border-width: 3px; background:#fff;  display:block; width: 100%; }
+.fake-input img { position: absolute; top: 12px; right: 5px }

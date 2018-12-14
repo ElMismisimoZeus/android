@@ -9,6 +9,7 @@ module.exports = [
     ]
   },
   {
+
     "id": "cordova-plugin-geolocation.PositionError",
     "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
     "pluginId": "cordova-plugin-geolocation",
@@ -21,7 +22,7 @@ module.exports = [
     "clobbers": [
       "SQLitePlugin"
     ]
-  },s
+  },
   {
     "id": "onesignal-cordova-plugin.OneSignal",
     "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",

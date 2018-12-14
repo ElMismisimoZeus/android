@@ -620,13 +620,13 @@ $(document).ready(function(){
         var pricing_table = new Swiper('.pricing-table-slider', {
             pagination: '.swiper-pagination',
             paginationClickable: true,
-            slidesPerView: 3,
+            slidesPerView: 1,
             nextButton: '.pricing-table-next',
             prevButton: '.pricing-table-prev',
             spaceBetween: 50,
             breakpoints: {
-                1024: {slidesPerView: 2, spaceBetween: 40},
-                768: {slidesPerView: 2, spaceBetween: 30},
+                1024: {slidesPerView: 1, spaceBetween: 40},
+                768: {slidesPerView: 1, spaceBetween: 30},
                 640: {slidesPerView: 1, spaceBetween: 20},
                 320: {slidesPerView: 1,spaceBetween: 10}
             }

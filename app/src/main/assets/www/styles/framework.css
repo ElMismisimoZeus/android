@@ -499,6 +499,8 @@ textarea{font-family:'Roboto', sans-serif;}
 .phone-bg:hover{        background-color:#2cc76e;    color:#FFFFFF; border:solid 1px #27ae60;}
 .skype-bg{              background-color:#12A5F4;    color:#FFFFFF; border:solid 1px #27ae60;}
 .skype-bg:hover{        background-color:#0f95dd;    color:#FFFFFF; border:solid 1px #27ae60;}
+.frapNav-bg{			background-color:#BDBDBD;	color:#FFFFFF;	border:solid 1px #BDBDBD;}
+.frapNav-bg:hover{}
 .frap-bg{ 				background-color:#757575;	 color:#FFFFFF; border:solid 1px #757575;}
 .frapBtn-bg{			background-color:rgb(185,27,26);	 color:#FFFFFF; border:solid 1px background-color:rgb(185,27,26);;}
 
@@ -717,8 +719,9 @@ ol ol ol{list-style-type:disc;}
 
 .content{
     margin-bottom:30px;
-    padding-left:20px;
+    /*padding-left:20px;
     padding-right:20px;
+    */
 }
 
 .content-fullscreen{
@@ -1107,6 +1110,7 @@ ol ol ol{list-style-type:disc;}
 }
 
 .select-box select:focus {outline: none;}
+
 .select-style select:-moz-focusring {color: transparent; text-shadow: 0 0 0 #000;}
 
 /*--------------*/
@@ -2771,7 +2775,7 @@ ul.tabs li.current{
 
 @media (min-width:768px){
     .share-socials-bottom{
-        width:600px!important;   
+        width:900px!important;
     }
 }
 
@@ -2849,7 +2853,7 @@ ul.tabs li.current{
 }
 
 .share-socials-bottom{
-    width:300px;
+    width:900px;
     margin-left:auto;
     margin-right:auto;
 }
@@ -3102,8 +3106,8 @@ ul.tabs li.current{
 
 }
 
-.portfolio-adaptive-two .portfolio-item:nth-child(2n+2){margin-right:0%;!important;}
-.portfolio-adaptive-two .portfolio-item:nth-child(2n+1){margin-right:4%!important;}
+.portfolio-adaptive-two .portfolio-item:nth-child(2n+2){margin-right:0% !important;}
+.portfolio-adaptive-two .portfolio-item:nth-child(2n+1){margin-right:4% !important;}
 
 /*3 Items*/
 
@@ -3117,9 +3121,9 @@ ul.tabs li.current{
     transition: all 250ms ease;
 }
 
-.portfolio-adaptive-three .portfolio-item:nth-child(3n+1){margin-right:4%;!important;}
-.portfolio-adaptive-three .portfolio-item:nth-child(3n+2){margin-right:0%;!important;}
-.portfolio-adaptive-three .portfolio-item:nth-child(3n+3){margin-left:4%;!important;}
+/*.portfolio-adaptive-three .portfolio-item:nth-child(3n+1){margin-right:4%;!important;}
+//.portfolio-adaptive-three .portfolio-item:nth-child(3n+2){margin-right:0%;!important;}
+//.portfolio-adaptive-three .portfolio-item:nth-child(3n+3){margin-left:4%;!important;} MAGDIEL*/
 
 /*Portfolio Controls*/
 .portfolio-adaptive-controls{
@@ -5141,7 +5145,7 @@ ul.tabs li.current{
     overflow:hidden;
 }
 
-calendar*{display:block; overflow:hidden;}
+/*calendar*{display:block; overflow:hidden;} MAGDIEL */
 .calendar-titles, .calendar-days{ padding:0px 30px;}
 
 .calendar-titles a{
@@ -8309,7 +8313,7 @@ button.swiper-pagination-bullet {
 }
 
 #footerBackground{
-	background: #9E	9E9E;  /* fallback for old browsers */
+	background: #9E9E;  /* fallback for old browsers */
 	background: -webkit-linear-gradient(to bottom, #eef2f3, #8e9eab);  /* Chrome 10-25, Safari 5.1-6 */
 	background: linear-gradient(-90deg, #757575, #BDBDBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 

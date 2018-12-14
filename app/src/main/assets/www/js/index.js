@@ -16,6 +16,19 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
+var username = '';
+var pass = '';
+var edo = '';
+
+function pushN(jsonData){
+    alert('notificacion recivida:'+ JSON.stringify(jsonData));
+
+                            console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData.additionalData));
+                            location.reload();
+
+}
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -32,22 +45,41 @@ var app = {
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
+    // 98c41d7c-e9fe-46b6-b763-dd116993a0b2
     onDeviceReady: function() {
-    var notificationOpenedCallback = function(jsonData) {
-                //alert('notificacion recivida:'+ JSON.stringify(jsonData));
-                //console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+
+            usuario = $.jStorage.get("username");
+
+            if(usuario != null){
+                $("#Username").val(usuario);
+            }
+
+            var notificationOpenedCallback = function(jsonData) {
+                        alert('notificacion recivida:'+ JSON.stringify(jsonData));
+                        console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
               };
 
-              window.plugins.OneSignal
+
+
+            window.plugins.OneSignal
                 .startInit("b6e28704-19d4-422e-9d32-46e4b5e71362")
-                .handleNotificationOpened(notificationOpenedCallback)
+                .handleNotificationOpened(pushN)
                 .endInit();
 
-
-        //app.receivedEvent('deviceready');
+            app.receivedEvent('deviceready');
 
     },
     // Update DOM on a Received Event
+    receivedEvent: function(id) {
+        var parentElement = document.getElementById(id);
+        //var listeningElement = parentElement.querySelector('.listening');
+        //var receivedElement = parentElement.querySelector('.received');
+
+        //listeningElement.setAttribute('style', 'display:none;');
+        //receivedElement.setAttribute('style', 'display:block;');
+
+        console.log('Received Event: ' + id);
+    }
 
 };
 

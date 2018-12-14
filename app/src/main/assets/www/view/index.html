@@ -1,20 +1,301 @@
+<!--
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
 
 <title>Index</title>
 <script> 
-<!--
-window.location.replace('index-login.html'); 
-//-->
+
+window.location.replace('index-login.html');
+
 </script>
 </head>
 
 <body>
-<!--
-<button id="opener">open the dialog</button>
--->
+
 
 
 
 </body>
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" type="text/css" href="../styles/laZ.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../styles/jquery.mobile.structure-1.4.5.min.css"/>
+
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.mobile-1.4.5.js"></script>
+
+    <script type="text/javascript" src="../controller/session.js"></script>
+
+    <!-- <script type="text/javascript" src="js/jquery.plugin.js"></script> -->
+
+    <script type="text/javascript" src="../js/jquery.blockUI.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+
+            var db;
+            var shortName = 'FRAP';
+            var version = '11.0';
+            var displayName = 'FRAP';
+            var maxSize = 200000;
+
+            var uuid='';
+
+
+            /***********************************************************************************************
+             *                                      TABLE : FRAP
+             *----------------------------------------------------------------------------------------------
+             *  La tabla FRAP aloja la cabecera de los frap off-line y de auqellos que sehallan llenado e forma
+             *  parcial, pra lograr recuperar el avance  y lograr la funcionalidad de la acció fuera de línea
+             *
+             *        Atributo          Valores Posibles
+             *   -----------------|-------------------------
+             *    ESTATUS         | iniciado , concluido
+             *    AVANCE          | nombre de la página de máximo avance en el llenado
+             *    TIPO            | valor que indica si es creado offLine o bien onLine
+             *
+             ************************************************************************************************/
+
+            var sql_tableta =   "CREATE TABLE IF NOT EXISTS TABLETA ("+
+                                                    "ID_ESTADO INTEGER,"+
+                                                    "UUID TEXT"+
+                                                    ")";
+
+
+
+            // Script of DataBase
+
+
+            var sql_medicamentos = "CREATE TABLE IF NOT EXISTS MEDICAMENTOS ("+
+                          "ID_MEDICAMENTOS INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                          "HORA TEXT,"+
+                          "MEDICAMENTO TEXT,"+
+                          "DOSIS TEXT,"+
+                          "ID_MEDICAMENTO_VIA_ADMINISTRACION INTEGER,"+
+                          "TIPO_FRAP TEXT,"+
+                          "FRAP_FRAP_ID INTEGER"+
+                          ")";
+
+
+            var sql_signosVitales = "CREATE TABLE IF NOT EXISTS REGISTRO_SIGNOS_VITALES ("+
+                                               "ID_REGISTRO_SIGNOS_VITALES INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                                               "HORA datetime ,"+
+                                               "FC INTEGER ,"+
+                                               "FR INTEGER ,"+
+                                               "TAS INTEGER ,"+
+                                               "TAD INTEGER ,"+
+                                               "SAO2 INTEGER ,"+
+                                               "TEMPERATURA REAL ,"+
+                                               "GLUCOSA INTEGER ,"+
+                                               "GLASGOW_TOTAL INTEGER ,"+
+                                               "RESULTADO_SIGNOS_VITALES INTEGER ,"+
+                                               "CTLG_GLASGOW_MOTRIZ_ID INTEGER ,"+
+                                               "CTLG_GLASGOW_VERBAL_ID INTEGER ,"+
+                                               "CTLG_GLASGOW_VISUAL_ID INTEGER ,"+
+                                               "TIPO_FRAP TEXT,"+
+                                               "FRAP_FRAP_ID INTEGER)";
+
+
+            var sql_hallazgos = "CREATE TABLE IF NOT EXISTS HALLAZGOS_FISICOS ("+
+                                               "ID_HALLAZGOS_FISICOS INTEGER PRIMARY KEY AUTOINCREMENT,"+
+                                               "CTLG_LESIONES_ID INTEGER,"+
+                                               "COORDENADA_X INTEGER,"+
+                                               "COORDENADA_Y INTEGER,"+
+                                               "TIPO_FRAP TEXT,"+
+                                               "FRAP_ID INTEGER)";
+
+
+            var sql_factores = "CREATE TABLE IF NOT EXISTS FACTORES ("+
+                                               "CTLG_FACTOR_RIESGO  INTEGER,"+
+                                               "TIPO_FRAP TEXT,"+
+                                               "FRAP_ID INTEGER)";
+
+
+
+
+
+
+
+
+		function onLoad() {
+                document.addEventListener("deviceready", onDeviceReady, false);
+
+                onDeviceReady();
+
+            }
+
+            // device APIs are available
+            //
+
+            function crateSchemaDB(tx) {
+
+                tx.executeSql(sql_tableta);
+
+
+                tx.executeSql(sql_signosVitales);
+                tx.executeSql(sql_medicamentos);
+                tx.executeSql(sql_hallazgos);
+                tx.executeSql(sql_factores);
+
+            }
+
+        function successCB() {
+            alert('comando ejecutado');
+        }
+
+        function insertDB(tx) {
+            tx.executeSql("INSERT INTO DEMO (name,number) VALUES ('daniel','567654')");
+        }
+
+        function errorCB(err) {
+            alert("Error processing SQL :(: "+err.code);
+        }
+
+
+
+        ////////
+        var callBa;
+        var resultado = 0;
+
+        function querySuccessR(tx, results) {
+              alert('jojo');
+              //resultado = results.rows.item(0).ID;
+              var len = results.rows.length;
+              var actual = 0;
+              for (var i = 0; i < len; i++) {
+
+                  actual = results.rows.item(i).ID_FRAP;
+                  if(actual > resultado)
+                      resultado = actual;
+                  //alert(actual);
+              }
+              //alert ('llamada cb');
+              callBa(resultado);
+              //alert(resultado);
+          }
+
+
+function seleccionarLocal2(table, selection, where, callB){
+    callBa = callB;
+    var query = 'SELECT ' + selection + ' FROM '+table + where;
+    //alert(query);
+
+    var db = window.openDatabase(shortName, version, displayName, maxSize);
+
+     db.transaction(
+             function(transaction){ // DATABASE TRANSACTION
+                   alert('dentro');
+                    alert(query);
+                    transaction.executeSql(query,[], querySuccessR,errorCB);
+             },
+             function(err){  // ON ERROR
+                 alert("erroro selecionar "+err.code);
+             },
+             function(){  // ON SUCCESS
+
+             }
+                     );
+    return resultado;
+
+}
+
+
+
+
+            function onDeviceReady() {
+
+
+                uuid= device.uuid;
+
+
+
+        var db = window.openDatabase(shortName, version, displayName, maxSize);
+
+        // Cración de la estructura de las Base de Datos
+        db.transaction(crateSchemaDB, errorCB, successCB);
+
+
+
+        //db.transaction(insertDB, errorCB, successCB);
+        $.blockUI({ message: '<img src="images/busy_3.gif" width="37" /> <H1> Verificando Conexión </H1>' });
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://crmlocation.net/connection_test.php',
+                    timeout: 11000,
+                    success: function(data){
+                        checkSession();
+                        //checkRegister();
+                    },
+                    error: function(mistery, time ,data){
+
+
+
+
+                      $.unblockUI();
+                      alert('No se ha detectado una conexión a internet');
+                      //window.location="offLine.html";
+
+                      //window.location="servicio.html?tipo=offLine";
+
+
+
+                      seleccionarLocal2('SERVICIO', ' ID_FRAP ' , " WHERE TIPO = 'offLine'", (function(id){
+                        var idFRAP = id+1;
+                        alert(idFRAP);
+                        alert('cargar offline');
+                        //window.location="offLine.html?tipo=offLine&id="+idFRAP;
+
+
+
+
+                     })
+
+                     );
+
+
+
+
+
+
+
+                    }
+                });
+
+
+            }
+
+
+
+
+		</script>
+</head>
+<body onload="onLoad()">
+<div data-role="page" id="index" style="background-color:  #ffffff;">
+
+
+    <div data-role="content" >
+
+        <div>
+            <img src="../images/fondo.jpg" style="width: 100% ; height: 100%;">
+        </div>
+    </div>
+
+
+</div>
+<script type="text/javascript" src="../cordova.js"></script>
+
+</body>
+</html>

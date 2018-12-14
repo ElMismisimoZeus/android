@@ -7,40 +7,298 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 <title>Epsilon 7.0</title>
-    
-<link rel="stylesheet" type="text/css" href="../styles/style.css">
-<link rel="stylesheet" type="text/css" href="../styles/skin.css">
-<link rel="stylesheet" type="text/css" href="../styles/framework.css">
-<link rel="stylesheet" type="text/css" href="../styles/ionicons.min.css">
-<link rel="stylesheet" href="../styles/wfmi-style.css">
 
 
-    
-<script type="text/javascript" src="../scripts/jquery.js"></script>
-<script type="text/javascript" src="../scripts/plugins.js"></script>
-<script type="text/javascript" src="../scripts/custom.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css">
+
+	<link rel="stylesheet" href="themes/Z-them.min.css" />
+	<link rel="stylesheet" href="themes/style_frap.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.css">
+
+	<link rel="stylesheet" type="text/css" href="css/botones.css">
+
+
+
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+	<script type="text/javascript" src="js/firma.js"></script>
+
+
+
 </head>
 
 <body>
-<div id="page-transitions">
-	
-	<div id="page-content" >		
-				
-			
-			<div class="content full-bottom half-top">
-					
-					
-					
-			</div>
-			 
+
+<!--
+========================================================================================================================
+                    Página de FRIMA junto con el código en javascript
+========================================================================================================================
+-->
+
+
+
+<div data-role="page" id="pageSuperFirma" >
+	<div data-role="header" data-position="fixed">
+
+
 	</div>
-	<div class="footer-fixed footer-fixed-dark">
-	
-		<div class="swiper-wrapper menuInferior">
-		
-			<a href="#" class="menuInferior"><em><br><span>Limpiar</span></em></a>
-			<a href="consentimiento.html" class="menuInferior"><em><br>	<span>Guardar</span></em></a>
+
+	<div data-role="main" class="ui-content " >
+
+		<div id="signature-pad" class="m-signature-pad">
+			<div class="m-signature-pad--body">
+				<canvas id="superFirma" ></canvas>
+			</div>
+			<div class="m-signature-pad--footer">
+				<div class="description">Firma arriba por favor</div>
+
+				<div>
+					<div style=" width: 30%; float: left;">
+						<button type="button" onclick="Limpiar()" >Limpiar</button>
+					</div>
+					<div style=" width: 40%; height: +10px; float: left;">
+
+					</div>
+					<div style=" width: 30%; float: left;">
+						<button type="button" onclick="SaveImage()" >Guarda</button>
+					</div>
+				</div>
+
+
+			</div>
 		</div>
-		
+
+
+
+		<link rel="stylesheet" href="css/signature-pad.css">
+
+
+		<script>
+            var ongoingTouches = new Array;
+
+            function startup() {
+
+                var el = document.getElementById ("superFirma");
+                el.addEventListener("touchstart", handleStart, false);
+                el.addEventListener("touchend", handleEnd, false);
+                //el.addEventListener("touchcancel", handleCancel, false);
+                //el.addEventListener("touchleave", handleLeave, false);
+                el.addEventListener("touchmove", handleMove, false);
+            }
+
+            function handleStart(evt) {
+                //alert('si');
+                console.log('handle star');
+                evt.preventDefault();
+                var el = document.getElementById ("superFirma");
+                var ctx = el.getContext("2d");
+                var touches = evt.changedTouches;
+
+                for (var i=0; i<touches.length; i++) {
+                    ongoingTouches.push(touches[i]);
+                    var color = colorForTouch(touches[i]);
+                    ctx.fillStyle = color;
+                    ctx.fillRect(touches[i].pageX-2, touches[i].pageY-2, 4, 4);
+                }
+            }
+
+            function ongoingTouchIndexById(idToFind) {
+                for (var i=0; i<ongoingTouches.length; i++) {
+                    var id = ongoingTouches[i].identifier;
+
+                    if (id === idToFind) {
+                        return i;
+                    }
+                }
+                return -1;    // not found
+            }
+
+            function colorForTouch(touch) {
+                var id = touch.identifier;
+                id = id.toString(16); // make it a hex digit
+                return "#" + id + id + id;
+            }
+
+            function handleMove(evt) {
+                console.log('handl Move');
+                evt.preventDefault();
+                var el = document.getElementById ("superFirma");
+                var ctx = el.getContext("2d");
+                var touches = evt.changedTouches;
+                //alert('si');
+                ctx.lineWidth = 4;
+
+                for (var i=0; i<touches.length; i++) {
+                    var color = colorForTouch(touches[i]);
+                    var idx = ongoingTouchIndexById(touches[i].identifier);
+
+                    ctx.fillStyle = color;
+                    ctx.beginPath();
+                    ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
+                    ctx.lineTo(touches[i].pageX, touches[i].pageY);
+                    ctx.closePath();
+                    ctx.stroke();
+                    ongoingTouches.splice(idx, 1, touches[i]);  // swap in the new touch record
+                }
+            }
+
+
+            function handleEnd(evt) {
+
+                console.log('handle END');
+
+                evt.preventDefault();
+                var el = document.getElementById("superFirma");
+                var ctx = el.getContext("2d");
+                var touches = evt.changedTouches;
+
+                ctx.lineWidth = 4;
+
+                for (var i=0; i<touches.length; i++) {
+                    var color = colorForTouch(touches[i]);
+                    var idx = ongoingTouchIndexById(touches[i].identifier);
+
+                    ctx.fillStyle = color;
+                    ctx.beginPath();
+                    ctx.moveTo(ongoingTouches[i].pageX, ongoingTouches[i].pageY);
+                    ctx.lineTo(touches[i].pageX, touches[i].pageY);
+                    ongoingTouches.splice(i, 1);  // remove it; we're done
+                }
+            }
+
+            /* Keep a record of whether we are drawing a line or not. */
+
+            var drawing = false;
+
+            /* The drawing context for the canvas. */
+
+            var context;
+
+            /* Offsets of the canvas, to adjust the coordinates of the event to
+             * the canvas's coordinates. */
+
+            var offset_left = 0;
+            var offset_top = 0;
+
+            /* Initialize the canvas for drawing. */
+
+            function start_canvas ()
+            {
+                var scribbler = document.getElementById ("superFirma");
+                context = scribbler.getContext ("2d");
+
+                scribbler.width = window.innerWidth-90;
+                scribbler.height = 650;
+
+
+
+                scribbler.onmousedown = function (event) {mousedown(event)};
+                scribbler.onmousemove = function (event) {mousemove(event)};
+                scribbler.onmouseup   = function (event) {mouseup(event)};
+                for (var o = scribbler; o ; o = o.offsetParent) {
+                    offset_left += (o.offsetLeft - o.scrollLeft);
+                    offset_top  += (o.offsetTop - o.scrollTop);
+                }
+
+                console.log('handle se inicio');
+            }
+
+            /* Get the position of the mouse. */
+
+            function getPosition(evt)
+            {
+                evt = (evt) ?  evt : ((event) ? event : null);
+                var left = 0;
+                var top = 0;
+                var scribbler = document.getElementById("superFirma");
+
+                if (evt.pageX) {
+                    left = evt.pageX;
+                    top  = evt.pageY;
+                } else if (document.documentElement.scrollLeft) {
+                    left = evt.clientX + document.documentElement.scrollLeft;
+                    top  = evt.clientY + document.documentElement.scrollTop;
+                } else  {
+                    left = evt.clientX + document.body.scrollLeft;
+                    top  = evt.clientY + document.body.scrollTop;
+                }
+                left -= offset_left;
+                top -= offset_top;
+
+                return {x : left, y : top};
+            }
+
+            /* Make a random colour. */
+
+            function random_colour()
+            {
+                var colour = new String();
+                for (var i = 0; i < 3; i++) {
+                    var random16 = Math.floor (Math.random() * 16);
+                    colour = colour.concat (random16.toString(16).toUpperCase());
+                }
+                return colour;
+            }
+
+            /* React to a mouse push. */
+
+            function
+            mousedown(event)
+            {
+                drawing = true;
+                var location = getPosition(event);
+                context.lineWidth = 4.0;
+                //context.strokeStyle="#"+random_colour();
+                context.beginPath();
+                context.moveTo(location.x,location.y);
+            }
+
+            /* React to a mouse move. */
+
+            function
+            mousemove(event)
+            {
+                if (!drawing)
+                    return;
+                var location = getPosition(event);
+                context.lineTo(location.x,location.y);
+                context.stroke();
+            }
+
+            /* React to a mouse release. */
+
+            function
+            mouseup(event)
+            {
+                if (!drawing)
+                    return;
+                mousemove(event);
+                drawing = false;
+            }
+
+
+            function Limpiar(){
+
+                start_canvas();
+            }
+            function SaveImage(){
+
+                var scribbler = document.getElementById ("superFirma");
+                imagenFirma = scribbler.toDataURL("image/png");
+                //start_canvas();
+
+                $.mobile.navigate('#'+mandafirmar);
+            }
+
+		</script>
+
+	</div>
+
+	<div data-role="footer" data-position="fixed">
+	</div>
 </div>
+
+
 </body>

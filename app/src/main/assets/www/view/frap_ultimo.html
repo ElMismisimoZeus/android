@@ -1,0 +1,3644 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+	<!-- Se van
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/plugins.js"></script>
+    <link rel="stylesheet" href="../funcionalidad/swipe/css/swiper.css">
+    -->
+
+
+	<link rel="stylesheet" type="text/css" href="../styles/style.css">
+	<link rel="stylesheet" type="text/css" href="../styles/skin.css">
+	<link rel="stylesheet" type="text/css" href="../styles/framework.css">
+	<link rel="stylesheet" type="text/css" href="../styles/ionicons.min.css">
+
+	<link rel="stylesheet" type="text/css" href="../styles/laZ.min.css">
+	<link rel="stylesheet" type="text/css" href="../styles/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="../styles/jquery.mobile.structure-1.4.5.min.css"/>
+
+
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.mobile-1.4.5.js"></script>
+
+	<link rel="stylesheet" href="../funcionalidad/swipe/css/swiper.css">
+
+	<script src="../funcionalidad/swipe/js/swiper.min.js"></script>
+
+	<script type="text/javascript" src="../controller/frap_2018.js"></script>
+	<script type="text/javascript" src="../controller/guardarLocal.js"></script>
+
+
+	<!-- Demo styles -->
+	<style>
+    html, body {
+      position: relative;
+      height: 100%;
+    }
+
+    .swiper-container {
+        width: 100%;
+        overflow:hidden;
+        /*margin: 20px auto;*/
+    }
+    .swiper-slide {
+        font-size: 19px;
+        line-height: 37px;
+        padding:39px;
+
+
+    }
+  </style>
+
+	<script>
+
+		function salir(){
+			location="index-login.html";
+		}
+	</script>
+
+
+
+
+
+
+
+</head>
+
+
+<body>
+
+
+
+<!-- Swiper -->
+<div id="Z-p"   class="swiper-container">
+	<div  class="swiper-wrapper" onclick="closeButtonsPanel();">
+
+
+		<div  class="swiper-slide" style="display: none;">
+			<!---
+						DATOS OFF LINE
+			=======================================================================================
+			----->
+			<h2 align="center"><strong>DATOS DEL SERVICIO-OFFLINE</strong></h2>
+
+			<h4 class="botonInicial" align="center"><strong>DIRECCIÓN</strong></h4>
+			<div class="resize-input">
+				<h5 class="botonInicial">Estado:</h5>
+				<select id="estadoFrap" data-native-menu="false">
+					<option class="select-title" value="o0">Estado</option>
+					<option value="o1">Option 1</option>
+					<option value="o2">Option 2</option>
+					<option value="o3">Option 3</option>
+					<option value="o4">Option 4</option>
+				</select>
+			</div>
+			<div class="resize-input">
+				<h5 class="botonInicial">Colonia:</h5>
+				<select id="coloniaFrap" data-native-menu="false">
+					<option class="select-title" value="o0">Colonia</option>
+					<option value="o1">Option 1</option>
+					<option value="o2">Option 2</option>
+					<option value="o3">Option 3</option>
+					<option value="o4">Option 4</option>
+				</select>
+			</div>
+			<div class="resize-input">
+				<h5 class="botonInicial">Municipio:</h5>
+				<select id="delegacionFrap" data-native-menu="false">
+					<option class="select-title" value="o0">Municipio</option>
+					<option value="o1">Option 1</option>
+					<option value="o2">Option 2</option>
+					<option value="o3">Option 3</option>
+					<option value="o4">Option 4</option>
+				</select>
+			</div>
+			<div class="resize-input">
+				<h5 class="botonInicial">Código postal:</h5>
+				<select id="codigo_postal_offline" data-native-menu="false">
+					<option class="select-title" value="o0">Código Postal</option>
+					<option value="o1">Option 1</option>
+					<option value="o2">Option 2</option>
+					<option value="o3">Option 3</option>
+					<option value="o4">Option 4</option>
+				</select>
+			</div>
+			<input type="text" class="input-text-line input-red-line inputText" value="" placeholder="Calle" name="calleFrap" id="calleFrap">
+
+
+
+
+		</div>
+
+		<div  class="swiper-slide" >
+
+			<!---
+						DATOS_PACIENTE
+			=======================================================================================
+			----->
+			<div id="Z-content-1" style="overflow:scroll; width: 97%;">
+			<h2 align="center"><strong>DATOS DEL PACIENTE</strong></h2>
+
+			<label class="botonInicial" >
+				<input type="checkbox" id=checkbox-media-filiacion name="cbmostrar" class="fantasma" />
+				<strong>Media filiación</strong>
+			</label>
+
+			<div id="dvMostrar">
+				<div class="resize-input">
+					<h5 class="botonInicial">Nombre: *</h5>
+					<input onchange="validaDatosPaciente()" type="text" data-native-menu="false" class="input-text-line input-red-line inputText" value="" placeholder="Nombre *" name="nombre" id="nombre">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial">Apellido paterno: *</h5>
+					<input onchange="validaDatosPaciente()" type="text" class="input-text-line input-red-line inputText" value="" placeholder="Apellido Paterno *" name="a_paterno" id="a_paterno">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial">Apellido materno: *</h5>
+					<input onchange="validaDatosPaciente()" type="text" class="input-text-line input-red-line inputText" value="" placeholder="Apellido Materno *" name="a_materno" id="a_materno">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial">Fecha de nacimiento: *</h5>
+					<input onchange="validaDatosPaciente()" placeholder="Fecha de nacimiento *" type="text" class="input-text-line input-red-line inputText" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha_nacimiento">
+				</div>
+				<h5 class="botonInicial">Sexo: * </h5>
+
+				<div class="fac fac-radio fac-red one-half"><span></span>
+					<input onchange="validaDatosPaciente()" type="radio" name="sexo" id="sexo_masculino" value="1">
+					<label for="sexo_masculino">Masculino</label>
+				</div>
+				<div class="fac fac-radio fac-red one-half last-column"><span></span>
+					<input onchange="validaDatosPaciente()" type="radio" name="sexo" id="sexo_femenino" value="2">
+					<label for="sexo_femenino">Femenino</label>
+				</div>
+
+
+				<div class="linea-separadora"></div>
+				<h4 class="botonInicial" align="center"><strong>DIRECCIÓN</strong></h4>
+				<div class="resize-input">
+					<h5 class="botonInicial">Estado:</h5>
+					<select name="estado" id="estado" data-native-menu="false">
+						<option class="select-title" value="o0">Estado</option>
+						<option value="1"> Aguascalientes</option>
+						<option value="2">Baja California</option>
+						<option value="3">Baja California Sur</option>
+						<option value="4">Campeche</option>
+						<option value="5">Coahuila</option>
+						<option value="6">Colima</option>
+						<option value="7">Chiapas</option>
+						<option value="8">Chihuahua</option>
+						<option value="9">Ciudad de México</option>
+						<option value="10">Durango</option>
+						<option value="11">Guanajuato</option>
+						<option value="12">Guerrero</option>
+						<option value="13">Hidalgo</option>
+						<option value="14">Jalisco</option>
+						<option value="15">México</option>
+						<option value="16">Michoacán</option>
+						<option value="17">Morelos</option>
+						<option value="18">Nayarit</option>
+						<option value="19">Nuevo León</option>
+						<option value="20">Oaxaca</option>
+						<option value="21">Puebla</option>
+						<option value="22">Querétaro</option>
+						<option value="23">Quintana Roo</option>
+						<option value="24">San Luis Potosí</option>
+						<option value="25">Sinaloa</option>
+						<option value="26">Sonora</option>
+						<option value="27">Tabasco</option>
+						<option value="28">Tamaulipas</option>
+						<option value="29">Tlaxcala</option>
+						<option value="30">Veracruz</option>
+						<option value="31">Yucatán</option>
+						<option value="32">Zacatecas</option>
+					</select>
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial">Municipio:</h5>
+					<select name="delegacion" id="delegacion" data-native-menu="false">
+						<option class="select-title" value="o0">Municipio</option>
+						<option value="o1">Option 1</option>
+						<option value="o2">Option 2</option>
+						<option value="o3">Option 3</option>
+						<option value="o4">Option 4</option>
+					</select>
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial">Colonia:</h5>
+					<select name="colonia" id="colonia" data-native-menu="false">
+						<option class="select-title" value="o0">Colonia:</option>
+						<option value="o1">Option 1</option>
+						<option value="o2">Option 2</option>
+						<option value="o3">Option 3</option>
+						<option value="o4">Option 4</option>
+					</select>
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial">Código postal:</h5>
+					<select id="codigo_postal"  name="codigo_postal" data-native-menu="false">
+						<option class="select-title" value="o0">Código Postal</option>
+						<option value="o1">Option 1</option>
+						<option value="o2">Option 2</option>
+						<option value="o3">Option 3</option>
+						<option value="o4">Option 4</option>
+					</select>
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial">Calle:</h5>
+					<input type="text" id="calle" class="input-text-line input-red-line inputText" value="" placeholder="Calle">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial">Número :</h5>
+					<input type="number" id="numero" class="input-text-line input-red-line inputText" value="" placeholder="Número interior">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial">Teléfono:</h5>
+					<input type="text" maxlength="10" class="input-text-line input-red-line inputText" value="" placeholder="Teléfono" name="telefono" id="telefono">
+				</div>
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial">Ocupación:</h5>
+				<select name="ocupacion" id="ocupacion" data-native-menu="false">
+					<option class="select-title" value="o0">Ocupación</option>
+					<option value="o1">Option 1</option>
+					<option value="o2">Option 2</option>
+					<option value="o3">Option 3</option>
+					<option value="o4">Option 4</option>
+				</select>
+			</div>
+			<textarea name="contactMessageTextarea" class="contactTextarea input-red-border" ></textarea>
+			<div class="linea-separadora"></div>
+			<div class="one-half">
+				<h4 class="botonInicial">Servicio médico: *</h4>
+
+				<div class="checkboxes-demo last-column servicio_medico_checkboxs">
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="sp" value="1">
+						<label for="sp">Seguro popular</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="imss" value="2">
+						<label for="imss">IMSS</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="isste" value="3">
+						<label for="isste">ISSSTE</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="semar" value="4">
+						<label for="semar">SEMAR</label>
+
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="sedena" value="5">
+						<label for="sedena">SEDENA</label>
+
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="privado" value="6">
+						<label for="privado">Privado</label>
+
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="isssteson" value="11">
+						<label for="isssteson">ISSSTESON</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="ssa" value="12">
+						<label for="ssa">SSA</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="ningno" value="7">
+						<label for="ningno">Ninguno</label>
+					</div>
+				</div>
+			</div>
+			<div class="one-half last-column">
+
+				<h4 class="botonInicial">Motivo de la atención: *</h4>
+				<div class="checkboxes-demo last-column motivo_atencion_checkboxs">
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" onclick="showMotivo();" type="radio" name="motivo_atencion" id="traumatismo" value="1">
+						<label for="traumatismo">Traumatismo</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" onclick="showMotivo();" type="radio" name="motivo_atencion" id="enfermedad" value="2">
+						<label for="enfermedad">Enfermedad</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" onclick="showMotivo();" type="radio" name="motivo_atencion" id="obstetrico" value="3">
+						<label for="obstetrico">Ginecológico</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input onchange="validaDatosPaciente()" onclick="showMotivo();" type="radio" name="motivo_atencion" id="accidente_vial" value="4">
+						<label for="accidente_vial">Accidente vial</label>
+					</div>
+
+				</div>
+			</div>
+			</div>
+
+		</div>
+
+
+		<div class="swiper-slide">
+			<!---
+						EVALUACION PRIMARIA
+			=======================================================================================
+			----->
+			<div id="Z-content-2" style="overflow:scroll;">
+
+				<h2 align="center"><strong>EVALUACIÓN PRIMARIA</strong></h2>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Prioridad: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="ep_prioridad" id="ep_prioridad_verde" value="1"  checked="checked">
+							<label for="ep_prioridad_verde">Verde</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_prioridad" id="ep_prioridad_amarilla" value="2">
+							<label for="ep_prioridad_amarilla">Amarilla</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_prioridad" id="ep_prioridad_roja" value="3">
+							<label for="ep_prioridad_roja">Roja</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_prioridad" id="ep_prioridad_negra" value="4">
+							<label for="ep_prioridad_negra">Negra</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Nivel de conciencia: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="nivel_conciencia" id="alerta" value="1" checked="checked">
+							<label for="alerta">Alerta</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="nivel_conciencia" id="verbal" value="2">
+							<label for="verbal">Verbal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="nivel_conciencia" id="doloroso" value="3">
+							<label for="doloroso">Doloroso</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="nivel_conciencia" id="inconciente" value="4">
+							<label for="inconciente">Inconsciente</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Vía aérea: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="via_aerea" id="via_aerea_permeable" value="1" checked="checked">
+							<label for="via_aerea_permeable">Permeable</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="via_aerea" id="via_aerea_comprometida" value="2">
+							<label for="via_aerea_comprometida">Comprometida</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo laZ">
+						<h4 class="botonInicial">Ventilación: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="ventilacion" id="v_normal" value="1" checked="checked">
+							<label for="v_normal">Normal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ventilacion" id="v_bradipnea" value="2">
+							<label for="v_bradipnea">Bradipnea</label>
+
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ventilacion" id="v_taquipnea" value="3">
+							<label for="v_taquipnea">Taquipnea</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ventilacion" id="v_abnea" value="4">
+							<label for="v_abnea">Apnea</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ventilacion" id="v_no" value="5">
+							<label for="v_no">No aplica</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Calidad de la ventilación: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="calidad_ventilacion" id="cv_norma" value="1" checked="checked">
+							<label for="cv_norma">Normal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="calidad_ventilacion" id="cv_superficial" value="2">
+							<label for="cv_superficial">Superficial</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="calidad_ventilacion" id="cv_profunda" value="3">
+							<label for="cv_profunda">Profunda</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="calidad_ventilacion" id="cv_no" value="4">
+							<label for="cv_no">No aplica</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Pulsos: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input onclick="hiddenParo()" type="radio" name="pulsos" id="central" value="1" checked="checked">
+							<label for="central">Central</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input onclick="hiddenParo()" type="radio" name="pulsos" id="periferico" value="2">
+							<label for="periferico">Periférico</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input onclick="showParo()" type="radio" name="pulsos" id="paro_cardiorespiratorio" value="3">
+							<label for="paro_cardiorespiratorio">Paro cardiorespiratorio</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Calidad: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="ep_calidad" id="ep_normal" value="1" checked="checked">
+							<label for="ep_normal">Normal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_calidad" id="ep_rapido" value="2">
+							<label for="ep_rapido">Rápido</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_calidad" id="ep_lento" value="3">
+							<label for="ep_lento">Lento</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_calidad" id="ep_no" value="4">
+							<label for="ep_no">No aplica</label>
+						</div>
+
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Ritmo: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="ep_ritmo" id="ep_ritmo_normal" value="1" checked="checked">
+							<label for="ep_ritmo_normal">Normal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_ritmo" id="ep__ritmoaritmico" value="2">
+							<label for="ep__ritmoaritmico">Arrítmico</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_ritmo" id="ep_ritmo_no" value="3">
+							<label for="ep_ritmo_no">No aplica</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Coloración: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="ep_coloracion" id="ep_coloracion_normal" value="1" checked="checked">
+							<label for="ep_coloracion_normal">Normal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_coloracion" id="ep_coloracion_cianotica" value="2">
+							<label for="ep_coloracion_cianotica">Cianótica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_coloracion" id="ep_coloracion_palida" value="3">
+							<label for="ep_coloracion_palida">Pálida</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_coloracion" id="ep_coloracion_icterica" value="4">
+							<label for="ep_coloracion_icterica">Ictérica </label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_coloracion" id="ep_coloracion_eritematosa" value="5">
+							<label for="ep_coloracion_eritematosa">Eritematosa</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Temperatura: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="ep_temperatura" id="ep_temperatura_normal" value="1" checked="checked">
+							<label for="ep_temperatura_normal">Normal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_temperatura" id="ep_temperatura_fria" value="2">
+							<label for="ep_temperatura_fria">Fría</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_temperatura" id="ep_temperatura_caliente" value="3">
+							<label for="ep_temperatura_caliente">Caliente</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="resize-input">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Condición: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="ep_condicion" id="ep_condicion_normal" value="1" checked="checked">
+							<label for="ep_condicion_normal">Normal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_condicion" id="ep_condicion_diaforesis" value="2">
+							<label for="ep_condicion_diaforesis">Diafóresis</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ep_condicion" id="ep_condicion_seca" value="3">
+							<label for="ep_condicion_seca">Caliente</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="resize-input">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Posición, orientación (dónde y cómo encontro al paciente): </h4>
+						<select id="posicion" data-native-menu="false" onchange="validaEvalPrimaria()">
+							<option class="select-title input-red-border" value="">Posición, orientación</option>
+							<option value="o1">Option 1</option>
+							<option value="o2">Option 2</option>
+							<option value="o3">Option 3</option>
+							<option value="o4">Option 4</option>
+						</select>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div class="swiper-slide">
+			<!---
+						PARO CARDIORESPIRATORIO
+			=======================================================================================
+			----->
+			<div id="Z-content-3" style="overflow:scroll;">
+
+				<h2 align="center"><strong>PARO CARDIORESPIRATORIO</strong></h2>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Sucedió: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="pc_antes" id="pc_antes_1" value="1">
+							<label for="pc_antes_1">Antes del arribo</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="pc_antes" id="pc_antes_2" value="2">
+							<label for="pc_antes_2">Después del arribo</label>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Etiologia : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="pc_etiologia" id="pc_cardiogenico" value="1">
+							<label for="pc_cardiogenico">Cardiogénico</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="pc_etiologia" id="pc_traumatico" value="2">
+							<label for="pc_traumatico">Traumático</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="pc_etiologia" id="pc_notraumatico" value="3">
+							<label for="pc_notraumatico">No Traumático</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Reanimación: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="reanimacion" id="pc_reanimacion_si" value="1" onchange="opciones()">
+							<label for="pc_reanimacion_si">Si</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="reanimacion" id="pc_reanimacion_no" value="2" onchange="opciones()">
+							<label for="pc_reanimacion_no">No</label>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Razón : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="pc_NOreanimacion" id="pc_rea_retorno_circulacion" value="1">
+							<label for="pc_rea_retorno_circulacion">Retorno a la circulación</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="pc_NOreanimacion" id="pc_rea_no_reanimacion" value="2">
+							<label for="pc_rea_no_reanimacion">Orden de no reanimación</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="pc_NOreanimacion" id="pc_rea_muerte" value="3">
+							<label for="pc_rea_muerte">Datos francos de muerte</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="pc_NOreanimacion" id="pc_rea_ninguna" value="4">
+							<label for="pc_rea_ninguna">Ninguna</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Procedimiento: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="pc_SIreanimacion" id="pc_rea_basica" value="1">
+							<label for="pc_rea_basica">RCP básica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="pc_SIreanimacion" id="pc_rea_dea" value="2">
+							<label for="pc_rea_dea">RCP básica / DEA</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="pc_SIreanimacion" id="pc_rea_avanzada" value="3">
+							<label for="pc_rea_avanzada">RCP avanzada</label>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Retorno a la circulación espontanea : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="retorno" id="pc_retorno_si" value="1" onchange="opciones()">
+							<label for="pc_retorno_si">Si</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="retorno" id="pc_retorno_no" value="2" onchange="opciones()">
+							<label for="pc_retorno_no">No</label>
+						</div>
+						<div class="clear"></div>
+					</div>
+				</div>
+				<div class="one-half">
+					<h4 class="botonInicial">Tiempo de reanimación: </h4>
+					<input  name="paro_hora" id="paro_tiempo" type="number">
+
+				</div>
+				<div class="one-half last-column">
+					<h4 class="botonInicial">Hora en que se detiene RCP: </h4>
+					<input type="time" name="paro_hora" id="paro_hora" align="center">
+
+				</div>
+
+				<table >
+					  <tr>
+					<th style=" text-align: center;"></th>
+					    <th style=" text-align: center;"><label> <4'' </label></th>
+					    <th style=" text-align: center;"><label> <8'' </label></th>
+					<th style=" text-align: center;"><label> <12'' </label></th>
+					<th style=" text-align: center;"><label> >12'' </label></th>
+					  </tr>
+					<tr style=" height: 40px;">
+						<td><label>Paro a arribo</label></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_arribo" id="paro_arribo_1" value="1"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_arribo" id="paro_arribo_2" value="2"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_arribo" id="paro_arribo_3" value="3"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_arribo" id="paro_arribo_4" value="4"> </div></td>
+					</tr>
+
+					<tr style=" height: 40px;">
+						<td><label>Paro a RCP</label></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_rcp" id="paro_rcp_1" value="1"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_rcp" id="paro_rcp_2" value="2"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_rcp" id="paro_rcp_3" value="3"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_rcp" id="paro_rcp_4" value="4"> </div></td>
+					</tr>
+
+
+					<tr style=" height: 40px;">
+						<td><label>Paro a desfib</label></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_desfib" id="paro_desfib_1" value="1"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_desfib" id="paro_desfib_2" value="2"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_desfib" id="paro_desfib_3" value="3"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_desfib" id="paro_desfib_4" value="4"> </div></td>
+					</tr>
+
+
+					<tr style=" height: 40px;">
+						<td><label>Paro a SVA</label></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_sva" id="paro_sva_1" value="1"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_sva" id="paro_sva_2" value="2"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_sva" id="paro_sva_3" value="3"> </div></td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="paro_sva" id="paro_sva_4" value="4"> </div></td>
+					</tr>
+
+				</table>
+			</div>
+		</div>
+
+
+
+
+		<div class="swiper-slide">
+			<!---
+						EVALUACION SECUNDARIA
+			=======================================================================================
+			----->
+			<div id="Z-content-4" style="overflow:scroll;" onclick="validaEvalSecundaria()">
+
+				<h2 align="center"><strong>EVALUACIÓN SECUNDARIA</strong></h2>
+				<h5 class="botonInicial" align="center"><strong>ESCALA GLASGOW</strong></h5>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Motora: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="glasgow_motora" id="gm_obedece" value="6" checked="checked">
+							<label for="gm_obedece">Obedece</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_motora" id="gm_localiza" value="5">
+							<label for="gm_localiza">Localiza</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_motora" id="gm_retira" value="4">
+							<label for="gm_retira">Retira</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_motora" id="gm_decortizacion" value="3">
+							<label for="gm_decortizacion">Decortización</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_motora" id="gm_decerebracion" value="2">
+							<label for="gm_decerebracion">Decerebración</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_motora" id="gm_ninguna" value="1">
+							<label for="gm_ninguna">Ninguna</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Verbal: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="glasgow_verbal" id="gv_orientado" value="5" checked="checked">
+							<label for="gv_orientado">Obedece</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_verbal" id="gv_confuso" value="4">
+							<label for="gv_confuso">Confuso</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_verbal" id="gv_inapropiado" value="3">
+							<label for="gv_inapropiado">Inapropiado</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_verbal" id="gv_incomprensible" value="2">
+							<label for="gv_incomprensible">Incomprensible</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_verbal" id="gv_ninguna" value="1">
+							<label for="gv_ninguna">Ninguna</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Ocular: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="ocular" id="go_espontaneo" value="4" checked="checked">
+							<label for="go_espontaneo">Espontáneo</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ocular" id="go_verbal" value="3">
+							<label for="go_verbal">Verbal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ocular" id="go_doloroso" value="2">
+							<label for="go_doloroso">Doloroso</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ocular" id="go_ninguna" value="1">
+							<label for="go_ninguna">Ninguna</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Signos Neurológicos: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="es_signos_neurologicos" id="sn_ninguno" value="5" checked="checked">
+							<label for="sn_ninguno">Ninguno</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="es_signos_neurologicos" id="sn_focalizacion" value="1">
+							<label for="sn_focalizacion">Focalización</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="es_signos_neurologicos" id="sn_frontalizacion" value="2">
+							<label for="sn_frontalizacion">Frontalización</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="es_signos_neurologicos" id="sn_meningeos" value="3">
+							<label for="sn_meningeos">Meningeos</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="es_signos_neurologicos" id="sn_disfucion_motora" value="4">
+							<label for="sn_disfucion_motora">Disfusión Motora</label>
+						</div>
+					</div>
+				</div>
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center"><strong>PUPILAS</strong></h5>
+				<table >
+					<tr>
+						<th style=" text-align: center;"> <label>Derecha</label></th>
+						    <th style=" text-align: center;"></th>
+						    <th style=" text-align: center;"><Label>Izquierda</label></th>
+						  </tr>
+					<tr style=" height: 40px;">
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="pupilas_derecha" id="pupilas_normal_derecha" value="1" checked="checked"> </div></td>
+						<td style=" text-align: center; font-size: 16px;">NORMAL</td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="pupilas_zquierda" id="pupilas_normal_izquierda" value="1" checked="checked"> </div></td>
+					</tr>
+
+					<tr style=" height: 40px;">
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="pupilas_derecha" id="pupilas_midriasis_derecha" value="2"> </div></td>
+						<td style=" text-align: center; font-size: 16px;">MIDRIASIS</td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="pupilas_zquierda" id="pupilas_midriasis_izquierda" value="2"> </div></td>
+					</tr>
+
+					<tr style=" height: 40px;">
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="pupilas_derecha" id="pupilas_miosis_derecha" value="3"> </div></td>
+						<td style=" text-align: center; font-size: 16px;">MIOSIS</td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="pupilas_zquierda" id="pupilas_miosis_izquierda" value="3"> </div></td>
+					</tr>
+
+					<tr style=" height: 40px;">
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="pupilas_derecha" id="pupilas_reactivas_derecha" value="4"> </div></td>
+						<td style=" text-align: center; font-size: 16px;">REACTIVAS</td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="pupilas_zquierda" id="pupilas_reactivas_izquierda" value="4"> </div></td>
+					</tr>
+
+					<tr style=" height: 40px;">
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="pupilas_derecha" id="pupilas_nore_derecha" value="5"> </div></td>
+						<td style=" text-align: center; font-size: 16px;">NO REACTIVAS</td>
+						<td> <div style=" width: 30px; margin: 0 auto;"><input  type="radio" name="pupilas_zquierda" id="pupilas_nore_izquierda" value="5"> </div></td>
+					</tr>
+				</table>
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center"><strong>CIRCULATORIO</strong></h5>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial" >Ritmo / EKG:</h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="es_ritmo" id="es_ritmo_ritmico" value="1" checked="checked">
+							<label for="es_ritmo_ritmico">Rítmico</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="es_ritmo" id="es_ritmo_aritmico" value="2">
+							<label for="es_ritmo_aritmico">Arrítmico</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Derivaciones:</h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="es_derivaciones" id="es_derivaciones_no" value="1" checked="checked">
+							<label for="es_derivaciones_no">No aplica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="es_derivaciones" id="es_derivaciones_3" value="3">
+							<label for="es_derivaciones_3">3</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="es_derivaciones" id="es_derivaciones_12" value="12">
+							<label for="es_derivaciones_12">12</label>
+						</div>
+					</div>
+				</div>
+				<textarea  class="contactTextarea input-red-border" placeholder="Diagnostico electrográfico" name="diagnostico_electrografico" id="diagnostico_electrografico"></textarea>
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center"><strong>METABÓLICO / DIGESTIVO</strong></h5>
+				<div class="checkboxes-demo">
+					<h4 class="botonInicial">Peristaisis:</h4>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="peristalsis" id="peristalsis_presente" value="1" checked="checked">
+						<label for="peristalsis_presente">Presente</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="peristalsis" id="peristalsis_ausente" value="2">
+						<label for="peristalsis_ausente">Ausente</label>
+					</div>
+				</div>
+
+
+
+
+
+
+				<div class="linea-separadora"></div>
+					<h5 class="botonInicial" align="center"><strong>HALLAZGOS FÍSICOS</strong></h5>
+					<span>Desplazate con el dedo sobre la imagen</span>
+
+
+				<div style="width: 5px; height: 500px; margin-top: 20px;">
+					<canvas id="myCanvas" style=" border:1px solid #d3d3d3; background: url(../images/cuerpo_humano_2.gif) no-repeat center center;">
+						Your browser does not support the HTML5 canvas tag.
+						img/fondo.jpg
+
+
+					</canvas>
+
+
+
+				</div>
+					<script>
+						var c = document.getElementById("myCanvas");
+						var ctx = c.getContext("2d");
+
+						c.width = window.innerWidth;
+						c.height = 450;
+					</script>
+
+					<div data-role="popup" id="popupArrow" data-arrow="true">
+						<ul data-role="listview" data-inset="true" style="min-width:210px;">
+							<li data-role="list-divider" style=" color: black;">Selecciona una acción</li>
+							<li><a onclick="eliminarA()"> <h2>Borrar</h2></a></li>
+							<li data-role="collapsible" data-iconpos="right">
+								<h2>Agregar Lesión</h2>
+								<ul data-role="listview" data-theme="b">
+									<li><a onclick="agregarA(15, 'D')">DEFORMIDADES</a>
+									<li><a onclick="agregarA(1, 'C')">CONTUSIONES</a>
+									<li><a onclick="agregarA(2, 'A')">ABRASIONES</a>
+									<li><a onclick="agregarA(3, 'P')">PENETRACIONES</a>
+									<li><a onclick="agregarA(4, 'Q')">QUEMADURAS</a>
+									<li><a onclick="agregarA(5, 'L')">LACERACIONES</a>
+									<li><a onclick="agregarA(6, 'AB')">ABULSIONES / AMPUTACIONES</a>
+									<li><a onclick="agregarA(7, 'E')">EDEMA</a>
+									<li><a onclick="agregarA(8, 'CR')">CREPITACIÓN</a>
+									<li><a onclick="agregarA(9, 'EN')">ENFISEMA SUBCUTÁNEO</a>
+									<li><a onclick="agregarA(10, 'DO')">DOLOR / HIPERESTESIA</a>
+									<li><a onclick="agregarA(11, 'PA')">PARESTESIA</a>
+									<li><a onclick="agregarA(12, 'AL')">ALTERACION A LA MOVILIDAD</a>
+									<li><a onclick="agregarA(13, 'PR')">PARÁLISIS</a>
+									<li><a onclick="agregarA(14, 'MO')">MOVIMIENTO PARADÓJICO</a>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<style>
+					#listDiv {
+						position: absolute;
+						top: 0px;
+						left:0px;
+						right: 0px;
+						bottom: 0px;
+						margin-top: 48px;
+						overflow: auto;
+						-webkit-overflow-scrolling: touch;
+					}
+					</style>
+					<script>
+
+										 var x = 0;
+										 var y = 0;
+
+
+										 function eliminarA(){
+
+										       var c = document.getElementById("myCanvas");
+										        var ctx = c.getContext("2d");
+
+										        c.width = window.innerWidth;
+										        c.height = 450;
+
+										        //borrarLocal('HALLAZGOS_FISICOS', ' WHERE FRAP_ID=0 ');
+
+										         $( "#popupArrow" ).popup( "close");
+
+										 }
+
+										    function agregarA(lesion, clave){
+
+
+												var aux_y = $("#myCanvas").offset().top;
+												var aux_x = $("#myCanvas").offset().left;
+
+										         $( "#popupArrow" ).popup( "close");
+
+										        var canvas = document.getElementById("myCanvas");
+												var ctx = canvas.getContext("2d");
+
+												//alert('x:'+x +'  x_off:'+aux_x+'   resta:'+ (x - aux_x));
+												//alert('y:'+y+'  y_off:'+aux_y+'   resta:'+ (y - aux_y));
+
+
+
+										        ctx.fillStyle = "#c82124";
+										        ctx.arc( (x - aux_x), (y - aux_y), 12, 0, 2 * Math.PI, true);
+										        ctx.fill();
+
+										        ctx.fillStyle = "#FFFFFF";
+										        ctx.font="bold 13px Verdana";
+										        ctx.fillText(clave,x, y );
+
+										        ctx.closePath();
+										        //alert('pinto');
+
+
+
+
+
+
+										    }
+
+										    $.mobile.document.on( "click", "#open-popupArrow", function( evt ) {
+										    $( "#popupArrow" ).popup( "open", { x: evt.pageX, y: evt.pageY } );
+										    evt.preventDefault();
+										});
+
+
+										$.mobile.document.on( "click", "#myCanvas", function( evt ) {
+
+										    x= evt.pageX;
+										    y= evt.pageY;
+										    $( "#popupArrow" ).popup( "open", { x: evt.pageX, y: evt.pageY } );
+										    evt.preventDefault();
+										});
+
+										</script>
+
+
+
+
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center"><strong>SEMIOLOGÍA DEL DOLOR</strong></h5>
+				<div class="checkboxes-demo">
+					<h5 class="botonInicial">Aparición:</h5>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="sd_aparicion" id="sd_aparicion_no" value="3" checked="checked" onclick="hide_sd();">
+						<label for="sd_aparicion_no">No aplica</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="sd_aparicion" id="sd_aparicion_cronico" value="1" onclick="show_sd();">
+						<label for="sd_aparicion_cronico">Crónico</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="sd_aparicion" id="sd_aparicion_agudo" value="2" onclick="show_sd();">
+						<label for="sd_aparicion_agudo">Agudo</label>
+					</div>
+				</div>
+				<div class="semiologia-dolor-section">
+					<div class="resize-input">
+						<h5 class="botonInicial" for="sd_inicio" >Hora de inicio : </h5>
+						<input class="input-text-box input-red-border" type="time" name="time" align="center" name="sd_inicio" id="sd_inicio">
+					</div>
+					<div class="resize-input">
+						<h5 class="botonInicial" for="sd_irradiacionn">Localización:</h5>
+						<input type="text" class="input-text-box input-red-border" name="sd_localizacion" id="sd_localizacion">
+					</div>
+					<div class="resize-input">
+						<h5 class="botonInicial" for="sd_localizacion">Irradiación:</h5>
+						<input type="text" class="input-text-box input-red-border" name="sd_irradiacion" id="sd_irradiacion">
+					</div>
+					<div class="resize-input">
+						<h5 class="botonInicial" for="sd_caracteristicas">Características:</h5>
+						<input type="text" name="sd_caracteristicas" class="input-text-box input-red-border" id="sd_caracteristicas">
+					</div>
+					<div class="resize-input">
+						<h5 class="botonInicial" for="sd_alivio">Alivio:</h5>
+						<input type="text" name="sd_alivio" class="input-text-box input-red-border" id="sd_alivio">
+					</div>
+					<h5 class="botonInicial" >Intensidad (EVA):</h5>
+					<select data-native-menu="false" id="sd_intensidad">
+						<option>Selecciona un valor</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option >10</option>
+					</select>
+				</div>
+				<div class="linea-separadora"></div>
+
+				<h5 class="botonInicial" align="center" ><strong>SAMPLER</strong></h5>
+				<h5 class="botonInicial" for="sampler_sintomas">Síntomas :</h5>
+				<input type="text" class="input-text-box input-red-border" name="sampler_sintomas" id="sampler_sintomas" >
+				<h5 class="botonInicial" for="sampler_alergias">Alergias : </h5>
+				<input type="text" class="input-text-box input-red-border" name="sampler_alergias" id="sampler_alergias">
+				<h5 class="botonInicial" for="sampler_medicamentos">Medicamentos :</h5>
+				<input type="text" class="input-text-box input-red-border" name="sampler_medicamentos" id="sampler_medicamentos">
+				<h5 class="botonInicial" for="sampler_padecimientos">Padecimientos : </h5>
+				<input type="text" class="input-text-box input-red-border" name="sampler_padecimientos" id="sampler_padecimientos">
+				<h5 class="botonInicial" for="sampler_ultima_comida">Última comida : </h5>
+				<input type="text" class="input-text-box input-red-border" name="sampler_ultima_comida" id="sampler_ultima_comida">
+				<h5 class="botonInicial" for="sampler_eventos_relacionados" >Eventos relacionados : </h5>
+				<input type="text" class="input-text-box input-red-border" type="text" name="sampler_eventos_relacionados" id="sampler_eventos_relacionados">
+
+				<div class="linea-separadora"></div>
+
+
+				<h5 class="botonInicial" align="center" ><strong>FACTORES DE RIESGO</strong></h5>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<div class="fac fac-checkbox-o fac-red"><span></span>
+							<input type="checkbox" name="fr_has" id="fr_has" value="1">
+							<label for="fr_has">HAS</label>
+						</div>
+						<div class="fac fac-checkbox-o fac-red"><span></span>
+							<input type="checkbox" name="fr_dislipidemias" id="fr_dislipidemias" value="1">
+							<label for="fr_dislipidemias">Dislipidemias</label>
+						</div>
+						<div class="fac fac-checkbox-o fac-red"><span></span>
+							<input type="checkbox" name="fr_diabetes" id="fr_diabetes" value="1">
+							<label for="fr_diabetes">Diabetes Mellitus</label>
+						</div>
+						<div class="fac fac-checkbox-o fac-red"><span></span>
+							<input type="checkbox" name="fr_obesidad" id="fr_obesidad" value="1">
+							<label for="fr_obesidad">Obesidad</label>
+						</div>
+						<div class="fac fac-checkbox-o fac-red"><span></span>
+							<input type="checkbox" name="fr_tabaquismo" id="fr_tabaquismo" value="1">
+							<label for="fr_tabaquismo">Tabaquismo</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<div class="fac fac-checkbox-o fac-red"><span></span>
+							<input type="checkbox" name="fr_sedentarismo" id="fr_sedentarismo" value="2">
+							<label for="fr_sedentarismo">Sedentarismo</label>
+						</div>
+						<div class="fac fac-checkbox-o fac-red"><span></span>
+							<input type="checkbox" name="fr_herencia" id="fr_herencia" value="1">
+							<label for="fr_herencia">Herencia</label>
+						</div>
+						<div class="fac fac-checkbox-o fac-red"><span></span>
+							<input type="checkbox" name="fr_estres" id="fr_estres" value="1">
+							<label for="fr_estres">Estrés</label>
+						</div>
+						<div class="fac fac-checkbox-o fac-red"><span></span>
+							<input type="checkbox" name="fr_alcoholismo" id="fr_alcoholismo" value="1">
+							<label for="fr_alcoholismo">Alcoholismo</label>
+						</div>
+						<div class="fac fac-checkbox-o fac-red"><span></span>
+							<input type="checkbox" name="es_derivaciones" id="fr_edad" value="1">
+							<label for="fr_edad">Edad</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<div class="swiper-slide">
+			<!---
+						TRATAMIENTO
+			=======================================================================================
+			----->
+			<div id="Z-content-5" style="overflow:scroll;">
+				<h2 align="center"><strong>TRATAMIENTO</strong></h2>
+				<h5 class="botonInicial" align="center"><strong>MANEJO DE VÍA AEREA</strong></h5>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Aspiración: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="aspiracion" id="aspiracion_si" value="1" checked="checked">
+							<label for="aspiracion_si">No</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="aspiracion" id="aspiracion_no" value="2">
+							<label for="aspiracion_no">Si</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Manejo de via aerea: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="manejo_via_aerea" id="no_necesito" value="1" checked="checked">
+							<label for="no_necesito">No necesitó</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="manejo_via_aerea" id="manejo_manual" value="2">
+							<label for="manejo_manual">Manual</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="manejo_via_aerea" id="manejo_mecanico" value="3">
+							<label for="manejo_mecanico">Mecánico</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="manejo_via_aerea" id="manejo_trans" value="4">
+							<label for="manejo_trans">Transtraqueal</label>
+						</div>
+
+					</div>
+
+				</div>
+				<div class="checkboxes-demo">
+					<h4 class="botonInicial">Dispositivo de apertura: </h4>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="dispositivo_apertura" id="disp_no_aplica" value="1" checked="checked">
+						<label for="disp_no_aplica">No aplica</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="dispositivo_apertura" id="disp_canulaN" value="2">
+						<label for="disp_canulaN">Cánula nasofaríngea</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="dispositivo_apertura" id="disp_canulaO" value="3">
+						<label for="disp_canulaO">Cánula orofaríngea</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="dispositivo_apertura" id="disp_disp" value="4">
+						<label for="disp_disp">Dispositivo supraglótico</label>
+					</div>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="dispositivo_apertura" id="disp_tubo" value="5">
+						<label for="disp_tubo">Tubo endotraqueal</label>
+					</div>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="dispositivo_apertura" id="disp_vtp" value="6">
+						<label for="disp_vtp">VTP / Cánula traqueostomía    </label>
+					</div>
+
+				</div>
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center"><strong>ASISTENCIA VENTILATORIA</strong></h5>
+				<div class="checkboxes-demo">
+					<h4 class="botonInicial">Dispositivo: </h4>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="dispositivo" id="disp_no" value="1" checked="checked" onclick="hide_infoD();">
+						<label for="disp_no">No necesitó</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="dispositivo" id="disp_bolsa" value="2" onclick="hide_infoD();">
+						<label for="disp_bolsa">Bolsa válvula mascarilla</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="dispositivo" id="disp_cpap" value="3" onclick="show_infoD();">
+						<label for="disp_cpap">CPAP</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="dispositivo" id="disp_ventilador" value="4" onclick="show_infoD();">
+						<label for="disp_ventilador">Ventilador mecánico</label>
+					</div>
+
+				</div>
+				<div class="asistencia-ventilatoria-section hidden">
+					<h5 class="botonInicial">Frecuencia:</h5>
+					<input class="input-text-box input-red-border" type="number" name="asistencia_frecuencia" id="asistencia_frecuencia">
+					<h5 class="botonInicial">Volumen:</h5>
+					<input class="input-text-box input-red-border" type="number" name="asistencia_volumen" id="asistencia_volumen">
+					<h5 class="botonInicial" >Modalidad ventilatoria :</h5>
+					<input type="text" class="input-text-box input-red-border" name="asistencia_modalidad" id="asistencia_modalidad">
+				</div>
+
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center" > <strong>OXIGENOTERAPIA</strong></h5>
+				<div class="checkboxes-demo">
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="tipo_oxigenoterapia" id="tipo_oxi_no" value="1" checked="checked">
+						<label for="tipo_oxi_no">No necesitó</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="tipo_oxigenoterapia" id="tipo_oxi_puntas" value="2">
+						<label for="tipo_oxi_puntas">Puntas nasales</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="tipo_oxigenoterapia" id="tipo_oxi_mascarilla" value="3">
+						<label for="tipo_oxi_mascarilla">Mascarilla simple</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="tipo_oxigenoterapia" id="tipo_oxi_mascarillaR" value="4">
+						<label for="tipo_oxi_mascarillaR">Mascarilla con reservorio</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="tipo_oxigenoterapia" id="tipo_oxi_nebu" value="5">
+						<label for="tipo_oxi_nebu">Micronebulizador</label>
+					</div>
+				</div>
+				<h5 class="botonInicial" >Litros por minuto:</h5>
+				<input class="input-text-box input-red-border"type="number" name="oxi_litros" id="ox_ilitros">
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center" ><strong>DESCOMPRESIÓN PLEURAL</strong></h5>
+				<div class="checkboxes-demo">
+					<h4 class="botonInicial">Hemitorax : </h4>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="hemitorax" id="hemitorax_no" value="1" checked="checked">
+						<label for="hemitorax_no">No necesitó</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="hemitorax" id="hemitorax_der" value="2">
+						<label for="hemitorax_der">Derecho</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="hemitorax" id="hemitorax_iz" value="3">
+						<label for="hemitorax_iz">Izquierdo</label>
+					</div>
+
+				</div>
+				<h5 class="botonInicial" >Calibre:</h5>
+				<input class="input-text-box input-red-border" type="number" name="hemitorax_calibre" id="hemitorax_calibre">
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center" ><strong>CONTROL DE HEMORRAGIAS</strong></h5>
+				<div class="checkboxes-demo">
+					<h4 class="botonInicial">Tipo: </h4>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="control_hemorragia" id="control_hemorragia_no" value="1" checked="checked">
+						<label for="control_hemorragia_no">No necesitó</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="control_hemorragia" id="control_hemorragia_directa" value="2">
+						<label for="control_hemorragia_directa">Presión directa</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="control_hemorragia" id="control_hemorragia_indirecta" value="3">
+						<label for="control_hemorragia_indirecta">Presión indirecta</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="control_hemorragia" id="control_hemorragia_agente" value="4">
+						<label for="control_hemorragia_agente">Agente coagulante</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="control_hemorragia" id="control_hemorragia_torniquete" value="5">
+						<label for="control_hemorragia_torniquete">Torniquete</label>
+					</div>
+				</div>
+				<h5 class="botonInicial">Hora de colocación:</h5>
+				<input class="input-text-box input-red-border" type="time"  align="center" name="control_hemorragia_HORA" id="control_hemorragia_HORA">
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center" ><strong>ACCESO CIRCULATORIO</strong></h5>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Vía de acceso: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="acceso_via_acceso" id="acceso_via_acceso_no" value="1" checked="checked" onclick="hide_accesoD();">
+							<label for="acceso_via_acceso_no">No necesitó</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_via_acceso" id="acceso_via_acceso_intra" value="2" onclick="show_accesoD();">
+							<label for="acceso_via_acceso_intra">Intravascular periférico</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_via_acceso" id="acceso_via_acceso_oseo" value="3" onclick="show_accesoD();">
+							<label for="acceso_via_acceso_oseo">Intra óseo</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column accesso-circulatorio-section hidden">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Bomba de infusión: </h4>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_bomba" id="acceso_bomba_no" value="0" checked="checked">
+							<label for="acceso_bomba_no">No</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_bomba" id="acceso_bomba_si" value="1">
+							<label for="acceso_bomba_si">Si</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo accesso-circulatorio-section hidden">
+						<h4 class="botonInicial">Zona de colocación: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="acceso_zona" id="acceso_zona_no" value="8" checked="checked">
+							<label for="acceso_zona_no">No aplica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_zona" id="acceso_zona_mano" value="1">
+							<label for="acceso_zona_mano">Mano</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_zona" id="acceso_zona_antero" value="2">
+							<label for="acceso_zona_antero">Anterocubital</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_zona" id="acceso_zona_yugular" value="3">
+							<label for="acceso_zona_yugular">Yugular externo</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_zona" id="acceso_zona_otros" value="4">
+							<label for="acceso_zona_otros">Otros</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_zona" id="acceso_zona_tibia" value="5">
+							<label for="acceso_zona_tibia">Tibia</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_zona" id="acceso_zona_humero" value="6">
+							<label for="acceso_zona_humero">Húmero</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_zona" id="acceso_zona_externon" value="7">
+							<label for="acceso_zona_externon">Externón</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column accesso-circulatorio-section hidden">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Tipo de solución: </h4>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_tipo" id="acceso_tipo_no" value="6" checked="checked">
+							<label for="acceso_tipo_no">No aplica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_tipo" id="acceso_tipo_hartmann" value="1">
+							<label for="acceso_tipo_hartmann">Hartmann</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_tipo" id="acceso_tipo_nacl" value="2">
+							<label for="acceso_tipo_nacl">NaCl 0.9%</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_tipo" id="acceso_tipo_glucosa" value="3">
+							<label for="acceso_tipo_glucosa">Glucosa 5%</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_tipo" id="acceso_tipo_mixta" value="4">
+							<label for="acceso_tipo_mixta">Mixta</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="acceso_tipo" id="acceso_tipo_otras" value="5">
+							<label for="acceso_tipo_otras">Otras</label>
+						</div>
+					</div>
+				</div>
+
+				<div class="resize-input">
+					<h5 class="botonInicial" >Calibre:</h5>
+					<input class="input-text-box input-red-border" type="number" name="acceso_calibre" id="acceso_calibre" value="0">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial">Hora de colocación:</h5>
+					<input class="input-text-box input-red-border" type="time" align="center" name="acceso_hora" id="acceso_hora">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Volumen infundido:</h5>
+					<input class="input-text-box input-red-border" type="number" name="acceso_volumen" id="acceso_volumen" value="0">
+				</div>
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center" ><strong>INTERVENCIONES</strong></h5>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Control cervical: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="intervenciones_control" id="intervenciones_control_no" value="1" checked="checked">
+							<label for="intervenciones_control_no">No</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="intervenciones_control" id="intervenciones_control_si" value="2">
+							<label for="intervenciones_control_si">Si</label>
+						</div>
+
+					</div>
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Empaquetamiento: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="intervenciones_empaquetamiento" id="intervenciones_empaquetamiento_no" value="1" checked="checked">
+							<label for="intervenciones_empaquetamiento_no">No</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="intervenciones_empaquetamiento" id="intervenciones_empaquetamiento_si" value="2">
+							<label for="intervenciones_empaquetamiento_si">Si</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Inmobilización de extremidades: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="intervenciones_inmobilizacion" id="intervenciones_inmobilizacion_no" value="1" checked="checked">
+							<label for="intervenciones_inmobilizacion_no">No</label>
+						</div>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="intervenciones_inmobilizacion" id="intervenciones_inmobilizacion_si" value="2">
+							<label for="intervenciones_inmobilizacion_si">Si</label>
+						</div>
+					</div>
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Curación / vendaje: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="intervenciones_curacion" id="intervenciones_curacion_no" value="1" checked="checked">
+							<label for="intervenciones_curacion_no">No</label>
+						</div>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="intervenciones_curacion" id="intervenciones_curacion_si" value="2">
+							<label for="intervenciones_curacion_si">Si</label>
+						</div>
+					</div>
+				</div>
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center" ><strong>TERAPÍA ELÉCTRICA</strong></h5>
+				<div class="checkboxes-demo">
+					<h4 class="botonInicial">Tipo: </h4>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="terapia_tipo" id="terapia_tipo_no" value="1" checked="checked" onclick="hide_terspiaD();">
+						<label for="terapia_tipo_no">No necesitó</label>
+					</div>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="terapia_tipo" id="terapia_tipo_desfibrilacion" value="2" onclick="show_terspiaD();">
+						<label for="terapia_tipo_desfibrilacion">Desfibrilación</label>
+					</div>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="terapia_tipo" id="terapia_tipo_cardioversion" value="3" onclick="show_terspiaD();">
+						<label for="terapia_tipo_cardioversion">Cardioversión</label>
+					</div>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="terapia_tipo" id="terapia_tipo_marca" value="4" onclick="show_terspiaD();">
+						<label for="terapia_tipo_marca">Marca pasos transcutaneo</label>
+					</div>
+				</div>
+				<div class="terapia-electrica-section hidden">
+					<h5 class="botonInicial" >Descargas:</h5>
+					<input class="input-text-box input-red-border" type="number" name="terapia_descargas" id="terapia_descargas">
+					<h5 class="botonInicial" >Joules:</h5>
+					<input class="input-text-box input-red-border" type="number" name="terapia_joules" id="terapia_joules">
+					<h5 class="botonInicial" >mA:</h5>
+					<input class="input-text-box input-red-border" type="number" name="terapia_ma" id="terapia_ma">
+					<h5 class="botonInicial" >Frecuencia:</h5>
+					<input class="input-text-box input-red-border" type="number" name="terapia_frecuencia" id="terapia_frecuencia">
+				</div>
+				<h5 class="botonInicial" align="center" >OBSERVACIONES</h5>
+				<input type="text" class="input-text-box input-red-border" id="tratamiento_observaciones">
+
+				<br />
+				<br />
+			</div>
+		</div>
+
+
+
+
+		<div id="trauma" class="swiper-slide" style="display:none;">
+			<!---
+						TRAUMA
+			=======================================================================================
+			----->
+			<div id="Z-content-6" style="overflow:scroll;">
+				<h2 align="center"><strong>TRAUMA</strong></h2>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<fieldset data-role="controlgroup">
+							<h4 class="botonInicial">Agente causal general: * </h4>
+							<div class="fac fac-radio fac-red "><span></span>
+								<input type="radio" name="trauna_ac" id="trauna_ac_mecanico" value="1">
+								<label for="trauna_ac_mecanico">Mecánico</label>
+							</div>
+							<div class="fac fac-radio fac-red"><span></span>
+								<input type="radio" name="trauna_ac" id="trauna_ac_termico" value="2">
+								<label for="trauna_ac_termico">Térmico</label>
+
+							</div>
+							<div class="fac fac-radio fac-red"><span></span>
+								<input type="radio" name="trauna_ac" id="trauna_ac_quimico" value="3">
+								<label for="trauna_ac_quimico">Químico</label>
+							</div>
+							<div class="fac fac-radio fac-red"><span></span>
+								<input type="radio" name="trauna_ac" id="trauna_ac_biologico" value="4">
+								<label for="trauna_ac_biologico">Biológico</label>
+							</div>
+
+
+						</fieldset>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Agente causal específico: * </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_arma" value="1">
+							<label for="trauna_ace_arma">Arma blanca</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_paf" value="2">
+							<label for="trauna_ace_paf">PAF</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_automotor" value="3">
+							<label for="trauna_ace_automotor">Automor</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_bicicleta" value="4">
+							<label for="trauna_ace_bicicleta">Bicicleta</label>
+						</div>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_biologico" value="5">
+							<label for="trauna_ace_biologico">Biológico</label>
+
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_maquinaria" value="6">
+							<label for="trauna_ace_maquinaria">Maquinaria</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_herramienta" value="7">
+							<label for="trauna_ace_herramienta">Herramienta / Juguete</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_fuego" value="8">
+							<label for="trauna_ace_fuego">Fuego</label>
+						</div>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_calor" value="9">
+							<label for="trauna_ace_calor">Calor / Frio</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_sustancia" value="10">
+							<label for="trauna_ace_sustancia">Sustancia tóxica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_electricidad" value="11">
+							<label for="trauna_ace_electricidad">Electricidad</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_explosion" value="12">
+							<label for="trauna_ace_explosion">Explosión</label>
+						</div>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_sh" value="13">
+							<label for="trauna_ace_sh">Ser humano</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_animal" value="14">
+							<label for="trauna_ace_animal">Animal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_ace" id="trauna_ace_otro" value="15">
+							<label for="trauna_ace_otro">Otro</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Intencionalidad: *</h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="trauna_intencionalidad" id="trauna_intencionalidad_a" value="1">
+							<label for="trauna_intencionalidad_a">Accidental</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_intencionalidad" id="trauna_intencionalidad_pi" value="2">
+							<label for="trauna_intencionalidad_pi">Probable intencional</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="trauna_intencionalidad" id="trauna_intencionalidad_no" value="3">
+							<label for="trauna_intencionalidad_no">Se desconoce</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<h5 class="botonInicial" >Observaciones :</h5>
+					<input type="text" class="input-text-box input-red-border">
+				</div>
+			</div>
+		</div>
+
+
+
+		<div id="clinico" class="swiper-slide" style="display:none;">
+			<!---
+						CLINICO
+			=======================================================================================
+			----->
+			<div id="Z-content-7" style="overflow:scroll;">
+				<h2 align="center"><strong>CLÍNICO</strong></h2>
+				<h4 class="botonInicial">Origen Problable: *</h4>
+				<div class="resize-input">
+					<div class="checkboxes-demo radio-responsive">
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_neurologica" value="1">
+							<label for="origen_probable_neurologica">Neurológica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_cardiovascular" value="2">
+							<label for="origen_probable_cardiovascular">Cardiovascular</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_respiratorio" value="3">
+							<label for="origen_probable_respiratorio">Respiratorio</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_metabolico" value="4">
+							<label for="origen_probable_metabolico">Metabólico</label>
+						</div>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_digestiva" value="5">
+							<label for="origen_probable_digestiva">Digestiva</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_urogenital" value="6">
+							<label for="origen_probable_urogenital">Urogenital</label>
+						</div>
+					</div>
+				</div>
+				<div class="resize-input">
+					<div class="checkboxes-demo radio-responsive">
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_gineco" value="7">
+							<label for="origen_probable_gineco">Gineco-obtétrica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_psiquiatrico" value="8">
+							<label for="origen_probable_psiquiatrico">Psiquiátrico</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_musculo" value="9">
+							<label for="origen_probable_musculo">Muculo-esquelético</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_infeccionsa" value="10">
+							<label for="origen_probable_infeccionsa">Infecciosa</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_oncologica" value="11">
+							<label for="origen_probable_oncologica">Oncológica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="origen_probable" id="origen_probable_otorrino" value="12">
+							<label for="origen_probable_otorrino">Otorrino</label>
+						</div>
+					</div>
+				</div>
+				<h4 class="botonInicial">Diagnóstico sindromático:</h4>
+				<input type="text" class="input-text-box input-red-border" name="diagnostico_sindromatico" id="diagnostico_sindromatico">
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial">Observaciones</h5>
+				<input type="text" class="input-text-box input-red-border" name="ds_observaciones" id="ds_observacione">
+				<br /><br /><br />
+			</div>
+		</div>
+
+
+
+
+
+		<div id="ginecologico" class="swiper-slide" style="display:none;">
+			<!--    GINECOLÓGICO      -->
+			<!-- ====================================================================================-->
+			<div id="Z-content-8" style="overflow:scroll;">
+				<h2 align="center"><strong>GINECOLÓGICO</strong></h2>
+				<h5 class="botonInicial" align="center"><strong>DATOS DE LA MADRE</strong></h5>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Gesta:</h5>
+					<input  name="ginecologico_gesta" id="ginecologico_gesta" type="number">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Abortos: </h5>
+					<input  name="ginecologico_abortos" id="ginecologico_abortos" type="number">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Para: </h5>
+					<input  name="ginecologico_para" id="ginecologico_para" type="number">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Semanas de gestación: </h5>
+					<input  name="ginecologico_semanas" id="ginecologico_semanas" type="number">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Cesarea: </h5>
+					<input  name="ginecologico_cesarea" id="ginecologico_cesarea" type="number">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >FUM: </h5>
+					<input type="text" class="input-text-line input-red-line inputText" onfocus="(this.type='date')" onblur="(this.type='text')" name="fum" id="fum">
+				</div>
+				<div class="resize-input">
+					<div class="checkboxes-demo">
+						<h5 class="botonInicial">Membranas: </h5>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="membranas" id="membranas_integras" value="1" checked="checked">
+							<label for="membranas_integras">Íntegras</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="membranas" id="membranas_nointegras" value="2"  >
+							<label for="membranas_nointegras">No íntegras</label>
+						</div>
+					</div>
+				</div>
+				<div class="resize-input">
+					<div class="checkboxes-demo">
+						<h5 class="botonInicial">Control Prenatal : </h5>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="control_parental" id="control_parental_si" value="1" checked="checked">
+							<label for="control_parental_si">Si</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="control_parental" id="control_parental_no" value="2" >
+							<label for="control_parental_no">No</label>
+						</div>
+					</div>
+				</div>
+				<div class="resize-input">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Embarazo de Alto Riesgo : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="emarazo_riesgo" id="embarazo_riesgo_si" value="1">
+							<label for="embarazo_riesgo_si">Si</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="emarazo_riesgo" id="emarazo_riesgo_no" value="2" checked="checked" >
+							<label for="emarazo_riesgo_no">No</label>
+						</div>
+					</div>
+				</div>
+				<div class="resize-input">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Esquema de Maduración Pulmonar : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="maduracion_pulmonar" id="maduracion_pulmonar_si" value="1">
+							<label for="maduracion_pulmonar_si">Si</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="maduracion_pulmonar" id="maduracion_pulmonar_no" value="2" checked="checked" >
+							<label for="maduracion_pulmonar_no">No</label>
+						</div>
+					</div>
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Hora de inicio : </h5>
+					<input  type="time"  align="center" name="ginecologico_hora" id="ginecologico_hora">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Frecuencia :</h5>
+					<input  type="number" align="center"name="ginecologico_frecuencia" id="ginecologico_frecuencia">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Duración : </h5>
+					<input  type="number" align="center" name="ginecologico_duracion" id="ginecologico_duracion">
+				</div>
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center" > <strong>DATOS POST-PARTO</strong></h5>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Hora de nacimiento : </h5>
+					<input  type="time" align="center" name="ginecologico_hora_nacimiento" id="ginecologico_hora_nacimiento">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Lugar de nacimiento :</h5>
+					<input type="text"  name="ginecologico_lugarN" id="ginecologico_lugarN">
+				</div>
+				<div class="checkboxes-demo">
+					<h4 class="botonInicial">Placenta Expulsada : </h4>
+					<div class="fac fac-radio fac-red "><span></span>
+						<input type="radio" name="placenta" id="placenta_si" value="1">
+						<label for="placenta_si">Si</label>
+					</div>
+					<div class="fac fac-radio fac-red"><span></span>
+						<input type="radio" name="placenta" id="placenta_no" value="2" checked="checked" >
+						<label for="placenta_no">No</label>
+					</div>
+				</div>
+				<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center" ><strong>DATOS DEL PRODUCTO</strong></h5>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Producto : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="producto" id="producto_no" value="3" checked="checked">
+							<label for="producto_no">No aplica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="producto" id="producto_vivo" value="1">
+							<label for="producto_vivo">Vivo</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="producto" id="producto_muerto" value="2">
+							<label for="producto_muerto">Muerto</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Sexo : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="producto_sexo" id="producto_nos" value="3" checked="checked">
+							<label for="producto_nos">No aplica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="producto_sexo" id="producto_sexo_femenino" value="1">
+							<label for="producto_sexo_femenino">Masculino</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="producto_sexo" id="producto_sexo_masculino" value="2">
+							<label for="producto_sexo_masculino">Femenino</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half">
+					<h5 class="botonInicial" >Apagar 1 min:</h5>
+					<input  name="apgar1" id="apgar1" value="0" type="number">
+				</div>
+				<div class="one-half last-column">
+					<h5 class="botonInicial">Apagar 5 min:</h5>
+					<input  type="text" name="apgar5" id="apgar5" value="0" type="number">
+				</div>
+				<div class="one-half">
+					<h5 class="botonInicial" >Apagar 10 min:</h5>
+					<input  name="apgar10" id="apgar10" value="0" type="number">
+				</div>
+				<div class="one-half last-column">
+					<h5 class="botonInicial">Silvermann 10 min:</h5>
+					<input  name="silvermann" id="silvermann" value="0" type="number">
+				</div>
+				<h5 class="botonInicial" align="center">OBSERVACIONES:</h5>
+				<input type="text" >
+				<br />
+				<br />
+				<br />
+			</div>
+		</div>
+
+
+
+
+
+		<div id="vial" class="swiper-slide" style="display:none;">
+			<!--    VIAL      -->
+			<!-- ====================================================================================-->
+			<div id="Z-content-9" style="overflow:scroll;">
+				<h2 align="center"><strong>VIAL</strong></h2>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<fieldset data-role="controlgroup">
+							<h4 class="botonInicial">Tipo de accidente vial : </h4>
+							<div class="fac fac-radio fac-red "><span></span>
+								<input type="radio" name="vial_tipo" id="vial_tipo_choque" value="1" checked="checked">
+								<label for="vial_tipo_choque">Choque</label>
+							</div>
+							<div class="fac fac-radio fac-red"><span></span>
+								<input type="radio" name="vial_tipo" id="vial_tipo_volcadura" value="2">
+								<label for="vial_tipo_volcadura">Volcadura</label>
+
+							</div>
+							<div class="fac fac-radio fac-red"><span></span>
+								<input type="radio" name="vial_tipo" id="vial_tipo_atropellamiento" value="3">
+								<label for="vial_tipo_atropellamiento">Atropellamiento</label>
+							</div>
+
+
+						</fieldset>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Lesionado : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_lesionado" id="vial_lesionado_ocupante" value="1" checked="checked">
+							<label for="vial_lesionado_ocupante">Ocupante</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_lesionado" id="vial_lesionado_motociclista" value="2">
+							<label for="vial_lesionado_motociclista">Motociclista</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_lesionado" id="vial_lesionado_ciclista" value="3">
+							<label for="vial_lesionado_ciclista">Ciclista</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_lesionado" id="vial_lesionado_peaton" value="4">
+							<label for="vial_lesionado_peaton">Peatón</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Actor vial : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_actor" id="vial_actor_automovilista" value="4" checked="checked">
+							<label for="vial_actor_automovilista">Automovilista</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_actor" id="vial_actor_peaton" value="1">
+							<label for="vial_actor_peaton">Peatón</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_actor" id="vial_actor_ciclista" value="2">
+							<label for="vial_actor_ciclista">Ciclista</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_actor" id="vial_actor_motociclista" value="3">
+							<label for="vial_actor_motociclista">Motociclista</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Atropellado por: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_tropella" id="vial_tropella_no" value="1" checked="checked">
+							<label for="vial_tropella_no">No aplica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_tropella" id="vial_tropella_automotor" value="2">
+							<label for="vial_tropella_automotor">Automor</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_tropella" id="vial_tropella_motocicleta" value="3">
+							<label for="vial_tropella_motocicleta">Motocicleta</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_tropella" id="vial_tropella_bicicleta" value="4">
+							<label for="vial_tropella_bicicleta">Bicicleta</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_tropella" id="vial_tropella_maquinaria" value="5">
+							<label for="vial_tropella_maquinaria">Maquinaria</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Impacto: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_impacto" id="vial_impacto_no" value="4" checked="checked">
+							<label for="vial_impacto_no">No aplica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_impacto" id="vial_impacto_frontal" value="1">
+							<label for="vial_impacto_frontal">Frontal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_impacto" id="vial_impacto_lateral" value="2">
+							<label for="vial_impacto_lateral">Lateral</label>
+
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_impacto" id="vial_impacto_posterior" value="3">
+							<label for="vial_impacto_posterior">Psterior</label>
+						</div>
+
+
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Parabrisas: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_parabrisas" id="vial_parabrisas_no" value="3" checked="checked">
+							<label for="vial_parabrisas_no">No aplica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_parabrisas" id="vial_parabrisas_integro" value="1">
+							<label for="vial_parabrisas_integro">Íntegro</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_parabrisas" id="vial_parabrisas_roto" value="2">
+							<label for="vial_parabrisas_roto">Roto</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Volante: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_volante" id="vial_volante_no" value="3" checked="checked">
+							<label for="vial_volante_no">No aplica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_volante" id="vial_volante_integro" value="1">
+							<label for="vial_volante_integro">Íntegro</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_volante" id="vial_volante_doblado" value="2">
+							<label for="vial_volante_doblado">Doblado</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Bolsa de aire: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_bolsas" id="vial_bolsas_desplegadas_no" value="3" checked="checked">
+							<label for="vial_bolsas_desplegadas_no">No aplica</label>
+
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_bolsas" id="vial_bolsas_desplegadas" value="1">
+							<label for="vial_bolsas_desplegadas">Desplegadas</label>
+
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_bolsas" id="vial_bolsas_desplegadas_noD" value="2">
+							<label for="vial_bolsas_desplegadas_noD">No desplegadas</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Cinturón de Seguridad : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_cinturon" id="vial_cinturon_colocado_no" value="3" checked="checked" >
+							<label for="vial_cinturon_colocado_no">No aplica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_cinturon" id="vial_cinturon_colocado" value="1">
+							<label for="vial_cinturon_colocado">Colocado al impacto</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<label for="vial_cinturon_colocado_noC">No colocado al impacto</label>
+							<input type="radio" name="vial_cinturon" id="vial_cinturon_colocado_noC" value="2">
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Decesos en la Escena : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_decesos" id="vial_decesos_no" value="1" checked="checked" >
+							<label for="vial_decesos_no">No</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_decesos" id="vial_decesos_si" value="2">
+							<label for="vial_decesos_si">Si</label>
+
+						</div>
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Eyectado : </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_eyectado" id="vial_eyectado_no" value="1" checked="checked" >
+							<label for="vial_eyectado_no">No</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_eyectado" id="vial_eyectado_si" value="2">
+							<label for="vial_eyectado_si">Si</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Prensado: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_presado" id="vial_presado_no" value="1" checked="checked" >
+							<label for="vial_presado_no">No</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_presado" id="vial_presado_si" value="2">
+							<label for="vial_presado_si">Si</label>
+
+						</div>
+
+					</div>
+				</div>
+				<div class="resize-input">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Casco: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="vial_casco" id="vial_casco_no" value="1" checked="checked" >
+							<label for="vial_casco_no">No</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="vial_casco" id="vial_casco_si" value="2">
+							<label for="vial_casco_si">Si</label>
+						</div>
+
+					</div>
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" align="center" >OBSERVACIONES: </h5>
+					<input id="vial_observaciones" type="text" >
+				</div>
+				<br />
+				<br />
+				<br />
+			</div>
+		</div>
+
+
+
+
+		<div class="swiper-slide">
+			<!---
+						CONSENTIMIENTO INFORMADO
+			=======================================================================================
+			----->
+			<div id="Z-content-10" style="overflow:scroll;">
+				<h2 align="center"><strong>CONSENTIMIENTO INFORMADO</strong></h2>
+				<p>
+					DECLARO HABER RECIBIDO OPORTUNAMENTE INFORMACIÓN COMPLETA Y ADECUADA SOBRE MI CUADRO CLÍNICO Y LOS
+					PROCEDIMIENTOS DIAGNÓSTICOS Y/O TERAPÉUTICOS QUE SE ME REALIZARÁN, LOS RIESGOS QUE ESTOS PUEDEN REPRESENTAR
+					Y LAS ALTERNATIVAS DISPONIBLES. ASÍ MISMO, DECLARO HABER COMPRENDIDO LA INFORMACIÓN PROPORCIONADA Y QUE HE
+					TENIDO LA OPORTUNIDAD DE FORMULAR MIS PREGUNTAS Y DUDAS, LAS QUE HAN SIDO CONTESTADAS Y ACLARADAS A MI ENTERA
+					SATISFACCIÓN. POR LO ANTERIORMENTE EXPUESTO, DECLARO MI CONSENTIMIENTO PARA SER SOMETIDO AL TRATAMIENTO Y A
+					LAS ACCIONES QUE EL EQUIPO PARAMÉDICO CONSIDERE NECESARIAS. EN CASO DE SURGIR SITUACIONES NO ESPERADAS O
+					COMPLICACIONES, ES EXPRESADO EN FORMA LIBRE E INFORMADA.
+				</p>
+				<div class="one-half">
+					<h5 class="botonInicial" align="center" >Nombre Paciente: *</h5>
+					<input class="input-text-box input-red-border" type="text" name="consentimiento_nombre_paciente" id="consentimiento_nombre_paciente">
+					<a href="#" class="button button-round button-red button-full half-top full-bottom"><h4>Firmar</h4></a>
+					<!--<input type="button" value="Firmar" onclick="firmar('satndbypage', 'standFirmaPaciente')">-->
+					<div>
+						<img id="standFirmaPaciente" name="standFirmaPaciente" src=""  width="210"/>
+					</div>
+
+				</div>
+				<div class="one-half last-column">
+					<h5 class="botonInicial" align="center" >Nombre Testigo: *</h5>
+					<input class="input-text-box input-red-border" type="text" name="consentimiento_nombre_testigo" id="consentimiento_nombre_testigo">
+					<a href="#" class="button button-round button-red button-full half-top full-bottom"><h4>Firmar</h4></a>
+					<!--<input type="button" value="Firmar" onclick="firmar('satndbypage', 'standFirmaTestigo')">-->
+					<div>
+						<img id="standFirmaTestigo" name="standFirmaTestigo" src=""  width="210"/>
+					</div>
+				</div>
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+				<br />
+			</div>
+
+		</div>
+
+
+		<!--    AUTORIDADES QUE TOMAN CONOCIMIENTO      -->
+		<!-- ====================================================================================-->
+		<div class="swiper-slide">
+			<div id="Z-content-11" style="overflow:scroll;">
+				<h2 align="center"><strong>OTROS</strong></h2>
+				<h5 class="botonInicial" align="center"><strong>AUTORIDADES QUE TOMAN CONOCIMIENTO</strong></h5>
+				<h5 class="botonInicial">Dependencia: </h5>
+				<input type="text"  name="otros_dependencia" id="otros_dependencia">
+				<h5 class="botonInicial">Unidades: </h5>
+				<input type="text"  name="otros_unidades" id="otros_unidades">
+				<h5 class="botonInicial">Nombre y placa del oficial:</h5>
+				<input type="text"  name="otros_nombre" id="otros_nombre">
+
+			</div>
+		</div>
+
+		<!--    PERTENENCIAS Y OBSERVACIONES      -->
+		<!-- ====================================================================================-->
+		<div class="swiper-slide">
+			<div id="Z-content-12" style="overflow:scroll;">
+				<h2 align="center"><strong>PERTENENCIAS Y OBSERVACIONES</strong></h2>
+				<label class="botonInicial">
+					<input type="checkbox" name="cbmostrar" class="fantasma3" unchecked onchange="showHidedetailsPertenencias(this);"/>
+					No se tiene contacto con las pertenencias
+				</label>
+				<div class="pertenencias-section">
+					<h5 class="botonInicial" >Pertenencias: </h5>
+					<input type="text" name="legal_pertenencias" id="legal_pertenencias">
+					<h5 class="botonInicial" >Recibe pertenencias(parentesco): </h5>
+					<input type="text" name="legal_toma" id="legal_toma">
+					<h6 align="center">Recibe pertenencias</h6>
+					<h5 class="botonInicial" >Nombre: *</h5>
+					<input type="text" name="recibe_pertenencias" id="recibe_pertenencias">
+					<a href="#" class="button button-round button-red button-full half-top full-bottom"><h4>Firmar</h4></a>
+				</div>
+					<div class="linea-separadora"></div>
+				<h5 class="botonInicial" align="center" >OBSERVACIONES: </h5>
+				<input type="text" name="legal_observaciones" id="legal_observaciones">
+				<br />
+				<br />
+				<br />
+			</div>
+		</div>
+
+
+		<!--    RESULTADO DE LA EMERGENCIA      -->
+		<!-- ====================================================================================-->
+		<div class="swiper-slide">
+			<div id="Z-content-13" style="overflow:scroll;">
+				<h2 align="center"><strong>RESULTADO DE LA EMERGENCIA</strong></h2>
+				<div class="one-half">
+					<div class="checkboxes-demo resultado_checkboxs">
+						<h4 class="botonInicial">Resultado: * </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="resultado_emergencia" id="resultado_emergencia_no" value="1" onclick="hideNegativa();">
+							<label for="resultado_emergencia_no">No amerita</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="resultado_emergencia" id="resultado_emergencia_traslado" value="2" onclick="showNegativa();">
+							<label for="resultado_emergencia_traslado">Traslado</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="resultado_emergencia" id="resultado_emergencia_niega" value="3" onclick="hideNegativa();">
+							<label for="resultado_emergencia_niega">Se niega</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="resultado_emergencia" id="resultado_emergencia_cadaver" value="4" onclick="hideNegativa();">
+							<label for="resultado_emergencia_cadaver">Cadaver en el lugar</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column resultado-emergencia-section hidden">
+					<div class="checkboxes-demo resultado_checkboxs">
+						<h4 class="botonInicial">Traslado: * </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="traslado" id="traslado_hospital" value="1">
+							<label for="traslado_hospital">Hospital</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="traslado" id="traslado_domicilio" value="2">
+							<label for="traslado_domicilio">Domicilio</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="traslado" id="traslado_helicoptero" value="3">
+							<label for="traslado_helicoptero">Helicoptero</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="traslado" id="traslado_ambulancia" value="4">
+							<label for="traslado_ambulancia">Ambulancia</label>
+						</div>
+					</div>
+				</div>
+				<div class="resultado-emergencia-section hidden">
+					<h5 class="botonInicial" for="folio_recepcion">Folio de recepción:</h5>
+					<input type="text" name="folio_recepcion" id="folio_recepcion">
+
+					<h5 class="botonInicial" for="medico_recibe">Médico que recibe:</h5>
+					<input type="text" name="medico_recibe" id="medico_recibe">
+
+					<h5 class="botonInicial" for="matricula">Denominación / Matrícula del vehículo:</h5>
+					<input type="text" name="matricula" id="matricula">
+
+					<a href="#" class="button button-round button-red button-full half-top full-bottom"><h4>Firmar</h4></a>
+
+					<!--<input type="button" value="Firma del Médico " onclick="firmar('pageeleven', 'standFirmaMedico')">-->
+					<div>
+						<img id="standFirmaMedico" name="standFirmaMedico" src=""  width="210"/>
+					</div>
+				</div>
+				<div class="one-half last-column">
+					<div class="checkboxes-demo prioridad_checkboxs" >
+						<h4 class="botonInicial">Prioridad Final: * </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input id="box7-fac-radio" type="radio" name="prioridad_final" value="1">
+							<label for="box7-fac-radio">Verde</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input id="box8-fac-radio" type="radio" name="prioridad_final" value="1">
+							<label for="box8-fac-radio">Amarilla</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input id="box9-fac-radio" type="radio" name="prioridad_final" value="1">
+							<label for="box9-fac-radio">Roja</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input id="box10-fac-radio" type="radio" name="prioridad_final" value="1">
+							<label for="box10-fac-radio">Negra</label>
+						</div>
+					</div>
+
+				</div>
+				<br/>
+				<br/>
+				<br/>
+			</div>
+		</div>
+
+
+		<!--    INSUMOS NIVEL BÁSICO      -->
+		<!-- ====================================================================================-->
+		<div id="insumos-b" class="swiper-slide" style="display:none;">
+			<div id="Z-content-14" style="overflow:scroll;">
+				<h2 align="center"><strong>INSUMOS NIVEL BÁSICO</strong></h2>
+
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Sonda de aspiración:</h5>
+					<select data-native-menu="false" id="sonda_aspiracion" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Puntas nasales:</h5>
+					<select data-native-menu="false" id="puntas_nasales" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">MascarIlla de adulto:</h5>
+					<select data-native-menu="false" id="mascarilla_adulto" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Punzoncath 14:</h5>
+					<select data-native-menu="false" id="punzocath_14" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Punzoncath 16:</h5>
+					<select data-native-menu="false" id="punzocath_16" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Punzoncath 18:</h5>
+					<select data-native-menu="false" id="punzocath_18" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Punzoncath 20:</h5>
+					<select data-native-menu="false" id="punzocath_20" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Punzoncath 22:</h5>
+					<select data-native-menu="false" id="punzocath_22" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Venopack:</h5>
+					<select data-native-menu="false" id="venopack" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Jeringa 5cc:</h5>
+					<select data-native-menu="false" id="jeringa_5" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Jeringa_10:</h5>
+					<select data-native-menu="false" id="jeringa_10" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Guantes:</h5>
+					<select data-native-menu="false" id="guantes" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Gasa Simple:</h5>
+					<select data-native-menu="false" id="gasa_simple" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Venda elástica 5 cm:</h5>
+					<select data-native-menu="false" id="venda_elastica_5" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Venda elástica 10 cm:</h5>
+					<select data-native-menu="false" id="venda_elastica_10" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Venda elástica 30 cm:</h5>
+					<select data-native-menu="false" id="venda_elastica_30" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Tira reactiva:</h5>
+					<select data-native-menu="false" id="tira_reactiva" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Lanceta :</h5>
+					<select data-native-menu="false" id="lanceta" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">NaCL 0.9%:</h5>
+					<select data-native-menu="false" id="nacl_9" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Hartmann:</h5>
+					<select data-native-menu="false" id="hartmann" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Glucosa 5%:</h5>
+					<select data-native-menu="false" id="glucosa_5" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Glucosa 10%:</h5>
+					<select data-native-menu="false" id="glucosa_10" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Glucosa 50%:</h5>
+					<select data-native-menu="false" id="glucosa_50" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Mixta:</h5>
+					<select data-native-menu="false" id="mixta" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Sábana desechable:</h5>
+					<select data-native-menu="false" id="sabana_desechable" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Equipo de Parto:</h5>
+					<select data-native-menu="false" id="equipo_parto" data-native-menu="false">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+				<br />
+
+				<div  onclick="regresarS('insumos-b');">
+
+					<a  href="" class="button button-round button-red button-full half-top full-bottom"><h4>Listo</h4></a>
+
+				</div>
+
+				<div style="height:100px; width:100%;"></div>
+
+			</div>
+		</div>
+
+
+		<!--    INSUMOS NIVEL INTERMEDIO      -->
+		<!-- ====================================================================================-->
+		<div id="insumos-i" class="swiper-slide" style="display:none;">
+			<div id="Z-content-15" style="overflow:scroll;">
+				<h2 align="center"><strong>INSUMOS NIVEL INTERMEDIO</strong></h2>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Tubo endrotraqueal 7.5:</h5>
+					<select data-native-menu="false" id="tubo_endrotrauqeal_75">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Tubo endrotraqueal 8:</h5>
+					<select data-native-menu="false" id="tubo_endrotrauqeal_8">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Tubo endrotraqueal 8.5:</h5>
+					<select data-native-menu="false" id="tubo_endrotrauqeal_85">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Mascarilla laringea:</h5>
+					<select data-native-menu="false" id="mascarilla_laringea">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Mascarilla pediátrica:</h5>
+					<select data-native-menu="false" id="mascarilla_faringea">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Cánula orofaringea:</h5>
+					<select data-native-menu="false" id="canula_orofaringea">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Venopac microgotero:</h5>
+					<select data-native-menu="false" id="venopack_microgotero">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Jeringa de insulina:</h5>
+					<select data-native-menu="false" id="jeringa_insulina">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Clambs umbilicales:</h5>
+					<select data-native-menu="false" id="clambs_umbilicales">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Electrodos adulto:</h5>
+					<select data-native-menu="false" id="electrodos_adulto">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Eletrodos pediátricos:</h5>
+					<select data-native-menu="false" id="electrodos_pediatricos">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Papel de electrocardiagrama:</h5>
+					<select data-native-menu="false" id="papel_electrocardiograma">
+						<option value="Selecciona un valor">Selecciona un valor</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>
+				</div>
+
+				<br />
+
+				<div  onclick="regresarS('insumos-i');">
+
+					<a  href="" class="button button-round button-red button-full half-top full-bottom"><h4>Listo</h4></a>
+
+				</div>
+
+				<div style="height:100px; width:100%;"></div>
+
+			</div>
+		</div>
+
+
+		<!--    INSUMOS NIVEL AVANZADO      -->
+		<!-- ====================================================================================-->
+		<div id="insumos-a" class="swiper-slide" style="display:none;">
+			<div id="Z-content-16" style="overflow:scroll;">
+				<h2 align="center"><strong>INSUMOS NIVEL AVANZADO</strong></h2>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Tubo endrotraqueal 3.5:</h5>
+					<select data-native-menu="false" id="tubo_endrotrauqeal_35">
+						<option>Selecciona un valor</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option >10</option>
+					</select>
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Tubo endrotraqueal 4:</h5>
+					<select data-native-menu="false" id="tubo_endrotrauqeal_4">
+						<option>Selecciona un valor</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option >10</option>
+					</select>
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Trocar torácico 14:</h5>
+					<select data-native-menu="false" id="trocar_toracico_14">
+						<option>Selecciona un valor</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option >10</option>
+					</select>
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Trocar torácico 16:</h5>
+					<select data-native-menu="false" id="trocar_toracico_16">
+						<option>Selecciona un valor</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option >10</option>
+					</select>
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Trocar torácico 18:</h5>
+					<select data-native-menu="false" id="trocar_toracico_18">
+						<option>Selecciona un valor</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option >10</option>
+					</select>
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Sonda nasogástrica:</h5>
+					<select data-native-menu="false" id="sonda_nasogastrica">
+						<option>Selecciona un valor</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option >10</option>
+					</select>
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Parches de marcapasos:</h5>
+					<select data-native-menu="false" id="parches_marcapasos">
+						<option>Selecciona un valor</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option >10</option>
+					</select>
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial">Otros:</h5>
+					<select data-native-menu="false" id="insumos_otros">
+						<option>Selecciona un valor</option>
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option >10</option>
+					</select>
+				</div>
+
+				<br />
+
+				<div  onclick="regresarS('insumos-a');">
+
+					<a  href="" class="button button-round button-red button-full half-top full-bottom"><h4>Listo</h4></a>
+
+				</div>
+
+				<div style="height:100px; width:100%;"></div>
+
+			</div>
+		</div>
+
+		<!--    NEGATIVA A RECIBIR ATENCIÓN      -->
+		<!-- ====================================================================================-->
+		<div id ='negativa' class="swiper-slide" style="display:none;">
+			<div id="Z-content-17" style="overflow:scroll;">
+				<h2 align="center"><strong>NEGATIVA A RECIBIR ATENCIÓN</strong></h2>
+				<p>
+					DECLARO QUE NO ACEPTO LAS RECOMENDACIONES DEL PERSONAL DE LA AMBULANCIA O VEHÍCULO DE PRIMER CONTACTO DE CRUZ ROJA MEXICANA EN CUANTO AL (TRATAMIENTO) Y/O (TRASLADO) A UN HOSPITAL; POR LO QUE EXIMO A CRUZ ROJA MEXICANA Y A DICHAS PERSONAS DE TODA RESONSABILIDAD QUE PUDIERA DERIVAR AL HABER RESPETADO Y CUMPLIDO MI DECISIÓN
+				</p>
+				<div class="one-half">
+					<h5 class="botonInicial" align="center" >Nombre Paciente: *</h5>
+					<input type="text" name="negativa_nombre_paciente" id="negativa_nombre_paciente">
+					<a href="#" class="button button-round button-red button-full half-top full-bottom"><h4>Firmar</h4></a>
+					<!--<input type="button" value="Firmar" onclick="firmar('pagenegativa', 'standFirmaPaciente')">-->
+					<div>
+						<img id="standFirmaPacienteNegativa" name="standFirmaPaciente" src=""  width="210"/>
+					</div>
+
+				</div>
+
+				<div class="one-half last-column">
+					<h5 class="botonInicial" align="center" >Nombre Testigo: *</h5>
+					<input type="text" negativa_nombre_testigo="nombre" id="negativa_nombre_testigo">
+					<a href="#" class="button button-round button-red button-full half-top full-bottom"><h4>Firmar</h4></a>
+					<!--<input type="button" value="Firmar" onclick="firmar('pagenegativa', 'standFirmaTestigo')">-->
+					<div>
+						<img id="standFirmaTestigoNegativa" name="standFirmaTestigo" src=""  width="210"/>
+					</div>
+				</div>
+				<br />
+				<br />
+				<br />
+			</div>
+		</div>
+
+
+		<!--    SIGNOS VITALES      -->
+		<!-- ====================================================================================-->
+		<div id="signos-vitales" class="swiper-slide" style="display:none;">
+			<div id="Z-content-18" style="overflow:scroll;">
+				<h2 align="center"><strong>SIGNOS VITALES</strong></h2>
+				<h5 class="botonInicial" align="center"><strong>ESCALA GLASGOW</strong></h5>
+				<div class="one-half">
+					<h5 class="botonInicial" for="hora_toma_signos" >Hora:*</h5>
+					<input type="time" name="time" align="center" name="hora_toma_signos" id="hora_toma_signos">
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo" >
+						<h4 class="botonInicial">Verbal: * </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="glasgow_verbal_2" id="gv_orientado_2" value="5" checked="checked">
+							<label for="gv_orientado_2">Obedece</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_verbal_2" id="gv_confuso_2" value="4">
+							<label for="gv_confuso_2">Confuso</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_verbal_2" id="gv_inapropiado_2" value="3">
+							<label for="gv_inapropiado_2">Inapropiado</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_verbal_2" id="gv_incomprensible_2" value="2">
+							<label for="gv_incomprensible_2">Incomprensible</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_verbal_2" id="gv_ninguna_2" value="1">
+							<label for="gv_ninguna_2">Ninguna</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half last-column">
+
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Motora: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="glasgow_motora_2" id="gm_obedece_2" value="6" checked="checked">
+							<label for="gm_obedece_2">Obedece</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_motora_2" id="gm_localiza_2" value="5">
+							<label for="gm_localiza_2">Localiza</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_motora_2" id="gm_retira_2" value="4">
+							<label for="gm_retira_2">Retira</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_motora_2" id="gm_decortizacion_2" value="3">
+							<label for="gm_decortizacion_2">Decortización</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_motora_2" id="gm_decerebracion_2" value="2">
+							<label for="gm_decerebracion_2">Decerebración</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="glasgow_motora_2" id="gm_ninguna_2" value="1">
+							<label for="gm_ninguna_2">Ninguna</label>
+						</div>
+					</div>
+				</div>
+				<div class="one-half">
+					<div class="checkboxes-demo">
+						<h4 class="botonInicial">Ocular: </h4>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="ocular_2" id="go_espontaneo_2" value="4" checked="checked">
+							<label for="go_espontaneo_2">Espontáneo</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ocular_2" id="go_verbal_2" value="3">
+							<label for="go_verbal_2">Verbal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ocular_2" id="go_doloroso_2" value="2">
+							<label for="go_doloroso_2">Doloroso</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="ocular_2" id="go_ninguna_2" value="1">
+							<label for="go_ninguna_2">Ninguna</label>
+						</div>
+
+					</div>
+
+				</div>
+				<div class="linea-separadora"></div>
+
+				<div class="resize-input center-element">
+					<h5 class="botonInicial" >FC:* </h5>
+					<input type="number" name="fc" id="fc">
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial" >FR:*</h5>
+					<input type="number" name="fr" id="fr">
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial" >TAS:* </h5>
+					<input type="number" name="tas" id="tas">
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial" >TAD:* </h5>
+					<input type="number" name="tad" id="tad">
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial" >SaO2: </h5>
+					<input type="number" name="sao" id="sao">
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial" >Temperatura: </h5>
+					<input type="number" name="temperatura" id="temperatura">
+				</div>
+				<div class="resize-input center-element">
+					<h5 class="botonInicial" >Glucosa: </h5>
+					<input type="number" name="glucosa" id="glucosa">
+				</div>
+
+				<br />
+
+				<div  onclick="guardar();">
+
+					<a  href="" class="button button-round button-red button-full half-top full-bottom"><h4>Guardar registro</h4></a>
+
+				</div>
+
+				<div style="height:100px; width:100%;"></div>
+
+			</div>
+		</div>
+
+
+
+		<!--    MEDICAMENTOS ADMINISTRADOS AL PACIENTE POR EL TUM BÁSICO      -->
+		<!-- ====================================================================================-->
+		<div id="medicamentos-administrados" class="swiper-slide" style="display:none;">
+			<div id="Z-content-19" style="overflow:scroll;">
+				<h2 align="center"><strong>MEDICAMENTOS ADMINISTRADOS AL PACIENTE POR EL TUM BÁSICO</strong></h2>
+				<div class="one-half">
+					<h5 class="botonInicial">Hora:*</h5>
+					<input type="time" name="time" align="center" type="time" name="hora" id="hora">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Medicamento: * </h5>
+					<input type="text" name="medicamento" id="medicamento">
+				</div>
+				<div class="resize-input">
+					<h5 class="botonInicial" >Dosis: *</h5>
+					<input type="text" name="dosis" id="dosis">
+				</div>
+				<div class="resize-input">
+					<div class="checkboxes-demo">
+						<h5 class="botonInicial" >Vía de administración:*</h5>
+						<div class="fac fac-radio fac-red "><span></span>
+							<input type="radio" name="via_administracion" id="Oral" value="1">
+							<label for="Oral">Oral</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="via_administracion" id="Sublingual" value="2">
+							<label for="Sublingual">Sublingual</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="via_administracion" id="Gastroenterica" value="3">
+							<label for="Gastroenterica">Gastroentérica</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="via_administracion" id="Rectal" value="4">
+							<label for="Rectal">Rectal</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="via_administracion" id="Intravenosa" value="5">
+							<label for="Intravenosa">Intravenosa</label>
+						</div>
+						<div class="fac fac-radio fac-red"><span></span>
+							<input type="radio" name="via_administracion" id="Intraarterial" value="6">
+							<label for="Intraarterial">Intraarterial</label>
+						</div>
+
+					</div>
+				</div>
+				<br />
+
+				<div  onclick="regresarS('medicamentos-administrados');">
+
+					<a  href="" class="button button-round button-red button-full half-top full-bottom"><h4>Guardar registro</h4></a>
+
+				</div>
+
+				<div style="height:100px; width:100%;"></div>
+
+			</div>
+		</div>
+
+
+
+		<!--    PÁGINA FINAL      -->
+		<!-- ====================================================================================-->
+		<div class="swiper-slide">
+			<div id="Z-content-20" style="overflow:scroll;">
+				<h2 align="center">PÁGINA FINAL</h2>
+				<div class="icon-save-image"><img src="../images/save.png"></div>
+				<div class="content full-bottom half-top" onclick="guardarFRAP();">
+
+					<a  href="" class="button button-round button-red button-full half-top full-bottom"><h4>Guardar FRAP</h4></a>
+
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<!-- Add Pagination -->
+	<div class="swiper-pagination"></div>
+	<!-- Add Arrows -->
+	<div class="swiper-button-next"></div>
+	<div class="swiper-button-prev"></div>
+</div>
+
+
+
+<div class="share-socials-bottom">
+	<a href="#" class="bottom-icon-right badge-share show-share-bottom" onclick="upButtonsPanel();">
+		<i class="ion-ios-keypad colorFrap" onclick="upButtonsPanel();"></i>
+	</a>
+	<a href="#" class="bottom-icon-left" onclick="goHome();">
+		<i class="ion-home colorFrap"></i>
+	</a>
+
+</div>
+
+<div class="share-bottom share-light" align="center">
+	<h3 style="padding-bottom:0;">Secciones del FRAP</h3>
+	<div style="width:800px; overflow: scroll;">
+
+
+	</div>
+	<div style="overflow: scroll;">
+		<div class="share-socials-bottom" >
+			<a href="" onclick="changeS('paciente');">
+				<i class="medical-icon-i-paciente frapNav-bg" id="datos_paciente_icon" ></i>
+				Datos del paciente
+			</a>
+
+			<a href="" onclick="changeS('evaluacion-primaria');">
+				<i class="medical-icon-i-ep frapNav-bg" id="evaluacion_primaria_icon"></i>
+				Evaluación Primaria
+			</a>
+
+			<a href="" onclick="changeS('evaluacion-secundaria');">
+				<i class="medical-icon-i-es frapNav-bg" ></i>
+				Evaluación Secundaria
+			</a>
+
+			<a href="" onclick="changeS('tratamiento');">
+				<i class="medical-icon-i-tratamiento frapNav-bg" ></i>
+				Tratamiento
+			</a>
+
+			<a href="" onclick="changeS('consentimiento');">
+				<i class="medical-icon-i-consentimiento frapNav-bg" ></i>
+				Consentimiento informado
+			</a>
+
+			<a href="" onclick="changeS('otros');">
+				<i class="medical-icon-i-otros frapNav-bg" ></i>
+				Otros
+			</a>
+
+			<a href="" onclick="changeS('pertenencias');">
+				<i class="medical-icon-i-pertencias frapNav-bg" ></i>
+				Pertenencias
+			</a>
+
+			<a href="" onclick="changeS('resultado');">
+				<i class="medical-icon-i-resultado frapNav-bg" ></i>
+				Resultado
+			</a>
+
+			<a href="" onclick="changeS('final');">
+				<i class="medical-icon-i-physical-therapy frapNav-bg" ></i>
+				Finalizar y enviar
+			</a>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<h3 style="padding-bottom:0;">Complementos</h3>
+	<div style="overflow: scroll;">
+		<div class="share-socials-bottom" >
+
+
+			<a href="#" onclick="changeSO('insumos-b','complementos')">
+				<i class="medical-icon-i-ib" ></i>
+				Insumos básicos
+			</a>
+
+
+			<a href="#" onclick="changeSO('insumos-i','complementos')">
+				<i class="medical-icon-i-ii" ></i>
+				Insumos intermedios
+			</a>
+
+
+			<a href="#" onclick="changeSO('insumos-a','complementos')">
+				<i class="medical-icon-i-ia" ></i>
+				Insumos avanzados
+			</a>
+
+
+			<a href="#" onclick="changeSO('medicamentos-administrados','complementos')">
+				<i class="medical-icon-i-medicamentos frapNav-bg" ></i>
+				Medicamentos suministrados
+			</a>
+
+
+			<a href="#" onclick="changeSO('signos-vitales','complementos')">
+				<i class="medical-icon-i-cardiology frapNav-bg" ></i>
+				Signos vitales
+			</a>
+
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="../cordova.js"></script>
+
+
+
+</body>
+</html>

@@ -1,140 +1,393 @@
 <!DOCTYPE HTML>
+
 <html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<title>Epsilon 7.0</title>
-    
-<link rel="stylesheet" type="text/css" href="../styles/style.css">
-<link rel="stylesheet" type="text/css" href="../styles/skin.css">
-<link rel="stylesheet" type="text/css" href="../styles/framework.css">
-<link rel="stylesheet" type="text/css" href="../styles/ionicons.min.css">
-<link rel="stylesheet" href="../styles/wfmi-style.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
 
-    
-<script type="text/javascript" src="../scripts/jquery.js"></script>
-<script type="text/javascript" src="../scripts/plugins.js"></script>
-<script type="text/javascript" src="../scripts/custom.js"></script>
+    <link rel="stylesheet" type="text/css" href="dialogos/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="dialogos/jquery-ui.theme.css">
 
-	<script type="text/javascript" src="http://www.google.com/jsapi"></script>
-	<script type="text/javascript" src="../controller/home_vehiculos.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    <link rel="stylesheet" type="text/css" href="../styles/skin.css">
+    <link rel="stylesheet" type="text/css" href="../styles/framework.css">
+    <link rel="stylesheet" type="text/css" href="../styles/ionicons.min.css">
+
+
+    <link id="style-Z" rel="stylesheet" type="text/css" href="../styles/laZ.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../styles/jquery.mobile.structure-1.4.5.min.css"/>
+
+
+
+
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../js/jquery.mobile-1.4.5.js"></script>
+
+
+    <script type="text/javascript" src="../scripts/plugins.js"></script>
+    <script type="text/javascript" src="../scripts/custom.js"></script>
+
+
+
+    <!--
+    <script type="text/javascript" src="http://www.google.com/jsapi/js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Qf8FxL-rrw2i5EeuT6K9807IWMRPz3Q"></script>
+
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="http://www.google.com/jsapi/MODE?key=AIzaSyByxDicnWY4TgQT6OcKgUoVZpZF7YQcJtA"></script>
+
+    <script type="text/javascript" src="https://www.google.com/maps/embed/v1/MODE?key=AIzaSyByxDicnWY4TgQT6OcKgUoVZpZF7YQcJtA"></script>
+
+
+
+    ç
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4Qf8FxL-rrw2i5EeuT6K9807IWMRPz3Q"
+            type="text/javascript"></script>
+-->
+
+
+
+
+
+
+
+
+<!--
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUbzwJR15AmXdnSpDezdFe5jthjEfUqsk"
+            type="text/javascript"></script>
+
+    <script src="http://www.google.com/jsapi?key=key=AIzaSyDUbzwJR15AmXdnSpDezdFe5jthjEfUqsk" type="text/javascript"></script>
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUbzwJR15AmXdnSpDezdFe5jthjEfUqsk"
+            type="text/javascript"></script>
+
+-->
+
+
+
+
+
+    <script async defer src="http://www.google.com/jsapi" type="text/javascript"></script>
+
+
+
+    <script type="text/javascript" src="../scripts/jStorage.js"></script>
+    <script type="text/javascript" src="../js/jquery.blockUI.js"></script>
+
+
+
+    <script src="dialogos/jquery-ui.js"></script>
+
+
+    <style>
+
+        .ui-dialog-titlebar {
+            display: none;
+        }
+
+
+        .ui-dialog .ui-dialog-content {
+            border: 0 none;
+        }
+
+        .ui-widget-overlay.custom-overlay
+        {
+            background-color: black;
+            background-image: none;
+            opacity: 0.7;
+            z-index: 1040;
+        }
+
+
+        .dlg-no-close {
+            text-align: center;
+            background-color:white;
+            border: 0 none;
+        }
+
+        .dlg-no-close .ui-dialog-titlebar-close {
+            display: none;
+        }
+
+    </style>
+
+
 
 </head>
 
+
+
 <body>
+<script type="text/javascript" src="../cordova.js"></script>
+
+<script type="text/javascript" src="../controller/home_vehiculos.js"></script>
+<script type="text/javascript" src="../model/dataBaseApp.js"></script>
+
+<script type="text/javascript" src="../js/index.js"></script>
+
+
 <div id="page-transitions">
-	
-	<div class="header header-logo-center header-dark" align="center">
-		<h3 class="botonInicial"><i class="medical-icon-i-ambulance"></i><strong class="color-white">VEHÍCULOS</strong></h3>
-	</div>
-	
-	<div id="page-content" class="page-content">	
-		<div id="page-content-scroll"><!--Enables this element to be scrolled --> 
 
-			<div class="map-fullscreen">
-				<iframe src="https://maps.google.com/?ie=UTF8&amp;ll=47.595131,-122.330414&amp;spn=0.006186,0.016512&amp;t=h&amp;z=17&amp;output=embed"></iframe>
-			</div>  
-			<br>
-			<h2 class="center-text thin small-bottom">Información del Vehículo</h2>
-				<h2 class="center-text-mobile">PUE-370</h2>
-				<br>
-					<div class="one-half ">
-						<p>
-							Rumbo a una emergencia
-						</p>
-					</div>
-					<div class="one-half last-column">
-						<p>
-							Agua Prieta Primer Turno
-						</p>
-					</div>
-						
-			
-			<div class="decoration deco-0 decoration-small animate-zoom"></div>
 
-			<div class="one-half-responsive">
 
-					<div class="column-home-center one-half animate-left">
+    <div style="background-color:rgba(0, 0, 0, 0.0); display: none; height: 390px; padding-bottom: -5px;"  id="msgError" >
 
-						<i class="ion-android-people color-green-dark"></i>
-						<ion-icon ios="ios-people" md="md-people"></ion-icon>
-						<h5 class="thin">Operador</h5>
 
-						<p>Estado de emergencia: Sin Confirmar</p>
-						
-						<h5 class="thin">Jefe de Servicio</h5>
 
-						<p>Estado de emergencia: Sin Confirmar</p>
+        <div id="msgErrorContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray; z-index: 3000;">
+            <div  style="width: 90px; margin: 0 auto;">
+                <img onclick="msgBoxErrorClose();" src="../images/error.png" width=90 >
+            </div>
+            <p id="msgErrorText" style="text-align: center;"></p>
+        </div>
 
-						
+        <div style="color: white; background-color:WhiteSmoke;  border-bottom: 1px solid; border-bottom-color: gray; height: 30px; padding-bottom: -5px; " onclick="msgBoxErrorClose();">
+            <p style="text-align: center; color: red;">Regresar</p>
+        </div>
 
-					</div>
+    </div>
 
-					<div class="column-home-center one-half last-column animate-right">
 
-						<i class="ion-speedometer color-red-dark"></i>
 
-						<h5 class="thin">Kilometraje de incio</h5>
-						<p>1988554</p>
-						
-						<h5 class="thin">Combustible</h5>
-						<p>55%</p>
-						
-						<div class="toggle">
-							<a href="#" class="toggle-title">Leer más<i class="ion-android-add"></i></a>
-							<div class="toggle-content">
-								<h5 class="thin">Inicio de operaciones</h5>
-								<p>-----</p>
-								<h5 class="thin">Tipo de vehículo</h5>
-								<p>Ambulancia-Urgencias</p>
-								<h5 class="thin">UID</h5>
-								<p>49704</p>	
-							</div>
-						</div>
-						
-						
-					</div>
 
-				</div>
+    <div data-role="panel" id="pnlVehiculos" data-display="overlay" data-position="left" style=" width: 410px;">
+        <div class="ui-panel-inner" style="width: 400px;">
 
-			<div class="share-socials-bottom">
-				<a href="#" class="bottom-icon-right badge-share show-share-bottom  ">
-					<i class="ion-ios-keypad colorFrap"></i>
-				</a>
-				<a href="home_02.html" class="bottom-icon-left ">
-					<i class="ion-home colorFrap"></i>
-				</a>
-			</div>
-			
-				
-		</div>  
-	</div>
-	
-	
-	<div class="share-bottom share-light">
-		<h3>OPCIONES</h3>
-		<div class="share-socials-bottom activate-tab-1">
-			<a href="#">
-				<i class="ion-medkit facebook-bg"></i>
-				Servicios atendidos
-			</a>
-			<a href="#">
-				<i class="ion-clock twitter-bg activate-tab-2"></i>
-				Historial 
-			</a>
-			<a href="#">
-				<i class="ion-ios-location google-bg activate-tab-3"></i>
-				Ubicación Actual
-			</a>
-			
-			<div class="clear"></div>
-		</div>
-		
-	</div>
-	
+            <ul data-theme="a" data-role="listview" id="panel_vehiculos"  data-filter="true" data-filter-placeholder="Buscar unidades..." data-inset="true">
+
+            </ul>
+        </div>
+    </div><!-- /panel -->
+
+
+    <div data-role="panel" id="pnlServicios" data-display="overlay" data-position="right" style=" width: 410px;">
+        <center>
+            <h1 style="padding-top: 7px;" id="unidad_asignada"></h1>
+        </center>
+
+        <div class="ui-panel-inner" style="width: 400px;">
+            <ul data-theme="a" data-role="listview" id="panel_servicios"  data-filter="true" data-filter-placeholder="Buscar servicios..." data-inset="true">
+            </ul>
+        </div>
+    </div><!-- /panel -->
+
+
+
+
+    <div class="header header-logo-center header-dark" align="center">
+
+        <!--
+        <h3 class="botonInicial"><strong>SCE</strong> <strong class="color-white">FRAP Digital</strong></h3>
+        -->
+        <center>
+            <div style=" padding-top: 10px;">
+                <img src="images/LOGO_FRAP_DIGITAL_blanco-03.png" width="179" >
+            </div>
+        </center>
+
+    </div>
+
+
+
+    <div id="page-content" class="page-content">
+
+        <div id="page-content-scroll"><!--Enables this element to be scrolled -->
+
+
+
+                <div id="map" style="width:100%; height:100%;">
+                </div>
+
+
+
+
+
+            <div class="content no-bottom">
+                <div style="background-color:black; height: 50px; width: 100%; color: white; padding-top: 7px;">
+                    <h2 class="center-text thin small-bottom">Información del Vehículo</h2>
+                </div>
+
+                <div style="background-color:#585858 ; height: 100px; width: 100%; color: white; padding-left: 25px; padding-right: 25px; padding-top: 7px; ">
+                    <h2 id="vehiculo_name" class="center-text-mobile"></h2>
+                    <br>
+                    <div style="width: 50%; float:left; ">
+                        <p style="font-size: 19px; color: white; font-weight:lighter;" id="vehiculo_estatus"> </p>
+                    </div>
+                    <div style="width: 50%; float:left; ">
+                        <p style="text-align: right; color: white; font-size: 19px;  font-weight:lighter;" id="vehiculo_base"></p>
+                    </div>
+                </div>
+
+                <div>
+                    <div id="radioButtona" style="border-bottom: 1px solid; border-bottom-color: #aeaeae;">
+                        <div  style="width: 70px; margin: 0 auto;">
+                            <img src="iconos/GRISES/Iconos_tripulcion.png" width=70 >
+                        </div>
+                        <center>
+                            <p>
+                                Tripulación
+                            </p>
+                        </center>
+
+                    </div>
+                    <div id="opciones_nombre" style="height: 170px; width: 100%; overflow: auto; display: none; background-color: #aeaeae; color: white; padding-left: 25px; padding-right: 25px; padding-top: 11px;">
+                        <h5  class="thin">Operador</h5>
+                        <p id="operador" style="color: white;">Sin Confirmar</p>
+
+                        <h5 class="thin">Jefe de Servicio</h5>
+                        <p id="jefe" style="color: white;">Sin Confirmar</p>
+                    </div>
+
+                    <script>
+                    $(document).ready(function(){
+                        $("#radioButtona").click(function(){
+                            $("#opciones_nombre").slideToggle(600);
+                        });
+                    });
+                    </script>
+
+
+
+                    <div>
+                        <div style="width: 50%; float:left; border-right: 1px solid; border-right-color: #aeaeae; padding-top: 19px;">
+                            <div style="width: 70px; margin: 0 auto;">
+                                <img src="iconos/GRISES/Iconos_kilometraje.png" width=70 >
+                            </div>
+                            <div style="font-size: 18px;">
+                                <center>
+                                    <h5 class="thin">Kilometraje de incio: </h5>
+                                    <p id="vehiculo_km_inicio"></p>
+                                </center>
+                            </div>
+                        </div>
+
+
+                        <div style="width: 50%; float:left; padding-top: 19px;">
+                            <div style="width: 70px; margin: 0 auto;">
+                                <img src="iconos/GRISES/Iconos_combustible.png" width=70 >
+                            </div>
+                            <div style="font-size: 18px;">
+                                <center>
+                                    <h5 class="thin">Combustible: </h5>
+                                    <p id="vehiculo_cambustivle"></p>
+                                </center>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!--
+                <div style="background-color:#585858 ;">
+                    <a >Leer más</a>
+                    <!--
+                    <div class="toggle-content">
+                        <h5 class="thin">Inicio de operaciones</h5>
+                        <p>-----</p>
+                        <h5 class="thin">Tipo de vehículo</h5>
+                        <p id="vehiculo_tipo"></p>
+                        <h5 class="thin">UID</h5>
+                        <p id="vehiculo_nivel"></p>
+                    </div>
+
+                </div>
+-->
+
+
+
+
+
+                <!--
+                    <div class="column-home-center one-half animate-left">
+
+                        <i class="ion-android-people color-green-dark"></i>
+                        <ion-icon ios="ios-people" md="md-people"></ion-icon>
+                        <h5 class="thin">Operador</h5>
+
+                        <p>Estado de emergencia: Sin Confirmar</p>
+
+                        <h5 class="thin">Jefe de Servicio</h5>
+
+                        <p>Estado de emergencia: Sin Confirmar</p>
+
+
+
+                    </div>
+
+                    <div class="column-home-center one-half last-column animate-right">
+
+                        <i class="ion-speedometer color-red-dark"></i>
+
+                        <h5 class="thin">Kilometraje de incio</h5>
+                        <p id="vehiculo_km_inicio"></p>
+
+                        <h5 class="thin">Combustible</h5>
+                        <p id="vehiculo_cambustivle"></p>
+
+
+
+
+                    </div>
+                    -->
+
+
+
+            </div>
+
+            <div class="decoration"></div>
+
+        </div>
+
+    </div>
+
 </div>
+
+
+
+<div class="footer-fixed footer-fixed-light">
+
+    <div class="swiper-wrapper menuInferior">
+
+        <a href="#pnlVehiculos" class="menuInferior ve">
+            <em>
+                <img src="iconos/GRISES/Iconos_vehiculos.png" width=50 >
+                <!-- <i class="ion-android-car" ></i><span>Vehículos</span> -->
+            </em>
+        </a>
+        <a onclick="salir();" href="" class="menuInferior">
+            <em>
+                <img style="padding-top: 7px;" src="iconos/GRISES/Icono_puerta_gris.png" width=40 >
+                <!-- <i class="ion-android-car"></i><span>Salir</span> -->
+            </em>
+        </a>
+
+
+        <a href="#pnlServicios" class="menuInferior se">
+            <em>
+                <img src="iconos/GRISES/Iconos_Tratamientos.png" width=50 >
+                <!-- <i class="ion-medkit" ></i><span>Servicios</span> -->
+            </em>
+        </a>
+
+    </div>
+
+
+
+</div>
+
+
+
+
+
 </body>
+
