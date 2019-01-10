@@ -4,6 +4,10 @@
 var id_sesion;
 var id_usuario;
 var estado;
+var token;
+var url_con;
+
+var changeConf = 0;
 
 
 // Variables para la información del vehículo actual
@@ -76,6 +80,7 @@ $(document).ready(function () {
     id_sesion  = $.jStorage.get("id_sesion");
     id_usuario  = $.jStorage.get("id_usuario");
     estado = $.jStorage.get("estado");
+    token = $.jStorage.get("token");
 
 
 
@@ -94,143 +99,184 @@ $(document).ready(function () {
     // Paso 3 : Invoca a getAll para llenar la información de los paneles laterales
     //=============================================================================
 
+
+
+    // Llamada al servidor dispatcher
     $.ajax({
-                type: 'POST',
-                contentType: 'application/json',
-                url: 'http://opowerdev.net/web_services/FRAP/usuario/getAll',
-                dataType: "json",
-                data: JSON.stringify({"ID_USUARIO":id_usuario,"ID_SESSION":id_sesion, "Estado":estado}),
-                contentType: "application/json; charset=utf-8",
-                success: function(data, textStatus, jqXHR){
-                // Paso 5:  LLena el array de los vehículos : utilizado para (a) debujar panel y  (b) mapa (var:locations)
-                //=========================================================================================================
+        type: 'POST',
+        contentType: 'application/json',
+        url: 'http://opowerdev.net/web_services/Despachador/usuario/getURL',
+        //url: 'http://opowerdev.net/web_services/FRAP/usuario/login',
+        dataType: "json",
+        data: JSON.stringify({"Estado": estado}),
+        contentType: "application/json; charset=utf-8",
+        success: function (data, textStatus, jqXHR) {
 
 
-                        // Variable para generar el panel lateral de vehículos
-                        var fragment ='';
-                        num_vehicules = data.num_vehicules;
+            console.log(data.estado);
+            console.log(data.token);
+            console.log(data.url);
+            console.log(data.version);
+            url_con =data.url;
 
-                        if(data.num_vehicules>1){
-                        // manejar un array
-                        //..................
-                        //..................
-
-                                var vehiculos = data.value;
-                                for(var i in vehiculos)
-                                {
-                                    var auxvsc = vehiculos[i].vehicule.icon;
-                                    var vc = vehiculeColor[auxvsc];
-
-                                    // (a) Agregar Información al Panel vehículos
-                                    //............................................
-                                    //............................................
-                                    fragment = create('<li data-theme="a"  style="background-color: #fff; width:350px;" value="'+ vehiculos[i].vehicule.ID_TRIPULACIONES +'" onclick="cambiarVehiculo(this.value);" >'+
-                                                                               '<a  style="background-color: #fff; border:none;" class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="" >'+
-                                                                                  //'<span>'+vehiculos[i].vehicule.name+'</span> '+vehiculos[i].vehicule.headquarter +
-                                                                                    '<div style="height: 20px; width: 10px; background-color: '+vc+'; float: left;"> </div> <div style="height: 10px; width: 5px; float: left;"></div> <span>'+vehiculos[i].vehicule.name+'</span> '+vehiculos[i].vehicule.headquarter +
-                                                                                '</a>'+
-                                                                           '</li>');
-                                    document.getElementById("panel_vehiculos").appendChild(fragment);
+            console.log(token);
 
 
-                                    // Paso 4 : Genera un vehículo actual
-                                    //====================================
-                                    if(idCrew == null){
-                                        idCrew =vehiculos[i].vehicule.ID_TRIPULACIONES;
-                                        $.jStorage.set("idCrew", String(idCrew),{});
+            if(token===data.token){
+                    $.ajax({
+                                type: 'POST',
+                                contentType: 'application/json',
+                                url:url_con+'/getAll',
+                                //url: 'http://opowerdev.net/web_services/FRAP/usuario/getAll',
+                                dataType: "json",
+                                data: JSON.stringify({"ID_USUARIO":id_usuario,"ID_SESSION":id_sesion, "Estado":estado}),
+                                contentType: "application/json; charset=utf-8",
+                                success: function(data, textStatus, jqXHR){
+                                // Paso 5:  LLena el array de los vehículos : utilizado para (a) debujar panel y  (b) mapa (var:locations)
+                                //=========================================================================================================
 
-                                        $("#unidad_asignada").html('Unidad  :' + vehiculos[i].vehicule.name);
-                                    }
-                                    else{
-                                        if(idCrew == vehiculos[i].vehicule.ID_TRIPULACIONES){
-                                            $("#unidad_asignada").html('Unidad  :' + vehiculos[i].vehicule.name);
+
+                                        // Variable para generar el panel lateral de vehículos
+                                        var fragment ='';
+                                        num_vehicules = data.num_vehicules;
+
+                                        if(data.num_vehicules>1){
+                                        // manejar un array
+                                        //..................
+                                        //..................
+
+                                                var vehiculos = data.value;
+                                                for(var i in vehiculos)
+                                                {
+                                                    var auxvsc = vehiculos[i].vehicule.icon;
+                                                    var vc = vehiculeColor[auxvsc];
+
+                                                    // (a) Agregar Información al Panel vehículos
+                                                    //............................................
+                                                    //............................................
+                                                    fragment = create('<li data-theme="a"  style="background-color: #fff; width:350px;" value="'+ vehiculos[i].vehicule.ID_TRIPULACIONES +'" onclick="cambiarVehiculo(this.value);" >'+
+                                                                                               '<a  style="background-color: #fff; border:none;" class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="" >'+
+                                                                                                  //'<span>'+vehiculos[i].vehicule.name+'</span> '+vehiculos[i].vehicule.headquarter +
+                                                                                                    '<div style="height: 20px; width: 10px; background-color: '+vc+'; float: left;"> </div> <div style="height: 10px; width: 5px; float: left;"></div> <span>'+vehiculos[i].vehicule.name+'</span> '+vehiculos[i].vehicule.headquarter +
+                                                                                                '</a>'+
+                                                                                           '</li>');
+                                                    document.getElementById("panel_vehiculos").appendChild(fragment);
+
+
+                                                    // Paso 4 : Genera un vehículo actual
+                                                    //====================================
+                                                    if(idCrew == null){
+                                                        idCrew =vehiculos[i].vehicule.ID_TRIPULACIONES;
+                                                        $.jStorage.set("idCrew", String(idCrew),{});
+
+                                                        $("#unidad_asignada").html('Unidad  :' + vehiculos[i].vehicule.name);
+                                                    }
+                                                    else{
+                                                        if(idCrew == vehiculos[i].vehicule.ID_TRIPULACIONES){
+                                                            $("#unidad_asignada").html('Unidad  :' + vehiculos[i].vehicule.name);
+                                                        }
+                                                    }
+
+
+                                                    // (b) Información para  dibujar el mapa
+                                                    //............................................
+                                                    //............................................
+
+                                                     if(idCrew == vehiculos[i].vehicule.ID_TRIPULACIONES){
+                                                         c_name  = vehiculos[i].vehicule.name;
+                                                         if(vehiculos[i].vehicule.gpsInfo.location == 'TRUE'){
+
+
+                                                             lat_c = vehiculos[i].vehicule.gpsInfo.latitude;
+                                                             lon_c = vehiculos[i].vehicule.gpsInfo.longitude;
+                                                             haveLocation =1;
+                                                         }
+                                                         else{
+                                                             haveLocation = 0;
+                                                         }
+
+                                                     }
+
+
+
+                                                }
+
+
+                                                cargarServiciosVehiculo(idCrew);
+
+
+
+
                                         }
-                                    }
+                                        else{
+                                        // manejar un registro único
+                                        //..................
+                                        //..................
+
+                                                // (a) Agregar Información al Panel vehículos
+                                                //.............................................
+                                                //.............................................
+                                                fragment = create('<li data-theme="a"  style="background-color: #fff; width:350px;"  value="'+ data.value.vehicule.ID_TRIPULACIONES +'" onclick="cambiarVehiculo(this.value);">'+
+                                                                       '<a style="background-color: #fff; border:none;" class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="" >'+
+                                                                          //'<i class="icon-bg facebook-bg ion-flag"></i><span>'+data.value.vehicule.name+'</span>'+ data.value.vehicule.headquarter+
+                                                                             '<div style="height: 20px; width: 10px; background-color: '+vc+'; float: left;"> </div> <div style="height: 10px; width: 5px; float: left;"></div>'+data.value.vehicule.name+'</span> <div style="height: 10px; width: 12px; float: left;"></div>'+ data.value.vehicule.headquarter+
+                                                                           '</a>'+
+                                                                   '</li>');
+
+                                                document.getElementById("panel_vehiculos").appendChild(fragment);
+
+                                                // Paso 4 : Genera un vehículo actual
+                                                //====================================
+                                                if(idCrew == null){
+                                                    idCrew = data.value.vehicule.ID_TRIPULACIONES;
+                                                    $.jStorage.set("idCrew", String(idCrew),{});
+                                                    $("#unidad_asignada").html('Unidad  :' + data.value.vehicule.name);
+                                                }
+                                                else{
+                                                    $("#unidad_asignada").html('Unidad  :' + data.value.vehicule.name);
+                                                }
 
 
-                                    // (b) Información para  dibujar el mapa
-                                    //............................................
-                                    //............................................
 
-                                     if(idCrew == vehiculos[i].vehicule.ID_TRIPULACIONES){
-                                         c_name  = vehiculos[i].vehicule.name;
-                                         if(vehiculos[i].vehicule.gpsInfo.location == 'TRUE'){
+                                                // (b) Información para  dibujar el mapa
+                                                //.............................................
+                                                //.............................................
+                                                if(data.value.vehicule.gpsInfo.location == 'TRUE'){
+                                                    lat_c = data.value.vehicule.gpsInfo.latitude;
+                                                    lon_c = data.value.vehicule.gpsInfo.longitude;
 
-
-                                             lat_c = vehiculos[i].vehicule.gpsInfo.latitude;
-                                             lon_c = vehiculos[i].vehicule.gpsInfo.longitude;
-                                             haveLocation =1;
-                                         }
-                                         else{
-                                             haveLocation = 0;
-                                         }
-
-                                     }
+                                                     var carro = [];
+                                                     carro = [data.value.vehicule.name,lat_c,lon_c,1];
+                                                     locations.push(carro);
+                                                }
 
 
+                                                cargarServiciosVehiculo(idCrew);
 
+
+                                        }
                                 }
+                     });
 
+            }else{
+                // notificar que la aplicación debe reiniciar y cerrar
+                console.log('else');
+                $.mobile.loading( "hide" );
+                $("#msgErrorText").html('Error CON 02: La configuración del servidor ha cambiado, la aplicación debe reiniciarse');
+                changeConf = 1;
 
-                                cargarServiciosVehiculo(idCrew);
-
-
-
-
-                        }
-                        else{
-                        // manejar un registro único
-                        //..................
-                        //..................
-
-                                // (a) Agregar Información al Panel vehículos
-                                //.............................................
-                                //.............................................
-                                fragment = create('<li data-theme="a"  style="background-color: #fff; width:350px;"  value="'+ data.value.vehicule.ID_TRIPULACIONES +'" onclick="cambiarVehiculo(this.value);">'+
-                                                       '<a style="background-color: #fff; border:none;" class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="" >'+
-                                                          //'<i class="icon-bg facebook-bg ion-flag"></i><span>'+data.value.vehicule.name+'</span>'+ data.value.vehicule.headquarter+
-                                                             '<div style="height: 20px; width: 10px; background-color: '+vc+'; float: left;"> </div> <div style="height: 10px; width: 5px; float: left;"></div>'+data.value.vehicule.name+'</span> <div style="height: 10px; width: 12px; float: left;"></div>'+ data.value.vehicule.headquarter+
-                                                           '</a>'+
-                                                   '</li>');
-
-                                document.getElementById("panel_vehiculos").appendChild(fragment);
-
-                                // Paso 4 : Genera un vehículo actual
-                                //====================================
-                                if(idCrew == null){
-                                    idCrew = data.value.vehicule.ID_TRIPULACIONES;
-                                    $.jStorage.set("idCrew", String(idCrew),{});
-                                    $("#unidad_asignada").html('Unidad  :' + data.value.vehicule.name);
-                                }
-                                else{
-                                    $("#unidad_asignada").html('Unidad  :' + data.value.vehicule.name);
-                                }
+                $("#msgError").dialog('open');
+            }
 
 
 
-                                // (b) Información para  dibujar el mapa
-                                //.............................................
-                                //.............................................
-                                if(data.value.vehicule.gpsInfo.location == 'TRUE'){
-                                    lat_c = data.value.vehicule.gpsInfo.latitude;
-                                    lon_c = data.value.vehicule.gpsInfo.longitude;
+        }, error: function (jqXHR, textStatus, errorThrown) {
 
-                                     var carro = [];
-                                     carro = [data.value.vehicule.name,lat_c,lon_c,1];
-                                     locations.push(carro);
-                                }
+            // reportar error de conexión y salir de la app ppara volver a entrar y ya sea que conecte o iniar el modo offline
+            alert('conexion');
+        }
 
-
-                                cargarServiciosVehiculo(idCrew);
-
-
-                        }
-                }
-     });
-
-
-
-
+    });
 
 
 
@@ -250,7 +296,8 @@ function cargarServiciosVehiculo(id_t){
         $.ajax({
                     type: 'POST',
                     contentType: 'application/json',
-                    url: 'http://opowerdev.net/web_services/FRAP/usuario/getServices',
+                    url: url_con+'/getServices',
+                    //url: 'http://opowerdev.net/web_services/FRAP/usuario/getServices',
                     dataType: "json",
                     data: JSON.stringify({"ID_USUARIO":id_usuario,"ID_SESSION":id_sesion, "Estado":estado, "ID_tripulacion":id_t}),
                     contentType: "application/json; charset=utf-8",
@@ -343,7 +390,8 @@ function cargarServiciosVehiculo(id_t){
                         $.ajax({
                                         type: 'POST',
                                         contentType: 'application/json',
-                                        url: 'http://opowerdev.net/web_services/FRAP/usuario/getService',
+                                        url: url_con+'/getService',
+                                        //url: 'http://opowerdev.net/web_services/FRAP/usuario/getService',
                                         dataType: "json",
                                         data: JSON.stringify({"ID_USUARIO":id_usuario,"ID_SESSION":id_sesion, "Estado":estado, "ID_servicio":idService}),
                                         contentType: "application/json; charset=utf-8",
@@ -390,6 +438,55 @@ function cargarServiciosVehiculo(id_t){
                                             $("#tiempo_total").html(data.times.total);
 
 
+                                            // agrear los FRP's previamente creados para mostrar el PDF
+
+                                            // FRAPS
+                                            //==================================================
+                                            console.log(data.fraps);
+
+                                            /*
+                                            for (var frap_e in data.fraps)
+                                            {
+                                                console.log(frap_e);
+                                                console.log(frap_e.ID_FRAPS);
+                                                console.log(frap_e.FRAP_NUMERO);
+                                                console.log(frap_e.date);
+                                                console.log(frap_e.dateLegend);
+                                                console.log(frap_e.name);
+
+                                                fragment = create(
+                                                    '<div style="height: 40px; padding-top: 13px;" >'+
+                                                    '<div> '+
+                                                    '<b>Número de FRAP</b> '+frap.FRAP_NUMERO+' - '+frap.dateLegend+'<img src="img/notebook-medium.png" width="35" onclick="openFRAP('+frap_e.ID_FRAPS+')"> <img src="img/mail-send.png" width="35" onclick="enviarFRAP('+frap_e.ID_FRAPS+')">'+
+                                                    '</div>'+
+                                                    '</div>'
+                                                );
+                                                document.getElementById('local_fraps').appendChild(fragment);
+                                            }
+                                            */
+                                            $.each(data.fraps, function(key,value){
+                                                /*
+                                                console.log(value);
+                                                console.log(key);
+                                                console.log(value.ID_FRAPS);
+                                                console.log(value.FRAP_NUMERO);
+                                                console.log(value.date);
+                                                console.log(value.dateLegend);
+                                                console.log(value.name);
+                                                */
+
+                                                fragment = create(
+                                                    '<div style="height: 40px; padding-top: 13px;" >'+
+                                                    '<div> '+
+                                                    '<b>Número de FRAP</b> '+value.FRAP_NUMERO+' - '+value.dateLegend+'<img src="img/notebook-medium.png" width="35" onclick="openFRAP('+value.ID_FRAPS+')"> <img src="img/mail-send.png" width="35" onclick="enviarFRAP('+value.ID_FRAPS+')">'+
+                                                    '</div>'+
+                                                    '</div>'
+                                                );
+                                                document.getElementById('local_fraps').appendChild(fragment);
+                                            });
+
+
+
 
 
 
@@ -399,7 +496,7 @@ function cargarServiciosVehiculo(id_t){
                                            // (c)dibujar el mapa
                                            //............................................
                                            //............................................
-                                           google.load("maps", "3", {"callback": map, other_params: "key=AIzaSyDUbzwJR15AmXdnSpDezdFe5jthjEfUqsk&sensor=true&language=en"});
+                                           google.load("maps", "3", {"callback": map, other_params: "key=AIzaSyAbWY8x93GukU5w7_ZRVovO9ZyQhfbvP-A&sensor=true&language=en"});
 
                                             //google.load("maps", "3", {"callback": map, other_params: "sensor=true&language=en"});
 
@@ -795,14 +892,99 @@ function map() {
 
     //$.unblockUI();
 
-    // $.mobile.loading( "hide" );
+    $.mobile.loading( "hide" );
 
                  // Call methos to load LOCAL FRAPs
-    cargarFRAPs();
+
+
+
+    //Aqui se cargan los FRP's fuera de linea'
+    //  cargarFRAPs();
 
 }
 
 
 function onBackKeyDown(e) {
    e.preventDefault();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+function openFRAP(frapt){
+    //alert('test frap pdf');
+
+    console.log('open PDF');
+
+    console.log("task="+"getPDF"+"&user="+id_usuario+"&session="+id_sesion+"&state="+estado+"&service="+idService+"&frap="+frapt+"&stateIndex="+25);
+    var dataString="task="+"getPDF"+"&user="+id_usuario+"&session="+id_sesion+"&state="+"SINALOA"+"&service="+idService+"&frap="+frapt+"&stateIndex="+25;
+
+    // alert(dataString);
+
+    $.ajax({
+        type: 'GET',
+        data: dataString,
+        dataType: "xml",
+        beforeSend: function() {$.mobile.loading( "show", {
+            text: "CARGANDO FRAP",
+            textVisible: true
+        }); }, //Show spinner
+        complete: function(){$.mobile.loading( "hide" );},
+        url: 'http://scews.net/ws.php',
+
+        // La URL del we¡b service tiene errores, hay que corregir en el archivo
+        //url: 'http://scewsdev.net/ws11.php',
+
+        success: function(data){
+
+            $(data).find('data').each(function()  {
+                var url = $(this).find('URL').text();
+                //   alert(url);
+                var curl = encodeURIComponent(url);
+                // alert('codificado : ' + curl)
+                //window.open(url, '_blank');
+                console.log('https://docs.google.com/viewer?url='+curl+'&embedded=true&rm=minimal&chrome=false');
+                window.open('https://docs.google.com/viewer?url='+curl+'&embedded=true&rm=minimal&chrome=false', '_self', 'location=yes');
+                //ref = window.open('index.html', '_self');
+
+                //showHelp('https://docs.google.com/viewer?url='+curl);
+
+
+
+
+                //   var ref = cordova.InAppBrowser.open('http://scefrap.net/FRAP/App.pdf', '_blank', 'location=yes');
+
+                /*
+                fragment = create('<di>'+
+                        '<a href="'+url+'" id="embedURL">prueba</a>'+
+                        '<a href="'+url+'" class="embed" id="test">test</a>'+
+                        '<div>');
+
+                    document.getElementById("pdf").appendChild(fragment);
+                   */
+
+            });
+            //                $(document).ready(function() {
+            //   $('#embedURL').gdocsViewer();
+            //  $('a.embed').gdocsViewer({width: 300, height: 450});
+            //});
+
+        },
+        error: function(data){
+            //console.log(data);
+            //alert(data);
+            alert('Ocurrio un error durante la comunicacion');
+
+        }
+    });
+    //window.location="frap.html?usuario="+usuario+"&session="+session+"&service="+service+"&frap="+frap;
 }

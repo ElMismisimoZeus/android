@@ -643,10 +643,16 @@ function guardarPaciente()
     idFRAP = $.jStorage.get("idFRAP");
 
 
-    frap.secciones.direccion = new DIRECCION();
+    // HTML -> objeto frap : correspondiendo con el modelo de la base de datos del servidor
+    //=========================================================================================
+    frap.secciones.direccion = new DIRECCION(); // modificar de acuerdo al modelo
     frap.secciones.paciente = new PACIENTE();
 
 
+
+
+    // objecto frap -> DB loca : gestiona las secciones de objeto frap en objectos TB-Name para guardar en base de datos
+    //=========================================================================================
     tbPaciente = $.extend(frap.secciones.paciente, frap.secciones.direccion);
 
     //frap.secciones.paciente = tbPaciente;

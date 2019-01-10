@@ -4,6 +4,11 @@
 var id_sesion;
 var id_usuario;
 var estado;
+var token;
+var url_con;
+
+var changeConf = 0;
+
 
 
 // Variables para la información del vehículo actual
@@ -43,6 +48,11 @@ $(function () {
 
 
 function msgBoxErrorClose() {
+
+    if(changeConf == 1){
+        $("#msgError").dialog( 'close' );
+        navigator.app.exitApp();
+    }
 
     $("#msgError").dialog( 'close' );
     location="index-login.html";
@@ -91,6 +101,7 @@ $(document).ready(function () {
     id_sesion  = $.jStorage.get("id_sesion");
     id_usuario  = $.jStorage.get("id_usuario");
     estado = $.jStorage.get("estado");
+    token = $.jStorage.get("token");
 
 
 
@@ -109,164 +120,198 @@ $(document).ready(function () {
     // Paso 3 : Invoca a getAll para llenar la información de los paneles laterales
     //=============================================================================
 
+
+    // Llamada al servidor dispatcher
     $.ajax({
-                type: 'POST',
-                contentType: 'application/json',
-                url: 'http://opowerdev.net/web_services/FRAP/usuario/getAll',
-                dataType: "json",
-                data: JSON.stringify({"ID_USUARIO":id_usuario,"ID_SESSION":id_sesion, "Estado":estado}),
-                contentType: "application/json; charset=utf-8",
-                success: function(data, textStatus, jqXHR){
-                // Paso 5:  LLena el array de los vehículos : utilizado para (a) debujar panel y  (b) mapa (var:locations)
-                //=========================================================================================================
-
-//alert('ddd');
-                        // Variable para generar el panel lateral de vehículos
-                        var fragment ='';
-                        num_vehicules = data.num_vehicules;
-                         //alert(num_vehicules);
-                        if(data.num_vehicules>1){
-                        // manejar un array
-                        //..................
-                        //..................
+        type: 'POST',
+        contentType: 'application/json',
+        url: 'http://opowerdev.net/web_services/Despachador/usuario/getURL',
+        //url: 'http://opowerdev.net/web_services/FRAP/usuario/login',
+        dataType: "json",
+        data: JSON.stringify({"Estado": estado}),
+        contentType: "application/json; charset=utf-8",
+        success: function (data, textStatus, jqXHR) {
 
 
-                                var vehiculos = data.value;
-                                for(var i in vehiculos)
-                                {
-                                    var auxvsc = vehiculos[i].vehicule.icon;
+            console.log(data.estado);
+            console.log(data.token);
+            console.log(data.url);
+            console.log(data.version);
+            url_con =data.url;
+
+            console.log(token);
+
+            if(token===data.token){
+
+                    $.ajax({
+                            type: 'POST',
+                            contentType: 'application/json',
+                            url:url_con+'/getAll',
+                            //url: 'http://opowerdev.net/web_services/FRAP/usuario/getAll',
+                            dataType: "json",
+                            data: JSON.stringify({"ID_USUARIO": id_usuario, "ID_SESSION": id_sesion, "Estado": estado}),
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data, textStatus, jqXHR) {
+                                // Paso 5:  LLena el array de los vehículos : utilizado para (a) debujar panel y  (b) mapa (var:locations)
+                                //=========================================================================================================
+
+                                //alert('ddd');
+                                // Variable para generar el panel lateral de vehículos
+                                var fragment = '';
+                                num_vehicules = data.num_vehicules;
+                                //alert(num_vehicules);
+                                if (data.num_vehicules > 1) {
+                                    // manejar un array
+                                    //..................
+                                    //..................
+
+
+                                    var vehiculos = data.value;
+                                    for (var i in vehiculos) {
+                                        var auxvsc = vehiculos[i].vehicule.icon;
+                                        var vc = vehiculeColor[auxvsc];
+
+                                        // (a) Agregar Información al Panel vehículos
+                                        //............................................
+                                        //............................................
+                                        fragment = create('<li data-theme="a"  style="background-color: #fff; width:350px;" value="' + vehiculos[i].vehicule.ID_TRIPULACIONES + '" onclick="cambiarVehiculo(this.value);" >' +
+                                            '<a  style="background-color: #fff; border:none;" class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="" >' +
+                                            '<div style="height: 20px; width: 10px; background-color: ' + vc + '; float: left;"> </div> <div style="height: 10px; width: 5px; float: left;"></div> <span>' + vehiculos[i].vehicule.name + '</span> ' + vehiculos[i].vehicule.headquarter +
+                                            '</a>' +
+                                            '</li>');
+                                        document.getElementById("panel_vehiculos").appendChild(fragment);
+                                        //console.log("Hvamos : "+i);
+                                        //alert(i);
+
+
+                                        // Paso 4 : Genera un vehículo actual
+                                        //====================================
+                                        if (idCrew == null) {
+                                            idCrew = vehiculos[i].vehicule.ID_TRIPULACIONES;
+                                            $.jStorage.set("idCrew", String(idCrew), {});
+
+                                            $("#unidad_asignada").html('Unidad  :' + vehiculos[i].vehicule.name);
+
+                                            // Added by Manage currentIcon
+                                            locationsAuxCurrentName = vehiculos[i].vehicule.name;
+
+                                            //console.log("hay unidad asignada");
+                                        } else {
+                                            if (idCrew == vehiculos[i].vehicule.ID_TRIPULACIONES) {
+                                                $("#unidad_asignada").html('Unidad  :' + vehiculos[i].vehicule.name);
+                                                // Added by Manage currentIcon
+                                                locationsAuxCurrentName = vehiculos[i].vehicule.name;
+                                                //console.log("no hay unidad ");
+                                            }
+                                        }
+
+
+                                        // (b) Información para  dibujar el mapa
+                                        //............................................
+                                        //............................................
+                                        if (vehiculos[i].vehicule.gpsInfo.location == 'TRUE') {
+
+                                            if (idCrew == vehiculos[i].vehicule.ID_TRIPULACIONES) {
+                                                lat_c = vehiculos[i].vehicule.gpsInfo.latitude;
+                                                lon_c = vehiculos[i].vehicule.gpsInfo.longitude;
+                                            }
+                                            var carro = [];
+                                            carro = [vehiculos[i].vehicule.name, vehiculos[i].vehicule.gpsInfo.latitude, vehiculos[i].vehicule.gpsInfo.longitude, i];
+                                            locations.push(carro);
+                                            //console.log("se agrego un carro");
+                                        }
+
+
+                                    }
+
+                                    //alert('seguimos');
+                                    cargarServiciosVehiculo(idCrew);
+
+
+                                } else {
+                                    // manejar un registro único
+                                    //..................
+                                    //..................
+                                    // alert('registro unico');
+
+                                    var auxvsc = data.value.vehicule.icon;
                                     var vc = vehiculeColor[auxvsc];
-
+                                    //alert(data.value.vehicule.icon);
+                                    //alert(vc);
                                     // (a) Agregar Información al Panel vehículos
-                                    //............................................
-                                    //............................................
-                                    fragment = create('<li data-theme="a"  style="background-color: #fff; width:350px;" value="'+ vehiculos[i].vehicule.ID_TRIPULACIONES +'" onclick="cambiarVehiculo(this.value);" >'+
-                                                                               '<a  style="background-color: #fff; border:none;" class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="" >'+
-                                                                                  '<div style="height: 20px; width: 10px; background-color: '+vc+'; float: left;"> </div> <div style="height: 10px; width: 5px; float: left;"></div> <span>'+vehiculos[i].vehicule.name+'</span> '+vehiculos[i].vehicule.headquarter +
-                                                                                '</a>'+
-                                                                           '</li>');
-                                    document.getElementById("panel_vehiculos").appendChild(fragment);
-                                    //console.log("Hvamos : "+i);
-                                    //alert(i);
+                                    //.............................................
+                                    //.............................................
+                                    fragment = create('<li data-theme="a"  style="background-color: #fff; width:350px;"  value="' + data.value.vehicule.ID_TRIPULACIONES + '" onclick="cambiarVehiculo(this.value);">' +
+                                        '<a style="background-color: #fff; border:none;" class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="" >' +
+                                        '<div style="height: 20px; width: 10px; background-color: ' + vc + '; float: left;"> </div> <div style="height: 10px; width: 5px; float: left;"></div>' + data.value.vehicule.name + '</span> <div style="height: 10px; width: 12px; float: left;"></div>' + data.value.vehicule.headquarter +
+                                        '</a>' +
+                                        '</li>');
 
+                                    document.getElementById("panel_vehiculos").appendChild(fragment);
 
                                     // Paso 4 : Genera un vehículo actual
                                     //====================================
-                                    if(idCrew == null){
-                                        idCrew =vehiculos[i].vehicule.ID_TRIPULACIONES;
-                                        $.jStorage.set("idCrew", String(idCrew),{});
-
-                                        $("#unidad_asignada").html('Unidad  :' + vehiculos[i].vehicule.name);
+                                    if (idCrew == null) {
+                                        idCrew = data.value.vehicule.ID_TRIPULACIONES;
+                                        $.jStorage.set("idCrew", String(idCrew), {});
+                                        $("#unidad_asignada").html('Unidad  :' + data.value.vehicule.name);
 
                                         // Added by Manage currentIcon
-                                        locationsAuxCurrentName = vehiculos[i].vehicule.name;
-
-                                        //console.log("hay unidad asignada");
-                                    }
-                                    else{
-                                        if(idCrew == vehiculos[i].vehicule.ID_TRIPULACIONES){
-                                            $("#unidad_asignada").html('Unidad  :' + vehiculos[i].vehicule.name);
-                                            // Added by Manage currentIcon
-                                            locationsAuxCurrentName = vehiculos[i].vehicule.name;
-                                            //console.log("no hay unidad ");
-                                        }
+                                        locationsAuxCurrentName = data.value.vehicule.name;
+                                    } else {
+                                        $("#unidad_asignada").html('Unidad  :' + data.value.vehicule.name);
+                                        // Added by Manage currentIcon
+                                        locationsAuxCurrentName = data.value.vehicule.name;
                                     }
 
 
                                     // (b) Información para  dibujar el mapa
-                                    //............................................
-                                    //............................................
-                                     if(vehiculos[i].vehicule.gpsInfo.location == 'TRUE'){
+                                    //.............................................
+                                    //.............................................
+                                    if (data.value.vehicule.gpsInfo.location == 'TRUE') {
+                                        lat_c = data.value.vehicule.gpsInfo.latitude;
+                                        lon_c = data.value.vehicule.gpsInfo.longitude;
 
-                                            if(idCrew == vehiculos[i].vehicule.ID_TRIPULACIONES){
-                                                lat_c = vehiculos[i].vehicule.gpsInfo.latitude;
-                                                lon_c = vehiculos[i].vehicule.gpsInfo.longitude;
-                                            }
-                                             var carro = [];
-                                             carro =[vehiculos[i].vehicule.name,vehiculos[i].vehicule.gpsInfo.latitude,vehiculos[i].vehicule.gpsInfo.longitude,i];
-                                             locations.push(carro);
-                                             //console.log("se agrego un carro");
-                                      }
+                                        var carro = [];
+                                        carro = [data.value.vehicule.name, lat_c, lon_c, 1];
+                                        locations.push(carro);
+                                    }
+
+
+                                    cargarServiciosVehiculo(idCrew);
 
 
                                 }
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
 
-                                //alert('seguimos');
-                                cargarServiciosVehiculo(idCrew);
+                                // $("#msgOkContent p").html(data.message);
 
+                                $("#msgError").dialog('open');
+                                //alert('aqui se muere'+textStatus+'ddddddd'+errorThrown+'jhjhjhj'+jqXHR);
+                            }
+                    });
 
+            }else{
+                // notificar que la aplicación debe reiniciar y cerrar
+                console.log('else');
+                $.mobile.loading( "hide" );
+                $("#msgErrorText").html('Error CON 02: La configuración del servidor ha cambiado, la aplicación debe reiniciarse');
+                changeConf = 1;
 
-
-                        }
-                        else{
-                        // manejar un registro único
-                        //..................
-                        //..................
-                       // alert('registro unico');
-
-                            var auxvsc = data.value.vehicule.icon;
-                            var vc = vehiculeColor[auxvsc];
-                            //alert(data.value.vehicule.icon);
-                            //alert(vc);
-                                // (a) Agregar Información al Panel vehículos
-                                //.............................................
-                                //.............................................
-                                fragment = create('<li data-theme="a"  style="background-color: #fff; width:350px;"  value="'+ data.value.vehicule.ID_TRIPULACIONES +'" onclick="cambiarVehiculo(this.value);">'+
-                                                       '<a style="background-color: #fff; border:none;" class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="" >'+
-                                                          '<div style="height: 20px; width: 10px; background-color: '+vc+'; float: left;"> </div> <div style="height: 10px; width: 5px; float: left;"></div>'+data.value.vehicule.name+'</span> <div style="height: 10px; width: 12px; float: left;"></div>'+ data.value.vehicule.headquarter+
-                                                           '</a>'+
-                                                   '</li>');
-
-                                document.getElementById("panel_vehiculos").appendChild(fragment);
-
-                                // Paso 4 : Genera un vehículo actual
-                                //====================================
-                                if(idCrew == null){
-                                    idCrew = data.value.vehicule.ID_TRIPULACIONES;
-                                    $.jStorage.set("idCrew", String(idCrew),{});
-                                    $("#unidad_asignada").html('Unidad  :' + data.value.vehicule.name);
-
-                                    // Added by Manage currentIcon
-                                    locationsAuxCurrentName = data.value.vehicule.name;
-                                }
-                                else{
-                                    $("#unidad_asignada").html('Unidad  :' + data.value.vehicule.name);
-                                    // Added by Manage currentIcon
-                                    locationsAuxCurrentName = data.value.vehicule.name;
-                                }
-
-
-
-                                // (b) Información para  dibujar el mapa
-                                //.............................................
-                                //.............................................
-                                if(data.value.vehicule.gpsInfo.location == 'TRUE'){
-                                    lat_c = data.value.vehicule.gpsInfo.latitude;
-                                    lon_c = data.value.vehicule.gpsInfo.longitude;
-
-                                     var carro = [];
-                                     carro = [data.value.vehicule.name,lat_c,lon_c,1];
-                                     locations.push(carro);
-                                }
-
-
-                                cargarServiciosVehiculo(idCrew);
-
-
-                        }
-                },
-                 error: function(jqXHR, textStatus, errorThrown){
-
-                    // $("#msgOkContent p").html(data.message);
-
-                     $("#msgError").dialog('open');
-                     //alert('aqui se muere'+textStatus+'ddddddd'+errorThrown+'jhjhjhj'+jqXHR);
-                 }
-     });
+                $("#msgError").dialog('open');
+            }
 
 
 
 
+
+        }, error: function (jqXHR, textStatus, errorThrown) {
+
+            // reportar error de conexión y salir de la app ppara volver a entrar y ya sea que conecte o iniar el modo offline
+            alert('conexion');
+        }
+    });
 
 
 
@@ -286,7 +331,8 @@ function cargarServiciosVehiculo(id_t){
         $.ajax({
                     type: 'POST',
                     contentType: 'application/json',
-                    url: 'http://opowerdev.net/web_services/FRAP/usuario/getServices',
+                    url: url_con+'/getServices',
+                    //url: 'http://opowerdev.net/web_services/FRAP/usuario/getServices',
                     dataType: "json",
                     data: JSON.stringify({"ID_USUARIO":id_usuario,"ID_SESSION":id_sesion, "Estado":estado, "ID_tripulacion":id_t}),
                     contentType: "application/json; charset=utf-8",
@@ -380,7 +426,8 @@ function cargarServiciosVehiculo(id_t){
                         $.ajax({
                                 type: 'POST',
                                 contentType: 'application/json',
-                                url: 'http://opowerdev.net/web_services/FRAP/usuario/getCrew',
+                                url: url_con+'/getCrew',
+                                //url: 'http://opowerdev.net/web_services/FRAP/usuario/getCrew',
                                 dataType: "json",
                                 data: JSON.stringify({"ID_USUARIO":id_usuario,"ID_SESSION":id_sesion, "Estado":estado, "ID_tripulacion":id_t}),
                                 contentType: "application/json; charset=utf-8",
@@ -400,12 +447,14 @@ function cargarServiciosVehiculo(id_t){
                                     $("#vehiculo_tipo").html(data.kind);
                                     $("#vehiculo_nivel").html(data.level);
 
-                                    //$("#operador").html(data.crew[0].userName);
+                                    if(data.crewCount > 1){
+                                        $("#operador").html(data.crew[0].userName);
+                                        $("#jefe").html(data.crew[1].userName);
+                                    }else{
+                                        $("#operador").html(data.crew.userName);
+                                    }
 
-                                    /* no siemre tiene 2 registros
-                                    $("#operador").html(data.crew[0].userName);
-                                    $("#jefe").html(data.crew[1].userName);
-                                    */
+
 
 
 
@@ -413,7 +462,7 @@ function cargarServiciosVehiculo(id_t){
                                     // (c)dibujar el mapa
                                     //............................................
                                     //............................................
-                                    google.load("maps", "3", {"callback": map, other_params: "key=AIzaSyDUbzwJR15AmXdnSpDezdFe5jthjEfUqsk&sensor=true&language=en"});
+                                    google.load("maps", "3", {"callback": map, other_params: "key=AIzaSyAbWY8x93GukU5w7_ZRVovO9ZyQhfbvP-A&sensor=true&language=en"});
                                     //google.load("maps", "3", {"callback": map, other_params: "sensor=true&language=en"});
 
                                     //google.maps.Load("maps", "3.8", {"callback": map, other_params: "sensor=true&language=en"});
