@@ -6,7 +6,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-<title>Epsilon 7.0</title>
+
 
 
 
@@ -117,9 +117,6 @@
 	<div id="page-content" class="page-content" style="overflow: hidden;">
 
 		<div style="background-color:rgba(0, 0, 0, 0.0); display: none; height: 390px; padding-bottom: -5px;"  id="msgOk" >
-
-
-
 			<div id="msgOkContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray;">
 				<div  style="width: 90px; margin: 0 auto;">
 					<img onclick="msgBoxClose();" src="../images/bien.png" width=90 >
@@ -133,10 +130,9 @@
 
 		</div>
 
+
+
 		<div style="background-color:rgba(0, 0, 0, 0.0); display: none; height: 390px; padding-bottom: -5px;"  id="msgError" >
-
-
-
 			<div id="msgErrorContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray;">
 				<div  style="width: 90px; margin: 0 auto;">
 					<img onclick="msgBoxErrorClose();" src="../images/error.png" width=90 >
@@ -149,6 +145,23 @@
 			</div>
 
 		</div>
+
+
+
+		<div style="background-color:rgba(0, 0, 0, 0.0); display: none; height: 390px; padding-bottom: -5px;"  id="msgErrorVersion" >
+			<div id="msgErrorVersionContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray;">
+				<div  style="width: 90px; margin: 0 auto;">
+					<img src="../images/error.png" width=90 >
+				</div>
+				<p id="msgErrorVersionText" style="text-align: center;"> </p>
+			</div>
+
+			<div style="color: white; background-color:WhiteSmoke;  border-bottom: 1px solid; border-bottom-color: gray; height: 30px; padding-bottom: -5px; " onclick="msgBoxErrorVersionClose();">
+				<p style="text-align: center; color: red;">Visitar google play</p>
+			</div>
+
+		</div>
+
 
 		<!-- panel:Colonias -->
 		<div data-role="panel" id="pnlEstados" data-display="overlay" data-position="right" style=" width: 310px; ">
@@ -176,7 +189,7 @@
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Coahuila
-					<input onclick="CambiarV('#dc_ep_estado_t','Coahuila');" type="radio" name="estado" id="estado_5" value="5" data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','COAHUILA');" type="radio" name="estado" id="estado_5" value="5" data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Colima
@@ -209,15 +222,15 @@
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Hidalgo
-					<input onclick="CambiarV('#dc_ep_estado_t','Hidalgo');" type="radio" name="estado" id="estado_13" value="13" data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','HIDALGO');" type="radio" name="estado" id="estado_13" value="13" data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Jalisco
-					<input onclick="CambiarV('#dc_ep_estado_t','Jalisco');" type="radio" name="estado" id="estado_14" value="14" data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','JALISCO');" type="radio" name="estado" id="estado_14" value="14" data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">México
-					<input onclick="CambiarV('#dc_ep_estado_t','México');" type="radio" name="estado" id="estado_15" value="15" data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','MEXICO');" type="radio" name="estado" id="estado_15" value="15" data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Michoacán
@@ -237,15 +250,15 @@
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Oaxaca
-					<input onclick="CambiarV('#dc_ep_estado_t','Oaxaca');" type="radio" name="estado" id="estado_20" value="20" data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','OAXACA');" type="radio" name="estado" id="estado_20" value="20" data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Puebla
-					<input onclick="CambiarV('#dc_ep_estado_t','Puebla');" type="radio" name="estado" id="estado_21" value="21"   data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','PUEBLA');" type="radio" name="estado" id="estado_21" value="21"   data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Querétaro
-					<input onclick="CambiarV('#dc_ep_estado_t','Querétaro');" type="radio" name="estado" id="estado_22" value="22" data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','QUERETARO');" type="radio" name="estado" id="estado_22" value="22" data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Quintana Roo
@@ -257,15 +270,15 @@
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Sinaloa
-					<input onclick="CambiarV('#dc_ep_estado_t','Sinaloa');" type="radio" name="estado" id="estado_25" value="25" data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','SINALOA');" type="radio" name="estado" id="estado_25" value="25" data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Sonora
-					<input onclick="CambiarV('#dc_ep_estado_t','Colima');" type="radio" name="estado" id="estado_26" value="26"   data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','SONORA');" type="radio" name="estado" id="estado_26" value="26"   data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Tabasco
-					<input onclick="CambiarV('#dc_ep_estado_t','Tabasco');" type="radio" name="estado" id="estado_27" value="27" data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','TABASCO');" type="radio" name="estado" id="estado_27" value="27" data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Tamaulipas
@@ -281,11 +294,11 @@
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Yucatán
-					<input onclick="CambiarV('#dc_ep_estado_t','Yucatán');" type="radio" name="estado" id="estado_31" value="31" data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','YUCATAN');" type="radio" name="estado" id="estado_31" value="31" data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 				<label style="text-align: left;">Zacatecas
-					<input onclick="CambiarV('#dc_ep_estado_t','Zacatecas');" type="radio" name="estado" id="estado_32" value="32" data-theme="b" data-rel="close">
+					<input onclick="CambiarV('#dc_ep_estado_t','ZACATECAS');" type="radio" name="estado" id="estado_32" value="32" data-theme="b" data-rel="close">
 					<span class="checkmark"></span>
 				</label>
 			</div>

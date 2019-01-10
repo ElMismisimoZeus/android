@@ -1,0 +1,59 @@
+.cabecera {
+    background: none;
+}
+
+.cuerpo {
+    display: none;
+}   
+.element-head {
+    text-align: center;
+}
+.element-head span {
+    color: #ccc;
+    text-shadow: none;
+    font-size: 3vh;
+}
+.hidden {
+    display: none;
+    visibility: hidden;
+}
+.visible {
+    display: inline-block;
+    visibility: visible;
+}
+
+.menu-icon {
+    text-align: center;
+}
+.menu-icon img {
+    height: 11vh;
+    padding: 1.5vw;
+}
+input[type="checkbox"] + label, input[type="checkbox"] + label:hover {
+    background: none !important;
+    border: none;
+}
+/*Formulario*/
+.contenido-form {
+    padding: 20px;
+}
+.contenido-sexo etiqueta, .contenido-sexo masculino, .contenido-sexo femenino {
+    width: 49.5%;
+    display: inline-block;
+}
+.contenido-direccion .municipio, .contenido-direccion .colonia {
+    width: 49.5%;
+    display: inline-block;
+}
+.contenido-direccion-1 .calle {
+    width: 75%;
+    display: inline-block;
+}
+.contenido-direccion-1 .numero {
+    width: 24%;
+    display: inline-block;
+}
+.contenido-direccion-2 .telefono, .contenido-direccion-2 .ocupacion {
+    width: 49.5%;
+    display: inline-block;
+}

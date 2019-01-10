@@ -1,0 +1,670 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <title>Epsilon 7.0</title>
+
+
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+    <link rel="stylesheet" type="text/css" href="../styles/skin.css">
+    <link rel="stylesheet" type="text/css" href="../styles/framework.css">
+    <link rel="stylesheet" type="text/css" href="../styles/ionicons.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../styles/laZ.min.css">
+    <link rel="stylesheet" type="text/css" href="../styles/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="../styles/jquery.mobile.structure-1.4.5.min.css"/>
+
+
+
+    <link rel="stylesheet" href="../styles/wfmi-style.css">
+
+
+    <!-- Se van
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+    <script type="text/javascript" src="../scripts/plugins.js"></script>
+    -->
+
+
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+
+    <script type="text/javascript" src="../js/jquery.mobile-1.4.5.js"></script>
+
+    <script type="text/javascript" src="../scripts/custom.js"></script>
+
+    <script type="text/javascript" src="../controller/frap_2018.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="../funcionalidad/swipe/css/swiper.css">
+
+    <!-- Demo styles -->
+    <style>
+
+    html, body {
+
+      position: relative;
+      height: 100%;
+    }
+
+    .swiper-container {
+        width: 100%;
+        height: 85%;
+        margin: 20px auto;
+    }
+    .swiper-slide {
+        font-size: 19px;
+        line-height: 37px;
+    }
+    </style>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<div class="header header-logo-left header-dark " align="center">
+    <h3 class="botonInicial">
+        <i class="medical-icon-i-administration"></i>
+        <strong class="color-white">FRAP DIGITAL</strong>
+    </h3>
+</div>
+
+<div style="width: 100%; height:35px;" >
+
+</div>
+
+<!-- Swiper -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+
+
+        <div  class="swiper-slide" id="datos_paciente">
+            <div style="width: 100%; margin:0 auto; height:100%;" >
+
+
+                <!--datos del paciente-->
+                <div data-role="page" style="margin-top: 31px;" >
+                    <div data-role="main" class="ui-content" style="margin-top: 31px;">
+
+
+
+
+
+                        <div data-role="content">   <div data-role="fieldcontain">
+                            <label for="select-choice-15" >Select Section</label>
+                            <select data-role="none"  name="select-choice-15" id="select-choice-15" data-theme="c" data-overlay-theme="d" data-native-menu="false" data-inset="true">
+                                <option value="t">Tall</option>
+                                <option value="g">Grande</option>
+                                <option value="v">Vente</option>
+                            </select>
+                        </div>
+                        </div><!-- /content -->
+
+
+                        <div class="ui-select">
+
+                            <select name="select-choice" id="select-choice-a" data-native-menu="false" data-theme="a" data-form="ui-btn-up-a" tabindex="-1">
+                                <option value="standard">Option 1</option>
+                                <option value="rush">Option 2</option>
+                                <option value="express">Option 3</option>
+                                <option value="overnight">Option 4</option>
+                            </select>
+
+                        </div>
+
+                        <h2 align="center"><strong>DATOS DEL PACIENTE</strong></h2>
+
+                        <div class="content full-bottom half-top">
+
+                            <label class="botonInicial"  >
+                                <input data-theme="a" type="checkbox" name="cbmostrar" class="fantasma" />
+                                <strong>Media filiación</strong>
+                            </label>
+
+                            <div id="dvMostrar">
+                                <form action="" method="post" >
+
+                                    <input onchange="validaDatosPaciente()" type="text" class="input-text-line input-red-line inputText" value="" placeholder="Nombre *" name="nombre" id="nombre">
+                                    <input onchange="validaDatosPaciente()" type="text" class="input-text-line input-red-line inputText" value="" placeholder="Apellido Materno *" name="a_materno" id="a_materno">
+
+                                    <input onchange="validaDatosPaciente()" type="text" class="input-text-line input-red-line inputText" value="" placeholder="Apellido Paterno *" name="a_paterno" id="a_paterno">
+                                    <input onchange="validaDatosPaciente()" placeholder="Fecha de nacimiento *" type="text" class="input-text-line input-red-line inputText" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha_nacimiento">
+
+                                    <div class="clear"></div>
+                                    <div class="checkboxes-demo sexo_checkboxs">
+                                        <h4>Sexo: * </h4>
+
+                                        <div class="fac fac-radio fac-red one-half"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="sexo" id="sexo_masculino" value="1">
+                                            <label for="sexo_masculino">Masculino</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red one-half last-column"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="sexo" id="sexo_femenino" value="2">
+                                            <label for="sexo_femenino">Femenino</label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="decoration"></div>
+
+                                    <div class="content" id="direccion">
+                                        <h4 class="botonInicial" align="center"><strong>DIRECCIÓN</strong></h4>
+                                        <br>
+                                        <div class="one-half">
+                                            <div class="select-box ">
+                                                <select name="estado" id="estado">
+                                                    <option class="select-title" value="o0">Estado</option>
+                                                    <option value="1"> Aguascalientes</option>
+                                                    <option value="2">Baja California</option>
+                                                    <option value="3">Baja California Sur</option>
+                                                    <option value="4">Campeche</option>
+                                                    <option value="5">Coahuila</option>
+                                                    <option value="6">Colima</option>
+                                                    <option value="7">Chiapas</option>
+                                                    <option value="8">Chihuahua</option>
+                                                    <option value="9">Ciudad de México</option>
+                                                    <option value="10">Durango</option>
+                                                    <option value="11">Guanajuato</option>
+                                                    <option value="12">Guerrero</option>
+                                                    <option value="13">Hidalgo</option>
+                                                    <option value="14">Jalisco</option>
+                                                    <option value="15">México</option>
+                                                    <option value="16">Michoacán</option>
+                                                    <option value="17">Morelos</option>
+                                                    <option value="18">Nayarit</option>
+                                                    <option value="19">Nuevo León</option>
+                                                    <option value="20">Oaxaca</option>
+                                                    <option value="21">Puebla</option>
+                                                    <option value="22">Querétaro</option>
+                                                    <option value="23">Quintana Roo</option>
+                                                    <option value="24">San Luis Potosí</option>
+                                                    <option value="25">Sinaloa</option>
+                                                    <option value="26">Sonora</option>
+                                                    <option value="27">Tabasco</option>
+                                                    <option value="28">Tamaulipas</option>
+                                                    <option value="29">Tlaxcala</option>
+                                                    <option value="30">Veracruz</option>
+                                                    <option value="31">Yucatán</option>
+                                                    <option value="32">Zacatecas</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="ui-field-contain">
+                                                <label for="colonia">Colonia:</label>
+                                                <div class="clear"></div>
+                                                <select name="colonia" id="colonia" data-mini="true">
+                                                    <option value="o1">Option 1</option>
+                                                    <option value="o2">Option 2</option>
+                                                    <option value="o3">Option 3</option>
+                                                    <option value="o4">Option 4</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="one-half last-column">
+                                            <div class="select-box ">
+                                                <select>
+                                                    <option class="select-title" value="o0">Municipio</option>
+                                                    <option value="o1">Option 1</option>
+                                                    <option value="o2">Option 2</option>
+                                                    <option value="o3">Option 3</option>
+                                                    <option value="o4">Option 4</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="select-box ">
+                                                <select>
+                                                    <option class="select-title" value="o0">Código Postal</option>
+                                                    <option value="o1">Option 1</option>
+                                                    <option value="o2">Option 2</option>
+                                                    <option value="o3">Option 3</option>
+                                                    <option value="o4">Option 4</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div class="one-half">
+                                            <input type="text" class="input-text-line input-red-line inputText" value="" placeholder="Calle">
+                                        </div>
+
+                                        <div class="one-half">
+                                            <input type="number" class="input-text-line input-red-line inputText" value="" placeholder="Número">
+
+                                        </div>
+
+                                        <div class="one-half last-column">
+                                            <input type="text" maxlength="10" class="input-text-line input-red-line inputText" value="" placeholder="Teléfono" name="telefono" id="telefono">
+
+                                        </div>
+                                        <div class="decoration"></div>
+
+
+                                        <div class="select-box ">
+                                            <select>
+                                                <option class="select-title" value="o0">Ocupación</option>
+                                                <option value="o1">Option 1</option>
+                                                <option value="o2">Option 2</option>
+                                                <option value="o3">Option 3</option>
+                                                <option value="o4">Option 4</option>
+                                            </select>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="clear"></div>
+
+                                </form>
+                            </div>
+                            <form action="" method="post" class="contactForm" id="contactForm">
+                                <textarea name="contactMessageTextarea" class="contactTextarea input-red-border" ></textarea>
+
+                                <div class="decoration decoration-margins"></div>
+
+                                <div class="one-half">
+                                    <h4 class="botonInicial">Servicio médico: *</h4>
+
+                                    <div class="checkboxes-demo last-column servicio_medico_checkboxs">
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="sp" value="1">
+                                            <label for="sp">Seguro popular</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="imss" value="2">
+                                            <label for="imss">IMSS</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="isste" value="3">
+                                            <label for="isste">ISSSTE</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="semar" value="4">
+                                            <label for="semar">SEMAR</label>
+
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="sedena" value="5">
+                                            <label for="sedena">SEDENA</label>
+
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="privado" value="6">
+                                            <label for="privado">Privado</label>
+
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="isssteson" value="11">
+                                            <label for="isssteson">ISSSTESON</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="ssa" value="12">
+                                            <label for="ssa">SSA</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="ningno" value="7">
+                                            <label for="ningno">Ninguno</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="one-half last-column">
+
+                                    <h4 class="botonInicial">Motivo de la atención: *</h4>
+                                    <div class="checkboxes-demo last-column motivo_atencion_checkboxs">
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" onclick="showTrauma()" type="radio" name="motivo_atencion" id="traumatismo" value="1">
+                                            <label for="traumatismo">Traumatismo</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" onclick="showClinico()" type="radio" name="motivo_atencion" id="enfermedad" value="2">
+                                            <label for="enfermedad">Enfermedad</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" onclick="showGinecologico()" type="radio" name="motivo_atencion" id="obstetrico" value="3">
+                                            <label for="obstetrico">Ginecológico</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" onclick="showVial()" type="radio" name="motivo_atencion" id="accidente_vial" value="4">
+                                            <label for="accidente_vial">Accidente vial</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+        <div  class="swiper-slide" id="medi_fil">
+            <div style="width: 100%; margin:0 auto; height:100%;" >
+
+
+                <!--datos del paciente-->
+                <div data-role="page" style="margin-top: 31px;" >
+                    <div data-role="main" class="ui-content" style="margin-top: 31px;">
+
+
+
+
+
+                        <div data-role="content">   <div data-role="fieldcontain">
+                            <label for="select-choice-15" >Select Section</label>
+                            <select data-role="none"  name="select-choice-15" id="select-choice-15" data-theme="c" data-overlay-theme="d" data-native-menu="false" data-inset="true">
+                                <option value="t">Tall</option>
+                                <option value="g">Grande</option>
+                                <option value="v">Vente</option>
+                            </select>
+                        </div>
+                        </div><!-- /content -->
+
+
+                        <div class="ui-select">
+
+                            <select name="select-choice" id="select-choice-a" data-native-menu="false" data-theme="a" data-form="ui-btn-up-a" tabindex="-1">
+                                <option value="standard">Option 1</option>
+                                <option value="rush">Option 2</option>
+                                <option value="express">Option 3</option>
+                                <option value="overnight">Option 4</option>
+                            </select>
+
+                        </div>
+
+                        <h2 align="center"><strong>DATOS DEL PACIENTE</strong></h2>
+
+                        <div class="content full-bottom half-top">
+
+                            <label class="botonInicial"  >
+                                <input data-theme="a" type="checkbox" name="cbmostrar" class="fantasma" />
+                                <strong>Media filiación</strong>
+                            </label>
+
+                            <div id="dvMostrar">
+                                <form action="" method="post" >
+
+                                    <input onchange="validaDatosPaciente()" type="text" class="input-text-line input-red-line inputText" value="" placeholder="Nombre *" name="nombre" id="nombre">
+                                    <input onchange="validaDatosPaciente()" type="text" class="input-text-line input-red-line inputText" value="" placeholder="Apellido Materno *" name="a_materno" id="a_materno">
+
+                                    <input onchange="validaDatosPaciente()" type="text" class="input-text-line input-red-line inputText" value="" placeholder="Apellido Paterno *" name="a_paterno" id="a_paterno">
+                                    <input onchange="validaDatosPaciente()" placeholder="Fecha de nacimiento *" type="text" class="input-text-line input-red-line inputText" onfocus="(this.type='date')" onblur="(this.type='text')" id="fecha_nacimiento">
+
+                                    <div class="clear"></div>
+                                    <div class="checkboxes-demo sexo_checkboxs">
+                                        <h4>Sexo: * </h4>
+
+                                        <div class="fac fac-radio fac-red one-half"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="sexo" id="sexo_masculino" value="1">
+                                            <label for="sexo_masculino">Masculino</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red one-half last-column"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="sexo" id="sexo_femenino" value="2">
+                                            <label for="sexo_femenino">Femenino</label>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="decoration"></div>
+
+                                    <div class="content" id="direccion">
+                                        <h4 class="botonInicial" align="center"><strong>DIRECCIÓN</strong></h4>
+                                        <br>
+                                        <div class="one-half">
+                                            <div class="select-box ">
+                                                <select name="estado" id="estado">
+                                                    <option class="select-title" value="o0">Estado</option>
+                                                    <option value="1"> Aguascalientes</option>
+                                                    <option value="2">Baja California</option>
+                                                    <option value="3">Baja California Sur</option>
+                                                    <option value="4">Campeche</option>
+                                                    <option value="5">Coahuila</option>
+                                                    <option value="6">Colima</option>
+                                                    <option value="7">Chiapas</option>
+                                                    <option value="8">Chihuahua</option>
+                                                    <option value="9">Ciudad de México</option>
+                                                    <option value="10">Durango</option>
+                                                    <option value="11">Guanajuato</option>
+                                                    <option value="12">Guerrero</option>
+                                                    <option value="13">Hidalgo</option>
+                                                    <option value="14">Jalisco</option>
+                                                    <option value="15">México</option>
+                                                    <option value="16">Michoacán</option>
+                                                    <option value="17">Morelos</option>
+                                                    <option value="18">Nayarit</option>
+                                                    <option value="19">Nuevo León</option>
+                                                    <option value="20">Oaxaca</option>
+                                                    <option value="21">Puebla</option>
+                                                    <option value="22">Querétaro</option>
+                                                    <option value="23">Quintana Roo</option>
+                                                    <option value="24">San Luis Potosí</option>
+                                                    <option value="25">Sinaloa</option>
+                                                    <option value="26">Sonora</option>
+                                                    <option value="27">Tabasco</option>
+                                                    <option value="28">Tamaulipas</option>
+                                                    <option value="29">Tlaxcala</option>
+                                                    <option value="30">Veracruz</option>
+                                                    <option value="31">Yucatán</option>
+                                                    <option value="32">Zacatecas</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="ui-field-contain">
+                                                <label for="colonia">Colonia:</label>
+                                                <div class="clear"></div>
+                                                <select name="colonia" id="colonia" data-mini="true">
+                                                    <option value="o1">Option 1</option>
+                                                    <option value="o2">Option 2</option>
+                                                    <option value="o3">Option 3</option>
+                                                    <option value="o4">Option 4</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="one-half last-column">
+                                            <div class="select-box ">
+                                                <select>
+                                                    <option class="select-title" value="o0">Municipio</option>
+                                                    <option value="o1">Option 1</option>
+                                                    <option value="o2">Option 2</option>
+                                                    <option value="o3">Option 3</option>
+                                                    <option value="o4">Option 4</option>
+                                                </select>
+                                            </div>
+
+                                            <div class="select-box ">
+                                                <select>
+                                                    <option class="select-title" value="o0">Código Postal</option>
+                                                    <option value="o1">Option 1</option>
+                                                    <option value="o2">Option 2</option>
+                                                    <option value="o3">Option 3</option>
+                                                    <option value="o4">Option 4</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div class="one-half">
+                                            <input type="text" class="input-text-line input-red-line inputText" value="" placeholder="Calle">
+                                        </div>
+
+                                        <div class="one-half">
+                                            <input type="number" class="input-text-line input-red-line inputText" value="" placeholder="Número">
+
+                                        </div>
+
+                                        <div class="one-half last-column">
+                                            <input type="text" maxlength="10" class="input-text-line input-red-line inputText" value="" placeholder="Teléfono" name="telefono" id="telefono">
+
+                                        </div>
+                                        <div class="decoration"></div>
+
+
+                                        <div class="select-box ">
+                                            <select>
+                                                <option class="select-title" value="o0">Ocupación</option>
+                                                <option value="o1">Option 1</option>
+                                                <option value="o2">Option 2</option>
+                                                <option value="o3">Option 3</option>
+                                                <option value="o4">Option 4</option>
+                                            </select>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="clear"></div>
+
+                                </form>
+                            </div>
+                            <form action="" method="post" class="contactForm" id="contactForm">
+                                <textarea name="contactMessageTextarea" class="contactTextarea input-red-border" ></textarea>
+
+                                <div class="decoration decoration-margins"></div>
+
+                                <div class="one-half">
+                                    <h4 class="botonInicial">Servicio médico: *</h4>
+
+                                    <div class="checkboxes-demo last-column servicio_medico_checkboxs">
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="sp" value="1">
+                                            <label for="sp">Seguro popular</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="imss" value="2">
+                                            <label for="imss">IMSS</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="isste" value="3">
+                                            <label for="isste">ISSSTE</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="semar" value="4">
+                                            <label for="semar">SEMAR</label>
+
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="sedena" value="5">
+                                            <label for="sedena">SEDENA</label>
+
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="privado" value="6">
+                                            <label for="privado">Privado</label>
+
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="isssteson" value="11">
+                                            <label for="isssteson">ISSSTESON</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="ssa" value="12">
+                                            <label for="ssa">SSA</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" type="radio" name="servicio_medico" id="ningno" value="7">
+                                            <label for="ningno">Ninguno</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="one-half last-column">
+
+                                    <h4 class="botonInicial">Motivo de la atención: *</h4>
+                                    <div class="checkboxes-demo last-column motivo_atencion_checkboxs">
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" onclick="showTrauma()" type="radio" name="motivo_atencion" id="traumatismo" value="1">
+                                            <label for="traumatismo">Traumatismo</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" onclick="showClinico()" type="radio" name="motivo_atencion" id="enfermedad" value="2">
+                                            <label for="enfermedad">Enfermedad</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" onclick="showGinecologico()" type="radio" name="motivo_atencion" id="obstetrico" value="3">
+                                            <label for="obstetrico">Ginecológico</label>
+                                        </div>
+                                        <div class="fac fac-radio fac-red"><span></span>
+                                            <input onchange="validaDatosPaciente()" onclick="showVial()" type="radio" name="motivo_atencion" id="accidente_vial" value="4">
+                                            <label for="accidente_vial">Accidente vial</label>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
+
+
+
+
+
+
+
+<!-- Swiper JS -->
+<script src="../funcionalidad/swipe/js/swiper.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        paginationType: 'progress',
+    });
+
+    function changeS(){
+        $('#evaluacion_secundaria').css('display','inline-block');
+        swiper.slideTo(1, 0);
+        mySwiper.lockSwipes();
+     }
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+    <script type="text/javascript" src="../cordova.js"></script>
+    <script type="text/javascript" src="../js/index.js"></script>
+
+
+    <script type="text/javascript" src="../scripts/jquery.js"></script>
+
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css">
+
+    <script type="text/javascript" src="../scripts/jStorage.js"></script>
+
+
+    <script type="text/javascript" src="../controller/login.js"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="dialogos/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="dialogos/jquery-ui.theme.css">
+
+    <script src="dialogos/jquery-ui.js"></script>
+
+
+    <style>
+
+        .ui-dialog-titlebar {
+            /* display: none;*/
+        }
+        .ui-dialog{
+            background-color:white !important;;
+        }
+
+        .ui-dialog .ui-dialog-content {
+            background-color:white !important;;
+        }
+
+        .ui-widget-overlay.custom-overlay
+        {
+            background-color: black !important;;
+            background-image: none;
+            opacity: 0.7;
+            z-index: 1040;
+        }
+
+
+        .dlg-no-close {
+            text-align: center;
+            background-color:white !important;;
+            border: 0 none;
+        }
+
+        .ui-dialog-titlebar-close {
+            display: none;
+        }
+
+    </style>
+
+
+
+
+
+    <style>
+        .fake-input { position: relative;  width: 100%; }
+        .fake-input input { font-size: 18px;  background-color: rgba(255, 255, 255, 1); display:block; width: 100%; }
+        .fake-input img { position: absolute; top: 10px; right: 5px }
+    </style>
+
+    <script>
+        function CambiarV(control, texto){
+            $(control).val(texto);
+            console.log(control.substring(1));
+
+
+
+            var element = document.getElementById(control.substring(1));
+            element.scrollIntoView(true);
+            //window.location.hash = control;
+        }
+    </script>
+</head>
+<body>
+
+
+    <div data-role="page">
+
+
+        <div role="main" class="ui-content" >
+
+            <div data-role="panel" id="pnlEstados" data-display="overlay" data-position="right" style=" width: 310px; ">
+                <div class="ui-panel-inner" style="width: 300px; height: 100%; overflow: scroll;">
+                    <h2>Estado:</h2>
+
+                    <label  style="text-align: left;">DEVELOPMENT
+                        <input onclick="CambiarV('#dc_ep_estado_t','DEVELOPMENT');" type="radio" name="estado" id="estado_0" value="0"  checked="checked" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label  style="text-align: left;">Aguascalientes
+                        <input onclick="CambiarV('#dc_ep_estado_t','Aguascalientes');" type="radio" name="estado" id="estado_1" value="1"   data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Baja California
+                        <input onclick="CambiarV('#dc_ep_estado_t','Baja California');" type="radio" name="estado" id="estado_2" value="2" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Baja California Sur
+                        <input onclick="CambiarV('#dc_ep_estado_t','Baja California Sur');" type="radio" name="estado" id="estado_3" value="3" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Campeche
+                        <input onclick="CambiarV('#dc_ep_estado_t','Campeche');" type="radio" name="estado" id="estado_4" value="4" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Coahuila
+                        <input onclick="CambiarV('#dc_ep_estado_t','Coahuila');" type="radio" name="estado" id="estado_5" value="5" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Colima
+                        <input onclick="CambiarV('#dc_ep_estado_t','Colima');" type="radio" name="estado" id="estado_6" value="6"  data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Chiapas
+                        <input onclick="CambiarV('#dc_ep_estado_t','Chiapas');" type="radio" name="estado" id="estado_7" value="7" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Chihuahua
+                        <input onclick="CambiarV('#dc_ep_estado_t','Chihuahua');" type="radio" name="estado" id="estado_8" value="8" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Ciudad de México
+                        <input onclick="CambiarV('#dc_ep_estado_t','Ciudad de México');" type="radio" name="estado" id="estado_9" value="9" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+
+                    <label style="text-align: left;">Durango
+                        <input onclick="CambiarV('#dc_ep_estado_t','Durango');" type="radio" name="estado" id="estado_10" value="10" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Guanajuato
+                        <input onclick="CambiarV('#dc_ep_estado_t','Guanajuato');" type="radio" name="estado" id="estado_11" value="11"  data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Guerrero
+                        <input onclick="CambiarV('#dc_ep_estado_t','Guerrero');" type="radio" name="estado" id="estado_12" value="12" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Hidalgo
+                        <input onclick="CambiarV('#dc_ep_estado_t','Hidalgo');" type="radio" name="estado" id="estado_13" value="13" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Jalisco
+                        <input onclick="CambiarV('#dc_ep_estado_t','Jalisco');" type="radio" name="estado" id="estado_14" value="14" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">México
+                        <input onclick="CambiarV('#dc_ep_estado_t','México');" type="radio" name="estado" id="estado_15" value="15" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Michoacán
+                        <input onclick="CambiarV('#dc_ep_estado_t','Michoacán');" type="radio" name="estado" id="estado_16" value="16"   data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Morelos
+                        <input onclick="CambiarV('#dc_ep_estado_t','Morelos');" type="radio" name="estado" id="estado_17" value="17" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Nayarit
+                        <input onclick="CambiarV('#dc_ep_estado_t','Nayarit');" type="radio" name="estado" id="estado_18" value="18" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Nuevo León
+                        <input onclick="CambiarV('#dc_ep_estado_t','Nuevo León');" type="radio" name="estado" id="estado_19" value="19" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Oaxaca
+                        <input onclick="CambiarV('#dc_ep_estado_t','Oaxaca');" type="radio" name="estado" id="estado_20" value="20" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Puebla
+                        <input onclick="CambiarV('#dc_ep_estado_t','Puebla');" type="radio" name="estado" id="estado_21" value="21"   data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Querétaro
+                        <input onclick="CambiarV('#dc_ep_estado_t','Querétaro');" type="radio" name="estado" id="estado_22" value="22" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Quintana Roo
+                        <input onclick="CambiarV('#dc_ep_estado_t','Quintana Roo');" type="radio" name="estado" id="estad_23" value="23" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">San Luis Potosí
+                        <input onclick="CambiarV('#dc_ep_estado_t','San Luis Potosí');" type="radio" name="estado" id="estado_24" value="24" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Sinaloa
+                        <input onclick="CambiarV('#dc_ep_estado_t','Sinaloa');" type="radio" name="estado" id="estado_25" value="25" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Sonora
+                        <input onclick="CambiarV('#dc_ep_estado_t','Colima');" type="radio" name="estado" id="estado_26" value="26"   data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Tabasco
+                        <input onclick="CambiarV('#dc_ep_estado_t','Tabasco');" type="radio" name="estado" id="estado_27" value="27" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Tamaulipas
+                        <input onclick="CambiarV('#dc_ep_estado_t','Tamaulipas');" type="radio" name="estado" id="estado:28" value="28" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Tlaxcala
+                        <input onclick="CambiarV('#dc_ep_estado_t','Tlaxcala');" type="radio" name="estado" id="estado_29" value="29" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Veracruz
+                        <input onclick="CambiarV('#dc_ep_estado_t','Veracruz');" type="radio" name="estado" id="estado_30" value="30" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Yucatán
+                        <input onclick="CambiarV('#dc_ep_estado_t','Yucatán');" type="radio" name="estado" id="estado_31" value="31" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                    <label style="text-align: left;">Zacatecas
+                        <input onclick="CambiarV('#dc_ep_estado_t','Zacatecas');" type="radio" name="estado" id="estado_32" value="32" data-theme="b" data-rel="close">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            </div><!-- /panel -->
+
+
+                <center>
+                    <div>
+                        <!-- <img src="images/Logo_Frap_digital-021.png" > -->
+                        <img src="images/LOGO_FRAP_DIGITAL-023.png" width="87%" >
+
+                    </div>
+                </center>
+                <div class="pageapp-login">
+                    <div>
+                        <!-- <h1 class="textPrincipal">SCE</h1> -->
+
+                        <br>
+                        <h5 class="subPrincipal">versión BETA</h5>
+                    </div>
+                    <br>
+                    <div style="color:white; font-size: 18px;">
+                        Usuario
+                        <input	 type="text" id="Username" value="" placeholder="Usuario" onfocus="if (this.value=='Username') this.value = ''" onblur="if (this.value=='') this.value = 'Username'">
+                    </div>
+
+                    <br>
+
+
+                    <div style="color:white; font-size: 18px;">
+                        Contraseña
+                        <input type="password" id="password" value="" placeholder="contraseña" onfocus="if (this.value=='password') this.value = ''" onblur="if (this.value=='') this.value = 'password'">
+                    </div>
+                    <br>
+
+
+                    <div style="width: 100%; height: 65px; color:white; font-size: 18px;">
+                        Estado
+
+                        <div style="" >
+                            <a href="#pnlEstados" style="  ">
+                                <div >
+                                    <div class="fake-input" style="background-color: rgba(255, 255, 255, 1); font-size: 15px;">
+                                        <input id="dc_ep_estado_t" readonly type="text" value="Sonora"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <!--
+                        <div  class="select-box">
+                            <select id="estado">
+                                <option value="AGUASCALIENTES">Aguscalientes</option>
+                                <option value="SONORA">Sonora</option>
+                                <option value="SINALOA">Sinaloa</option>
+                                <option value="MEXICO">Mexico</option>
+                                <option value="DEVELOPMENT">DEVELOPMENT</option>
+                            </select>
+                        </div>
+                    -->
+
+
+                    <div style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray;" id="dialog1" title="Bienvenido" hidden="hidden" >
+                        <!--
+                        <strong class="bg-green-dark"><i class="ion-close-round"></i></strong>
+                        -->
+
+
+                        <p  class="color-green-dark">
+
+                        </p>
+
+                        <a href="#" class="button button-round button-red button-full half-top full-bottom animate-zoom" onClick="cerrar()" ><h4>Ok</h4></a>
+
+                        <!--
+                        <a href="#" class="hide-notification"><i class="ion-android-close color-green-dark"></i></a>
+                        -->
+                    </div>
+
+                    <div id="dialog2" title="Error LGN-01" hidden="hidden" >
+                        <!--
+                        <strong class="bg-green-dark"><i class="ion-close-round"></i></strong>
+                        -->
+
+
+                        <p  class="color-red-dark">
+
+                        </p>
+
+                    </div>
+
+
+                    <a href="#" class="button button-round button-red button-full half-top full-bottom animate-zoom" onClick="login()" id="opener"><h4>Iniciar sesión</h4></a>
+
+
+                </div>
+
+
+
+
+        </div><!-- /content -->
+
+    </div><!-- /page -->
+
+</body>
+</html>
