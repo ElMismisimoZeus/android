@@ -28,46 +28,12 @@
 
     <script type="text/javascript" src="../model/dataBaseApp.js"></script>
     <script type="text/javascript" src="../controller/frap_data.js"></script>
-
-
-
     <script type="text/javascript" src="../objects/frap_object.js"></script>
 
+    <script type="text/javascript" src="../controller/frap.js"></script>
 
     <script>
-		 $(function () {
 
-              $("#dialog1").dialog({
-                autoOpen: false,
-                modal: true,
-                dialogClass: "dlg-no-close",
-                open: function() {
-                        $('.ui-widget-overlay').addClass('custom-overlay');
-                    }
-              });
-
-        });
-
-
-
-         $(function () {
-
-             $("#msgOk").dialog({
-                 autoOpen: false,
-                 modal: true,
-                 dialogClass: "dlg-no-close",
-                 open: function() {
-                     $('.ui-widget-overlay').addClass('custom-overlay');
-                 }
-             });
-
-         });
-
-         function msgBoxClose() {
-             $("#msgOk").dialog( 'close' );
-             location="home_vehicules.html";
-
-         };
 	</script>
 
     <style>
@@ -107,9 +73,6 @@
 
 
 <div style="background-color:WhiteSmoke; display: none; height: 390px; padding-bottom: -5px;"  id="msgOk" >
-
-
-
     <div id="msgOkContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray;">
         <div  style="width: 90px; margin: 0 auto;">
             <img onclick="msgBoxClose();" src="../images/bien.png" width=90 >
@@ -121,12 +84,21 @@
             <p style="text-align: center; color: green;">Aceptart</p>
         </div>
     </div>
-
-
-
 </div>
 
+<div style="background-color:rgba(0, 0, 0, 0.0); display: none; height: 390px; padding-bottom: -5px;"  id="msgError" >
+    <div id="msgErrorContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray; z-index: 3000;">
+        <div  style="width: 90px; margin: 0 auto;">
+            <img onclick="msgBoxErrorClose();" src="../images/error.png" width=90 >
+        </div>
+        <p id="msgErrorText" style="text-align: center;"></p>
+    </div>
 
+    <div style="color: white; background-color:WhiteSmoke;  border-bottom: 1px solid; border-bottom-color: gray; height: 30px; padding-bottom: -5px; " onclick="msgBoxErrorClose();">
+        <p style="text-align: center; color: red;">Regresar</p>
+    </div>
+
+</div>
 
 
 
@@ -289,15 +261,16 @@ function homeVehicules(){
     $( document ).ready(function() {
 
 
-        dataBase.openDb();
 
+
+
+        // Paso 1: Inicializamos variables YA definidad por la carga de los archivos JS
 
 
         idFRAP = $.jStorage.get("idFRAP");
-
         isNew = $.jStorage.get("isNew");
         estado_frap = $.jStorage.get("estado_frap");
-        estado_secciones = $.jStorage.get("estado_secciones");
+        estado_secciones = $.jStorage.get("estado_secciones"); // MOST IMPORTANT ***
 
 
         console.log('valores de diagrama de flujo ');
@@ -307,91 +280,13 @@ function homeVehicules(){
         console.log('estado_seccoines'+estado_secciones);
 
 
-        //
-        if(isNew == 0){
-            console.log('entro a nuevo');
-           //recupera el frap que esta en la base de datos y se le dio click; es decir, el frap ya existe
-
-            // prebviene que un usuario este llenando frap(CON GANAS DE TERMINAR) pero la aplicación se cerro
-            if(estado_frap == 1){
-                console.log('intenta recuperar datos');
-
-                // El frap es nuevo y esta parcialmente lleno; por lo tanto
-                // hay que recuperar de la base de datos la información de la seccion que se lleno
-
-
-                // iteramos sobre la variable que tiene el estado de las secciones
-                $.each(estado_secciones, function (key, value){
-                    if(value == 1){
-                        console.log('recuperando'+key);
-                        frap.recuperacion[key]();
-                    }
-
-                    // recueper la seccion cuando value sea 0
-
-
-                });
-
-            }
-            // de lo contrario cargar datos por default
-
-
-
-        } else  {
-            //crear un nuevo frap
-
-            // prebviene que un usuario este llenando frap(CON GANAS DE TERMINAR) pero la aplicación se cerro
-            if(estado_frap == 1){
-                console.log('intenta recuperar datos parciales ');
-
-                // El frap es nuevo y esta parcialmente lleno; por lo tanto
-                // hay que recuperar de la base de datos la información de la seccion que se lleno
-
-
-                // iteramos sobre la variable que tiene el estado de las secciones
-                $.each(estado_secciones, function (key, value){
-
-                    console.log(key + '  ' + value);
-
-                    if(value == 1){
-                        console.log('recuperando'+key);
-                        frap.recuperacion[key]();
-                    }
-
-                    // recueper la seccion cuando value sea 0
-
-
-                });
-
-            }
-            // de lo contrario cargar datos por default
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        // Paso 2 : Inicializar el objeto frap, para que sea factible el envio en todo momemnto
         frap.secciones.init();
+
+
+        // Paso 2.5 : Inicializamos todas las demas variables a defoutl
+
+        dataBase.openDb();
 
         // Be careful !!!!!
         // cuando cargue fraps OFFline debe cargar el valor de la base detos como defoult
@@ -406,6 +301,24 @@ function homeVehicules(){
         $('#frameDemo').css('width','100%');
 
 
+
+        // Paso 3: iteramos sobre la variable que tiene el estado de las secciones para cargar lo factible de ser cargado
+        $.each(estado_secciones, function (key, value){
+            if(value == 1){
+                console.log('recuperando'+key);
+                frap.recuperacion[key]();
+            }
+
+        });
+
+
+
+
+
+
+
+
+
         //$('#frameDemo').css('pointer-events', 'none');
 
     });
@@ -414,35 +327,13 @@ function homeVehicules(){
 
         iframe = $('#frameDemo').contents();
 
+
+        // Funciones para pasar informaci´´omn del HTML -> objecto frap  && objeto -> DB
+        // ============================================================================================================
         // Termina datos del paciente
         iframe.find("#btnNext1").click(function()
         {
-            /*
-            * Vamos a hacer una prueba de creación
-            * inicializacion
-            * envio
-            *  <!--
-    3398DC
-    2DCC70
-    F2C40F
-    E84C3D
-    7E8C8D
-    E59866
-    -->
-            */
-            //frap.secciones.init();
-            //frap.enviar();
-
-
-            // antes de moverse debe guadrdad datos
-            // Agregar una validación de datos
-
             guardarPaciente();
-
-         //   $('#menu-datos-paciente').css("background", "#3398DC");
-
-
-
             deltaZ('slide', 'datos_paciente', 'menu-datos-paciente', iframe.find("#btnNext1").attr('data-state'));
         });
 
@@ -532,7 +423,7 @@ function homeVehicules(){
 
 
 
-
+/*
         iframe.find("#boton2").click(function()
         {
             delta('slide', 'evaluacion_primaria', 'menu-evaluacion-primaria', iframe.find("#boton2").attr('data-state'))
@@ -541,6 +432,7 @@ function homeVehicules(){
         {
             delta('slide', 'evaluacion_secundaria', 'menu-evaluacion-secundaria', iframe.find("#boton3").attr('data-state'))
         });
+        */
     });
 
 
@@ -629,81 +521,7 @@ function homeVehicules(){
         }
     }
 
-    function deltaZ( handle, idPage, idMenu, state ){
 
-        switch( state + '-' + handle ) {
-
-            case 'q1-click':
-                $("#"+idMenu).attr('data-state','q2');
-                var i = 1;
-                menuArray.forEach(function(item, index) {
-                    // verificar si el actual es iagual al que se le hizo click, en ese caso no "movermo"
-                    if(item != idMenu){
-                        if (i == (menuArray.length-1 )  ){
-                            $("#"+item).slideUp(900, function() {
-                                var iframe = $("#frameDemo").contents();
-                                $('#frameDemo').attr('src', "frap_content.html?currentId="+idPage);
-                                $('#content-menu').slideDown();
-                            });
-
-                        }else{
-                            $("#"+item).slideUp(900);
-                        }
-
-                        i++;
-                    }
-                });
-                //$('#frameDemo').attr('src', "frap_content.html?currentId="+idPage);
-                //$('#content-menu').slideDown();
-                break;
-
-            case 'q2-click':
-                $('#frameDemo').attr('src', "");
-                $("#"+idMenu).attr('data-state','q1');
-
-                $("#content-menu").slideUp("slow", function() {
-                    menuArray.forEach(function(item, index) {
-                        if (item != idMenu) {
-                            $( "#"+item ).slideDown("slow");
-                        }
-                    });
-                });
-                break;
-
-            case 'q2-slide':
-                var nextPage = hashNavigation[idPage];
-                var nextMenu = hashMenu[idMenu];
-                var iframe = $('#frameDemo').contents();
-
-                $("#"+idMenu).attr('data-state','q1');
-                $("#"+nextMenu).attr('data-state','q2');
-
-
-/*
-                menuArray.forEach( function(item, index) {
-                    $("#"+item).attr('data-state','q2');
-                });
-                */
-
-                //console.log(nextPage+" "+nextMenu);
-                //console.log(idMenu+" "+nextMenu);
-
-                var pageActual = iframe.find("#"+idPage);
-                //console.log(pageActual.find("[id*=boton]"));
-
-                //$("#"+nextMenu).css('display','none');
-                //$("#"+idMenu).css('display','none');
-
-                $("#"+nextMenu).css('display','block');
-                $("#"+idMenu ).toggle( "slide", function() {
-                    //$("#"+idMenu).css('display','block');
-
-                });
-
-                break;
-        }
-
-    }
 </script>
 
 </html>
