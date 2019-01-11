@@ -10,8 +10,14 @@ frap.tipo = '';
 // Agregar fragmentos
 frap.secciones = {};
 
-frap.secciones.direccion = [];
+
 frap.secciones.paciente = [];
+frap.secciones.direccion_paciente = [];
+frap.secciones.datos_paciente = [];
+frap.secciones.media_filiacion = [];
+frap.secciones.motivo_atencion = [];
+
+
 frap.secciones.paciente2 = [];
 frap.secciones.evaluacion_primaria = [];
 
@@ -47,9 +53,14 @@ frap.secciones.ginecologico = [];
 //============================================================================
 //============================================================================
 frap.secciones.init = function(){
-    frap.secciones.direccion = new frap.initDireccion();
+
     frap.secciones.paciente =  new frap.initPaciente();
     frap.secciones.media_filiacion =  new frap.initMediaFiliacion();
+    frap.secciones.datos_paciente = new frap.initDatosPaciente();
+    frap.secciones.direccion_paciente = new frap.initDireccion();
+    frap.secciones.motivo_atencion = new frap.initMotivoAtencion();
+
+
 
     //frap.secciones.paciente2 = new frap.initPaciente2();
     frap.secciones.evaluacion_primaria = new  frap.initEvaluacionPrimaria();
@@ -104,12 +115,8 @@ frap.initPaciente2 = function(){
 };
 
 frap.initPaciente = function(){
-
-    this.CTLG_SERVICIO_MEDICO = 0
+    this.iCTLG_SERVICIO_MEDICO = 0
     // pass this.iSERVICIO_MEDICO = 0,
-
-
-
 };
 
 
@@ -117,41 +124,57 @@ frap.initPaciente = function(){
 frap.initDireccion = function(){
 
     this.CALLE =' ',
-    this.iNUMERO = 0,
-
-    // change text by options, ie, .val -> input
-    //this.COLONIA = ( iframe.find('#colonia').val() != '') ? iframe.find('#colonia').val() : ' ',
-    //this.DELEGACION = ( iframe.find('#delegacion').val() != '') ? iframe.find('#delegacion').val() : ' ',
-    //this.iESTADO = ( iframe.find('#estado').val() != '') ? iframe.find('#estado').val() : 0 ,
-    //this.iCODIGO_POSTAL = ( iframe.find('#cp').val() != '') ? iframe.find('#cp').val() : 0 ,
-
-    this.COLONIA  = '-',
-    this.DELEGACION  = 0,
-    this.iCTLG_ESTADOS_ID_ESTADOS  = 0,
-    this.iCP = 0
-
-
+        this.iNUMERO_EXTERIOS =0,
+        this.iNUMERO_INTERIOR =0,
+        this.COLONIA  = '-',
+        this.DELEGACION  = '-',
+        this.iCP = 0
 };
 
 frap.initMediaFiliacion = function(){
+    this.iD_CTLG_MEDIA_FILIACION_ACCESORIOS = 1,
+        this.iID_CTLG_MEDIA_FILIACION_CABELLO = 1,
+        this.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR = 1,
+        this.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS = 1,
+        this.iID_CTLG_MEDIA_FILIACION_COLOR_PIEL = 1,
+        this.iID_CTLG_MEDIA_FILIACION_COMPLEXION = 1,
+        this.iID_CTLG_MEDIA_FILIACION_NARIZ = 1,
+        this.iID_CTLG_MEDIA_FILIACION_PARTE_CUERPO = 1,
+        this.iID_CTLG_MEDIA_FILIACION_ROPA = 1,
+        this.iID_CTLG_MEDIA_FILIACION_SENIAS = 1,
+        this.iID_CTLG_MEDIA_FILIACION_SENIA_LUGAR = 1,
+        this.iID_CTLG_MEDIA_FILIACION_TAMANIO = 1,
+        this.iID_CTLG_MEDIA_FILIACION_VOLUMEN = 1
+};
 
-}
+
 
 frap.initDatosPaciente = function(){
 
     this.NOMBRE = '-',
     this.APELLIDO_PATERNO = '-',
     this.APELLIDO_MATERNO = '-',
-    this.iSEXOS_ID_SEXOS  = 0,
+        this.CORREO_ELECTRONICO = '-',
     this.EDAD = '-',
     this.FECHA_NACIMIENTO = '',
-
-
     this.TELEFONO = '-' ,
     this.OCUPACION = '-',
-    this.CORREO_ELECTRONICO = '-',
+        this.iSEXOS_ID_SEXOS  = 0,
     this.iMOTIVO_ATENCION =0
-}
+};
+
+frap.initMediaFiliacion = function(){
+
+    this.iID_CTLG_MOTIVO_ATENCION =0
+};
+
+
+frap.initMotivoAtencion = function(){
+    this.iID_CTLG_MOTIVO_ATENCION =0
+};
+
+
+
 
 
 frap.initEvaluacionPrimaria = function(){
@@ -582,9 +605,19 @@ frap.secciones.set = function(){};
 var fs ={};
 fs['FRAP']=[];
 
-fs['DIRECCION']=[];
+
+fs['MOTIVO_ATENCION']=[];
 fs['PACIENTE']=[];
+fs['DATOS_PACIENTE']=[];
+fs['DIRECCION_PACIENTE']=[];
+fs['MEDIA_FILIACION']=[];
+
+
 fs['EVALUACION_PRIMARIA']=[];
+
+
+
+
 
 fs['SEMIOLOGIA_DOLOR']=[]; // correcto SIMBOLIGIA_DOLOR pero nbo jala :) por el nombre de la tabla maestro
 fs['SAMPLER']=[];
@@ -630,8 +663,16 @@ frap.preparar = function (){
 //    console.log(frap.secciones.paciente);
 
 
-    frap_elementos["DIRECCION"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.direccion};
+    frap_elementos["MOTIVO_ATENCION"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.motivo_atencion};
     frap_elementos["PACIENTE"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.paciente};
+    frap_elementos["DATOS_PACIENTE"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.datos_paciente};
+    frap_elementos["DIRECCION_PACIENTE"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.direccion_paciente};
+    frap_elementos["MEDIA_FILIACION"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.media_filiacion};
+
+
+
+
+
     frap_elementos["EVALUACION_PRIMARIA"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.evaluacion_primaria};
 
     frap_elementos["SEMIOLOGIA_DOLOR"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.simbologia_dolor};
