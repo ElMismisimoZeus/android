@@ -1,0 +1,63 @@
+
+
+.m-signature-pad {
+  position: absolute;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.08) inset;
+  border-radius: 4px;
+}
+
+
+.m-signature-pad--footer {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  height: 100px;
+}
+
+.m-signature-pad--footer
+  .description {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 1em;
+  }
+
+.m-signature-pad--footer
+  .button {
+    position: absolute;
+    bottom: 0;
+  }
+
+.m-signature-pad--footer
+  .button.clear {
+      font-size: 17px;
+      height: 30px;
+    left: 0;
+  }
+
+.m-signature-pad--footer
+  .button.save {
+      font-size: 17px;
+    right: 0;
+  }
+
+@media screen and (max-width: 1000px) {
+  .m-signature-pad {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    margin: 3%;
+  }
+  #github {
+    display: none;
+  }
+}
+
+
