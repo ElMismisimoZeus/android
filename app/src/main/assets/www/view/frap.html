@@ -333,6 +333,7 @@ function homeVehicules(){
         // Termina datos del paciente
         iframe.find("#btnNext1").click(function()
         {
+            guardarMediaFiliacion();
             guardarPaciente();
             deltaZ('slide', 'datos_paciente', 'menu-datos-paciente', iframe.find("#btnNext1").attr('data-state'));
         });
@@ -353,7 +354,7 @@ function homeVehicules(){
         });
 
 
-        // termina tratamiento
+        // termina TRATAMIENTO
         iframe.find("#btnNext4").click(function()
         {
             guardar_tratamiento();
