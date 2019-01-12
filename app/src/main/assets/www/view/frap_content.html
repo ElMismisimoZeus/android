@@ -169,44 +169,44 @@
 
         });
 
-
-
         $(document).on("pageshow","#datos_paciente",function(){
 
             // debe setear al valor que se haya recuperado cuando se carga la información del formulario
             $.jStorage.set("motivo_atencion", String('trauma'),{});
+
+            // Oculta la seccion de Media filiacion cuando se carga la seccion
+            $('#mostrar_media_filiacion').fadeOut('slow');
+
+            //codigo que oculta a datos pacientes y muestra a media filiacion
+            $('#dmedia').change(function (){
+                if (!this.checked){
+                //  ^
+                    $('#dvMostrar').fadeIn('slow');
+                    $('#mostrar_media_filiacion').fadeOut('slow');
+            }else{
+                $('#dvMostrar').fadeOut('slow');
+                $('#mostrar_media_filiacion').fadeIn('slow');
+            }
+            });
+
+            $('#optDir').change(function() {
+               if (!this.checked)
+                   $('#dvMostrarDir').fadeIn('slow');
+               else
+                   $('#dvMostrarDir').fadeOut('slow');
+            });
         });
 
+        $(document).on("pageshow","#tratamiento",function(){
+
+
+             var refMotivo = $.jStorage.get("motivo_atencion");
+
+            $('#ref_motivo').attr('href', ('#' + refMotivo));
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        });
 
         function getURLParameter(name) {
             return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
@@ -215,7 +215,6 @@
         $(document).on("mobileinit",function() {
             $.mobile.autoInitializePage = false;
         });
-
 
         function CambiarV(control, texto){
             $(control).val(texto);
@@ -259,9 +258,6 @@
                     });
 
 
-
-
-
             var currentId = getURLParameter('currentId');
             //console.log('dentro ' +currentId);
 
@@ -281,11 +277,10 @@
         });
 
     </script>
+
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
 </head>
 <body>
-
-
 
 
 
@@ -298,6 +293,811 @@
 <!-- panel datos paciente-->
 <div data-role="page" style="" id="datos_paciente">
 
+
+    <!-- Datos media filiacion-->
+    <!-- ============================================================================= -->
+    <!-- TAMAÑO CABELLO -->
+    <!-- <div data-role="panel" id="pnl_mf_tamano_cabello" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Tamaño Cabello:</h2>
+            <label style="background-color: #fff;" class="container">Corto
+                <input onclick="CambiarV('#mf_tamano_cabello','Corto');" type="radio" name="tamano_cabello" id="tamano_cabello_1" value="1"
+                       checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Mediano
+                <input onclick="CambiarV('#mf_tamano_cabello','Mediano');" type="radio" name="tamano_cabello" id="tamano_cabello_2" value="2"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Largo
+                <input onclick="CambiarV('#mf_tamano_cabello','Largo');" type="radio" name="tamano_cabello" id="tamano_cabello_3" value="3"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">No aplica
+                <input onclick="CambiarV('#mf_tamano_cabello','No aplica');" type="radio" name="tamano_cabello" id="tamano_cabello_0" value="0"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>/panel tamaño cabello-->
+    <!-- TAMAÑO OJOS -->
+    <!--    <div data-role="panel" id="pnl_mf_tamano_ojos" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Tamaño Ojos:</h2>
+            <label style="background-color: #fff;" class="container">Pequeños
+                <input onclick="CambiarV('#mf_tamano_ojos','Pequeños');" type="radio" name="tamano_ojos" id="tamano_ojos_1" value="4"
+                       checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Medianos
+                <input onclick="CambiarV('#mf_tamano_ojos','Mediano');" type="radio" name="tamano_ojos" id="tamano_ojos_2" value="5"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Grandes
+                <input onclick="CambiarV('#mf_tamano_ojos','Grandes');" type="radio" name="tamano_ojos" id="tamano_ojos_3" value="6"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div> /panel tamaño ojos-->
+    <!-- TAMAÑO BOCA -->
+    <!--<div data-role="panel" id="pnl_mf_tamano_boca" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Boca:</h2>
+            <label style="background-color: #fff;" class="container">Pequeña
+                <input onclick="CambiarV('#mf_tamano_boca','Pequeña');" type="radio" name="tamano_boca" id="tamano_boca_1" value="7"
+                       checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Mediana
+                <input onclick="CambiarV('#mf_tamano_boca','Mediana');" type="radio" name="tamano_boca" id="tamano_boca_2" value="8"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Grande
+                <input onclick="CambiarV('#mf_tamano_boca','Grande');" type="radio" name="tamano_ojos" id="tamano_boca_3" value="9"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>/panel tamaño boca-->
+
+    <!-- /panel cabello -->
+    <div data-role="panel" id="pnl_mf_cabello" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Cabello:</h2>
+            <label style="background-color: #fff;" class="container">Lacio
+                <input onclick="CambiarV('#mf_cabello','Lacio');" type="radio" name="cabello" id="cabello_1" value="1" checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Ondulado
+                <input onclick="CambiarV('#mf_cabello','Ondulado');" type="radio" name="cabello" id="cabello_2" value="2" ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Chino
+                <input onclick="CambiarV('#mf_cabello','Chino');" type="radio" name="cabello" id="cabello_3" value="3" ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Calvo
+                <input onclick="CambiarV('#mf_cabello','Calvo');" type="radio" name="cabello" id="cabello_4" value="4" ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+
+        </div>
+    </div>
+
+    <!-- /panel color cabello -->
+    <div data-role="panel" id="pnl_mf_color_cabello" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Color Cabello:</h2>
+            <label style="background-color: #fff;" class="container">Rubio
+                <input onclick="CambiarV('#mf_color_cabello','Rubio');" type="radio" name="color_cabello" id="color_cabello_1" value="1"
+                       checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Castaño Claro
+                <input onclick="CambiarV('#mf_color_cabello','Castaño Claro');" type="radio" name="color_cabello" id="color_cabello_2" value="2"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Castaño Obscuro
+                <input onclick="CambiarV('#mf_color_cabello','Castaño Obscuro');" type="radio" name="color_cabello" id="color_cabello_3" value="3"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Negro
+                <input onclick="CambiarV('#mf_color_cabello','Negro');" type="radio" name="color_cabello" id="color_cabello_4" value="4"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Teñido
+                <input onclick="CambiarV('#mf_color_cabello','Teñido');" type="radio" name="color_cabello" id="color_cabello_5" value="5"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Canoso
+                <input onclick="CambiarV('#mf_color_cabello','Canoso');" type="radio" name="color_cabello" id="color_cabello_6" value="6"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Entrecano
+                <input onclick="CambiarV('#mf_color_cabello','Entrecano');" type="radio" name="color_cabello" id="color_cabello_7" value="7"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+
+        </div>
+    </div>
+
+    <!-- /panel volumen cabello -->
+    <div data-role="panel" id="pnl_mf_volumen" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Volumen:</h2>
+            <label style="background-color: #fff;" class="container">Escaso
+                <input onclick="CambiarV('#mf_volumen','Escaso');" type="radio" name="mf_volumen" id="volumen_1" value="1"
+                       checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Regular
+                <input onclick="CambiarV('#mf_volumen','Regular');" type="radio" name="mf_volumen" id="volumen_2" value="2"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Abundante
+                <input onclick="CambiarV('#mf_volumen','Abundante');" type="radio" name="mf_volumen" id="volumen_3" value="3"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">No aplica
+                <input onclick="CambiarV('#mf_volumen','No aplica');" type="radio" name="mf_volumen" id="volumen_0" value="0"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- /panel Color ojos -->
+    <div data-role="panel" id="pnl_mf_color_ojos" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Color de Ojos:</h2>
+            <label style="background-color: #fff;" class="container">Cafe Claro
+                <input onclick="CambiarV('#mf_color_ojos','Cafe Claro');" type="radio" name="color_ojos" id="cOjos_1" value="1"
+                       checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Cafe Obscuro
+                <input onclick="CambiarV('#mf_color_ojos','Cafe Obscuro');" type="radio" name="color_ojos" id="cOjos_2" value="2"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Gris
+                <input onclick="CambiarV('#mf_color_ojos','Gris');" type="radio" name="color_ojos" id="cOjos_3" value="3"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Azul
+                <input onclick="CambiarV('#mf_color_ojos','Azul');" type="radio" name="color_ojos" id="cOjos_4" value="4"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Verde
+                <input onclick="CambiarV('#mf_color_ojos','Verde');" type="radio" name="color_ojos" id="cOjos_5" value="5"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- /panel Color Piel -->
+    <div data-role="panel" id="pnl_mf_color_piel" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Color de Piel:</h2>
+            <label style="background-color: #fff;" class="container">Blanco
+                <input onclick="CambiarV('#mf_color_piel','Blanca');" type="radio" name="color_piel" id="piel_1" value="1"
+                       checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Moreno
+                <input onclick="CambiarV('#mf_color_piel','Moreno');" type="radio" name="color_piel" id="piel_2" value="2"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Moreno Claro
+                <input onclick="CambiarV('#mf_color_piel','Moreno Claro');" type="radio" name="color_piel" id="piel_3" value="3"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Moreno Obscuro
+                <input onclick="CambiarV('#mf_color_piel','Moreno Obscuro');" type="radio" name="color_piel" id="piel_4" value="4"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Negro
+                <input onclick="CambiarV('#mf_color_piel','Negro');" type="radio" name="color_piel" id="piel_5" value="5"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Amarillo
+                <input onclick="CambiarV('#mf_color_piel','Amarillo');" type="radio" name="color_piel" id="piel_6" value="6"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Albino
+                <input onclick="CambiarV('#mf_color_piel','Albino');" type="radio" name="color_piel" id="piel_7" value="7"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- /panel Complexion -->
+    <div data-role="panel" id="pnl_mf_complexion" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Complexión:</h2>
+            <label style="background-color: #fff;" class="container">Delgada
+                <input onclick="CambiarV('#mf_complexion','Delgada');" type="radio" name="mf_complexion" id="complexion_1" value="1"
+                       checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Media
+                <input onclick="CambiarV('#mf_complexion','Media');" type="radio" name="mf_complexion" id="complexion_2" value="2"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Robusta
+                <input onclick="CambiarV('#mf_complexion','Robusta');" type="radio" name="mf_complexion" id="complexion_3" value="3"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Obesa
+                <input onclick="CambiarV('#mf_complexion','Obesa');" type="radio" name="mf_complexion" id="complexion_4" value="4"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Atletica
+                <input onclick="CambiarV('#mf_complexion','Atletica');" type="radio" name="mf_complexion" id="complexion_5" value="5"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- /panel nariz -->
+    <div data-role="panel" id="pnl_mf_nariz" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Nariz:</h2>
+            <label style="background-color: #fff;" class="container">Recta
+                <input onclick="CambiarV('#mf_nariz','Recta');" type="radio" name="mf_nariz" id="nariz_1" value="1"
+                       checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Chata
+                <input onclick="CambiarV('#mf_nariz','Chata');" type="radio" name="mf_nariz" id="nariz_2" value="2"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Curva
+                <input onclick="CambiarV('#mf_nariz','Curva');" type="radio" name="mf_nariz" id="nariz_3" value="3"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Respingada
+                <input onclick="CambiarV('#mf_nariz','Respingada');" type="radio" name="mf_nariz" id="nariz_4" value="4"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- /panel tamaño -->
+    <div data-role="panel" id="pnl_mf_tamano" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Tamaño:</h2>
+            <label style="background-color: #fff;" class="container">No aplica
+                <input onclick="CambiarV('#mf_tamano','No aplica');" type="radio" name="mf_tamano" id="tamano_0" value="0"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Corto
+                <input onclick="CambiarV('#mf_tamano','Corto');" type="radio" name="mf_tamano" id="tamano _1" value="1"
+                       checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Mediano
+                <input onclick="CambiarV('#mf_tamano','Mediano');" type="radio" name="mf_tamano" id="tamano_2" value="2"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Largo
+                <input onclick="CambiarV('#mf_tamano','Largo');" type="radio" name="mf_tamano" id="tamano_3" value="3"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pequeños
+                <input onclick="CambiarV('#mf_tamano','Pequeños');" type="radio" name="mf_tamano" id="tamano_4" value="4"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Medianos
+                <input onclick="CambiarV('#mf_tamano','Medianos');" type="radio" name="mf_tamano" id="tamano_5" value="5"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Grandes
+                <input onclick="CambiarV('#mf_tamano','Grandes');" type="radio" name="mf_tamano" id="tamano_6" value="6"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pequeña
+                <input onclick="CambiarV('#mf_tamano','Pequeña');" type="radio" name="mf_tamano" id="tamano_7" value="7"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Mediana
+                <input onclick="CambiarV('#mf_tamano','Mediana');" type="radio" name="mf_tamano" id="tamano_8" value="8"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Grande
+                <input onclick="CambiarV('#mf_tamano','Grande');" type="radio" name="mf_tamano" id="tamano_9" value="9"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Amplia
+                <input onclick="CambiarV('#mf_tamano','Amplia');" type="radio" name="mf_tamano" id="tamano_10" value="10"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Regular
+                <input onclick="CambiarV('#mf_tamano','Regular');" type="radio" name="mf_tamano" id="tamano_11" value="11"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Angosta
+                <input onclick="CambiarV('#mf_tamano','Angosta');" type="radio" name="mf_tamano" id="tamano_12" value="12"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pequeñas
+                <input onclick="CambiarV('#mf_tamano','Pequeñas');" type="radio" name="mf_tamano" id="tamano_13" value="13"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Medianas
+                <input onclick="CambiarV('#mf_tamano','Medianas');" type="radio" name="mf_tamano" id="tamano_14" value="14"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Baja
+                <input onclick="CambiarV('#mf_tamano','Baja');" type="radio" name="mf_tamano" id="tamano_15" value="15"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Alta
+                <input onclick="CambiarV('#mf_tamano','Alta');" type="radio" name="mf_tamano" id="tamano_16" value="16"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Grandes
+                <input onclick="CambiarV('#mf_tamano','Grandes');" type="radio" name="mf_tamano" id="tamano_17" value="17"
+                       ata-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+
+        </div>
+    </div>
+
+    <!-- /panel señas -->
+    <div data-role="panel" id="pnl_mf_senas" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Señas: </h2>
+            <label style="background-color: #fff;" class="container">No aplica
+                <input onclick="CambiarV('#mf_senias','No aplica');" type="radio" name="mf_senias" id="senias_0" value="0"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Mancha
+                <input onclick="CambiarV('#mf_senias','Mancha');" type="radio" name="mf_senias" id="senias_1" value="1"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Cicatriz gruesa
+                <input onclick="CambiarV('#mf_senias','Cicatriz gruesa');" type="radio" name="mf_senias" id="senias_2" value="2"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Tatuaje
+                <input onclick="CambiarV('#mf_senias','Tatuaje');" type="radio" name="mf_senias" id="senias_3" value="3"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Lunar
+                <input onclick="CambiarV('#mf_senias','Lunar');" type="radio" name="mf_senias" id="senias_4" value="4"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Verruga
+                <input onclick="CambiarV('#mf_senias','Verruga');" type="radio" name="mf_senias" id="senias_5" value="5"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Mancha descolorida
+                <input onclick="CambiarV('#mf_senias','Mancha descolorida');" type="radio" name="mf_senias" id="senias_6" value="6"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Cicatriz delgada
+                <input onclick="CambiarV('#mf_senias','Cicatriz delgada');" type="radio" name="mf_senias" id="senias_7" value="7"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Perforacion/Piercing
+                <input onclick="CambiarV('#mf_senias','Perforacion/Piercing');" type="radio" name="mf_senias" id="senias_8" value="8"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Amputaciones antiguas
+                <input onclick="CambiarV('#mf_senias','Amputaciones antiguas');" type="radio" name="mf_senias" id="senias_9" value="9"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Cicatriz por quemadura
+                <input onclick="CambiarV('#mf_senias','Cicatriz por quemadura');" type="radio" name="mf_senias" id="senias_10" value="10"
+                       data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div>
+
+    <!-- /panel senias_lugar -->
+    <div data-role="panel" id="pnl_mf_senia_lugar" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Seña lugar:</h2>
+            <label style="background-color: #fff;" class="container">No aplica
+                <input onclick="CambiarV('#mf_sena','No aplica');" type="radio" name="sena_lugar" id="senia_0" value="-1" checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Lado izquierdo
+                <input onclick="CambiarV('#mf_sena','Lado izquierdo');" type="radio" name="sena_lugar" id="senia_1" value="1" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">En medio
+                <input onclick="CambiarV('#mf_sena','En medio');" type="radio" name="sena_lugar" id="senia_2" value="2"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Lobulo
+                <input onclick="CambiarV('#mf_sena','Lobulo');" type="radio" name="sena_lugar" id="senia_3" value="3"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Detras
+                <input onclick="CambiarV('#mf_sena','Detras');" type="radio" name="sena_lugar" id="senia_4" value="4" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">En frente
+                <input onclick="CambiarV('#mf_sena','En frente');" type="radio" name="sena_lugar" id="senia_5" value="5"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Labio inferior
+                <input onclick="CambiarV('#mf_sena','Labio inferior');" type="radio" name="sena_lugar" id="senia_6" value="6"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Labio superior
+                <input onclick="CambiarV('#mf_sena','Labio superior');" type="radio" name="sena_lugar" id="senia_7" value="7"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Lado derecho
+                <input onclick="CambiarV('#mf_sena','Lado derecho');" type="radio" name="sena_lugar" id="senia_8" value="8" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Atrás
+                <input onclick="CambiarV('#mf_sena','Atrás');" type="radio" name="sena_lugar" id="senia_9" value="9" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Adelante
+                <input onclick="CambiarV('#mf_sena','Adelante');" type="radio" name="sena_lugar" id="senia_10" value="10" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Columna vertebral
+                <input onclick="CambiarV('#mf_sena','Columna vertebral');" type="radio" name="sena_lugar" id="senia_11" value="11" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Riñon izquierdo
+                <input onclick="CambiarV('#mf_sena','Riñon izquierdo');" type="radio" name="sena_lugar" id="senia_12" value="12" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Riñon derecho
+                <input onclick="CambiarV('#mf_sena','Riñon derecho');" type="radio" name="sena_lugar" id="senia_13" value="13" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Paleta Derecha
+                <input onclick="CambiarV('#mf_sena','Paleta Derecha');" type="radio" name="sena_lugar" id="senia_14" value="14" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Paleta izquierda
+                <input onclick="CambiarV('#mf_sena','Paleta izquierda');" type="radio" name="sena_lugar" id="asenia_15" value="15" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Bajo vientre
+                <input onclick="CambiarV('#mf_sena','Bajo vientre');" type="radio" name="sena_lugar" id="senia_16" value="16"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Costado derecho
+                <input onclick="CambiarV('#mf_sena','Costado derecho');" type="radio" name="sena_lugar" id="senia_17" value="17"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Costado izquierdo
+                <input onclick="CambiarV('#mf_sena','Costado izquierdo');" type="radio" name="sena_lugar" id="senia_18" value="18"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Por arriba del ombligo
+                <input onclick="CambiarV('#mf_sena','Por arriba del ombligo');" type="radio" name="sena_lugar" id="senia_19" value="19" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Dedo(s)
+                <input onclick="CambiarV('#mf_sena','Dedo(s)');" type="radio" name="sena_lugar" id="senia_20" value="20"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Dorso de la mano
+                <input onclick="CambiarV('#mf_sena','Dorso de la mano');" type="radio" name="sena_lugar" id="senia_21" value="21"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Palma de la mano
+                <input onclick="CambiarV('#mf_sena','Palma de la mano');" type="radio" name="sena_lugar" id="senia_22" value="22"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Anterior
+                <input onclick="CambiarV('#mf_sena','Anterior');" type="radio" name="sena_lugar" id="senia_23" value="23"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Posterior
+                <input onclick="CambiarV('#mf_sena','Posterior');" type="radio" name="sena_lugar" id="senia_24" value="24"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Exterior
+                <input onclick="CambiarV('#mf_sena','Exterior');" type="radio" name="sena_lugar" id="senia_25" value="25" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Interior
+                <input onclick="CambiarV('#mf_sena','Interior');" type="radio" name="sena_lugar" id="senia_26" value="26"  data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Interno
+                <input onclick="CambiarV('#mf_sena','Interno');" type="radio" name="sena_lugar" id="senia_27" value="27" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Externo
+                <input onclick="CambiarV('#mf_sena','Interno');" type="radio" name="sena_lugar" id="senia_28" value="28" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Empeine
+                <input onclick="CambiarV('#mf_sena','Empeine');" type="radio" name="sena_lugar" id="senia_29" value="29" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Dedos de los pies
+                <input onclick="CambiarV('#mf_sena','Dedos de los pies');" type="radio" name="sena_lugar" id="senia_30" value="30" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Planta del pie
+                <input onclick="CambiarV('#mf_sena','Planta del pie');" type="radio" name="sena_lugar" id="senia_31" value="31" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Izquierda
+                <input onclick="CambiarV('#mf_sena','Izquierda');" type="radio" name="sena_lugar" id="senia_32" value="32" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Derecha
+                <input onclick="CambiarV('#mf_sena','Derecha');" type="radio" name="sena_lugar" id="senia_33" value="33" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <!-- /panel partes del cuerpo -->
+    <div data-role="panel" id="pnl_mf_cuerpo" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>PArtes del cuerpo:</h2>
+            <label style="background-color: #fff;" class="container">No aplica
+                <input onclick="CambiarV('#mf_cuerpo','No aplica');" type="radio" name="mf_cuerpo" id="cuerpo_-1" value="-1" checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Frente
+                <input onclick="CambiarV('#mf_cuerpo','Frente');" type="radio" name="mf_cuerpo" id="cuerpo_1" value="1" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Nuca
+                <input onclick="CambiarV('#mf_cuerpo','Nuca');" type="radio" name="mf_cuerpo" id="cuerpo_2" value="2" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Sien izquierda
+                <input onclick="CambiarV('#mf_cuerpo','Sien izquierda');" type="radio" name="mf_cuerpo" id="cuerpo_3" value="3" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Sien derecha
+                <input onclick="CambiarV('#mf_cuerpo','Sien derecha');" type="radio" name="mf_cuerpo" id="cuerpo_4" value="4" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Oreja izquierda
+                <input onclick="CambiarV('#mf_cuerpo','Oreja izquierda');" type="radio" name="mf_cuerpo" id="cuerpo_5" value="5" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Oreja derecha
+                <input onclick="CambiarV('#mf_cuerpo','Oreja derecha');" type="radio" name="mf_cuerpo" id="cuerpo_6" value="6" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Ojo izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Ojo izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_7" value="7" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Ojo derecho
+                <input onclick="CambiarV('#mf_cuerpo','Ojo derecho');" type="radio" name="mf_cuerpo" id="cuerpo_8" value="8" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pómulo izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Pómulo izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_9" value="9" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pómulo derecho
+                <input onclick="CambiarV('#mf_cuerpo','Pómulo derecho');" type="radio" name="mf_cuerpo" id="cuerpo_10" value="10" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Nariz
+                <input onclick="CambiarV('#mf_cuerpo','Nariz');" type="radio" name="mf_cuerpo" id="cuerpo_11" value="11" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Boca
+                <input onclick="CambiarV('#mf_cuerpo','Boca');" type="radio" name="mf_cuerpo" id="cuerpo_12" value="12" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Mentón o barbilla
+                <input onclick="CambiarV('#mf_cuerpo','Mentón o barbilla');" type="radio" name="mf_cuerpo" id="cuerpo_13" value="13" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Cuello
+                <input onclick="CambiarV('#mf_cuerpo','Cuello');" type="radio" name="mf_cuerpo" id="cuerpo_14" value="14" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Manzana de Adán
+                <input onclick="CambiarV('#mf_cuerpo','Manzana de Adán');" type="radio" name="mf_cuerpo" id="cuerpo_15" value="15" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pecho izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Pecho izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_16" value="16" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pecho Derecho
+                <input onclick="CambiarV('#mf_cuerpo','Pecho Derecho');" type="radio" name="mf_cuerpo" id="cuerpo_17" value="17" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pezón izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Pezón izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_18" value="18" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pezón Derecho
+                <input onclick="CambiarV('#mf_cuerpo','Pezón Derecho');" type="radio" name="mf_cuerpo" id="cuerpo_19" value="19" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Espalda
+                <input onclick="CambiarV('#mf_cuerpo','Espalda');" type="radio" name="mf_cuerpo" id="cuerpo_20" value="20" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Costado izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Costado izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_21" value="21" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Costado derecho
+                <input onclick="CambiarV('#mf_cuerpo','Costado derecho');" type="radio" name="mf_cuerpo" id="cuerpo_22" value="22" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Abdomen
+                <input onclick="CambiarV('#mf_cuerpo','Abdomen');" type="radio" name="mf_cuerpo" id="cuerpo_23" value="23" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Ombligo
+                <input onclick="CambiarV('#mf_cuerpo','Ombligo');" type="radio" name="mf_cuerpo" id="cuerpo_24" value="24" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Mano izquierda
+                <input onclick="CambiarV('#mf_cuerpo','Mano izquierda');" type="radio" name="mf_cuerpo" id="cuerpo_25" value="25" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Mano derecha
+                <input onclick="CambiarV('#mf_cuerpo','Mano derecha');" type="radio" name="mf_cuerpo" id="cuerpo_26" value="26" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Antebrazo izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Antebrazo izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_27" value="27" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Antebrazo derecho
+                <input onclick="CambiarV('#mf_cuerpo','Antebrazo derecho');" type="radio" name="mf_cuerpo" id="cuerpo_28" value="28" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Brazo izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Brazo izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_29" value="29" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Brazo derecho
+                <input onclick="CambiarV('#mf_cuerpo','Brazo derecho');" type="radio" name="mf_cuerpo" id="cuerpo_30" value="30" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Codo izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Codo izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_31" value="31" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Codo derecho
+                <input onclick="CambiarV('#mf_cuerpo','Codo derecho');" type="radio" name="mf_cuerpo" id="cuerpo_32" value="32" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Muslo izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Muslo izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_33" value="33" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Muslo derecho
+                <input onclick="CambiarV('#mf_cuerpo','Muslo derecho');" type="radio" name="mf_cuerpo" id="cuerpo_34" value="34" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Rodilla izquierda
+                <input onclick="CambiarV('#mf_cuerpo','Rodilla izquierda');" type="radio" name="mf_cuerpo" id="cuerpo_35" value="35" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Rodilla derecha
+                <input onclick="CambiarV('#mf_cuerpo','Rodilla derecha');" type="radio" name="mf_cuerpo" id="cuerpo_36" value="36" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pierna izquierda
+                <input onclick="CambiarV('#mf_cuerpo','Pierna izquierda');" type="radio" name="mf_cuerpo" id="cuerpo_37" value="37" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pierna derecha
+                <input onclick="CambiarV('#mf_cuerpo','Pierna derecha');" type="radio" name="mf_cuerpo" id="cuerpo_38" value="38" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pie izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Pie izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_39" value="39" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Pie derecho
+                <input onclick="CambiarV('#mf_cuerpo','Pie derecho');" type="radio" name="mf_cuerpo" id="cuerpo_40" value="40" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Gluteo izquierdo
+                <input onclick="CambiarV('#mf_cuerpo','Gluteo izquierdo');" type="radio" name="mf_cuerpo" id="cuerpo_41" value="41" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Gluteo derecho
+                <input onclick="CambiarV('#mf_cuerpo','Gluteo derecho');" type="radio" name="mf_cuerpo" id="cuerpo_42" value="42" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Mejilla
+                <input onclick="CambiarV('#mf_cuerpo','Mejilla');" type="radio" name="mf_cuerpo" id="cuerpo_43" value="43" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff;" class="container">Ceja
+                <input onclick="CambiarV('#mf_cuerpo','Ceja');" type="radio" name="mf_cuerpo" id="cuerpo_44" value="44" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+
+
+
+
+
+
+
+        </div>
+    </div>
+
+
+
+    <!-- ======================================================================== -->
     <!-- panel:Colonias -->
     <div data-role="panel" id="pnlColonia" data-display="overlay" data-position="right" style=" width: 310px;">
         <div class="ui-panel-inner" style="width: 300px;">
@@ -548,65 +1348,732 @@
         </div>
     </div><!-- /panel -->
 
-
     <div class="contenido-form">
 
         <div style=" width: 90%; margin: 0 auto;">
 
-        <label>
-            <input type="checkbox" id="dmedia" name="cbmostrar" class="fantasma" unchecked />
-            Media filiación
-        </label>
+            <label>
+                <input type="checkbox" id="dmedia" name="cbmostrar" class="fantasma" unchecked />
+                Media filiación
+            </label>
 
-        <div id="dvMostrar">
-            <h2 class="seccion" align="center">Datos del Paciente</h2>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="box">
-                    <h4 class="labels">Nombre:</h4>
-                    <input type="text" name="nombre" id="nombre" value="" data-clear-btn="true">
-                    <br>
-                    <h4 class="labels">Apellido Paterno :</h4>
-                    <input type="text"  name="a_paterno" id="a_paterno" value="" data-clear-btn="true">
-                    <h4 class="labels">Apellido Materno :</h4>
-                    <input type="text" name="a_materno" id="a_materno" value="" data-clear-btn="true">
-                    <br>
-                    <h4 class="labels" >Fecha de Nacimiento:</h4>
-                    <input type="date" name="inputDate" id="fecha_nacimiento" value="" data-clear-btn="true" placeholder="">
-                    <br>
-                    <h4 class="labels" >Telefóno:</h4>
-                    <input type="number" value="" name="telefono" id="telefono" class="municipio" style="width: 48%;">
-                    <br>
-                    <h4 class="labels" >Ocupación:</h4>
-                    <input type="text" value="" name="ocupacion" id="ocupacion" class="colonia" style="width: 48%;">
+            <div id="dvMostrar">
+                <h2 class="seccion" align="center">Datos del Paciente</h2>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <div class="box">
+                        <h4 class="labels">Nombre:</h4>
+                        <input type="text" name="nombre" id="nombre" value="" data-clear-btn="true">
+                        <br>
+                        <h4 class="labels">Apellido Paterno :</h4>
+                        <input type="text"  name="a_paterno" id="a_paterno" value="" data-clear-btn="true">
+                        <h4 class="labels">Apellido Materno :</h4>
+                        <input type="text" name="a_materno" id="a_materno" value="" data-clear-btn="true">
+                        <br>
+                        <h4 class="labels" >Fecha de Nacimiento:</h4>
+                        <input type="date" name="inputDate" id="fecha_nacimiento" value="" data-clear-btn="true" placeholder="">
+                        <br>
+                        <h4 class="labels" >Telefóno:</h4>
+                        <input type="number" value="" name="telefono" id="telefono" class="municipio" style="width: 48%;">
+                        <br>
+                        <h4 class="labels" >Ocupación:</h4>
+                        <input type="text" value="" name="ocupacion" id="ocupacion" class="colonia" style="width: 48%;">
 
-                    <br>
-                    <div class="etiqueta" style="display:inline-block; width:20%;">
-                        <span class="labels">Sexo </span>
-                    </div>
-                    <div class="contenido-direccion-1" >
-                        <label>
-                            <input type="checkbox" name="sexo" id="sexo_masculino" value="1"style=" width: 20%" />
-                            <span class="labels">Masculino</span>
-                        </label>
+                        <br>
+                        <div class="etiqueta" style="display:inline-block; width:20%;">
+                            <span class="labels">Sexo </span>
+                        </div>
+                        <div class="contenido-direccion-1" >
+                            <label>
+                                <input type="checkbox" name="sexo" id="sexo_masculino" value="1"style=" width: 20%" />
+                                <span class="labels">Masculino</span>
+                            </label>
 
-                        <label>
-                            <input type="checkbox" name="sexo" id="sexo_femenino" value="2" style=" width: 20%"/>
-                            <span >Femenino</span>
-                        </label>
+                            <label>
+                                <input type="checkbox" name="sexo" id="sexo_femenino" value="2" style=" width: 20%"/>
+                                <span >Femenino</span>
+                            </label>
+                        </div>
+
                     </div>
 
                 </div>
 
             </div>
+            <hr>
 
 
 
+            <!-- seccion que dibuja los controles de media filiacion -->
+            <!-- ============================================================================= -->
+            <div id="mostrar_media_filiacion">
+
+                <h2 class="seccion" align="center">Media Filiación</h2>
+                    <div style=" width: 90%; margin: 0 auto;">
 
 
+                        <!--  parte que dibuja el control Cabello-->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Cabello</h4>
+                            </div>
+                            <a href="#pnl_mf_cabello">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_cabello" disabled type="text" value="Lacio"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control Color cabello -->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Color de cabello</h4>
+                            </div>
+                            <a href="#pnl_mf_color_cabello">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_color_cabello" disabled type="text" value="Rubio"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control volumen -->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Volumen </h4>
+                            </div>
+                            <a href="#pnl_mf_volumen">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_volumen" disabled type="text" value="No aplica"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control color de ojos -->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Color de ojos</h4>
+                            </div>
+                            <a href="#pnl_mf_color_ojos">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_color_ojos" disabled type="text" value="Rubio"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control piel -->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Color de piel</h4>
+                            </div>
+                            <a href="#pnl_mf_color_piel">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_color_piel" disabled type="text" value="Blanco"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control complexion -->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Complexión</h4>
+                            </div>
+                            <a href="#pnl_mf_complexion">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_complexion" disabled type="text" value="Delgada"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control  nariz -->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Nariz</h4>
+                            </div>
+                            <a href="#pnl_mf_nariz">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_nariz" disabled type="text" value="Recta"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control cuerpo -->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Parte del cuerpo</h4>
+                            </div>
+                            <a href="#pnl_mf_cuerpo">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_cuerpo" disabled type="text" value="No aplica"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control senias -->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Señas</h4>
+                            </div>
+                            <a href="#pnl_mf_senas">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_senias" disabled type="text" value="No aplica"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control senias lugar -->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Señas lugar</h4>
+                            </div>
+                            <a href="#pnl_mf_senia_lugar">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_sena" disabled type="text" value="No aplica"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control tamanio -->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Tamaño</h4>
+                            </div>
+                            <a href="#pnl_mf_tamano">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_tamano" disabled type="text" value="No aplica"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!--  termina dibujo -->
+
+                        <!--  parte que dibuja el control  nariz -->
+                        <!--  parte que dibuja el control boca
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Boca</h4>
+                            </div>
+                            <a href="#pnl_mf_tamano_boca">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_tamano_boca" disabled type="text" value="Pequeña"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        termina dibujo -->
+
+                        <!--  parte que dibuja el control Tamaño cabello
+                       <div style="width: 100%; height: 65px; ">
+                           <div style=" width: 47%;float: left;">
+                               <h4 class="labels">Tamaño del cabello</h4>
+                           </div>
+                           <a href="#pnl_mf_tamano_cabello">
+                               <div style=" width: 53%;float: left;">
+                                   <div class="fake-input">
+                                       <input id="mf_tamano_cabello" disabled type="text" value="No aplica"/>
+                                       <img src="images/right.png" />
+                                   </div>
+                               </div>
+                           </a>
+                       </div>
+                        termina dibujo -->
+
+                        <!-- <div class="col-container">
+
+                            <div class="col">
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Frente" id="md_Frente" value="1">
+                                    <span class="labels_3" for="md_frente">Frente</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Nuca" id="md_Nuca" value="2">
+                                    <span class="labels_3" for="md_nuca">Nuca</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Sien_Izquierda" id="md_Sien_Izquierda" value="3">
+                                    <span class="labels_3" for="md_sien_izquierda">Sien Izquierda</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Sien_Derecha" id="md_Sien_Derecha" value="4">
+                                    <span class="labels_3" for="md_sien_derecha">Sien Derecha</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Oreja_Izquierda" id="md_Oreja_Izquierda" value="5">
+                                    <span class="labels_3" for="md_oreja_izquierda">Oreja Izquierda</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Oreja_Derecha" id="md_Oreja Derecha" value="6">
+                                    <span class="labels_3" for="md_oreja_derecha">Oreja Derecha</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Ojo_Izquierdo" id="md_Ojo_Izquierdo" value="7">
+                                    <span class="labels_3" for="md_ojo_izquierdo">Ojo Izquierdo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Ojo_Derecho" id="md_Ojo_Derecho" value="8">
+                                    <span class="labels_3" for="md_ojo_derecho">Ojo Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pomulo_Izquierdo" id="md_Pomulo_Izquierdo" value="9">
+                                    <span class="labels_3" for="md_pomulo_izquierdo">Pómulo Izquierdo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pomulo_Derecho" id="md_Pomulo_derecho" value="10">
+                                    <span class="labels_3" for="fr_has">Pómulo Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Nariz" id="md_Nariz" value="11">
+                                    <span class="labels_3" for="fr_has">Nariz</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Boca" id="md_Boca" value="12">
+                                    <span class="labels_3" for="fr_has">Boca</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Menton_Barbilla" id="md_Menton_Barbilla" value="13">
+                                    <span class="labels_3" for="fr_has">Mentón o Barbilla</span>
+                                </div>
+                            </div> -->
+
+                        <!-- <div class="col">
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Cuello" id="md_Cuello" value="14">
+                                    <span class="labels_3" for="fr_has">Cuello</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Manzana_De_Adan" id="md_Manzana_De_Adan" value="15">
+                                    <span class="labels_3" for="fr_has">Manzana De Adán</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pecho_Izquierdo" id="md_Pecho_Izquierdo" value="16">
+                                    <span class="labels_3" for="fr_has">Pecho Izquierdo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pecho_Derecho" id="md_Pecho_Derecho" value="17">
+                                    <span class="labels_3" for="fr_has">Pecho Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pezon_Izquierdo" id="md_Pezon_Izquierdo" value="18">
+                                    <span class="labels_3" for="fr_has">Pezón Izquierdo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pezon_Derecho" id="md_Pezon_Derecho" value="19">
+                                    <span class="labels_3" for="fr_has">Pezón Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Espalda" id="md_Espalda" value="20">
+                                    <span class="labels_3" for="fr_has">Espalda</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Costado_Izquierdo" id="md_Costado_Izquierdo" value="21">
+                                    <span class="labels_3" for="fr_has">Costado Izquierdo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Costado_Derecho" id="md_Costado_Derecho" value="22">
+                                    <span class="labels_3" for="fr_has">Costado Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Abdomen" id="md_Abdomen" value="23">
+                                    <span class="labels_3" for="fr_has">Abdomen</span>
+                                </div>
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Ombligo" id="md_Mano_Ombligo" value="24">
+                                    <span class="labels_3" for="fr_has">Ombligo</span>
+                                </div>
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Mano_Izquierda" id="md_Mano_Izquierda" value="25">
+                                    <span class="labels_3" for="fr_has">Mano Izquierda</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Mano_Derecha" id="md_Mano_Derecha" value="26">
+                                    <span class="labels_3" for="fr_has">Mano Derecha</span>
+                                </div>
+                            </div> -->
+
+                        <!-- <div class="col">
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Antebrazo_Izquierdo" id="md_Antebrazo_Izquierdo" value="27">
+                                    <span class="labels_3" for="fr_has">Antebrazo Izquierdo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Antebrazo_Derecho" id="md_Antebrazo_Derecho" value="28">
+                                    <span class="labels_3" for="fr_has">Antebrazo Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Brazo_Izquierdo" id="md_Brazo_izquierdo" value="29">
+                                    <span class="labels_3" for="fr_has">Brazo Izquierdo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Brazo_Derecho" id="md_Brazo_Derecho" value="30">
+                                    <span class="labels_3" for="fr_has">Brazo Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Codo_Izquierdo" id="md_Codo_izquierdo" value="31">
+                                    <span class="labels_3" for="fr_has">Codo Izquierdo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Codo_Derecho" id="md_Codo_Derecho" value="32">
+                                    <span class="labels_3" for="fr_has">Codo Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Muslo_Izquierdo" id="md_Muslo_izquierdo" value="33">
+                                    <span class="labels_3" for="fr_has">Muslo Izquierdo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Muslo_Derecho" id="md_Muslo_Derecho" value="34">
+                                    <span class="labels_3" for="fr_has">Muslo Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Rodilla_Izquierdo" id="md_Rodilla_izquierda" value="35">
+                                    <span class="labels_3" for="fr_has">Rodilla Izquierda</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Rodilla_Derecho" id="md_Rodilla_Derecha" value="36">
+                                    <span class="labels_3" for="fr_has">Pierna Derecha</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Rodilla_Izquierdo" id="md_Pierna_izquierda" value="37">
+                                    <span class="labels_3" for="fr_has">Pierna Izquierda</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Rodilla_Derecho" id="md_Pierna_Derecha" value="38">
+                                    <span class="labels_3" for="fr_has">Pierna Derecha</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pie_Izquierdo" id="md_Pie_izquierdo" value="39">
+                                    <span class="labels_3" for="fr_has">Pie Izquierdo</span>
+                                </div>
+                            </div> -->
+
+                        <!-- <div class="col">
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pie_Derecho" id="md_Pie_Derecho" value="40">
+                                    <span class="labels_3" for="fr_has">Pie Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Gluteo_Izquierdo" id="md_Gluteo_izquierdo" value="41">
+                                    <span class="labels_3" for="fr_has">Gluteo Izquierdo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Gluteo_Derecho" id="md_Gluteo_Derecho" value="42">
+                                    <span class="labels_3" for="fr_has">Gluteo Derecho</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Mejilla" id="md_Mejilla" value="43">
+                                    <span class="labels_3" for="fr_has">Mejilla</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Ceja" id="md_Ceja" value="44">
+                                    <span class="labels_3" for="fr_has">Ceja</span>
+                                </div>
+                            </div> -->
+
+                        <!--  parte que dibuja el control Tamaño ojos
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Tamaño de los ojos</h4>
+                            </div>
+                            <a href="#pnl_mf_tamano_ojos">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="mf_tamano_ojos" disabled type="text" value="pequeños"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        termina dibujo -->
+
+                        <!-- </div> -->
+
+                        <h5 class="seccion" align="center" ><strong> Ropa </strong></h5>
+                        <div class="col-container">
+                            <div class="col">
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pantalon" id="md_Pantalon" value="1">
+                                    <span class="labels_3" for="mf_pantalon">Pantalon</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Camisa" id="md_Camisa" value="2">
+                                    <span class="labels_3" for="mf_camisa">Camisa</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Falda" id="md_Falda" value="3">
+                                    <span class="labels_3" for="mf_falda">Falda</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Blusa" id="md_Blusa" value="4">
+                                    <span class="labels_3" for="mf_blusa">Blusa</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Chaleco" id="md_Chaleco" value="5">
+                                    <span class="labels_3" for="mf_chaleco">Chaleco</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Saco" id="md_Saco" value="6">
+                                    <span class="labels_3" for="mf_saco">Saco</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Bermuda" id="md_Bermuda" value="7">
+                                    <span class="labels_3" for="mf_bermuda">Bermuda</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Short" id="md_Short" value="8">
+                                    <span class="labels_3" for="mf_short">Short</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Sueter" id="md_Sueter" value="9">
+                                    <span class="labels_3" for="mf_sueter">Sueter</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Chamarra" id="md_Chamarra" value="10">
+                                    <span class="labels_3" for="mf_chamarra">Chamarra</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Gabardina" id="md_Gabardina" value="11">
+                                    <span class="labels_3" for="mf_gabardina">Gabardina</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Mallas" id="md_Mallas" value="12">
+                                    <span class="labels_3" for="mf_mallas">Mallas</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Playera" id="md_Playera" value="13">
+                                    <span class="labels_3" for="mf_">Playera</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Traje" id="md_Traje" value="14">
+                                    <span class="labels_3" for="mf_traje">Traje</span>
+                                </div>
+                            </div>
+
+                            <div class="col">
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pants" id="md_Pants" value="15">
+                                    <span class="labels_3" for="mf_patns">Pants</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Sudadera" id="md_Sudadera" value="16">
+                                    <span class="labels_3" for="mf_sudadera">Sudadera</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Zapatos" id="md_Zapatos" value="17">
+                                    <span class="labels_3" for="mf_zapatos">Zapatos</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Tenis" id="md_Tenis" value="18">
+                                    <span class="labels_3" for="mf_tenis">Tenis</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="Zapatillas" id="Zapatillas" value="19">
+                                    <span class="labels_3" for="mf_zapatillas">Zapatillas</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="Botas" id="Botas" value="20">
+                                    <span class="labels_3" for="mf_botas">botas</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Huaraches" id="md_Huaraches" value="21">
+                                    <span class="labels_3" for="mf_huaraches">Huaraches</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Corbata" id="md_Corbata" value="22">
+                                    <span class="labels_3" for="mf_corbata">Corbata</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Vestido" id="md_Vestido" value="23">
+                                    <span class="labels_3" for="mf_vestido">Vestido</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pantaleta" id="md_Pantaleta" value="24">
+                                    <span class="labels_3" for="mf_pantaleta">Pantaleta</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Calcetines" id="md_Calcetines" value="25">
+                                    <span class="labels_3" for="mf_calcetines">Calcetines</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Overol" id="md_Overol" value="26">
+                                    <span class="labels_3" for="mf_overol">Overol</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Truza" id="md_Truza" value="27">
+                                    <span class="labels_3" for="mf_truza">Truza</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Boxer" id="md_Boxer" value="28">
+                                    <span class="labels_3" for="mf_boxer">Boxer</span>
+                                </div>
+                            </div>
+                        </div> <!-- seccion ropa -->
+
+                        <h5 class="seccion" align="center" ><strong> Accesorios </strong></h5>
+                        <div class="col-container">
+                            <div class="col">
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Anillo" id="md_Anillo" value="1">
+                                    <span class="labels_3" for="fr_has">Anillo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Aretes" id="md_Aretes" value="2">
+                                    <span class="labels_3" for="fr_has">Aretes</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Bufanda" id="md_Bufanda" value="3">
+                                    <span class="labels_3" for="fr_has">Bufanda</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Cadena" id="md_Cadena" value="4">
+                                    <span class="labels_3" for="fr_has">Cadena</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Cartera" id="md_Cartera" value="5">
+                                    <span class="labels_3" for="fr_has">Cartera</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Anillo" id="md_Celular" value="6">
+                                    <span class="labels_3" for="fr_has">Celular</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Aretes" id="md_Cinturon" value="7">
+                                    <span class="labels_3" for="fr_has">Cinturon</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Bufanda" id="md_Collar" value="8">
+                                    <span class="labels_3" for="fr_has">Collar</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Cadena" id="md_Diadema" value="9">
+                                    <span class="labels_3" for="fr_has">Diadema</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Cartera" id="md_Dije" value="10">
+                                    <span class="labels_3" for="fr_has">Dije</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Lentes" id="md_Lentes" value="11">
+                                    <span class="labels_3" for="fr_has">Lentes</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Mancuernillas" id="md_Mancuernillas" value="12">
+                                    <span class="labels_3" for="fr_has">Mancuernillas</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Moño" id="md_Moño" value="13">
+                                    <span class="labels_3" for="fr_has">Moño</span>
+                                </div>
+                            </div>
+
+                            <div class="col">
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pañuelo" id="md_Pañuelo" value="14">
+                                    <span class="labels_3" for="fr_has">Pañuelo</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Peinetas" id="md_Peinetas" value="15">
+                                    <span class="labels_3" for="fr_has">Peinetas</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Portafolio" id="md_Portafolio" value="16">
+                                    <span class="labels_3" for="fr_has">Portafolio</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Pulsera" id="md_Pulsera" value="17">
+                                    <span class="labels_3" for="fr_has">Pulsera</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Reloj" id="md_Reloj" value="18">
+                                    <span class="labels_3" for="fr_has">Reloj</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Tirantes" id="md_Tirantes" value="19">
+                                    <span class="labels_3" for="fr_has">Tirantes</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Bolsa" id="md_Bolsa" value="20">
+                                    <span class="labels_3" for="fr_has">Bolsa</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Sombrero" id="md_Sombrero" value="21">
+                                    <span class="labels_3" for="fr_has">Sombrero</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Gorra" id="md_Gorra" value="22">
+                                    <span class="labels_3" for="fr_has">Gorra</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Guantes" id="md_Guantes" value="23">
+                                    <span class="labels_3" for="fr_has">Guantes</span>
+                                </div>
+
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Mochila" id="md_Mochila" value="24">
+                                    <span class="labels_3" for="fr_has">Mochila</span>
+                                </div>
+                                <div class="fac fac-checkbox-o fac-red"><span></span>
+                                    <input class="radioB_3" style="margin-top: 1vmin;" type="checkbox" name="mf_Gorro" id="md_Gorro" value="25">
+                                    <span class="labels_3" for="fr_has">Gorro</span>
+                                </div>
+
+                            </div>
+                        </div> <!--seccion accesorios -->
+
+                    </div>
+            </div>
 
 
-        </div>
-        <hr>
 
             <label>
                 <input type="checkbox" id="optDir" name="optDir" class="fantasmaDir" unchecked />
@@ -671,68 +2138,56 @@
                             </div>
                         </a>
                     </div>
-
-
-
-
-
-
                 </div>
 
             </div>
 
             <hr>
 
+            <div class="contenido-form">
 
-        <div class="contenido-form">
-
-
-            <div>
 
                 <div>
 
-                    <div style=" width: 90%; margin: 0 auto;">
+                    <div>
 
+                        <div style=" width: 90%; margin: 0 auto;">
 
-
-
-                        <!--  parte que dibuja el control -->
-                        <div style="width: 100%; height: 65px; ">
-                            <div style=" width: 47%;float: left;">
-                                <h4 class="labels">Servicio Médico</h4>
-                            </div>
-                            <a href="#pnlServicioMedico">
-                                <div style=" width: 53%;float: left;">
-                                    <div class="fake-input">
-                                        <input id="cd_ep_servicioMedico_t" disabled type="text" value="Normal"/>
-                                        <img src="images/right.png" />
-                                    </div>
+                            <!--  parte que dibuja el control -->
+                            <div style="width: 100%; height: 65px; ">
+                                <div style=" width: 47%;float: left;">
+                                    <h4 class="labels">Servicio Médico</h4>
                                 </div>
-                            </a>
-                        </div>
-                        <!--  termina dibujo -->
-
-
-
-                        <!--  parte que dibuja el control -->
-                        <div style="width: 100%; height: 65px; ">
-                            <div style=" width: 47%;float: left;">
-                                <h4 class="labels">Motivo de atención</h4>
-                            </div>
-                            <a href="#pnlMotivoAtencion">
-                                <div style=" width: 53%;float: left;">
-                                    <div id="kko" class="fake-input">
-                                        <input id="cd_ep_motivoAtencion_t" disabled type="text" value="Traumatismo"/>
-                                        <img src="images/right.png" />
+                                <a href="#pnlServicioMedico">
+                                    <div style=" width: 53%;float: left;">
+                                        <div class="fake-input">
+                                            <input id="cd_ep_servicioMedico_t" disabled type="text" value="Normal"/>
+                                            <img src="images/right.png" />
+                                        </div>
                                     </div>
+                                </a>
+                            </div>
+                            <!--  termina dibujo -->
+
+                            <!--  parte que dibuja el control -->
+                            <div style="width: 100%; height: 65px; ">
+                                <div style=" width: 47%;float: left;">
+                                    <h4 class="labels">Motivo de atención</h4>
                                 </div>
-                            </a>
-                        </div>
-                        <!--  termina dibujo -->
+                                <a href="#pnlMotivoAtencion">
+                                    <div style=" width: 53%;float: left;">
+                                        <div id="kko" class="fake-input">
+                                            <input id="cd_ep_motivoAtencion_t" disabled type="text" value="Traumatismo"/>
+                                            <img src="images/right.png" />
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!--  termina dibujo -->
 
+                            <div style="height: 10px; width: 300px;">
 
-
-                        <div style="height: 10px; width: 300px;">
+                            </div>
 
                         </div>
 
@@ -745,38 +2200,16 @@
         </div>
 
 
-
-        </div>
-
-
-
-
-
         <!--<a href="#evaluacion_primaria" data-transition="slide" id="boton1" data-state="q2" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
         -->
         <center>
-        <a href="#evaluacion_primaria" data-transition="slide" id="btnNext1" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
+            <a href="#evaluacion_primaria" data-transition="slide" id="btnNext1" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
         </center>
 
         <div style="height: 50px; width: 100%;"></div>
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!---
@@ -1353,33 +2786,6 @@
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -2151,34 +3557,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!---
                                TRATAMIENTO
    =======================================================================================
    ----->
+
 <div data-role="page" style="" id="tratamiento">
 
     <div data-role="panel" id="pnlAspiracion" data-display="overlay" data-position="right" style=" width: 310px;">
@@ -2220,7 +3603,7 @@
 
     <div data-role="panel" id="pnlDispositivoAp" data-display="overlay" data-position="right" style=" width: 310px;">
         <div class="ui-panel-inner" style="width: 300px;">
-            <h2>Manejo de vía aerea :</h2>
+            <h2>Manejo de vía aerea:</h2>
             <label class="container">No aplica
                 <input onclick="CambiarV('#trat_dispositivo','No aplica');" type="radio" name="dispositivo_apertura" id="disp_no_aplica" value="1"  checked="checked" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
@@ -2248,8 +3631,6 @@
         </div>
     </div><!-- /panel -->
 
-
-    <!--
     <div data-role="panel" id="pnlDispositivoVen" data-display="overlay" data-position="right" style=" width: 310px;">
         <div class="ui-panel-inner" style="width: 300px;">
             <h2>Dispositivo de apertura:</h2>
@@ -2258,7 +3639,7 @@
                 <span class="checkmark"></span>
             </label>
             <label class="container">Bolsa válvula mascarilla
-                <input onclick="CambiarV('#trat_disp_ven','Bolsa válvula mascarilla');" type="radio" name="manejo_via_aerea" id="manejo_manual" value="2" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#trat_disp_ven','Bolsa válvula mascarilla');" type="radio" name="manejo_via_aerea" id="disp_mascarilla" value="2" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label class="container">CPAP
@@ -2266,13 +3647,11 @@
                 <span class="checkmark"></span>
             </label>
             <label  class="container">Ventilador mecánico
-                <input onclick="CambiarV('#trat_disp_ven','Ventilador mecánico');" type="radio" name="manejo_via_aerea" id="manejo_trans" value="4" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#trat_disp_ven','Ventilador mecánico');" type="radio" name="manejo_via_aerea" id="disp_ventilador" value="4" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
         </div>
     </div>
-    -->
-
 
 
     <div data-role="panel" id="pnlOxig" data-display="overlay" data-position="right" style=" width: 310px;">
@@ -2441,14 +3820,13 @@
                 <span class="checkmark"></span>
             </label>
             <label class="container">No
-                <input onclick="CambiarV('#trat_intervenciones_boma','No');" type="radio" name="acceso_bomba" id="acceso_bomba_no" value="2" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#trat_intervenciones_bomba','No');" type="radio" name="acceso_bomba" id="acceso_bomba_no" value="2" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
         </div>
     </div><!-- /panel -->
 
     <!--terminan paneles visibles con intra periferico y oseo-->
-
 
     <div data-role="panel" id="pnlInterControl" data-display="overlay" data-position="right" style=" width: 310px;">
         <div class="ui-panel-inner" style="width: 300px;">
@@ -2530,464 +3908,392 @@
 
     <div style=" width: 90%; margin: 0 auto;">
 
-    <h3 style="text-align:center;"><strong>Manejo de la vía aerea</strong></h3>
+        <h3 style="text-align:center"><strong>Manejo de la vía aerea</strong></h3>
 
+        <!-- content form -->
 
+        <div class="contenido-form">
+            <div style=" width: 90%; margin: 0 auto;">
 
-
-
-
-
-
-    <!-- content form -->
-
-    <div class="contenido-form">
-
-
-        <div>
-            <style type="text/css">
-                select[disabled] {
-                    border: 3px solid;
-                    border-bottom-color: black;
-                    background-color: blue;
-                }
-
-                .fake-input { position: relative;  width: 90%; }
-                .fake-input input { border: solid; border-width: 2px; background:#fff;  display:block; width: 100%; }
-                .fake-input img { position: absolute; top: 12px; right: 5px }
-
-                .fakej-input { position: relative;  background-image:url(images/left.png);
-                    background-position: 5px 12px;;
-                    background-repeat:no-repeat;
-                }
-                .fakej-input input { text-align: center; border:solid; border-width: 2px; background:#fff; display:block; width: 100%;}
-                .fakej-input img { position: absolute; top: 12px; right: 5px }
-
-
-
-
-
-
-            </style>
-            <div>
-
-                <div style=" width: 90%; margin: 0 auto;">
-
-                    <div style="width: 100%; height: 65px; ">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Aspiración</h4>
-                        </div>
-                        <a href="#pnlAspiracion">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_aspiracion" disabled type="text" value="Sí"/>
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
+                <div style="width: 100%; height: 65px; ">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Aspiración</h4>
                     </div>
-
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Manejo de vía aerea </h4>
-                        </div>
-                        <a href="#pnlMAnejoVia">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_manejo" disabled type="text" value="No necesitó" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Dispositivo de apertura</h4>
-                        </div>
-                        <a href="#pnlDispositivoAp">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_dispositivo" disabled type="text" value="No aplica" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <h3 style="text-align:center;"><strong>Asistencia ventilatoria</strong></h3>
-
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Dispositivo</h4>
-                        </div>
-                        <a href="#pnlDispositivoVen">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_disp_ven" disabled type="text" value="No necesitó" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!--Mostrar con CPAP o ventilador mécanico-->
-                    <div>
-                        <div style="width: 100%; height: 65px;">
-                            <div style=" width: 47%;float: left;">
-                                <h4>Frecuencia</h4>
-                            </div>
-                            <div style=" width: 47%;float: left;">
-                                <input type="number" name="asistencia_frecuencia" id="asistencia_frecuencia" style="width:30%;">
+                    <a href="#pnlAspiracion">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_aspiracion" disabled type="text" value="Sí"/>
+                                <img src="images/right.png" />
                             </div>
                         </div>
-
-                        <div style="width: 100%; height: 65px;">
-                            <div style=" width: 47%;float: left;">
-                                <h4>Volumén</h4>
-                            </div>
-                            <div style=" width: 47%;float: left;">
-                                <input type="number" name="asistencia_volumen" id="asistencia_volumen" style="width:30%;">
-                            </div>
-                        </div>
-
-                        <div style="width: 100%; height: 65px;">
-                            <div style=" width: 47%;float: left;">
-                                <h4>Modalidad</h4>
-                            </div>
-                            <div style=" width: 47%;float: left;">
-                                <input type="text" name="asistencia_modalidad" id="asistencia_modalidad" style="width:30%;">
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                    <h3 style="text-align:center;"><strong>Oxigenoterapia</strong></h3>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Tipo</h4>
-                        </div>
-                        <a href="#pnlOxig">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_oxig" disabled type="text" value="No necesitó" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Litros por minuto</h4>
-                        </div>
-                        <div style=" width: 47%;float: left;">
-                            <input type="number" name="oxi_litros" id="ox_ilitros" style="width:30%;">
-                        </div>
-                    </div>
-
-                    <h3 style="text-align:center;"><strong>Descompresión pleural</strong></h3>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Hemitorax</h4>
-                        </div>
-                        <a href="#pnlDescPleural">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_desc_pl" disabled type="text" value="No necesitó" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Calibre</h4>
-                        </div>
-                        <div style=" width: 47%;float: left;">
-                            <input type="number" name="hemitorax_calibre" id="hemitorax_calibre" style="width:30%;">
-                        </div>
-                    </div>
-
-                    <h3 style="text-align:center;"><strong>Control de hemorragias</strong></h3>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Tipo</h4>
-                        </div>
-                        <a href="#pnlControlHemo">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_control_hemo" disabled type="text" value="No necesitó" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Hora de colocación</h4>
-                        </div>
-                        <div style=" width: 47%;float: left;">
-                            <input type="time" name="control_hemorragia_HORA" id="control_hemorragia_HORA" style="width:30%;">
-                        </div>
-                    </div>
-
-                    <h3 style="text-align:center;"><strong>Acceso circulatorio</strong></h3>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Vía de acceso</h4>
-                        </div>
-                        <a href="#pnlAccesoCir">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_acceso_cir" disabled type="text" value="No necesitó" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!--Mostrar con intravascular o con intra oseo acceso circulatorio-->
-
-                    <div>
-                        <div style="width: 100%; height: 65px;">
-                            <div style=" width: 47%;float: left;">
-                                <h4>Colocación</h4>
-                            </div>
-                            <a href="#pnlAccesoCirZona">
-                                <div style=" width: 53%;float: left;">
-                                    <div class="fake-input">
-                                        <input id="trat_acceso_cir_zona" disabled type="text" value="No necesitó" />
-                                        <img src="images/right.png" />
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div style="width: 100%; height: 65px;">
-                            <div style=" width: 47%;float: left;">
-                                <h4>Solución</h4>
-                            </div>
-                            <a href="#pnlAccesoCirTipo">
-                                <div style=" width: 53%;float: left;">
-                                    <div class="fake-input">
-                                        <input id="trat_intervenciones_tipo" disabled type="text" value="No aplica" />
-                                        <img src="images/right.png" />
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div style="width: 100%; height: 65px;">
-                            <div style=" width: 47%;float: left;">
-                                <h4>Infusión</h4>
-                            </div>
-                            <a href="#pnlAccesoCirBomba">
-                                <div style=" width: 53%;float: left;">
-                                    <div class="fake-input">
-                                        <input id="trat_intervenciones_bomba" disabled type="text" value="Si" />
-                                        <img src="images/right.png" />
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div style="width: 100%; height: 65px;">
-                            <div style=" width: 47%;float: left;">
-                                <h4>Calibre</h4>
-                            </div>
-                            <div style=" width: 47%;float: left;">
-                                <input type="number" name="acceso_calibre" id="acceso_calibre" style="width:30%;">
-                            </div>
-                        </div>
-
-                        <div style="width: 100%; height: 65px;">
-                            <div style=" width: 47%;float: left;">
-                                <h4>Volumén infundido</h4>
-                            </div>
-                            <div style=" width: 47%;float: left;">
-                                <input type="number" name="acceso_volumen" id="acceso_volumen" style="width:30%;">
-                            </div>
-                        </div>
-
-                        <div style="width: 100%; height: 65px;">
-                            <div style=" width: 47%;float: left;">
-                                <h4>Hora de colocación</h4>
-                            </div>
-                            <div style=" width: 47%;float: left;">
-                                <input type="time" name="acceso_hora" id="acceso_hora" style="width:30%;">
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-
-                    <h3 style="text-align:center;"><strong>Intervenciones</strong></h3>
-
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Control cervical</h4>
-                        </div>
-                        <a href="#pnlInterControl">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_intervenciones_control" disabled type="text" value="Si" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Extremidades</h4>
-                        </div>
-                        <a href="#pnlInterInmo">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_intervenciones_inmo" disabled type="text" value="Si" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Empaquetamiento</h4>
-                        </div>
-                        <a href="#pnlInterEmp">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_intervenciones_emp" disabled type="text" value="Si" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Curación / Vendaje</h4>
-                        </div>
-                        <a href="#pnlInterCuracion">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_intervenciones_cur" disabled type="text" value="Si" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-
-
-                    <h3 style="text-align:center;"><strong>Terapía eléctrica</strong></h3>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Tipo:</h4>
-                        </div>
-                        <a href="#pnlTerapia">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input id="trat_terapia" disabled type="text" value="No necesitó" />
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Descargas</h4>
-                        </div>
-                        <div style=" width: 47%;float: left;">
-                            <input type="number" name="terapia_descargas" id="terapia_descargas" style="width:30%;">
-                        </div>
-                    </div>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Joules</h4>
-                        </div>
-                        <div style=" width: 47%;float: left;">
-                            <input type="number" name="terapia_joules" id="terapia_joules" style="width:30%;">
-                        </div>
-                    </div>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>mA</h4>
-                        </div>
-                        <div style=" width: 47%;float: left;">
-                            <input type="number" name="terapia_ma" id="terapia_ma" style="width:30%;">
-                        </div>
-                    </div>
-                    <div style="width: 100%; height: 65px;">
-                        <div style=" width: 47%;float: left;">
-                            <h4>Frecuencia</h4>
-                        </div>
-                        <div style=" width: 47%;float: left;">
-                            <input type="number" name="terapia_ma" id="terapia_frecuencia" style="width:30%;">
-                        </div>
-                    </div>
-
-                    <h3 style="text-align:center;"><strong>Observaciones</strong></h3>
-                    <input type="text" id="tratamiento_observaciones">
-
+                    </a>
                 </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Manejo de vía aerea </h4>
+                    </div>
+                    <a href="#pnlMAnejoVia">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_manejo" disabled type="text" value="No necesitó" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Dispositivo de apertura</h4>
+                    </div>
+                    <a href="#pnlDispositivoAp">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_dispositivo" disabled type="text" value="No aplica" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <h3 style="text-align:center"><strong>Aistencia ventilatoria</strong></h3>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Dispositivo</h4>
+                    </div>
+                    <a href="#pnlDispositivoVen">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_disp_ven" disabled type="text" value="No necesitó" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Frecuencia</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="number" name="asistencia_frecuencia" id="asistencia_frecuencia" style="width:30%;">
+                    </div>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Volumén</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="number" name="asistencia_volumen" id="asistencia_volumen" style="width:30%;">
+                    </div>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Modalidad</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="text" name="asistencia_modalidad" id="asistencia_modalidad" style="width:30%;">
+                    </div>
+                </div>
+
+                <h3 style="text-align:center"><strong>Oxigenoterapia</strong></h3>
+
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Tipo</h4>
+                    </div>
+                    <a href="#pnlOxig">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_oxig" disabled type="text" value="No necesitó" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Litros por minuto</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="number" name="oxi_litros" id="ox_ilitros" style="width:30%;">
+                    </div>
+                </div>
+
+                <h3 style="text-align:center"><strong>Descompresión pleural</strong></h3>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Hemitorax</h4>
+                    </div>
+                    <a href="#pnlDescPleural">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_desc_pl" disabled type="text" value="No necesitó" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Calibre</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="number" name="hemitorax_calibre" id="hemitorax_calibre" style="width:30%;">
+                    </div>
+                </div>
+
+                <h3 style="text-align:center"><strong>Control de hemorragias</strong></h3>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Tipo</h4>
+                    </div>
+                    <a href="#pnlControlHemo">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_control_hemo" disabled type="text" value="No necesitó" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Hora de colocación</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="time" name="control_hemorragia_HORA" id="control_hemorragia_HORA" style="width:30%;">
+                    </div>
+                </div>
+
+                <h3 style="text-align:center"><strong>Acceso circulatorio</strong></h3>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Vía de acceso</h4>
+                    </div>
+                    <a href="#pnlAccesoCir">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_acceso_cir" disabled type="text" value="No necesitó" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Colocación</h4>
+                    </div>
+                    <a href="#pnlAccesoCirZona">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_acceso_cir_zona" disabled type="text" value="No necesitó" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Solución</h4>
+                    </div>
+                    <a href="#pnlAccesoCirTipo">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_intervenciones_tipo" disabled type="text" value="No aplica" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Infusión</h4>
+                    </div>
+                    <a href="#pnlAccesoCirBomba">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_intervenciones_bomba" disabled type="text" value="Si" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Calibre</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="number" name="acceso_calibre" id="acceso_calibre" style="width:30%;">
+                    </div>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Volumén infundido</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="number" name="acceso_volumen" id="acceso_volumen" style="width:30%;">
+                    </div>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Hora de colocación</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="time" name="acceso_hora" id="acceso_hora" style="width:30%;">
+                    </div>
+                </div>
+
+                <h3 style="text-align:center"><strong>Intervenciones</strong></h3>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Control cervical</h4>
+                    </div>
+                    <a href="#pnlInterControl">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_intervenciones_control" disabled type="text" value="Si" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Extremidades</h4>
+                    </div>
+                    <a href="#pnlInterInmo">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_intervenciones_inmo" disabled type="text" value="Si" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Empaquetamiento</h4>
+                    </div>
+                    <a href="#pnlInterEmp">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_intervenciones_emp" disabled type="text" value="Si" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Curación / Vendaje</h4>
+                    </div>
+                    <a href="#pnlInterCuracion">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_intervenciones_cur" disabled type="text" value="Si" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <h3 style="text-align:center"><strong>Terapía eléctrica </strong></h3>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Tipo:</h4>
+                    </div>
+                    <a href="#pnlTerapia">
+                        <div style=" width: 53%;float: left;">
+                            <div class="fake-input">
+                                <input id="trat_terapia" disabled type="text" value="No necesitó" />
+                                <img src="images/right.png" />
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Descargas</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="number" name="terapia_descargas" id="terapia_descargas" style="width:30%;">
+                    </div>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Joules</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="number" name="terapia_joules" id="terapia_joules" style="width:30%;">
+                    </div>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">mA</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="number" name="terapia_ma" id="terapia_ma" style="width:30%;">
+                    </div>
+                </div>
+
+                <div style="width: 100%; height: 65px;">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="labels">Frecuencia</h4>
+                    </div>
+                    <div style=" width: 47%;float: left;">
+                        <input type="number" name="terapia_ma" id="terapia_frecuencia" style="width:30%;">
+                    </div>
+                </div>
+
+                <h3 style="text-align:center;"><strong>Observaciones</strong></h3>
+                <input type="text" id="tratamiento_observaciones">
 
             </div>
 
+
+
+            <!--
+            <a href="#evaluacion_primaria" data-transition="slide" id="boton1" data-state="q2" class="ui-btn ui-btn-raised clr-primary" style="background: green;">Siguiente</a>
+            -->
+            <center>
+                <a id="ref_motivo" href="" data-transition="slide" id="btnNext4" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
+            </center>
+
+            <div style="height: 50px; width: 100%;"></div>
+
         </div>
-
-
-
-        <!--
-        <a href="#evaluacion_primaria" data-transition="slide" id="boton1" data-state="q2" class="ui-btn ui-btn-raised clr-primary" style="background: green;">Siguiente</a>
-        -->
-        <center>
-            <a href="#" data-transition="slide" id="btnNext4" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
-        </center>
-
-        <div style="height: 50px; width: 100%;"></div>
-
-    </div>
 
 
 
     </div>
 
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <!---
@@ -3673,10 +4979,6 @@
 </div>
 
 
-
-
-
-
 <!---
                Ginecologica
    =======================================================================================
@@ -4141,13 +5443,6 @@
 </div>
 
 
-
-
-
-
-
-
-
 <!---
                Trauma
    =======================================================================================
@@ -4185,7 +5480,7 @@
         <div class="ui-panel-inner" style="width: 300px;">
             <h2 > Agente causal específico :</h2>
             <label class="container">Arma blanca
-                <input onclick="CambiarV('#t_casual','Arma blanca');" type="radio" name="trauna_ace"  id="trauna_ace_arma" value="1" checked="checked" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#t_causal','Arma blanca');" type="radio" name="trauna_ace"  id="trauna_ace_arma" value="1" checked="checked" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label class="container" >PAF
@@ -4262,7 +5557,7 @@
                 <span class="checkmark"></span>
             </label>
             <label class="container" >Se desconoce
-                <input onclick="CambiarV('#t_agente','Se desconoce');" type="radio" name="trauna_intencionalidad"  id="trauna_intencionalidad_no" value="3" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#t_intencionalidad','Se desconoce');" type="radio" name="trauna_intencionalidad"  id="trauna_intencionalidad_no" value="3" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
         </div>
@@ -4282,12 +5577,12 @@
         <!--  parte que dibuja el control de Agente -->
         <div style="width: 100%; height: 65px; ">
             <div style=" width: 47%;float: left;">
-                <h4 class="labels"> Agente : </h4>
+                <h4 class="labels"> Agente: </h4>
             </div>
             <a href="#pnlAgente">
                 <div style=" width: 53%;float: left;">
                     <div class="fake-input">
-                        <input class="seleccion" id="t_membranas" disabled type="text" value="Mecánico"/>
+                        <input class="seleccion" id="t_agente" disabled type="text" value="Mecánico"/>
                         <img src="images/right.png" />
                     </div>
                 </div>
@@ -4327,7 +5622,7 @@
             <a href="#pnlIntent">
                 <div style=" width: 53%;float: left;">
                     <div class="fake-input">
-                        <input class="seleccion" id="t_agente" disabled type="text" value="Accidental"/>
+                        <input class="seleccion" id="t_intencionalidad" disabled type="text" value="Accidental"/>
                         <img src="images/right.png" />
                     </div>
                 </div>
@@ -4352,37 +5647,10 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<!---
+               consentimiento
+   =======================================================================================
+   ----->
 
 <div data-role="page" style="" id="consentimiento">
     <h3 style="font-size:5vw; text-align: center;">Consentimiento</h3>
@@ -4477,34 +5745,6 @@
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!---
                                 Pertenencias y observaciones
     =======================================================================================
@@ -4556,7 +5796,7 @@
             <h4 align="center">Nombre: *</h4>
             <input class="input-text-box input-red-border" type="text" name="consentimiento_nombre_paciente" id="consentimiento_nombre_pacient">
             <a href="#" class="button button-round button-red button-full half-top full-bottom"><h4 align="center">Firmar</h4></a>
-            <!--<input type="button" value="Firmar" onclick="firmar('satndbypage', 'standFirmaPaciente')">
+            <input type="button" value="Firmar" onclick="firmar('satndbypage', 'standFirmaPaciente')">
         </div>
              -->
 
@@ -4582,9 +5822,6 @@
     </div>
 
 </div>
-
-
-
 
 
 
@@ -4618,10 +5855,6 @@
         </div>
 -->
 </div>
-
-
-
-
 
 
 <!---
@@ -4750,14 +5983,11 @@
 </div>
 
 
-
-
 <!--
 ========================================================================================================================
                     Página de FRIMA junto con el código en javascript
 ========================================================================================================================
 -->
-
 
 
 <div data-role="page" id="pageSuperFirma" >
@@ -5031,22 +6261,6 @@
     <div data-role="footer" data-position="fixed">
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
