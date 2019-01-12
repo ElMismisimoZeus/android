@@ -93,14 +93,6 @@ function checkText(value)
 
 
 
-
-
-
-
-
-
-
-
 // funciones de inicialización - Valores por dedult
 //============================================================================
 
@@ -123,6 +115,28 @@ function PACIENTE(){
 };
 
 
+// Edicion de guardado del objeto frap, Sección media filiación
+
+
+function MEDIA_FILIACION(){
+
+    this.iID_FRAP = idFRAP,
+        this.TIPO_FRAP = 'online',
+
+    this.iID_CTLG_MEDIA_FILIACION_ACCESORIOS = 1,
+        this.iID_CTLG_MEDIA_FILIACION_CABELLO = checkValue(iframe.find('input[name=cabello]:checked').val()),
+        this.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR = checkValue(iframe.find('input[name=color_cabello]:checked').val()),
+        this.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS = checkValue(iframe.find('input[name=color_ojos]:checked').val()),
+        this.iID_CTLG_MEDIA_FILIACION_COLOR_PIEL = checkValue(iframe.find('input[name=color_piel]:checked').val()),
+        this.iID_CTLG_MEDIA_FILIACION_COMPLEXION = checkValue(iframe.find('input[name=mf_complexion]:checked').val()),
+        this.iID_CTLG_MEDIA_FILIACION_NARIZ = checkValue(iframe.find('input[name=mf_nariz]:checked').val()),
+        this.iID_CTLG_MEDIA_FILIACION_PARTE_CUERPO = checkValue(iframe.find('input[name=mf_cuerpo]:checked').val()),
+        this.iID_CTLG_MEDIA_FILIACION_ROPA = 1,
+        this.iID_CTLG_MEDIA_FILIACION_SENIAS = checkValue(iframe.find('input[name=mf_senias]:checked').val()),
+        this.iID_CTLG_MEDIA_FILIACION_SENIA_LUGAR = checkValue(iframe.find('input[name=sena_lugar]:checked').val()),
+        this.iID_CTLG_MEDIA_FILIACION_TAMANIO = checkValue(iframe.find('input[name=mf_tamano]:checked').val()),
+        this.iID_CTLG_MEDIA_FILIACION_VOLUMEN = checkValue(iframe.find('input[name=mf_volumen]:checked').val())
+};
 
 function DIRECCION(){
 
@@ -577,8 +591,7 @@ var tbInsumos_nivelBasico = {};
 var tbInsumos_nivelIntermedio = {};
 var tbInsumos_nivelAvanzado = {};
 
-
-
+var tbMedia_filiacion = {};
 
 // Funciones para guardar de forma local
 
@@ -609,34 +622,6 @@ function guardarPaciente(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // MARK: Funciones de recopilación de datos
 
 
@@ -651,11 +636,10 @@ function guardarPaciente()
     frap.secciones.paciente = new PACIENTE();
 
 
-
-
     // objecto frap -> DB loca : gestiona las secciones de objeto frap en objectos TB-Name para guardar en base de datos
     //=========================================================================================
     tbPaciente = $.extend(frap.secciones.paciente, frap.secciones.direccion);
+
 
     //frap.secciones.paciente = tbPaciente;
 
@@ -670,6 +654,18 @@ function guardarPaciente()
     $.jStorage.set("estado_frap", String('1'),{});
 
     //frap.enviar();
+
+}
+
+function guardarMediaFiliacion()
+{
+    idFRAP = $.jStorage.get("idFRAP");
+
+    frap.secciones.media_filiacion = new MEDIA_FILIACION();
+
+    tbMedia_filiacion = frap.secciones.media_filiacion;
+
+    dataBase.saveTable('MEDIA_FILIACION', tbMedia_filiacion);
 
 }
 

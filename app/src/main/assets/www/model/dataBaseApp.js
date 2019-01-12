@@ -57,6 +57,27 @@ var sql_paciente =   "CREATE TABLE IF NOT EXISTS PACIENTE ("+
 
 
 
+var sql_media_filiacion =   "CREATE TABLE IF NOT EXISTS MEDIA_FILIACION ("+
+
+    "ID_FRAP INTEGER,"+
+    "TIPO_FRAP TEXT,"+
+
+    "ID_CTLG_MEDIA_FILIACION_ACCESORIOS INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_CABELLO INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_CABELLO_COLOR INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_COLOR_OJOS INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_COLOR_PIEL INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_COMPLEXION INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_NARIZ INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_PARTE_CUERPO INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_ROPA INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_SENIAS INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_SENIA_LUGAR INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_TAMANIO INTEGER,"+
+    "ID_CTLG_MEDIA_FILIACION_VOLUMEN INTEGER"+
+    ")";
+
+
 
 var sql_tableta =   "CREATE TABLE IF NOT EXISTS TABLETA ("+
     "ID_ESTADO INTEGER,"+
@@ -383,35 +404,6 @@ var sql_insumos_avanzados = "CREATE TABLE IF NOT EXISTS INSUMOS_NIVEL_AVANZADO"+
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Script of DataBase
 
 
@@ -495,7 +487,9 @@ dataBase.createSchema = function(){
         dataBase.tableName ='sql_factores';
         tx.executeSql(sql_factores,[], dataBase.onSuccess, dataBase.onError);
 
-
+        //aqui se agregó latabla media filiacion
+        dataBase.tableName = 'sql_media_filiacion';
+        tx.executeSql(sql_media_filiacion, [], dataBase.onSuccess, dataBase.onError);
 
         dataBase.tableName ='sql_paciente';
         tx.executeSql(sql_paciente,[], dataBase.onSuccess, dataBase.onError);
@@ -584,6 +578,7 @@ dataBase.deleteSchema = function(){
 
 
 
+        tx.executeSql("DROP TABLE MEDIA_FILIACION", [], dataBase.onSuccess, dataBase.onError);
 
 
 
