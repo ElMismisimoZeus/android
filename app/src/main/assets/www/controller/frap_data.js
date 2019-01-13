@@ -1,7 +1,9 @@
 
 var idFRAP;
 var tipoFRAP = 'on';
-
+var idService;
+var id_usuario;
+var estado;
 
 var changeConf = 0;
 

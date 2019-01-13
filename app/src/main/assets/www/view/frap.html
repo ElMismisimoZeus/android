@@ -266,11 +266,17 @@ function homeVehicules(){
 
         // Paso 1: Inicializamos variables YA definidad por la carga de los archivos JS
 
+        id_sesion  = $.jStorage.get("id_sesion");
+        id_usuario  = $.jStorage.get("id_usuario");
+        estado = $.jStorage.get("estado");
 
         idFRAP = $.jStorage.get("idFRAP");
+        idService = $.jStorage.get("idService");
+
         isNew = $.jStorage.get("isNew");
         estado_frap = $.jStorage.get("estado_frap");
         estado_secciones = $.jStorage.get("estado_secciones"); // MOST IMPORTANT ***
+
 
 
         console.log('valores de diagrama de flujo ');
