@@ -47,6 +47,22 @@ $(function () {
 });
 
 
+$(function () {
+    $("#loading").dialog({
+        autoOpen: false,
+        modal: true,
+        dialogClass: "dlg-no-close",
+        open: function() {
+            $('.ui-widget-overlay').addClass('custom-overlay');
+        }
+    });
+
+});
+
+
+
+
+
 function msgBoxErrorClose() {
 
     if(changeConf == 1){
@@ -113,7 +129,15 @@ $(document).ready(function () {
 
 
 
-    $.mobile.loading( "show");
+
+
+
+    $("#loading").dialog('open');
+
+    // $.mobile.loading( "show");
+
+
+
    //    console.log(JSON.stringify({"ID_USUARIO":id_usuario,"ID_SESSION":id_sesion, "Estado":estado}));
     //alert(JSON.stringify({"ID_USUARIO":id_usuario,"ID_SESSION":id_sesion, "Estado":estado}));
 
@@ -609,7 +633,8 @@ function map() {
 
 
       //$.unblockUI();
-      $.mobile.loading( "hide" );
+      //$.mobile.loading( "hide" );
+    $("#loading").dialog( 'close' );
 
 
 }
