@@ -199,10 +199,10 @@
 
         $(document).on("pageshow","#tratamiento",function(){
 
-
+            console.log($.jStorage.get("motivo_atencion"));
              var refMotivo = $.jStorage.get("motivo_atencion");
 
-            $('#ref_motivo').attr('href', ('#' + refMotivo));
+            $('#btnNext4').attr('href', ('#' + refMotivo));
 
 
 
@@ -4282,7 +4282,7 @@
             <a href="#evaluacion_primaria" data-transition="slide" id="boton1" data-state="q2" class="ui-btn ui-btn-raised clr-primary" style="background: green;">Siguiente</a>
             -->
             <center>
-                <a id="ref_motivo" href="" data-transition="slide" id="btnNext4" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
+                <a href="" data-transition="slide" id="btnNext4" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
             </center>
 
             <div style="height: 50px; width: 100%;"></div>
@@ -4685,8 +4685,6 @@
         </div>
     </div><!-- /panel -->
 
-
-
     <!-- panel: Casco -->
     <div data-role="panel" id="pnlCasco" data-display="overlay" data-position="right" style=" width: 310px;">
         <div class="ui-panel-inner" style="width: 300px;">
@@ -4711,9 +4709,6 @@
 
 
     <div class="contenido-form">
-
-
-
 
 
 
