@@ -1,485 +1,485 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-MERGED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:2:1-106:12
-MERGED from [:CordovaLib] /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:20:1-27:12
-MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d164211fcb9ca93ef63fb20c4d5e85f/AndroidManifest.xml:16:1-24:12
-MERGED from [com.google.android.gms:play-services-location:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/464d1f398305b9230a756a330b1df075/AndroidManifest.xml:2:1-5:12
-MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/87b34bc5ab4263db535dedad817f01d8/AndroidManifest.xml:16:1-24:12
-MERGED from [com.google.android.gms:play-services-base:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/5e9a8257e8c83c7e5caaffcf2e20bba4/AndroidManifest.xml:16:1-21:12
-MERGED from [com.google.android.gms:play-services-tasks:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/4a0d72db5a910b02d88121bd59589777/AndroidManifest.xml:2:1-5:12
-MERGED from [com.google.android.gms:play-services-basement:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/4cbe37769476ef663aeffb5f8985ed64/AndroidManifest.xml:16:1-23:12
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ab22fcf15462597f58d8992494bca283/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:customtabs:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/7ad037634afd022d2145022d26d22e23/AndroidManifest.xml:17:1-28:12
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/57bef1982e84d7bbd7d837551828e3de/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/614553b794589d645a0660fa9ccfe860/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/9eb81f720232ff19744cc8c0dab8e7e5/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/6b56c1441f9efaf86e80e4afda0c400c/AndroidManifest.xml:17:1-31:12
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/68018a25eeabd393b6f67a93a0ca44d2/AndroidManifest.xml:17:1-31:12
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6bebc90c776a009650ffce73c5c8aee8/AndroidManifest.xml:17:1-30:12
-INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
+MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:2:1-106:12
+MERGED from [:CordovaLib] /Users/zeus/Documents/CRM-FRAP/platforms/android/CordovaLib/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:20:1-27:12
+MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-location:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/58b13141eb5b949e049a0b4aede0811e/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/7253b954a496928932ad4a81bfe6f3f7/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-base:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/AndroidManifest.xml:16:1-21:12
+MERGED from [com.google.android.gms:play-services-tasks:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/4aef67948153266d7655edbe9cd77f1c/AndroidManifest.xml:2:1-5:12
+MERGED from [com.google.android.gms:play-services-basement:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/8338c2c710f55f7ce575cd680681de46/AndroidManifest.xml:16:1-23:12
+MERGED from [com.android.support:support-v4:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/6cd096cd2ea4893f087dd41170d6b054/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:customtabs:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/47b7a2bacc8d009b40e9266ec3e9338d/AndroidManifest.xml:17:1-28:12
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/89d18fedfc39a574218eda28202a5df2/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/7bdd3ed6c4f903bffd5aade19796c4db/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/ae28ab6e4296bb19cdab27e20382e8a3/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8f1929dda161fcdc8537e2e62474a18a/AndroidManifest.xml:17:1-31:12
+MERGED from [com.android.support:support-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/AndroidManifest.xml:17:1-31:12
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:17:1-30:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
 	package
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:102-127
-		INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:102-127
+		INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
 	android:versionName
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:74-101
-		INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:74-101
+		INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
 	android:hardwareAccelerated
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:128-186
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:128-186
 	android:versionCode
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:46-73
-		INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
-		INJECTED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:46-73
+		INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
 supports-screens
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:5-191
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:5-191
 	android:largeScreens
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:49-76
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:49-76
 	android:smallScreens
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:132-159
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:132-159
 	android:normalScreens
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:77-105
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:77-105
 	android:xlargeScreens
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:160-188
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:160-188
 	android:resizeable
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:106-131
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:106-131
 	android:anyDensity
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:23-48
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:3:23-48
 uses-permission#android.permission.INTERNET
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:4:5-67
-MERGED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:17:5-67
-MERGED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:17:5-67
-MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d164211fcb9ca93ef63fb20c4d5e85f/AndroidManifest.xml:21:5-66
-MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d164211fcb9ca93ef63fb20c4d5e85f/AndroidManifest.xml:21:5-66
-MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/87b34bc5ab4263db535dedad817f01d8/AndroidManifest.xml:21:5-66
-MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/87b34bc5ab4263db535dedad817f01d8/AndroidManifest.xml:21:5-66
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:4:5-67
+MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:17:5-67
+MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:17:5-67
+MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/7253b954a496928932ad4a81bfe6f3f7/AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/7253b954a496928932ad4a81bfe6f3f7/AndroidManifest.xml:21:5-66
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:5-21:19
-MERGED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:49:5-104:19
-MERGED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:49:5-104:19
-MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d164211fcb9ca93ef63fb20c4d5e85f/AndroidManifest.xml:23:5-19
-MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d164211fcb9ca93ef63fb20c4d5e85f/AndroidManifest.xml:23:5-19
-MERGED from [com.google.android.gms:play-services-location:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/464d1f398305b9230a756a330b1df075/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-location:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/464d1f398305b9230a756a330b1df075/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/87b34bc5ab4263db535dedad817f01d8/AndroidManifest.xml:23:5-19
-MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/87b34bc5ab4263db535dedad817f01d8/AndroidManifest.xml:23:5-19
-MERGED from [com.google.android.gms:play-services-base:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/5e9a8257e8c83c7e5caaffcf2e20bba4/AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-base:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/5e9a8257e8c83c7e5caaffcf2e20bba4/AndroidManifest.xml:18:5-20:19
-MERGED from [com.google.android.gms:play-services-tasks:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/4a0d72db5a910b02d88121bd59589777/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-tasks:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/4a0d72db5a910b02d88121bd59589777/AndroidManifest.xml:4:5-19
-MERGED from [com.google.android.gms:play-services-basement:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/4cbe37769476ef663aeffb5f8985ed64/AndroidManifest.xml:19:5-21:19
-MERGED from [com.google.android.gms:play-services-basement:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/4cbe37769476ef663aeffb5f8985ed64/AndroidManifest.xml:19:5-21:19
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ab22fcf15462597f58d8992494bca283/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ab22fcf15462597f58d8992494bca283/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:customtabs:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/7ad037634afd022d2145022d26d22e23/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:customtabs:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/7ad037634afd022d2145022d26d22e23/AndroidManifest.xml:22:5-26:19
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/57bef1982e84d7bbd7d837551828e3de/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/57bef1982e84d7bbd7d837551828e3de/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/614553b794589d645a0660fa9ccfe860/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/614553b794589d645a0660fa9ccfe860/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/9eb81f720232ff19744cc8c0dab8e7e5/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/9eb81f720232ff19744cc8c0dab8e7e5/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/6b56c1441f9efaf86e80e4afda0c400c/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/6b56c1441f9efaf86e80e4afda0c400c/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/68018a25eeabd393b6f67a93a0ca44d2/AndroidManifest.xml:25:5-29:19
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/68018a25eeabd393b6f67a93a0ca44d2/AndroidManifest.xml:25:5-29:19
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6bebc90c776a009650ffce73c5c8aee8/AndroidManifest.xml:24:5-28:19
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6bebc90c776a009650ffce73c5c8aee8/AndroidManifest.xml:24:5-28:19
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:5-21:19
+MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:49:5-104:19
+MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:49:5-104:19
+MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-location:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/58b13141eb5b949e049a0b4aede0811e/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-location:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/58b13141eb5b949e049a0b4aede0811e/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/7253b954a496928932ad4a81bfe6f3f7/AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/7253b954a496928932ad4a81bfe6f3f7/AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-base:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-base:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/AndroidManifest.xml:18:5-20:19
+MERGED from [com.google.android.gms:play-services-tasks:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/4aef67948153266d7655edbe9cd77f1c/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-tasks:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/4aef67948153266d7655edbe9cd77f1c/AndroidManifest.xml:4:5-19
+MERGED from [com.google.android.gms:play-services-basement:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/8338c2c710f55f7ce575cd680681de46/AndroidManifest.xml:19:5-21:19
+MERGED from [com.google.android.gms:play-services-basement:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/8338c2c710f55f7ce575cd680681de46/AndroidManifest.xml:19:5-21:19
+MERGED from [com.android.support:support-v4:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/6cd096cd2ea4893f087dd41170d6b054/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/6cd096cd2ea4893f087dd41170d6b054/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:customtabs:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/47b7a2bacc8d009b40e9266ec3e9338d/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:customtabs:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/47b7a2bacc8d009b40e9266ec3e9338d/AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/89d18fedfc39a574218eda28202a5df2/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/89d18fedfc39a574218eda28202a5df2/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/7bdd3ed6c4f903bffd5aade19796c4db/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/7bdd3ed6c4f903bffd5aade19796c4db/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/ae28ab6e4296bb19cdab27e20382e8a3/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/ae28ab6e4296bb19cdab27e20382e8a3/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8f1929dda161fcdc8537e2e62474a18a/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8f1929dda161fcdc8537e2e62474a18a/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/AndroidManifest.xml:25:5-29:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:24:5-28:19
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:114-140
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:114-140
 	android:label
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:81-113
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:81-113
 	android:hardwareAccelerated
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:18-52
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:18-52
 	android:icon
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
 activity#net.opower.FRAP.MainActivity
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
 	android:label
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
 	android:launchMode
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:135-165
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:135-165
 	android:windowSoftInputMode
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:257-299
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:257-299
 	android:configChanges
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:19-96
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:19-96
 	android:theme
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:194-256
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:194-256
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:166-193
-intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:7:13-10:29
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:166-193
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:7:13-10:29
 	android:label
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:7:28-65
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:7:28-65
 action#android.intent.action.MAIN
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:8:17-69
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:8:17-69
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:8:25-66
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:8:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
 amazon:enable-feature
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:9-159
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:9-159
 	xmlns:amazon
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:100-156
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:100-156
 	android:required
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:75-99
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:75-99
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:32-74
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:32-74
 service#com.onesignal.ADMMessageHandler
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:13:9-92
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:13:9-92
 	android:exported
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:13:18-42
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:13:18-42
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:13:43-89
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:13:43-89
 receiver#com.onesignal.ADMMessageHandler$Receiver
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:14:9-20:20
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:14:9-20:20
 	android:permission
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:14:75-139
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:14:75-139
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:14:19-74
-intent-filter#com.amazon.device.messaging.intent.RECEIVE+com.amazon.device.messaging.intent.REGISTRATION+net.opower.FRAP
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:15:13-19:29
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:14:19-74
+intent-filter#action:name:com.amazon.device.messaging.intent.RECEIVE+action:name:com.amazon.device.messaging.intent.REGISTRATION+category:name:net.opower.FRAP
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:15:13-19:29
 action#com.amazon.device.messaging.intent.REGISTRATION
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:16:17-90
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:16:17-90
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:16:25-87
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:16:25-87
 action#com.amazon.device.messaging.intent.RECEIVE
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:17:17-85
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:17:17-85
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:17:25-82
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:17:25-82
 category#net.opower.FRAP
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:18:17-60
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:18:17-60
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:18:27-57
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:18:27-57
 uses-sdk
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:5-74
-MERGED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:5:5-44
-MERGED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:5:5-44
-MERGED from [:CordovaLib] /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/CordovaLib/build/intermediates/manifests/full/debug/AndroidManifest.xml:25:5-44
-MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d164211fcb9ca93ef63fb20c4d5e85f/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d164211fcb9ca93ef63fb20c4d5e85f/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-location:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/464d1f398305b9230a756a330b1df075/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-location:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/464d1f398305b9230a756a330b1df075/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/87b34bc5ab4263db535dedad817f01d8/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/87b34bc5ab4263db535dedad817f01d8/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-base:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/5e9a8257e8c83c7e5caaffcf2e20bba4/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-base:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/5e9a8257e8c83c7e5caaffcf2e20bba4/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-tasks:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/4a0d72db5a910b02d88121bd59589777/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-tasks:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/4a0d72db5a910b02d88121bd59589777/AndroidManifest.xml:3:5-43
-MERGED from [com.google.android.gms:play-services-basement:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/4cbe37769476ef663aeffb5f8985ed64/AndroidManifest.xml:17:5-43
-MERGED from [com.google.android.gms:play-services-basement:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/4cbe37769476ef663aeffb5f8985ed64/AndroidManifest.xml:17:5-43
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ab22fcf15462597f58d8992494bca283/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:support-v4:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ab22fcf15462597f58d8992494bca283/AndroidManifest.xml:21:5-23:54
-MERGED from [com.android.support:customtabs:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/7ad037634afd022d2145022d26d22e23/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:customtabs:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/7ad037634afd022d2145022d26d22e23/AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/57bef1982e84d7bbd7d837551828e3de/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/57bef1982e84d7bbd7d837551828e3de/AndroidManifest.xml:21:5-23:63
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/614553b794589d645a0660fa9ccfe860/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/614553b794589d645a0660fa9ccfe860/AndroidManifest.xml:21:5-23:60
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/9eb81f720232ff19744cc8c0dab8e7e5/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/9eb81f720232ff19744cc8c0dab8e7e5/AndroidManifest.xml:21:5-23:61
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/6b56c1441f9efaf86e80e4afda0c400c/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/6b56c1441f9efaf86e80e4afda0c400c/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/68018a25eeabd393b6f67a93a0ca44d2/AndroidManifest.xml:21:5-23:58
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/68018a25eeabd393b6f67a93a0ca44d2/AndroidManifest.xml:21:5-23:58
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6bebc90c776a009650ffce73c5c8aee8/AndroidManifest.xml:20:5-22:41
-MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6bebc90c776a009650ffce73c5c8aee8/AndroidManifest.xml:20:5-22:41
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:5-74
+MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:5:5-44
+MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:5:5-44
+MERGED from [:CordovaLib] /Users/zeus/Documents/CRM-FRAP/platforms/android/CordovaLib/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] /Users/zeus/Documents/CRM-FRAP/platforms/android/CordovaLib/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:25:5-44
+MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-location:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/58b13141eb5b949e049a0b4aede0811e/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-location:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-location-11.2.2.aar/58b13141eb5b949e049a0b4aede0811e/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/7253b954a496928932ad4a81bfe6f3f7/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/7253b954a496928932ad4a81bfe6f3f7/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-base:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/4aef67948153266d7655edbe9cd77f1c/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-tasks:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-tasks-11.2.2.aar/4aef67948153266d7655edbe9cd77f1c/AndroidManifest.xml:3:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/8338c2c710f55f7ce575cd680681de46/AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-basement:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/8338c2c710f55f7ce575cd680681de46/AndroidManifest.xml:17:5-43
+MERGED from [com.android.support:support-v4:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/6cd096cd2ea4893f087dd41170d6b054/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/6cd096cd2ea4893f087dd41170d6b054/AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:customtabs:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/47b7a2bacc8d009b40e9266ec3e9338d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customtabs:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/47b7a2bacc8d009b40e9266ec3e9338d/AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/89d18fedfc39a574218eda28202a5df2/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/89d18fedfc39a574218eda28202a5df2/AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/7bdd3ed6c4f903bffd5aade19796c4db/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/7bdd3ed6c4f903bffd5aade19796c4db/AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/ae28ab6e4296bb19cdab27e20382e8a3/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/ae28ab6e4296bb19cdab27e20382e8a3/AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8f1929dda161fcdc8537e2e62474a18a/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8f1929dda161fcdc8537e2e62474a18a/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/AndroidManifest.xml:21:5-23:58
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:20:5-22:41
+MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:20:5-22:41
 	tools:overrideLibrary
-		ADDED from [com.android.support:support-v4:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ab22fcf15462597f58d8992494bca283/AndroidManifest.xml:23:9-51
+		ADDED from [com.android.support:support-v4:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/6cd096cd2ea4893f087dd41170d6b054/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:42-71
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:42-71
 	android:minSdkVersion
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:15-41
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:15-41
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:23:5-81
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:23:5-81
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:23:22-78
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:23:22-78
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:24:5-79
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:24:5-79
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:24:22-76
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:24:22-76
 uses-feature#android.hardware.location.gps
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:25:5-66
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:25:5-66
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:25:19-63
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:25:19-63
 uses-permission#com.amazon.device.messaging.permission.RECEIVE
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:26:5-86
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:26:5-86
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:26:22-83
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:26:22-83
 permission#net.opower.FRAP.permission.RECEIVE_ADM_MESSAGE
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:27:5-117
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:27:5-117
 	android:protectionLevel
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:27:79-114
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:27:79-114
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:27:17-78
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:27:17-78
 uses-permission#net.opower.FRAP.permission.RECEIVE_ADM_MESSAGE
-ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:28:5-86
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:28:5-86
 	android:name
-		ADDED from /Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:28:22-83
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:28:22-83
 permission#${applicationId}.permission.C2D_MESSAGE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:8:5-10:47
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:8:5-10:47
 	android:protectionLevel
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:10:9-44
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:10:9-44
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:9:9-63
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:9:9-63
 permission#net.opower.FRAP.permission.C2D_MESSAGE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:8:5-10:47
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:8:5-10:47
 	android:protectionLevel
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:10:9-44
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:10:9-44
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:9:9-63
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:9:9-63
 uses-permission#${applicationId}.permission.C2D_MESSAGE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:12:5-79
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:12:5-79
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:12:22-76
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:12:22-76
 uses-permission#net.opower.FRAP.permission.C2D_MESSAGE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:12:5-79
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:12:5-79
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:12:22-76
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:12:22-76
 uses-permission#com.google.android.c2dm.permission.RECEIVE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:18:5-82
-MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d164211fcb9ca93ef63fb20c4d5e85f/AndroidManifest.xml:20:5-81
-MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d164211fcb9ca93ef63fb20c4d5e85f/AndroidManifest.xml:20:5-81
-MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/87b34bc5ab4263db535dedad817f01d8/AndroidManifest.xml:20:5-81
-MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/87b34bc5ab4263db535dedad817f01d8/AndroidManifest.xml:20:5-81
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:18:5-82
+MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/7253b954a496928932ad4a81bfe6f3f7/AndroidManifest.xml:20:5-81
+MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-iid-11.2.2.aar/7253b954a496928932ad4a81bfe6f3f7/AndroidManifest.xml:20:5-81
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:18:22-79
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:18:22-79
 uses-permission#android.permission.WAKE_LOCK
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:19:5-68
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:19:5-68
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:19:22-65
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:19:22-65
 uses-permission#android.permission.VIBRATE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:24:5-66
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:24:5-66
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:24:22-63
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:24:22-63
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:25:5-79
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:25:5-79
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:25:22-76
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:25:22-76
 uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:30:5-81
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:30:5-81
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:30:22-78
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:30:22-78
 uses-permission#com.sec.android.provider.badge.permission.READ
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:32:5-86
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:32:5-86
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:32:22-83
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:32:22-83
 uses-permission#com.sec.android.provider.badge.permission.WRITE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:33:5-87
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:33:5-87
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:33:22-84
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:33:22-84
 uses-permission#com.htc.launcher.permission.READ_SETTINGS
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:34:5-81
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:34:5-81
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:34:22-78
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:34:22-78
 uses-permission#com.htc.launcher.permission.UPDATE_SHORTCUT
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:35:5-83
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:35:5-83
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:35:22-80
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:35:22-80
 uses-permission#com.sonyericsson.home.permission.BROADCAST_BADGE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:36:5-88
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:36:5-88
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:36:22-85
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:36:22-85
 uses-permission#com.sonymobile.home.permission.PROVIDER_INSERT_BADGE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:37:5-92
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:37:5-92
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:37:22-89
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:37:22-89
 uses-permission#com.anddoes.launcher.permission.UPDATE_COUNT
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:38:5-84
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:38:5-84
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:38:22-81
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:38:22-81
 uses-permission#com.majeur.launcher.permission.UPDATE_BADGE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:39:5-83
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:39:5-83
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:39:22-80
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:39:22-80
 uses-permission#com.huawei.android.launcher.permission.CHANGE_BADGE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:40:5-91
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:40:5-91
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:40:22-88
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:40:22-88
 uses-permission#com.huawei.android.launcher.permission.READ_SETTINGS
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:41:5-92
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:41:5-92
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:41:22-89
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:41:22-89
 uses-permission#com.huawei.android.launcher.permission.WRITE_SETTINGS
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:42:5-93
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:42:5-93
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:42:22-90
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:42:22-90
 uses-permission#android.permission.READ_APP_BADGE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:43:5-73
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:43:5-73
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:43:22-70
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:43:22-70
 uses-permission#com.oppo.launcher.permission.READ_SETTINGS
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:44:5-82
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:44:5-82
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:44:22-79
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:44:22-79
 uses-permission#com.oppo.launcher.permission.WRITE_SETTINGS
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:45:5-83
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:45:5-83
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:45:22-80
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:45:22-80
 uses-permission#me.everything.badger.permission.BADGE_COUNT_READ
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:46:5-88
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:46:5-88
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:46:22-85
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:46:22-85
 uses-permission#me.everything.badger.permission.BADGE_COUNT_WRITE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:47:5-89
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:47:5-89
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:47:22-86
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:47:22-86
 meta-data#onesignal_app_id
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:50:9-52:51
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:50:9-52:51
 	android:value
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:52:13-48
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:52:13-48
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:51:13-44
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:51:13-44
 meta-data#onesignal_google_project_number
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:54:9-56:70
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:54:9-56:70
 	android:value
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:56:13-67
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:56:13-67
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:55:13-59
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:55:13-59
 receiver#com.onesignal.GcmBroadcastReceiver
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:58:9-68:20
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:58:9-68:20
 	android:permission
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:60:13-73
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:60:13-73
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:59:13-62
-intent-filter#${applicationId}+com.google.android.c2dm.intent.RECEIVE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:63:13-67:29
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:59:13-62
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+category:name:${applicationId}
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:63:13-67:29
 	android:priority
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:63:28-50
-intent-filter#com.google.android.c2dm.intent.RECEIVE+net.opower.FRAP
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:63:13-67:29
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:63:28-50
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+category:name:net.opower.FRAP
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:63:13-67:29
 	android:priority
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:63:28-50
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:63:28-50
 action#com.google.android.c2dm.intent.RECEIVE
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:64:17-81
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:64:17-81
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:64:25-78
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:64:25-78
 category#${applicationId}
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:66:17-61
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:66:17-61
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:66:27-58
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:66:27-58
 receiver#com.onesignal.NotificationOpenedReceiver
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:69:9-77
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:69:9-77
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:69:19-74
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:69:19-74
 service#com.onesignal.GcmIntentService
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:71:9-66
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:71:9-66
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:71:18-63
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:71:18-63
 service#com.onesignal.GcmIntentJobService
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:72:9-74:72
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:72:9-74:72
 	android:permission
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:74:13-69
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:74:13-69
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:73:13-61
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:73:13-61
 service#com.onesignal.SyncJobService
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:75:9-77:72
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:75:9-77:72
 	android:permission
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:77:13-69
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:77:13-69
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:76:13-56
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:76:13-56
 service#com.onesignal.RestoreJobService
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:78:9-80:72
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:78:9-80:72
 	android:permission
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:80:13-69
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:80:13-69
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:79:13-59
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:79:13-59
 service#com.onesignal.RestoreKickoffJobService
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:81:9-83:72
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:81:9-83:72
 	android:permission
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:83:13-69
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:83:13-69
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:82:13-66
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:82:13-66
 service#com.onesignal.SyncService
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:84:9-61
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:84:9-61
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:84:18-58
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:84:18-58
 activity#com.onesignal.PermissionsActivity
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:86:9-88:75
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:86:9-88:75
 	android:theme
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:88:13-72
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:88:13-72
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:87:13-61
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:87:13-61
 service#com.onesignal.NotificationRestoreService
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:90:9-76
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:90:9-76
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:90:18-73
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:90:18-73
 receiver#com.onesignal.BootUpReceiver
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:92:9-98:20
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:92:9-98:20
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:92:19-62
-intent-filter#android.intent.action.ACTION_BOOT_COMPLETED+android.intent.action.BOOT_COMPLETED+android.intent.action.QUICKBOOT_POWERON
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:93:13-97:29
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:92:19-62
+intent-filter#action:name:android.intent.action.ACTION_BOOT_COMPLETED+action:name:android.intent.action.BOOT_COMPLETED+action:name:android.intent.action.QUICKBOOT_POWERON
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:93:13-97:29
 action#android.intent.action.ACTION_BOOT_COMPLETED
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:94:17-86
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:94:17-86
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:94:25-83
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:94:25-83
 action#android.intent.action.BOOT_COMPLETED
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:95:17-79
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:95:17-79
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:95:25-76
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:95:25-76
 action#android.intent.action.QUICKBOOT_POWERON
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:96:17-82
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:96:17-82
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:96:25-79
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:96:25-79
 receiver#com.onesignal.UpgradeReceiver
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:99:9-103:20
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:99:9-103:20
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:99:19-63
-intent-filter#android.intent.action.MY_PACKAGE_REPLACED
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:100:13-102:29
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:99:19-63
+intent-filter#action:name:android.intent.action.MY_PACKAGE_REPLACED
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:100:13-102:29
 action#android.intent.action.MY_PACKAGE_REPLACED
-ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:101:17-84
+ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:101:17-84
 	android:name
-		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/cce69a6bf7e9016a6a367e905d0af38e/AndroidManifest.xml:101:25-81
+		ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:101:25-81
 activity#com.google.android.gms.common.api.GoogleApiActivity
-ADDED from [com.google.android.gms:play-services-base:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/5e9a8257e8c83c7e5caaffcf2e20bba4/AndroidManifest.xml:19:9-172
+ADDED from [com.google.android.gms:play-services-base:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/AndroidManifest.xml:19:9-172
 	android:exported
-		ADDED from [com.google.android.gms:play-services-base:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/5e9a8257e8c83c7e5caaffcf2e20bba4/AndroidManifest.xml:19:146-170
+		ADDED from [com.google.android.gms:play-services-base:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/AndroidManifest.xml:19:146-170
 	android:theme
-		ADDED from [com.google.android.gms:play-services-base:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/5e9a8257e8c83c7e5caaffcf2e20bba4/AndroidManifest.xml:19:86-145
+		ADDED from [com.google.android.gms:play-services-base:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/AndroidManifest.xml:19:86-145
 	android:name
-		ADDED from [com.google.android.gms:play-services-base:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/5e9a8257e8c83c7e5caaffcf2e20bba4/AndroidManifest.xml:19:19-85
+		ADDED from [com.google.android.gms:play-services-base:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/AndroidManifest.xml:19:19-85
 meta-data#com.google.android.gms.version
-ADDED from [com.google.android.gms:play-services-basement:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/4cbe37769476ef663aeffb5f8985ed64/AndroidManifest.xml:20:9-121
+ADDED from [com.google.android.gms:play-services-basement:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/8338c2c710f55f7ce575cd680681de46/AndroidManifest.xml:20:9-121
 	android:value
-		ADDED from [com.google.android.gms:play-services-basement:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/4cbe37769476ef663aeffb5f8985ed64/AndroidManifest.xml:20:66-119
+		ADDED from [com.google.android.gms:play-services-basement:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/8338c2c710f55f7ce575cd680681de46/AndroidManifest.xml:20:66-119
 	android:name
-		ADDED from [com.google.android.gms:play-services-basement:11.2.2] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/4cbe37769476ef663aeffb5f8985ed64/AndroidManifest.xml:20:20-65
+		ADDED from [com.google.android.gms:play-services-basement:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/8338c2c710f55f7ce575cd680681de46/AndroidManifest.xml:20:20-65
 meta-data#android.support.VERSION
-ADDED from [com.android.support:support-v4:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ab22fcf15462597f58d8992494bca283/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:customtabs:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/7ad037634afd022d2145022d26d22e23/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:customtabs:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/7ad037634afd022d2145022d26d22e23/AndroidManifest.xml:23:9-25:38
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/57bef1982e84d7bbd7d837551828e3de/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-media-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/57bef1982e84d7bbd7d837551828e3de/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/614553b794589d645a0660fa9ccfe860/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-fragment:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/614553b794589d645a0660fa9ccfe860/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/9eb81f720232ff19744cc8c0dab8e7e5/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-utils:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/9eb81f720232ff19744cc8c0dab8e7e5/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/6b56c1441f9efaf86e80e4afda0c400c/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-core-ui:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/6b56c1441f9efaf86e80e4afda0c400c/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/68018a25eeabd393b6f67a93a0ca44d2/AndroidManifest.xml:26:9-28:38
-MERGED from [com.android.support:support-compat:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/68018a25eeabd393b6f67a93a0ca44d2/AndroidManifest.xml:26:9-28:38
+ADDED from [com.android.support:support-v4:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/6cd096cd2ea4893f087dd41170d6b054/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:customtabs:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/47b7a2bacc8d009b40e9266ec3e9338d/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:customtabs:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/customtabs-26.1.0.aar/47b7a2bacc8d009b40e9266ec3e9338d/AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/89d18fedfc39a574218eda28202a5df2/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-media-compat-26.1.0.aar/89d18fedfc39a574218eda28202a5df2/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/7bdd3ed6c4f903bffd5aade19796c4db/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-fragment-26.1.0.aar/7bdd3ed6c4f903bffd5aade19796c4db/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/ae28ab6e4296bb19cdab27e20382e8a3/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-utils-26.1.0.aar/ae28ab6e4296bb19cdab27e20382e8a3/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8f1929dda161fcdc8537e2e62474a18a/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-ui:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8f1929dda161fcdc8537e2e62474a18a/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/AndroidManifest.xml:26:9-28:38
 	android:value
-		ADDED from [com.android.support:support-v4:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ab22fcf15462597f58d8992494bca283/AndroidManifest.xml:28:13-35
+		ADDED from [com.android.support:support-v4:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/6cd096cd2ea4893f087dd41170d6b054/AndroidManifest.xml:28:13-35
 	android:name
-		ADDED from [com.android.support:support-v4:26.1.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/ab22fcf15462597f58d8992494bca283/AndroidManifest.xml:27:13-51
+		ADDED from [com.android.support:support-v4:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/6cd096cd2ea4893f087dd41170d6b054/AndroidManifest.xml:27:13-51
 meta-data#android.arch.lifecycle.VERSION
-ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6bebc90c776a009650ffce73c5c8aee8/AndroidManifest.xml:25:9-27:47
+ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:25:9-27:47
 	android:value
-		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6bebc90c776a009650ffce73c5c8aee8/AndroidManifest.xml:27:13-44
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:27:13-44
 	android:name
-		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/6bebc90c776a009650ffce73c5c8aee8/AndroidManifest.xml:26:13-58
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:26:13-58
