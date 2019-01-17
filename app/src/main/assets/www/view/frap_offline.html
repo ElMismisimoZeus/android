@@ -11,16 +11,37 @@
 
 
 
+    <link rel="stylesheet" type="text/css" href="../styles/ionicons.min.css">
+
+    <link rel="stylesheet" type="text/css" href="../styles/framework.css">
+
+
+
+    <link rel="stylesheet" type="text/css" href="../styles/jquery.mobile.icons.min.css" />
+
+    <link rel="stylesheet" href="../styles/jquery.mobile.structure-1.4.5.min.css"/>
+
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
     <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
     <link rel="stylesheet" type="text/css" href="../styles/style.css">
 
 
+    <script type="text/javascript" src="../js/jquery.blockUI.js"></script>
+
+
+    <script>
+        function return_services(){
+            $.unblockUI();
+            location="home_services.html";
+
+        }</script>
+
 
     <!-- Definiciónn del comportamiento de las tabs -->
     <script>
         $(document).ready(function(){
+
             $('.tabs').tabs( {
 
                 /*swipeable : true,
@@ -37,6 +58,14 @@
 
                 $("#btnEnviar").hide();
                 $("#btnBorrar").show();
+            });
+
+            $(window).scroll(function(){
+                var sticky = $('.sticky'),
+                    scroll = $(window).scrollTop();
+
+                if (scroll >= 100) sticky.addClass('fixed');
+                else sticky.removeClass('fixed');
             });
 
 
@@ -87,35 +116,41 @@
             background-color: red;
         }
 
-    </style>
+        .fixed {
+            position: fixed;
+            top:0; left:0;
+            width: 100%; }
 
+    </style>
 </head>
+
+
 <body>
 
+<div id="page-transitions">
 
-<div data-role="page">
+    <div data-role="header header-logo-center header-dark" align="center">
 
-    <div data-role="header"  align="center">
         <center>
-            <div style=" padding-top: 10px; background-color: black;">
-                <img src="images/LOGO_FRAP_DIGITAL_blanco-03.png" width="179" >
+            <div style="background-color: black">
+                <img src="images/LOGO_FRAP_DIGITAL_blanco-03.png" width="179">
             </div>
         </center>
 
-
-        <div class="row" style="background-color: black;">
+        <div class="row" style="background-color: black">
             <div class="col s12">
                 <ul class="tabs tabs-transparent">
-                    <li class="tab col s3"><a class="active" href="#test1" id="completados">Completados</a></li>
+                    <li class="tab col s3"><a class="active" href="#test1" id="completados"> Completados </a></li>
                     <li class="tab col s3"><a href="#test2" id="noCompletados">No completados</a></li>
                 </ul>
             </div>
-
         </div>
-
 
     </div><!-- /header -->
 
+
+
+<div id="page-content" class="page-content">
 
     <div id="test1">
         <ul class="collection">
@@ -154,31 +189,30 @@
         </ul>
     </div>
 
-
-
     <div id="test2" class="col s12">Test 2</div>
-    <!-- tab- content -->
 
 </div><!-- /page -->
+
+</div>
 
 
 <div class="footer-fixed footer-fixed-light">
 
-    <div class="menuInferior">
+    <div class="swiper-wrapper menuInferior">
 
-        <a class="waves-effect waves-light center-align btn" id="btnEnviar" >Enviar Todos</a>
+        <a onclick= "return_services();" href="" class="menuInferior ve">
+            <em>
+                <img src="iconos/GRISES/back.png" width=50 >
 
+
+                <!-- <i class="ion-android-car" ></i><span>Vehículos</span> -->
+            </em>
+        </a>
     </div>
-
-    <div class="menuInferior">
-
-        <a class="waves-effect waves-light btn" id="btnBorrar" >Borrar Todos</a>
-
-    </div>
-
-
-
 </div>
+
+
+
 <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 
