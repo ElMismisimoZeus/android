@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" >
+
+
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
+
+
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+
+
+
+    <!-- Definiciónn del comportamiento de las tabs -->
+    <script>
+        $(document).ready(function(){
+            $('.tabs').tabs( {
+
+                /*swipeable : true,
+                responsiveThreshold : 640*/
+            } );
+
+            $("#completados").click(function() {
+
+                $("#btnEnviar").show();
+                $("#btnBorrar").hide();
+            });
+
+            $("#noCompletados").click(function() {
+
+                $("#btnEnviar").hide();
+                $("#btnBorrar").show();
+            });
+
+
+        })
+
+    </script>
+
+    <style>
+
+        .tabs .indicator {
+            background-color:red;
+        }
+
+        .tabs .tab a{
+            color: #fff;
+        } /*Black color to the text*/
+
+        .tabs .tab a:hover {
+            background-color:#0b0b0b;
+            color: #ffffff;
+        } /*Text color on hover*/
+
+        .tabs .tab a.active {
+            background-color:#000;
+
+            color:#fff;
+
+        }  /*Background and text color when a tab is active*/
+
+        .btn{
+            width: 100%;
+            height: 60px;
+            background-color: red;
+
+
+        }
+
+        .btn:visited{
+            background-color: red;
+        }
+        .btn:hover {
+            background-color: red;
+        }
+        .btn:active{
+            background-color: red;
+        }
+        .btn:focus{
+            background-color: red;
+        }
+
+    </style>
+
+</head>
+<body>
+
+
+<div data-role="page">
+
+    <div data-role="header"  align="center">
+        <center>
+            <div style=" padding-top: 10px; background-color: black;">
+                <img src="images/LOGO_FRAP_DIGITAL_blanco-03.png" width="179" >
+            </div>
+        </center>
+
+
+        <div class="row" style="background-color: black;">
+            <div class="col s12">
+                <ul class="tabs tabs-transparent">
+                    <li class="tab col s3"><a class="active" href="#test1" id="completados">Completados</a></li>
+                    <li class="tab col s3"><a href="#test2" id="noCompletados">No completados</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+
+    </div><!-- /header -->
+
+
+    <div id="test1">
+        <ul class="collection">
+            <li class="collection-item avatar">
+                <img src="images/yuna.jpg" alt="" class="circle">
+                <span class="title">Title</span>
+                <p>First Line <br>
+                    Second Line
+                </p>
+                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle">folder</i>
+                <span class="title">Title</span>
+                <p>First Line <br>
+                    Second Line
+                </p>
+                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle green">insert_chart</i>
+                <span class="title">Title</span>
+                <p>First Line <br>
+                    Second Line
+                </p>
+                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+            <li class="collection-item avatar">
+                <i class="material-icons circle red">play_arrow</i>
+                <span class="title">Title</span>
+                <p>First Line <br>
+                    Second Line
+                </p>
+                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div id="test2" class="col s12">Test 2</div>
+    <!-- tab- content -->
+
+</div><!-- /page -->
+
+
+<div class="footer-fixed footer-fixed-light">
+
+    <div class="menuInferior">
+
+        <a class="waves-effect waves-light center-align btn" id="btnEnviar" >Enviar Todos</a>
+
+    </div>
+
+    <div class="menuInferior">
+
+        <a class="waves-effect waves-light btn" id="btnBorrar" >Borrar Todos</a>
+
+    </div>
+
+
+
+</div>
+<script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+
+</html>
