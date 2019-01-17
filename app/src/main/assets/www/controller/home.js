@@ -51,6 +51,20 @@ var c_name='';
 
 });
 
+$(function () {
+    $("#loading").dialog({
+        autoOpen: false,
+        modal: true,
+        dialogClass: "dlg-no-close",
+        open: function() {
+            $('.ui-widget-overlay').addClass('custom-overlay');
+        }
+    });
+
+});
+
+
+
 
 var vehiculeColor = {'flag-green.png':"green", 'flag-red.png': "red", 'flag-blue': "blue",'flag-white.png': "white",   'flag-yellow.png' :"yellow" };
 
@@ -94,7 +108,9 @@ $(document).ready(function () {
 
 
 
-    $.mobile.loading( "show");
+
+    //$.mobile.loading( "show");
+    $("#loading").dialog('open');
 
     // Paso 3 : Invoca a getAll para llenar la información de los paneles laterales
     //=============================================================================
@@ -274,6 +290,7 @@ $(document).ready(function () {
 
             // reportar error de conexión y salir de la app ppara volver a entrar y ya sea que conecte o iniar el modo offline
             alert('conexion');
+            //navigator.app.exitApp();
         }
 
     });
@@ -476,9 +493,9 @@ function cargarServiciosVehiculo(id_t){
                                                 */
 
                                                 fragment = create(
-                                                    '<div style="height: 40px; padding-top: 13px;" >'+
+                                                    '<div style="height: 123px; padding-top: 13px;" >'+
                                                     '<div> '+
-                                                    '<b>Número de FRAP</b> '+value.FRAP_NUMERO+' - '+value.dateLegend+'<img src="img/notebook-medium.png" width="35" onclick="openFRAP('+value.ID_FRAPS+')"> <img src="img/mail-send.png" width="35" onclick="enviarFRAP('+value.ID_FRAPS+')">'+
+                                                    '<b>Número de FRAP</b> <p>'+value.FRAP_NUMERO+' - '+value.dateLegend+'</p><img src="../images/PDF-Icon.png" width="35" onclick="openFRAP('+value.ID_FRAPS+')"> '+
                                                     '</div>'+
                                                     '</div>'
                                                 );
@@ -535,8 +552,11 @@ function cambiarVehiculo(id_tripulaciones){
 }
 
 function mostrarServicio(id_servicio){
+    console.log('cambia servicio');
+    console.log('idService'+id_servicio);
+
     $.jStorage.set("idCrew", String(idCrew),{});
-    $.jStorage.set("idService", String(idService),{});
+    $.jStorage.set("idService", String(id_servicio),{});
     location.reload();
 }
 
@@ -892,7 +912,9 @@ function map() {
 
     //$.unblockUI();
 
-    $.mobile.loading( "hide" );
+    //$.mobile.loading( "hide" );
+
+    $("#loading").dialog( 'close' );
 
                  // Call methos to load LOCAL FRAPs
 
