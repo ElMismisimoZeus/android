@@ -96,22 +96,40 @@ function checkText(value)
 // funciones de inicialización - Valores por dedult
 //============================================================================
 
+function CABECERA(){
+    this.ID_FRAP=idFRAP,
+    this.TIPO_FRAP=tipoFRAP
+}
 
 function PACIENTE(){
-    this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
+        this.iCTLG_SERVICIO_MEDICO = ( iframe.find('input[name=servicio_medico]:checked').size() > 0 ? iframe.find('input[name=servicio_medico]:checked').val(): 0)
+};
 
-    // alert (iframe.find("#nombre").val()) ;
+
+function DATOS_PACIENTE(){
         this.NOMBRE = (iframe.find('#nombre').val() != '') ? iframe.find('#nombre').val() : ' ',
         this.APELLIDO_PATERNO = ( iframe.find('#a_paterno').val() != '') ? iframe.find('#a_paterno').val() : ' ',
         this.APELLIDO_MATERNO = ( iframe.find('#a_materno').val() != '') ? iframe.find('#a_materno').val() : ' ',
-        this.iSEXOS_ID_SEXOS  = ( iframe.find('input[name=sexo]:checked').size() > 0 ? iframe.find('input[name=sexo]:checked').val(): 0),
-        this.EDAD = ( iframe.find('#fecha_nacimiento').val() != '') ? iframe.find('#fecha_nacimiento').val() : ' ',
-        this.iSERVICIO_MEDICO = ( iframe.find('input[name=servicio_medico]:checked').size() > 0 ? iframe.find('input[name=servicio_medico]:checked').val(): 0),
-
+        this.FECHA_NACIMIENTO = ( iframe.find('#fecha_nacimiento').val() != '') ? iframe.find('#fecha_nacimiento').val() : ' ',
         this.TELEFONO = ( iframe.find('#telefono').val() != '') ? iframe.find('#telefono').val() : ' ' ,
         this.OCUPACION = ( iframe.find('#ocupacion').val() != '') ? iframe.find('#ocupacion').val() : ' ',
-        this.iMOTIVO_ATENCION =( iframe.find('input[name=motivo_atencion]:checked').size() > 0 ? iframe.find('input[name=motivo_atencion]:checked').val(): 0)
+        //this.iMOTIVO_ATENCION =( iframe.find('input[name=motivo_atencion]:checked').size() > 0 ? iframe.find('input[name=motivo_atencion]:checked').val(): 0)
+        this.iID_CTLG_SEXOS  = ( iframe.find('input[name=sexo]:checked').size() > 0 ? iframe.find('input[name=sexo]:checked').val(): 0)
+};
+
+function DIRECCION(){
+    //this.iNUMERO_INTERIOR =0,
+        this.iCP = 0
+        this.CALLE = ( iframe.find('#calle').val() != '') ? iframe.find('#calle').val() : ' ',
+        this.iNUMERO_EXTERIOR = ( iframe.find('#numero').val() != '') ? iframe.find('#numero').val() : 0 ,
+        this.COLONIA  = ( iframe.find('input[name=colonia]:checked').size() > 0 ? iframe.find('input[name=colonia]:checked').val(): 0),
+        this.DELEGACION  = ( iframe.find('input[name=delegacion]:checked').size() > 0 ? iframe.find('input[name=delegacion]:checked').val(): 0),
+        this.ESTADO = ( iframe.find('input[name=estado]:checked').size() > 0 ? iframe.find('input[name=estado]:checked').val(): 0),
+        this.iCP = ((iframe.find('#cp').val() != '') ? iframe.find('#cp').val() : '_')
+};
+
+function MOTIVO_ATENCION(){
+    this.iID_CTLG_MOTIVO_ATENCION =( iframe.find('input[name=motivo_atencion]:checked').size() > 0 ? iframe.find('input[name=motivo_atencion]:checked').val(): 0)
 };
 
 
@@ -119,11 +137,7 @@ function PACIENTE(){
 
 
 function MEDIA_FILIACION(){
-
-    this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
-
-    this.iID_CTLG_MEDIA_FILIACION_ACCESORIOS = 1,
+        this.iID_CTLG_MEDIA_FILIACION_ACCESORIOS = 1,
         this.iID_CTLG_MEDIA_FILIACION_CABELLO = checkValue(iframe.find('input[name=cabello]:checked').val()),
         this.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR = checkValue(iframe.find('input[name=color_cabello]:checked').val()),
         this.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS = checkValue(iframe.find('input[name=color_ojos]:checked').val()),
@@ -138,16 +152,7 @@ function MEDIA_FILIACION(){
         this.iID_CTLG_MEDIA_FILIACION_VOLUMEN = checkValue(iframe.find('input[name=mf_volumen]:checked').val())
 };
 
-function DIRECCION(){
 
-    this.CALLE = ( iframe.find('#calle').val() != '') ? iframe.find('#calle').val() : ' ',
-        this.iNUMERO = ( iframe.find('#numero').val() != '') ? iframe.find('#numero').val() : 0 ,
-        this.COLONIA  = ( iframe.find('input[name=colonia]:checked').size() > 0 ? iframe.find('input[name=colonia]:checked').val(): 0),
-        this.DELEGACION  = ( iframe.find('input[name=delegacion]:checked').size() > 0 ? iframe.find('input[name=delegacion]:checked').val(): 0),
-        this.iCTLG_ESTADOS_ID_ESTADOS = ( iframe.find('input[name=estado]:checked').size() > 0 ? iframe.find('input[name=estado]:checked').val(): 0),
-        this.iCP = ((iframe.find('#cp').val() != '') ? iframe.find('#cp').val() : '_')
-
-};
 
 
 function EVALUACION_PRIMARIA()
@@ -627,18 +632,30 @@ function guardarPaciente(){
 
 function guardarPaciente()
 {
-    idFRAP = $.jStorage.get("idFRAP");
+//    idFRAP = $.jStorage.get("idFRAP");
 
 
     // HTML -> objeto frap : correspondiendo con el modelo de la base de datos del servidor
     //=========================================================================================
-    frap.secciones.direccion = new DIRECCION(); // modificar de acuerdo al modelo
+    var tbAuxCabecera = new CABECERA();
     frap.secciones.paciente = new PACIENTE();
+    frap.secciones.motivo_atencion = new MOTIVO_ATENCION();
+    frap.secciones.datos_paciente =  new DATOS_PACIENTE();
+    frap.secciones.direccion = new DIRECCION();
 
 
     // objecto frap -> DB loca : gestiona las secciones de objeto frap en objectos TB-Name para guardar en base de datos
     //=========================================================================================
-    tbPaciente = $.extend(frap.secciones.paciente, frap.secciones.direccion);
+    //tbPaciente = $.extend(frap.secciones.paciente, frap.secciones.direccion);
+
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.paciente);
+    var union2 = $.extend(union1,frap.secciones.motivo_atencion);
+    var union3 = $.extend(union2, frap.secciones.datos_paciente);
+    var union4 = $.extend(union3, frap.secciones.direccion );
+
+    var unionUniniones = $.extend(tbAuxCabecera,frap.secciones.paciente);
+    unionUniniones2 = $.extend(unionUniniones, union3);
+    tbPaciente = $.extend(unionUniniones2, union4);
 
 
     //frap.secciones.paciente = tbPaciente;
@@ -659,11 +676,12 @@ function guardarPaciente()
 
 function guardarMediaFiliacion()
 {
-    idFRAP = $.jStorage.get("idFRAP");
+
+    var tbAuxCabecera = new CABECERA();
 
     frap.secciones.media_filiacion = new MEDIA_FILIACION();
 
-    tbMedia_filiacion = frap.secciones.media_filiacion;
+    tbMedia_filiacion = $.extend(tbAuxCabecera, frap.secciones.media_filiacion);
 
     dataBase.saveTable('MEDIA_FILIACION', tbMedia_filiacion);
 
@@ -677,7 +695,7 @@ function guardarEvaluacion_primaria()
 
     frap.secciones.evaluacion_primaria = new EVALUACION_PRIMARIA();
 
-
+    //union1 = $.extend(tbAuxCabecera, frap.secciones.paciente);
     tbEvaluacion_primaria = frap.secciones.evaluacion_primaria;
 
     //frap.secciones.evaluacion_primaria = tbEvaluacion_primaria;
