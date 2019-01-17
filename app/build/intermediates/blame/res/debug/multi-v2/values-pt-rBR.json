@@ -1,44 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
+            "outputFile": "/Users/zeus/Documents/CRM-FRAP/platforms/android/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml",
             "map": [
                 {
-                    "source": "/Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/5d164211fcb9ca93ef63fb20c4d5e85f/res/values-pt-rBR/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "234",
-                        "endColumns": "99",
-                        "endOffsets": "333"
-                    },
-                    "to": {
-                        "startLines": "19",
-                        "startColumns": "4",
-                        "startOffsets": "2704",
-                        "endColumns": "103",
-                        "endOffsets": "2803"
-                    }
-                },
-                {
-                    "source": "/Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/4cbe37769476ef663aeffb5f8985ed64/res/values-pt-rBR/values.xml",
-                    "from": {
-                        "startLines": "4",
-                        "startColumns": "0",
-                        "startOffsets": "289",
-                        "endColumns": "203",
-                        "endOffsets": "492"
-                    },
-                    "to": {
-                        "startLines": "9",
-                        "startColumns": "4",
-                        "startOffsets": "1123",
-                        "endColumns": "203",
-                        "endOffsets": "1322"
-                    }
-                },
-                {
-                    "source": "/Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/5e9a8257e8c83c7e5caaffcf2e20bba4/res/values-pt-rBR/values.xml",
+                    "source": "/Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/res/values-pt-rBR/values.xml",
                     "from": {
                         "startLines": "4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19",
                         "startColumns": "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0",
@@ -55,7 +21,41 @@
                     }
                 },
                 {
-                    "source": "/Users/Zeus.Ogarrio/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/68018a25eeabd393b6f67a93a0ca44d2/res/values-pt-rBR/values-pt-rBR.xml",
+                    "source": "/Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-basement-11.2.2.aar/8338c2c710f55f7ce575cd680681de46/res/values-pt-rBR/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "289",
+                        "endColumns": "203",
+                        "endOffsets": "492"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "1123",
+                        "endColumns": "203",
+                        "endOffsets": "1322"
+                    }
+                },
+                {
+                    "source": "/Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/res/values-pt-rBR/values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "234",
+                        "endColumns": "99",
+                        "endOffsets": "333"
+                    },
+                    "to": {
+                        "startLines": "19",
+                        "startColumns": "4",
+                        "startOffsets": "2704",
+                        "endColumns": "103",
+                        "endOffsets": "2803"
+                    }
+                },
+                {
+                    "source": "/Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/res/values-pt-rBR/values-pt-rBR.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
