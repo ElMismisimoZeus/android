@@ -20,6 +20,8 @@
     <link rel="stylesheet" type="text/css" href="../styles/ionicons.min.css">
 
 
+
+
     <link id="style-Z" rel="stylesheet" type="text/css" href="../styles/laZ.min.css">
     <link rel="stylesheet" type="text/css" href="../styles/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="../styles/jquery.mobile.structure-1.4.5.min.css"/>
@@ -134,253 +136,307 @@
 
 <script type="text/javascript" src="../js/index.js"></script>
 
+<div data-role="page">
 
-<div id="page-transitions">
-
-
-
-    <div style="background-color:rgba(0, 0, 0, 0.0); display: none; height: 390px; padding-bottom: -5px;"  id="msgError" >
-        <div id="msgErrorContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray; z-index: 3000;">
-            <div  style="width: 90px; margin: 0 auto;">
-                <img onclick="msgBoxErrorClose();" src="../images/error.png" width=90 >
+    <div style="background-color:rgba(0, 0, 0, 0.0); display: none; height: 319px; padding-bottom: -5px; z-index: 1001;"  id="loading" >
+        <div id="loadingContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray;">
+            <div style="height: 10px; width: 100%;"></div>
+            <div  style="width: 100px; margin: 0 auto;">
+                <img  src="../images/loader_en.gif" width=100 >
             </div>
-            <p id="msgErrorText" style="text-align: center;"></p>
-        </div>
-
-        <div style="color: white; background-color:WhiteSmoke;  border-bottom: 1px solid; border-bottom-color: gray; height: 30px; padding-bottom: -5px; " onclick="msgBoxErrorClose();">
-            <p style="text-align: center; color: red;">Regresar</p>
+            <div style="height: 5px; width: 100%;"></div>
+            <p id="loadingText" style="text-align: center;">Cargando información</p>
         </div>
 
     </div>
+    <div data-role="page-content" style="z-index: 1000;">
 
 
 
 
-    <div data-role="panel" id="pnlVehiculos" data-display="overlay" data-position="left" style=" width: 410px;">
-        <div class="ui-panel-inner" style="width: 400px;">
-
-            <ul data-theme="a" data-role="listview" id="panel_vehiculos"  data-filter="true" data-filter-placeholder="Buscar unidades..." data-inset="true">
-
-            </ul>
-        </div>
-    </div><!-- /panel -->
-
-
-    <div data-role="panel" id="pnlServicios" data-display="overlay" data-position="right" style=" width: 410px;">
-        <center>
-            <h1 style="padding-top: 7px;" id="unidad_asignada"></h1>
-        </center>
-
-        <div class="ui-panel-inner" style="width: 400px;">
-            <ul data-theme="a" data-role="listview" id="panel_servicios"  data-filter="true" data-filter-placeholder="Buscar servicios..." data-inset="true">
-            </ul>
-        </div>
-    </div><!-- /panel -->
 
 
 
 
-    <div class="header header-logo-center header-dark" align="center">
 
-        <!--
-        <h3 class="botonInicial"><strong>SCE</strong> <strong class="color-white">FRAP Digital</strong></h3>
+
+
+
+        <div id="page-transitions">
+
+
+
+
+
+
+
+            <div style="background-color:rgba(0, 0, 0, 0.0); display: none; height: 390px; padding-bottom: -5px;"  id="msgError" >
+                <div id="msgErrorContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray; z-index: 3000;">
+                    <div  style="width: 90px; margin: 0 auto;">
+                        <img onclick="msgBoxErrorClose();" src="../images/error.png" width=90 >
+                    </div>
+                    <p id="msgErrorText" style="text-align: center;"></p>
+                </div>
+
+                <div style="color: white; background-color:WhiteSmoke;  border-bottom: 1px solid; border-bottom-color: gray; height: 30px; padding-bottom: -5px; " onclick="msgBoxErrorClose();">
+                    <p style="text-align: center; color: red;">Regresar</p>
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+            <div class="header header-logo-center header-dark" align="center">
+
+                <!--
+                <h3 class="botonInicial"><strong>SCE</strong> <strong class="color-white">FRAP Digital</strong></h3>
+                -->
+                <center>
+                    <div style=" padding-top: 10px;">
+                        <img src="images/LOGO_FRAP_DIGITAL_blanco-03.png" width="179" >
+                    </div>
+                </center>
+
+            </div>
+
+
+
+            <div id="page-content" class="page-content">
+
+                <div data-role="panel" id="pnlVehiculos" data-display="overlay" data-position="left" style=" width: 410px;">
+                    <div class="ui-panel-inner" style="width: 400px;">
+
+                        <ul data-theme="a" data-role="listview" id="panel_vehiculos"  data-filter="true" data-filter-placeholder="Buscar unidades..." data-inset="true">
+
+                        </ul>
+                    </div>
+                </div><!-- /panel -->
+
+
+                <div data-role="panel" id="pnlServicios" data-display="overlay" data-position="right" style=" width: 410px;">
+                    <center>
+                        <h1 style="padding-top: 7px;" id="unidad_asignada"></h1>
+                    </center>
+
+                    <div class="ui-panel-inner" style="width: 400px;">
+                        <ul data-theme="a" data-role="listview" id="panel_servicios"  data-filter="true" data-filter-placeholder="Buscar servicios..." data-inset="true">
+                        </ul>
+                    </div>
+                </div><!-- /panel -->
+
+                <div id="page-content-scroll"><!--Enables this element to be scrolled -->
+
+
+
+                    <div id="map" style="width:100%; height:100%;">
+                    </div>
+
+
+
+
+
+                    <div class="content no-bottom">
+                        <div style="background-color:black; height: 50px; width: 100%; color: white; padding-top: 7px;">
+                            <h2 class="center-text thin small-bottom">Información del Vehículo</h2>
+                        </div>
+
+                        <div style="background-color:#585858 ; height: 100px; width: 100%; color: white; padding-left: 25px; padding-right: 25px; padding-top: 7px; ">
+                            <h2 id="vehiculo_name" class="center-text-mobile"></h2>
+                            <br>
+                            <div style="width: 50%; float:left; ">
+                                <p style="font-size: 19px; color: white; font-weight:lighter;" id="vehiculo_estatus"> </p>
+                            </div>
+                            <div style="width: 50%; float:left; ">
+                                <p style="text-align: right; color: white; font-size: 19px;  font-weight:lighter;" id="vehiculo_base"></p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div id="radioButtona" style="border-bottom: 1px solid; border-bottom-color: #aeaeae;">
+                                <div  style="width: 70px; margin: 0 auto;">
+                                    <img src="iconos/GRISES/Iconos_tripulcion.png" width=70 >
+                                </div>
+                                <center>
+                                    <p>
+                                        Tripulación
+                                    </p>
+                                </center>
+
+                            </div>
+                            <div id="opciones_nombre" style="height: 170px; width: 100%; overflow: auto; display: none; background-color: #aeaeae; color: white; padding-left: 25px; padding-right: 25px; padding-top: 11px;">
+                                <h5  class="thin">Operador</h5>
+                                <p id="operador" style="color: white;">Sin Confirmar</p>
+
+                                <h5 class="thin">Jefe de Servicio</h5>
+                                <p id="jefe" style="color: white;">Sin Confirmar</p>
+                            </div>
+
+                            <script>
+                                $(document).ready(function(){
+                                    $("#radioButtona").click(function(){
+                                        $("#opciones_nombre").slideToggle(600);
+                                    });
+                                });
+                            </script>
+
+
+
+                            <div>
+                                <div style="width: 50%; float:left; border-right: 1px solid; border-right-color: #aeaeae; padding-top: 19px;">
+                                    <div style="width: 70px; margin: 0 auto;">
+                                        <img src="iconos/GRISES/Iconos_kilometraje.png" width=70 >
+                                    </div>
+                                    <div style="font-size: 18px;">
+                                        <center>
+                                            <h5 class="thin">Kilometraje de incio: </h5>
+                                            <p id="vehiculo_km_inicio"></p>
+                                        </center>
+                                    </div>
+                                </div>
+
+
+                                <div style="width: 50%; float:left; padding-top: 19px;">
+                                    <div style="width: 70px; margin: 0 auto;">
+                                        <img src="iconos/GRISES/Iconos_combustible.png" width=70 >
+                                    </div>
+                                    <div style="font-size: 18px;">
+                                        <center>
+                                            <h5 class="thin">Combustible: </h5>
+                                            <p id="vehiculo_cambustivle"></p>
+                                        </center>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <!--
+                        <div style="background-color:#585858 ;">
+                            <a >Leer más</a>
+
+                            <div class="toggle-content">
+                                <h5 class="thin">Inicio de operaciones</h5>
+                                <p>-----</p>
+                                <h5 class="thin">Tipo de vehículo</h5>
+                                <p id="vehiculo_tipo"></p>
+                                <h5 class="thin">UID</h5>
+                                <p id="vehiculo_nivel"></p>
+                            </div>
+
+                        </div>
         -->
-        <center>
-            <div style=" padding-top: 10px;">
-                <img src="images/LOGO_FRAP_DIGITAL_blanco-03.png" width="179" >
-            </div>
-        </center>
-
-    </div>
-
-
-
-    <div id="page-content" class="page-content">
-
-        <div id="page-content-scroll"><!--Enables this element to be scrolled -->
-
-
-
-                <div id="map" style="width:100%; height:100%;">
-                </div>
 
 
 
 
 
-            <div class="content no-bottom">
-                <div style="background-color:black; height: 50px; width: 100%; color: white; padding-top: 7px;">
-                    <h2 class="center-text thin small-bottom">Información del Vehículo</h2>
-                </div>
+                        <!--
+                            <div class="column-home-center one-half animate-left">
 
-                <div style="background-color:#585858 ; height: 100px; width: 100%; color: white; padding-left: 25px; padding-right: 25px; padding-top: 7px; ">
-                    <h2 id="vehiculo_name" class="center-text-mobile"></h2>
-                    <br>
-                    <div style="width: 50%; float:left; ">
-                        <p style="font-size: 19px; color: white; font-weight:lighter;" id="vehiculo_estatus"> </p>
-                    </div>
-                    <div style="width: 50%; float:left; ">
-                        <p style="text-align: right; color: white; font-size: 19px;  font-weight:lighter;" id="vehiculo_base"></p>
-                    </div>
-                </div>
+                                <i class="ion-android-people color-green-dark"></i>
+                                <ion-icon ios="ios-people" md="md-people"></ion-icon>
+                                <h5 class="thin">Operador</h5>
 
-                <div>
-                    <div id="radioButtona" style="border-bottom: 1px solid; border-bottom-color: #aeaeae;">
-                        <div  style="width: 70px; margin: 0 auto;">
-                            <img src="iconos/GRISES/Iconos_tripulcion.png" width=70 >
-                        </div>
-                        <center>
-                            <p>
-                                Tripulación
-                            </p>
-                        </center>
+                                <p>Estado de emergencia: Sin Confirmar</p>
 
-                    </div>
-                    <div id="opciones_nombre" style="height: 170px; width: 100%; overflow: auto; display: none; background-color: #aeaeae; color: white; padding-left: 25px; padding-right: 25px; padding-top: 11px;">
-                        <h5  class="thin">Operador</h5>
-                        <p id="operador" style="color: white;">Sin Confirmar</p>
+                                <h5 class="thin">Jefe de Servicio</h5>
 
-                        <h5 class="thin">Jefe de Servicio</h5>
-                        <p id="jefe" style="color: white;">Sin Confirmar</p>
-                    </div>
-
-                    <script>
-                    $(document).ready(function(){
-                        $("#radioButtona").click(function(){
-                            $("#opciones_nombre").slideToggle(600);
-                        });
-                    });
-                    </script>
+                                <p>Estado de emergencia: Sin Confirmar</p>
 
 
 
-                    <div>
-                        <div style="width: 50%; float:left; border-right: 1px solid; border-right-color: #aeaeae; padding-top: 19px;">
-                            <div style="width: 70px; margin: 0 auto;">
-                                <img src="iconos/GRISES/Iconos_kilometraje.png" width=70 >
                             </div>
-                            <div style="font-size: 18px;">
-                                <center>
-                                    <h5 class="thin">Kilometraje de incio: </h5>
-                                    <p id="vehiculo_km_inicio"></p>
-                                </center>
-                            </div>
-                        </div>
+
+                            <div class="column-home-center one-half last-column animate-right">
+
+                                <i class="ion-speedometer color-red-dark"></i>
+
+                                <h5 class="thin">Kilometraje de incio</h5>
+                                <p id="vehiculo_km_inicio"></p>
+
+                                <h5 class="thin">Combustible</h5>
+                                <p id="vehiculo_cambustivle"></p>
 
 
-                        <div style="width: 50%; float:left; padding-top: 19px;">
-                            <div style="width: 70px; margin: 0 auto;">
-                                <img src="iconos/GRISES/Iconos_combustible.png" width=70 >
+
+
                             </div>
-                            <div style="font-size: 18px;">
-                                <center>
-                                    <h5 class="thin">Combustible: </h5>
-                                    <p id="vehiculo_cambustivle"></p>
-                                </center>
-                            </div>
-                        </div>
+                            -->
+
+
 
                     </div>
+
+                    <div class="decoration"></div>
 
                 </div>
-
-                <!--
-                <div style="background-color:#585858 ;">
-                    <a >Leer más</a>
-                    <!--
-                    <div class="toggle-content">
-                        <h5 class="thin">Inicio de operaciones</h5>
-                        <p>-----</p>
-                        <h5 class="thin">Tipo de vehículo</h5>
-                        <p id="vehiculo_tipo"></p>
-                        <h5 class="thin">UID</h5>
-                        <p id="vehiculo_nivel"></p>
-                    </div>
-
-                </div>
--->
-
-
-
-
-
-                <!--
-                    <div class="column-home-center one-half animate-left">
-
-                        <i class="ion-android-people color-green-dark"></i>
-                        <ion-icon ios="ios-people" md="md-people"></ion-icon>
-                        <h5 class="thin">Operador</h5>
-
-                        <p>Estado de emergencia: Sin Confirmar</p>
-
-                        <h5 class="thin">Jefe de Servicio</h5>
-
-                        <p>Estado de emergencia: Sin Confirmar</p>
-
-
-
-                    </div>
-
-                    <div class="column-home-center one-half last-column animate-right">
-
-                        <i class="ion-speedometer color-red-dark"></i>
-
-                        <h5 class="thin">Kilometraje de incio</h5>
-                        <p id="vehiculo_km_inicio"></p>
-
-                        <h5 class="thin">Combustible</h5>
-                        <p id="vehiculo_cambustivle"></p>
-
-
-
-
-                    </div>
-                    -->
-
-
 
             </div>
-
-            <div class="decoration"></div>
 
         </div>
 
+
+
+        <div class="footer-fixed footer-fixed-light">
+
+            <div class="swiper-wrapper menuInferior">
+
+                <a href="#pnlVehiculos" class="menuInferior ve">
+                    <em>
+                        <img src="iconos/GRISES/Iconos_vehiculos.png" width=50 >
+                        <!-- <i class="ion-android-car" ></i><span>Vehículos</span> -->
+                    </em>
+                </a>
+                <a onclick="salir();" href="" class="menuInferior">
+                    <em>
+                        <img style="padding-top: 7px;" src="iconos/GRISES/Icono_puerta_gris.png" width=40 >
+                        <!-- <i class="ion-android-car"></i><span>Salir</span> -->
+                    </em>
+                </a>
+
+
+                <a href="#pnlServicios" class="menuInferior se">
+                    <em>
+                        <img src="iconos/GRISES/Iconos_Tratamientos.png" width=50 >
+                        <!-- <i class="ion-medkit" ></i><span>Servicios</span> -->
+                    </em>
+                </a>
+
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
 </div>
 
 
 
-<div class="footer-fixed footer-fixed-light">
 
-    <div class="swiper-wrapper menuInferior">
-
-        <a href="#pnlVehiculos" class="menuInferior ve">
-            <em>
-                <img src="iconos/GRISES/Iconos_vehiculos.png" width=50 >
-                <!-- <i class="ion-android-car" ></i><span>Vehículos</span> -->
-            </em>
-        </a>
-        <a onclick="salir();" href="" class="menuInferior">
-            <em>
-                <img style="padding-top: 7px;" src="iconos/GRISES/Icono_puerta_gris.png" width=40 >
-                <!-- <i class="ion-android-car"></i><span>Salir</span> -->
-            </em>
-        </a>
-
-
-        <a href="#pnlServicios" class="menuInferior se">
-            <em>
-                <img src="iconos/GRISES/Iconos_Tratamientos.png" width=50 >
-                <!-- <i class="ion-medkit" ></i><span>Servicios</span> -->
-            </em>
-        </a>
-
-    </div>
-
-
-
-</div>
 
 
 
