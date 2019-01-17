@@ -2625,6 +2625,7 @@ ol ol ol{list-style-type:disc;}
 /*---Tabs---*/
 /*----------*/
 
+/*
 ul.tabs{
     margin: 0px;
     padding: 0px;
@@ -2671,9 +2672,9 @@ ul.tabs li.current{
     -ms-transition: all 250ms ease-in;
     -o-transition: all 250ms ease-in;
     transition: all 250ms ease-in;
-    -webkit-transition-delay: 250ms; /* Safari */
+    -webkit-transition-delay: 250ms;
     transition-delay: 250ms;
-}
+}*/
 
 /*----------------*/
 /*---Accordions---*/
