@@ -93,6 +93,23 @@ frap.secciones.init = function(){
 
 // funciones de inicialización - Valores por dedult
 //============================================================================
+
+
+frap.initFRAP = function (status, validation, number){
+        this.FOLIO = number,
+        this.ESTATUS = status,
+        this.VALIDACION = validation,
+        this.iCTLG_TIPO_SERVICIO = idService,
+        this.iID_SERVICIO_MEDICO = ( iframe.find('input[name=servicio_medico]:checked').size() > 0 ? iframe.find('input[name=servicio_medico]:checked').val(): 0)
+        //( iframe.find('input[name=motivo_atencion]:checked').size() > 0 ? iframe.find('input[name=motivo_atencion]:checked').val(): 0)
+        //this.iCTLG_MOTIVO_ATENCION = ($('input[name=motivo_atencion]:checked').size() > 0 ? $('input[name=motivo_atencion]:checked').val(): 0)
+};
+
+
+
+
+
+
 frap.initPaciente2 = function(){
 
     // alert (iframe.find("#nombre").val()) ;
@@ -122,17 +139,17 @@ frap.initPaciente = function(){
 
 
 frap.initDireccion = function(){
-
-    this.CALLE =' ',
+        this.CALLE =' ',
         this.iNUMERO_EXTERIOS =0,
         this.iNUMERO_INTERIOR =0,
         this.COLONIA  = '-',
         this.DELEGACION  = '-',
+        this.ESTADO ='-',
         this.iCP = 0
 };
 
 frap.initMediaFiliacion = function(){
-    this.iD_CTLG_MEDIA_FILIACION_ACCESORIOS = 1,
+        this.iD_CTLG_MEDIA_FILIACION_ACCESORIOS = 1,
         this.iID_CTLG_MEDIA_FILIACION_CABELLO = 1,
         this.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR = 1,
         this.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS = 1,
@@ -154,18 +171,13 @@ frap.initDatosPaciente = function(){
     this.NOMBRE = '-',
     this.APELLIDO_PATERNO = '-',
     this.APELLIDO_MATERNO = '-',
-        this.CORREO_ELECTRONICO = '-',
+    this.CORREO_ELECTRONICO = '-',
     this.EDAD = '-',
     this.FECHA_NACIMIENTO = '',
     this.TELEFONO = '-' ,
-    this.OCUPACION = '-',
-        this.iSEXOS_ID_SEXOS  = 0,
-    this.iMOTIVO_ATENCION =0
-};
-
-frap.initMediaFiliacion = function(){
-
-    this.iID_CTLG_MOTIVO_ATENCION =0
+    this.OCUPACION = '-'
+    this.iID_CTLG_SEXOS  = 0
+    //this.iMOTIVO_ATENCION =0
 };
 
 
@@ -739,7 +751,7 @@ frap.enviar = function() {
 
     var token;
     var url_con;
-    var estado;
+    //var estado;
 
     estado = $.jStorage.get("estado");
     token = $.jStorage.get("token");
@@ -768,117 +780,152 @@ frap.enviar = function() {
             if(token===data.token){
 
 
-    $.ajax({
-        type: 'POST',
-        url: url_con+'/saveFRAP',
-        //url: 'https://opowerdev.net/web_services/FRAP/usuario/saveFRAP',
-        dataType: "json",
-        data: JSON.stringify({"fragmento": "FRAP_OBJECT", "id": "1", "datos": fs}),
-        contentType: "application/json; charset=utf-8",
-        success: function (data, textStatus, jqXHR) {
 
-            // Se crea el FRAP con éxito por lo que se recupera el ID
-            // .datos_respuesta.idFRAP
-            //=============================================================================
-            //alert(JSON.stringify(data));
-            var id = data.idData;
-            //console.log('id_data');
-            //console.log(id);
-
-
-            var promises = [];
-            //alert('envio de fragmentos');
-
-            $.each(frap_elementos, function (key, value) {
-
-                //alert(JSON.stringify(value["datos"]));
-                //send(key, value["datos"], id);
-
-
-                // alert(JSON.stringify({"fragmento":key,"id":id, "datos":value["datos"]}));
-                //var json_object = 'fragmento='+key+'&datos='+JSON.stringify(value["datos"]);
-                //alert(json_object);
-                //console.log('enviando');
-                //console.log('==========================');
-                //console.log(value["datos"]);
-                //console.log(JSON.stringify(value["datos"]));
-                //console.log(JSON.stringify({"fragmento": key, "id": id, "datos": value["datos"]}));
-
-                var request = $.ajax({
+                $.ajax({
                     type: 'POST',
-                    url: url_con+'/saveFRAP',
+                    url: url_con + '/validarFRAP',
                     //url: 'https://opowerdev.net/web_services/FRAP/usuario/saveFRAP',
                     dataType: "json",
-                    data: JSON.stringify({"fragmento": key, "id": id, "datos": value["datos"]}),
+                    data: JSON.stringify({
+                        "ID_usuario": id_usuario,
+                        "session": id_sesion,
+                        "estado": estado,
+                        "ID_servicio": idService
+                    }),
+                    //data: JSON.stringify({"fragmento": "FRAP_OBJECT", "id": "1", "datos": fs}),
                     contentType: "application/json; charset=utf-8",
                     success: function (data, textStatus, jqXHR) {
-                        // alert(JSON.stringify(data));
 
-                    },
-                    error: function (respuesta) {
-                        alert("post_rror! llamada elemento:" +key);
-                        alert(respuesta);
+
+                        console.log(data.status);
+                        console.log(data.validation);
+                        console.log(data.number);
+
+                        frap.secciones.frap =  new frap.initFRAP(data.status, data.validation, data.number);
+                        frap_elementos["FRAP"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.frap};
+
+                        console.log('fiajte frap');
+                        console.log(frap.secciones.frap);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: url_con + '/saveFRAP',
+                            //url: 'https://opowerdev.net/web_services/FRAP/usuario/saveFRAP',
+                            dataType: "json",
+                            data: JSON.stringify({"fragmento": "FRAP_OBJECT", "id": "1", "datos": fs}),
+                            contentType: "application/json; charset=utf-8",
+                            success: function (data, textStatus, jqXHR) {
+
+                                // Se crea el FRAP con éxito por lo que se recupera el ID
+                                // .datos_respuesta.idFRAP
+                                //=============================================================================
+                                //alert(JSON.stringify(data));
+                                var id = data.idData;
+                                //console.log('id_data');
+                                //console.log(id);
+
+
+                                var promises = [];
+                                //alert('envio de fragmentos');
+
+                                $.each(frap_elementos, function (key, value) {
+
+                                    //alert(JSON.stringify(value["datos"]));
+                                    //send(key, value["datos"], id);
+
+
+                                    // alert(JSON.stringify({"fragmento":key,"id":id, "datos":value["datos"]}));
+                                    //var json_object = 'fragmento='+key+'&datos='+JSON.stringify(value["datos"]);
+                                    //alert(json_object);
+                                    console.log('enviando');
+                                    console.log('==========================');
+                                    console.log(value["datos"]);
+                                    //console.log(JSON.stringify(value["datos"]));
+                                    console.log(JSON.stringify({"fragmento": key, "id": id, "datos": value["datos"]}));
+
+                                    var request = $.ajax({
+                                        type: 'POST',
+                                        url: url_con + '/saveFRAP',
+                                        //url: 'https://opowerdev.net/web_services/FRAP/usuario/saveFRAP',
+                                        dataType: "json",
+                                        data: JSON.stringify({"fragmento": key, "id": id, "datos": value["datos"]}),
+                                        contentType: "application/json; charset=utf-8",
+                                        success: function (data, textStatus, jqXHR) {
+                                            // alert(JSON.stringify(data));
+
+                                        },
+                                        error: function (respuesta) {
+                                            console.log(respuesta);
+                                            console.log(respuesta.detalles);
+                                            alert("post_error! llamada elemento:" + key);
+                                            alert(respuesta);
+                                        }
+                                    });
+
+
+                                    promises.push(request);
+
+
+                                });
+
+                                $.when.apply(null, promises).done(function () {
+
+                                    $("#msgOk").dialog('open');
+
+                                    // alert('se guardo FRAP con éxito');
+
+                                    // location = "home_vehicules.html";
+                                    // alert('FINISH-close-change');
+
+                                    // Commit(id);
+
+                                }).fail(function () {
+                                    alert('unexpected error must close');
+                                });
+
+
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                if (jqXHR.status === 0) {
+
+                                    alert('Not connect: Verify Network.');
+
+                                } else if (jqXHR.status == 404) {
+
+                                    alert('Requested page not found [404]');
+
+                                } else if (jqXHR.status == 500) {
+
+                                    alert('Internal Server Error [500].');
+
+                                } else if (textStatus === 'parsererror') {
+
+                                    alert('Requested JSON parse failed.');
+
+                                } else if (textStatus === 'timeout') {
+
+                                    alert('Time out error.');
+
+                                } else if (textStatus === 'abort') {
+
+                                    alert('Ajax request aborted.');
+
+                                } else {
+
+                                    alert('Uncaught Error: ' + jqXHR.responseText);
+
+                                }
+
+                                alert('Error SND01: Comunicacion con el servidor');
+                            }
+                        });
+
+                    }, error: function (jqXHR, textStatus, errorThrown) {
+
+                        // reportar error de conexión y salir de la app ppara volver a entrar y ya sea que conecte o iniar el modo offline
+                        alert('conexion a get validation');
                     }
-                });
-
-
-                promises.push(request);
-
-
-            });
-
-            $.when.apply(null, promises).done(function () {
-
-                $("#msgOk").dialog('open');
-
-               // alert('se guardo FRAP con éxito');
-
-               // location = "home_vehicules.html";
-                // alert('FINISH-close-change');
-
-                // Commit(id);
-
-            }).fail(function () {
-                alert('unexpected error must close');
-            });
-
-
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            if (jqXHR.status === 0) {
-
-                alert('Not connect: Verify Network.');
-
-            } else if (jqXHR.status == 404) {
-
-                alert('Requested page not found [404]');
-
-            } else if (jqXHR.status == 500) {
-
-                alert('Internal Server Error [500].');
-
-            } else if (textStatus === 'parsererror') {
-
-                alert('Requested JSON parse failed.');
-
-            } else if (textStatus === 'timeout') {
-
-                alert('Time out error.');
-
-            } else if (textStatus === 'abort') {
-
-                alert('Ajax request aborted.');
-
-            } else {
-
-                alert('Uncaught Error: ' + jqXHR.responseText);
-
-            }
-
-            alert('Error SND01: Comunicacion con el servidor');
-        }
-    });
-
+                }); // fin del ajax de get validation
 
 
             }else{
