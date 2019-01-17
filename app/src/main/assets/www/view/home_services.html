@@ -90,7 +90,12 @@
 	</script>
 
 
+<script>
+	function frap_offline(){
+	$.unblockUI();
+	location="frap_offline.html";
 
+}</script>
 
 	<script type="text/javascript" src="../cordova.js"></script>
 	<script type="text/javascript" src="../controller/home.js"></script>
@@ -490,11 +495,17 @@
 
 			<a onclick="frap();" href="" class="menuInferior">
 				<em>
-					<img style="padding-top: 7px;" src="iconos/GRISES/Iconos_crear_frap.png" width=40 >
+					<img style="padding-top: 7px;" src="iconos/GRISES/Iconos_crear_frap.png" width=45 >
 					<!-- <i class="ion-android-car"></i><span>Salir</span> -->
 				</em>
 			</a>
 
+			<a onclick="frap_offline();"  href="" class="menuInferior">
+				<em>
+					<img src="iconos/GRISES/offline.png.png" width=45 >
+					<!-- <i class="ion-android-car" ></i><span>Vehículos</span> -->
+				</em>
+			</a>
 
 
 			<a href="#pnlServicios" class="menuInferior se">
