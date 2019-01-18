@@ -167,7 +167,6 @@ frap.initMediaFiliacion = function(){
 
 
 frap.initDatosPaciente = function(){
-
     this.NOMBRE = '-',
     this.APELLIDO_PATERNO = '-',
     this.APELLIDO_MATERNO = '-',
