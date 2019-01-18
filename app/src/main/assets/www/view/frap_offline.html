@@ -28,6 +28,9 @@
 
 
     <script type="text/javascript" src="../js/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="../controller/frap_offline.js"></script>
+
+    <script type="text/javascript" src="../model/dataBaseApp.js"></script>
 
 
     <script>
@@ -121,7 +124,12 @@
             top:0; left:0;
             width: 100%; }
 
+        .container {
+            margin-top: 30px;
+        }
+
     </style>
+
 </head>
 
 
@@ -129,7 +137,7 @@
 
 <div id="page-transitions">
 
-    <div data-role="header header-logo-center header-dark" align="center">
+    <div data-role="header header-logo-center header-dark " align="center">
 
         <center>
             <div style="background-color: black">
@@ -139,7 +147,7 @@
 
         <div class="row" style="background-color: black">
             <div class="col s12">
-                <ul class="tabs tabs-transparent">
+                <ul class="tabs tabs-transparent ">
                     <li class="tab col s3"><a class="active" href="#test1" id="completados"> Completados </a></li>
                     <li class="tab col s3"><a href="#test2" id="noCompletados">No completados</a></li>
                 </ul>
@@ -150,46 +158,21 @@
 
 
 
-<div id="page-content" class="page-content">
+<div id="page-content" class="page-content container">
 
     <div id="test1">
-        <ul class="collection">
-            <li class="collection-item avatar">
-                <img src="images/yuna.jpg" alt="" class="circle">
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-            <li class="collection-item avatar">
-                <i class="material-icons circle">folder</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-            <li class="collection-item avatar">
-                <i class="material-icons circle green">insert_chart</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
-            <li class="collection-item avatar">
-                <i class="material-icons circle red">play_arrow</i>
-                <span class="title">Title</span>
-                <p>First Line <br>
-                    Second Line
-                </p>
-                <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-            </li>
+        <ul class="collection" id="frapCompleto" >
+
+
         </ul>
     </div>
 
-    <div id="test2" class="col s12">Test 2</div>
+    <div id="test2">
+        <ul class="collection" id="frapIncompleto" >
+
+
+        </ul>
+    </div>
 
 </div><!-- /page -->
 
