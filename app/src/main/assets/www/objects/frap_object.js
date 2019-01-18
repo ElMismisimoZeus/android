@@ -177,6 +177,7 @@ frap.initDatosPaciente = function(){
     this.OCUPACION = '-'
     this.iID_CTLG_SEXOS  = 0
     //this.iMOTIVO_ATENCION =0
+    //this.CORREO_ELECTRONICO = '-'
 };
 
 
