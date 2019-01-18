@@ -132,7 +132,7 @@ frap.initPaciente2 = function(){
 };
 
 frap.initPaciente = function(){
-    this.iCTLG_SERVICIO_MEDICO = 0
+    this.iID_CTLG_SERVICIO_MEDICO = 0
     // pass this.iSERVICIO_MEDICO = 0,
 };
 
@@ -180,8 +180,11 @@ frap.initDatosPaciente = function(){
 };
 
 
-frap.initMotivoAtencion = function(){
-    this.iID_CTLG_MOTIVO_ATENCION =0
+frap.initMotivoAtencion = function()
+{
+    this.iID_MOTIVO_ATENCION = 0,
+    this.iID_CTLG_MOTIVO_ATENCION =0,
+        this.MOTIVO = 0
 };
 
 
@@ -190,25 +193,26 @@ frap.initMotivoAtencion = function(){
 
 frap.initEvaluacionPrimaria = function(){
 
-    this.iCTLG_NIVEL_CONCIENCIA_ID = 0,
-    this.iCTLG_VENTILACION_ID = 0,
-    this.iCTLG_CALIDAD_VENTILACION_ID = 0,
-    this.iCTLG_PULSOS_ID = 0,
-    this.iCTLG_COLORACION_ID = 0,
-    this.iCTLG_CONDICION_ID = 0,
-    this.iCTLG_TEMPERATURA_ID = 0,
-    this.iPOSICION = 0,
-    this.iCTLG_PRIORIDAD_ID = 0,
-    this.iCTLG_PULSOS_CALIDAD_ID = 0,
-    this.iCTLG_RITMO_ID = 0,
-    this.iCTLG_VIA_AEREA_ID = 0,
-    this.iCTLG_EMERGENCIA_MOTIVOS = 0
+    this.iID_CTLG_NIVEL_CONCIENCIA = 0,
+    this.iID_CTLG_VENTILACION = 0,
+    this.iID_CTLG_CALIDAD_VENTILACION = 0,
+    this.iID_CTLG_PULSOS = 0,
+    this.iID_CTLG_COLORACION = 0,
+    this.iID_CTLG_CONDICION = 0,
+    this.iID_CTLG_TEMPERATURA = 0,
+    //this.iPOSICION = 0,
+    this.iID__CTLG_PRIORIDAD = 0,
+    this.iID_CTLG_PULSOS_CALIDAD = 0,
+    this.iID_CTLG_RITMO = 0,
+    this.iID_CTLG_VIA_AEREA = 0
+    //this.iID_CTLG_EMERGENCIA_MOTIVOS = 0
 
 };
 
 
 frap.initSEMIOLOGIA_DOLOR = function (){
-    this.iAPARICION = 0,
+    this.iID_SEMIOLOGIA_DOLOR = 0,
+    //this.iAPARICION = 0,
     this.LOCALIZACION = '-',
     this.IRRADIACION = '-',
     this.CARACTERISTICAS = '-',
@@ -217,7 +221,10 @@ frap.initSEMIOLOGIA_DOLOR = function (){
     this.iINTENSIDAD = 0
 };
 
-frap.initSAMPLER = function (){
+frap.initSAMPLER = function ()
+{
+    this.iID_SAMPLER = 0,
+
     this.SINTOMAS = '-',
     this.ALERGIAS = '-',
     this.MEDICAMENTOS = '-',
@@ -248,47 +255,54 @@ frap.initEVALUACION_SECUNDARIA = function (){
 
 // Inicio Tratamiento
 
-frap.initMANEJO_VIA_AEREA = function(){
-    this.iASPIRACION = 0,
-    this.iCTLG_DISPOSITIVO_APERTURA_ID_CTLG_DISPOSITIVO_APERTURA = 0,
-    this.iCTLG_MANEJO_VIA_AEREA_ID_CTLG_MANEJO_VIA_AEREA = 0
+frap.initMANEJO_VIA_AEREA = function()
+{
+    this.iID_MANEJO_VIA_AEREA = 0,
+    this.iID_CTLG_DISPOSITIVO_APERTURA = 0,
+    this.iID_CTLG_MANEJO_VIA_AEREA = 0,
+        this.iASPIRACION = 0,
+        this.iID_INTUBACION = 0
 };
 
 frap.initASISTENCIA_VENTILATORIA = function(){
-    this.iCTLG_DISPOSITIVO_ID_CTLG_DISPOSITIVO = 0,
+    this.iID_CTLG_DISPOSITIVO = 0,
     this.iFRECUENCIA = 0,
     this.iVOLUMEN = 0,
     this.MODALIDAD_VENTILATORIA = '-'
 };
 
-frap.initOXIGENO_TERAPIA = function(){
+frap.initOXIGENO_TERAPIA = function()
+{
+    this.iID_OXIGENO_TERAPIA = 0,
     this.iLITROS_MINUTO = 0,
-    this.iCTLG_OXIGENOTERAPIA_ID = 0
+    this.iID_CTLG_OXIGENOTERAPIA = 0
 };
 
 frap.initDESCOMPRESION_PLEURAL = function(){
     this.iCALIBRE = 0,
-    this.iCTLG_HEMITORAX_ID_CTLG_HEMITORAX = 0
+    this.iID_CTLG_HEMITORAX = 0
 };
 
 frap.initCONTROL_HEMORRAGIAS = function(){
-    this.iCTLG_CONTROL_HEMORAGIAS_ID = 0,
+    this.iID_CTLG_CONTROL_HEMORAGIAS = 0,
     this.HORA_COLOCACION = '-'
 };
 
 
 frap.initACCESO_CIRCULATORIO = function(){
     // check all local
-    this.iCTLG_VIA_ACCESO_ID_CTLG_VIA_ACCESO = 0,
-    this.iCTLG_ZONA_COLOCACION_ID = 0,
-    this.iCTLG_SOLUCION_ID_CTLG_SOLUCION = 0,
+    this.iID_CTLG_VIA_ACCESO = 0,
+    this.iID_CTLG_ZONA_COLOCACION = 0,
+    this.iID_CTLG_SOLUCION = 0,
     this.iBOMBA_INFUSION = 0,
     this.iCALIBRE = 0,
     this.iVOLUMEN_INFUNDIDO = 0,
     this.HORA_COLOCACION = '0:0'
 };
 
-frap.initINTERVENCIONES = function(){
+frap.initINTERVENCIONES = function()
+{
+    this.iID_INTERVENCIONES = 0,
     this.iCONTROL_CERVICAL = 0,
     this.iEMPAQUETAMIENTO = 0,
     this.iCURACION_VENDAJE = 0,
@@ -298,14 +312,20 @@ frap.initINTERVENCIONES = function(){
 frap.initTERAPIA_ELECTRICA = function(){
     this.iDESCARGAS = 0,
     this.iJOULES = 0,
+        this.iMARCAPASOS_TRANSCUTANEO = 0,
     this.iMA = 0,
     this.iFRECUENCIA = 0
 
 };
 
+// MOD BY JC
+////////////
+
 frap.initTRATAMIENTO = function(){
     // add all parts
     /*
+    this.ID_TRATAMIENTO = 0;
+
     this.MANEJO_VIA_AEREA_ID_MANEJO_VIA_AEREA = [];
     this.ASISTENCIA_VENTILATORIA_ID_ASISTENCIA_VENTILATORIA = [];
     this.OXIGENO_TERAPIA_ID_OXIGENO_TERAPIA = [];
@@ -315,6 +335,7 @@ frap.initTRATAMIENTO = function(){
     this.INTERVENCIONES_ID_INTERVENCIONES = [];
     this.TERAPIA_ELECTRICA_ID_TERAPIA_ELECTRICA = [];
     */
+
     this.OBSERVACIONES = '-'
 };
 
@@ -330,37 +351,62 @@ frap.initTRAUMA = function(){
 
 frap.initCLINICO = function(){
     this.DIAGNOSTICO_SINDROMATICO = '-',
-    this.iCTLG_ORIGEN_PROBABLE_ID = 0,
+    this.iID_CTLG_ORIGEN_PROBABLE = 0,
     this.OBSERVACIONES = '-'
 };
 
-frap.initVIAL = function(){
-    this.iCTLG_TIPO_ACCIDENTE_VIAL_ID = 0,
-    this.iCTLG_TIPO_LESIONADO_ID = 0,
-    this.iCTLG_ACTOR_VIAL_ID = 0,
-    this.iCTLG_ATROPELLADO_POR_ID = 0,
-    this.iEYECTADO = 0,
-    this.iDECESOS = 0,
-    this.iPRENSADO = 0,
-    this.iCASCO = 0,
-    this.iCTLG_IMPACTO_ID = 0,
-    this.iCTLG_VOLANTE_ID = 0,
-    this.iCTLG_PARABRISAS_ID = 0,
-    this.iCTLG_BOLSA_AIRE_ID = 0,
-    this.iCTLG_CINTURON_SEGURIDAD_ID = 0,
-    this.OBSERVACIONES = '-'
+// Mod by JC_worthing
+
+frap.initVIAL = function()
+{
+    //this.ID_FRAP
+
+    this.iID_CTLG_CINTURON_SEGURIDAD = 0,
+
+        this.iID_CTLG_BOLSA_AIRE = 0,
+
+        this.iID_CTLG_PARABRISAS = 0,
+
+        this.iID_CTLG_VOLANTE = 0,
+
+        this.iID_CTLG_IMPACTO = 0,
+
+        this.iID_CTLG_ATROPELLADO_POR = 0,
+
+        this.iID_CTLG_ACTOR_VIAL = 0,
+
+        this.iID_CTLG_TIPO_LESIONADO = 0,
+
+        this.iID_CTLG_TIPO_ACCIDENTE_VIAL = 0,
+
+        this.OBJETO_FIJO = 0,
+
+        this.iEYECTADO = 0,
+
+        this.iDECESOS = 0,
+
+        this.iPRENSADO = 0,
+
+        this.iCASCO = 0,
+
+        this.OBSERVACIONES = '-'
 };
 
-frap.initGINECOLOGICO = function(){
+frap.initGINECOLOGICO = function()
+{
+    this.iID_GINECOLOGICO = 0,
     this.iGESTA = 0,
     this.iPARA = 0,
     this.iCESARIA = 0,
     this.iABORTOS = 0,
     this.iSEMANAS_GESTACION = 0,
     this.FUM = '-',
-    this.HORA_INICIO_CONTRACCIONES = '-',
-    this.iFRECUENCIA = 0,
-    this.iDURACION = 0,
+    this.iFRECUENCIA = 0
+
+
+    //this.HORA_INICIO_CONTRACCIONES = '-',
+    //No existen registros  en la tabla
+    /*this.iDURACION = 0,
     this.HORA_NACIOMIENTO = '-',
     this.iPLACENTA_EXPULSADA = 0,
     this.LUGAR_NACIMIENTO = '-',
@@ -374,7 +420,7 @@ frap.initGINECOLOGICO = function(){
     this.iAPGAR10 = 0,
     this.iSILVERMAN = 0,
     this.iMEMBRANAS_INTEGRAS = 0,
-    this.OBSERVACIONES = '-'
+    this.OBSERVACIONES = '-' */
 };
 
 
@@ -416,6 +462,9 @@ frap.cargas = {};
 
 
 
+
+
+
 frap.cargas.loadES_Factores = function (){
 
     dataBase.onSuccess = function(tx, results) {
@@ -426,7 +475,7 @@ frap.cargas.loadES_Factores = function (){
 
         for (var i = 0; i < len; i++) {
 
-            factores["registro"+i]={ "iCTLG_FACTOR_RIESGO":results.rows.item(i).CTLG_FACTOR_RIESGO};
+            factores["registro"+i]={ "iID_CTLG_FACTOR_RIESGO":results.rows.item(i).ID_CTLG_FACTOR_RIESGO};
             console.log(factores["registro"+i]);
 
         }
@@ -505,20 +554,20 @@ frap.cargas.loadEvaluacionPrimaria = function(){
         var len = results.rows.length;
         if (len>0){
 
-            frap.secciones.evaluacion_primaria = results.rows.item(0).CTLG_NIVEL_CONCIENCIA_ID;
-            frap.secciones.evaluacion_primaria = results.rows.item(0).CTLG_VIA_AEREA_ID;
+            frap.secciones.evaluacion_primaria = results.rows.item(0).ID_CTLG_NIVEL_CONCIENCIA;
+            frap.secciones.evaluacion_primaria = results.rows.item(0).ID_CTLG_VIA_AEREA;
 
-            frap.secciones.evaluacion_primaria  = results.rows.item(0).CTLG_VENTILACION_ID;
-            frap.secciones.evaluacion_primaria = results.rows.item(0).CTLG_CALIDAD_VENTILACION_ID;
+            frap.secciones.evaluacion_primaria  = results.rows.item(0).ID_CTLG_VENTILACION;
+            frap.secciones.evaluacion_primaria = results.rows.item(0).ID_CTLG_CALIDAD_VENTILACION;
 
-            frap.secciones.evaluacion_primaria = results.rows.item(0).CTLG_PULSOS_ID;
-            frap.secciones.evaluacion_primaria = results.rows.item(0).CTLG_COLORACION_ID;
-            frap.secciones.evaluacion_primaria = results.rows.item(0).CTLG_CONDICION_ID;
-            frap.secciones.evaluacion_primaria = results.rows.item(0).CTLG_TEMPERATURA_ID;
-            frap.secciones.evaluacion_primaria = results.rows.item(0).POSICION;
-            frap.secciones.evaluacion_primaria = results.rows.item(0).PRIORIDAD;
-            frap.secciones.evaluacion_primaria = results.rows.item(0).CALIDAD;
-            frap.secciones.evaluacion_primaria = results.rows.item(0).RITMO;
+            frap.secciones.evaluacion_primaria = results.rows.item(0).ID_CTLG_PULSOS;
+            frap.secciones.evaluacion_primaria = results.rows.item(0).ID_CTLG_COLORACION;
+            frap.secciones.evaluacion_primaria = results.rows.item(0).ID_CTLG_CONDICION;
+            frap.secciones.evaluacion_primaria = results.rows.item(0).ID_CTLG_TEMPERATURA;
+            //frap.secciones.evaluacion_primaria = results.rows.item(0).POSICION;
+            frap.secciones.evaluacion_primaria = results.rows.item(0).ID_CTLG_PRIORIDAD;
+            frap.secciones.evaluacion_primaria = results.rows.item(0).ID_CTLG_PULSOS_CALIDAD;
+            frap.secciones.evaluacion_primaria = results.rows.item(0).ID_CTLG_RITMO;
 
             //alert('Se cargo el EP');
         }
