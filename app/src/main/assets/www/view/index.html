@@ -152,7 +152,8 @@ window.location.replace('index-login.html');
             }
 
         function successCB() {
-            alert('comando ejecutado');
+            console.log('comando ejecutado');
+
         }
 
         function insertDB(tx) {
@@ -170,7 +171,7 @@ window.location.replace('index-login.html');
         var resultado = 0;
 
         function querySuccessR(tx, results) {
-              alert('jojo');
+              console.log('jojo');
               //resultado = results.rows.item(0).ID;
               var len = results.rows.length;
               var actual = 0;
@@ -196,12 +197,12 @@ function seleccionarLocal2(table, selection, where, callB){
 
      db.transaction(
              function(transaction){ // DATABASE TRANSACTION
-                   alert('dentro');
-                    alert(query);
+                   //('dentro');
+                    //alert(query);
                     transaction.executeSql(query,[], querySuccessR,errorCB);
              },
              function(err){  // ON ERROR
-                 alert("erroro selecionar "+err.code);
+                 //alert("erroro selecionar "+err.code);
              },
              function(){  // ON SUCCESS
 
