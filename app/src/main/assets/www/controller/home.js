@@ -38,6 +38,34 @@ var haveLocation;
 var c_name='';
 
 
+
+
+
+
+// Variables para el control del frap fuera de línea
+// ===================================================
+
+var emergencia_razon=' ';
+var emergencia_calle=' ';
+var emergencia_colonia=' ';
+var emergencia_municipio=' ';
+var emergencia_estado=' ';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  $(function () {
 
 	  $("#dialog1").dialog({
@@ -414,6 +442,16 @@ function cargarServiciosVehiculo(id_t){
                                         contentType: "application/json; charset=utf-8",
                                         success: function(data, textStatus, jqXHR){
 
+                                            // FILL VARIABLES FOR MANAGE OFFLINE
+
+                                            emergencia_razon= data.reason;
+                                            emergencia_calle = data.address.street;
+                                            emergencia_colonia = data.address.suburb;
+                                            emergencia_municipio = data.address.town;
+                                            emergencia_estado = data.address.state;
+
+
+
                                             // Información del Servicio
                                             $("#reason").html(data.reason);
                                             $("#num_servicio").html(data.ID_SERVICIOS);
@@ -459,7 +497,7 @@ function cargarServiciosVehiculo(id_t){
 
                                             // FRAPS
                                             //==================================================
-                                            console.log(data.fraps);
+
 
                                             /*
                                             for (var frap_e in data.fraps)
@@ -659,15 +697,24 @@ function prepareFRAP(paginaInicial){
     Se comnecta a la base de datos para obtener el siguente Frap ID y generar el registro en la tabla servicios
      */
 
+
+
     dataBase.openDb();
+
+
+
     dataBase.callBack = function(id){
         //alert('dentro super');
         var idFRAP = id+1;
 
         var currentdate = new Date();
+
+
         var fe = currentdate.getDate() + "/"
             + (currentdate.getMonth()+1)  + "/"
             + currentdate.getFullYear();
+
+
 
         var tabla_frap={
             "iID_SERVICE" : idService,
@@ -677,11 +724,11 @@ function prepareFRAP(paginaInicial){
             "AVANCE" : "pagezero",
             // Set Default valuyes for OnLine FRAP
             "iENVIADO" : 0,
-            "CAUSA" : 'nohay',
-            "CALLE" : ' ',
-            "COLONIA" : ' ',
-            "MUNICIPIO" : ' ',
-            "ESTADO" : ' ',
+            "CAUSA" : emergencia_razon,
+            "CALLE" : emergencia_calle,
+            "COLONIA" : emergencia_colonia,
+            "MUNICIPIO" : emergencia_municipio,
+            "ESTADO" : emergencia_estado,
             "iLATITUD" : 0.01,
             "iLONGITUD" :0.01,
             "FECHA": fe
@@ -704,11 +751,12 @@ function prepareFRAP(paginaInicial){
 
 
 
+
         dataBase.onSuccess = function(tx, r) {
 
             $.unblockUI();
             location=paginaInicial;
-        }
+        };
         dataBase.saveTable('SERVICIO',tabla_frap);
 
     };
@@ -730,7 +778,6 @@ function prepareFRAP(paginaInicial){
 
         // Llamada al callBack como success querry
         dataBase.callBack(resultado);
-
 
     };
 
