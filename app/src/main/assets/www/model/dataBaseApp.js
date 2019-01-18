@@ -13,6 +13,35 @@
  ************************************************************************************************/
 var control_e ='';
 
+var sql_edo_secciones ="CREATE TABLE IF NOT EXISTS EDO_SECCIONES ("+
+    "ID_SERVICE INTEGER,"+
+    "ID_FRAP INTEGER,"+
+
+    "PACIENTE INTEGER,"+
+    "MEDIA_FILIACION INTEGER," +
+    "EVALUACION_PRIMARIA INTEGER,"+ // Evualua el estado general del FRAP
+    "EVALUACION_SECUNDARIA INTEGER,"+ // Guarda el avance en el llenado
+    "TRATAMIENTO INTEGER,"+ // Booleano que evalua si el FRAP ya se guardo en el servidor
+
+    "PARO_CARDIORESPIRATORIO INTEGER,"+
+    "CLINICO INTEGER,"+
+    "VIAL INTEGER,"+
+    "TRAUMA INTEGER,"+
+    "GINECOLOGICO INTEGER,"+
+    "TRATAMIENTO INTEGER," +
+    "EMERGENCIA_RESULTADO INTEGER,"+
+    "CONSENTIMIENTO INTEGER"+
+    "FRAP_OTROS INTEGER,"+
+    "FRAP_LEGAL INTEGER,"+
+    "NEGATIVA TEXT,"+
+    "INSUMOS_NIVEL_BASICO INTEGER,"+
+    "INSUMOS_NIVEL_INTERMEDIO INTEGER,"+
+    "INSUMOS_NIVEL_AVANZADO INTEGER,"+
+    "MEDICAMENTOS INTEGER,"+
+    "REGISTRO_SIGNOS_VITALES INTEGER,"+
+    "HALLAZGOS_FISICOS INTEGER,"+
+    "FACTORES INTEGER," +
+    ")";
 
 var sql_frap =   "CREATE TABLE IF NOT EXISTS SERVICIO ("+
     "ID_SERVICE INTEGER,"+
@@ -671,6 +700,7 @@ dataBase.saveTable =  function(table, elements){
     var values = '';
     var first = 0;
 
+    console.log('va a salvar');
 
     $.each(elements, function(key, value) {
         if(first == 0){
@@ -710,7 +740,7 @@ dataBase.saveTable =  function(table, elements){
                             });
 
 
-}
+};
 
 dataBase.getTable = function(table, elements, where){
 
@@ -722,7 +752,21 @@ dataBase.getTable = function(table, elements, where){
     });
 
 
-}
+};
+
+// super cambio
+
+dataBase.getTableS = function(table, elements, where, cbs){
+
+    var query = 'SELECT ' + elements + ' FROM '+table + where;
+    // alert(query);
+
+    dataBase.db.transaction(function(tx){
+        tx.executeSql(query,[],  cbs, dataBase.onError);
+    });
+
+
+};
 
 dataBase.onSuccess = function(tx, ResultSet) {
 
