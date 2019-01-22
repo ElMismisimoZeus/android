@@ -9,19 +9,26 @@
     <!-- Include the jQuery library -->
     <!-- Include the jQuery Mobile library -->
 
-
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css">
+
+    <link rel="stylesheet" href="themes/Z-them.min.css" />
+    <link rel="stylesheet" href="themes/style_frap.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile.structure-1.4.5.css">
+
+    <link rel="stylesheet" type="text/css" href="css/botones.css">
+
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="js/hammer.min.js"></script>
-
-    <link rel="stylesheet" type="text/css" href="css/style_forms-1.css">
-    <link rel="stylesheet" type="text/css" href="css/style_forms.css">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
-
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
 
+
+    <script type="text/javascript" src="../scripts/jStorage.js"></script>
+
+
+
+    <script type="text/javascript" src="../model/dataBaseApp.js"></script>
+    <script type="text/javascript" src="../controller/frap_data.js"></script>
 
     <script>
 
@@ -41,274 +48,318 @@
         });
 
     </script>
+
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
+
 </head>
+
+
+
+
+
 <body>
 
+<!--    INSUMOS BASICOS      -->
+<!-- ====================================================================================-->
 <div data-role="page" style="" id="insumos_basicos">
     <div class="contenido-form">
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Sonda de Aspiración:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Puntas nasales: </label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Mascarilla de adulto:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Punzoneath 14:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Punzoneath 16:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Punzoneath 18:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Punzoneath20:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Punzoneath 22:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Venopack:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Jeringa 5cc</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Jeringa_10</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Guantes: </label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Gasa Simple:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Venda elástica 5 cm:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Venda elástica 10 cm</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Venda elástica 30 cm</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Tira reactiva:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Lacenta:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">NaCL 0.9%</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Hartmann:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Glucosa 5%:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Glucosa 10%:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Glucosa 50%</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Mixta:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Sábana desechable</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Equipo de parto:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
+        <div style=" width: 90%; margin: 0 auto;">
 
-        <a href="#insumos_intermedios" data-transition="slide" id="boton1" data-state="q2" class="ui-btn ui-btn-raised clr-primary" style="background: green;">Siguiente</a>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="sonda_aspiracion">Sonda de Aspiración:</label>
+                <input name="range-3c" id="sonda_aspiracion" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="puntas_nasales">Puntas nasales: </label>
+                <input name="range-3c" id="puntas_nasales" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="mascarilla_adulto">Mascarilla de adulto:</label>
+                <input name="range-3c" id="mascarilla_adulto" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="punzocath_14">Punzoneath 14:</label>
+                <input name="range-3c" id="punzocath_14" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="punzocath_16">Punzoneath 16:</label>
+                <input name="range-3c" id="punzocath_16" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="punzocath_18">Punzoneath 18:</label>
+                <input name="range-3c" id="punzocath_18" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="punzocath_20">Punzoneath 20:</label>
+                <input name="range-3c" id="punzocath_20" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="punzocath_22">Punzoneath 22:</label>
+                <input name="range-3c" id="punzocath_22" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="venopack">Venopack:</label>
+                <input name="range-3c" id="venopack" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="jeringa_5">Jeringa 5cc</label>
+                <input name="range-3c" id="jeringa_5" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="jeringa_10">Jeringa_10</label>
+                <input name="range-3c" id="jeringa_10" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="guantes">Guantes: </label>
+                <input name="range-3c" id="guantes" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="gasa_simple">Gasa Simple:</label>
+                <input name="range-3c" id="gasa_simple" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="venda_elastica_5">Venda elástica 5 cm:</label>
+                <input name="range-3c" id="venda_elastica_5" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="venda_elastica_10">Venda elástica 10 cm</label>
+                <input name="range-3c" id="venda_elastica_10" min="0" max="10" value="0" type="range" />
 
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="venda_elastica_30">Venda elástica 30 cm</label>
+                <input name="range-3c" id="venda_elastica_30" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="tira_reactiva">Tira reactiva:</label>
+                <input name="range-3c" id="tira_reactiva" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="lanceta">Lacenta:</label>
+                <input name="range-3c" id="lanceta" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="nacl_9">NaCL 0.9%</label>
+                <input name="range-3c" id="nacl_9" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="hartmann">Hartmann:</label>
+                <input name="range-3c" id="hartmann" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="glucosa_5">Glucosa 5%:</label>
+                <input name="range-3c" id="glucosa_5" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="glucosa_10">Glucosa 10%:</label>
+                <input name="range-3c" id="glucosa_10" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="glucosa_50">Glucosa 50%</label>
+                <input name="range-3c" id="glucosa_50" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="mixta">Mixta:</label>
+                <input name="range-3c" id="mixta" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="sabana_desechable">Sábana desechable</label>
+                <input name="range-3c" id="sabana_desechable" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c" class="fake-input">
+                <label for="equipo_parto">Equipo de parto:</label>
+                <input name="range-3c" id="equipo_parto" min="0" max="10" value="0" type="range" />
+            </div>
+        </div>
+        <center>
+            <a href="#insumos_intermedios" data-transition="slide" id="btnNext1" data-state="q2" class="button"  style="color: #000000;">Siguiente</a>
+        </center>
 
     </div>
 </div>
+
+
+<!--    INSUMOS INTERMEDIO       -->
+<!-- ====================================================================================-->
 <div data-role="page" style="" id="insumos_intermedios">
     <div class="contenido-form">
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Tubo endrotraqueal 7.5:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
+        <div style=" width: 90%; margin: 0 auto;">
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="tubo_endrotrauqeal_75">Tubo endrotraqueal 7.5:</label>
+                <input name="range-3c" id="tubo_endrotrauqeal_75" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="tubo_endrotrauqeal_8">Tubo endrotraqueal 8:</label>
+                <input name="range-3c" id="tubo_endrotrauqeal_8" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="tubo_endrotrauqeal_85">Tubo endrotraqueal 8.5:</label>
+                <input name="range-3c" id="tubo_endrotrauqeal_85" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="mascarilla_laringea">Mascarilla laringea:</label>
+                <input name="range-3c" id="mascarilla_laringea" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="mascarilla_faringea">Mascarilla pediátrica:</label>
+                <input name="range-3c" id="mascarilla_faringea" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="canula_orofaringea">Cánula orofaringea:</label>
+                <input name="range-3c" id="canula_orofaringea" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="venopack_microgotero">Venopac microgotero:</label>
+                <input name="range-3c" id="venopack_microgotero" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="jeringa_insulina">Jeringa de insulina:</label>
+                <input name="range-3c" id="jeringa_insulina" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="clambs_umbilicales">Clambs umbilicales:</label>
+                <input name="range-3c" id="clambs_umbilicales" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="electrodos_adulto">Electrodos adulto:</label>
+                <input name="range-3c" id="electrodos_adulto" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="electrodos_pediatricos">Electrodos pediátricos:</label>
+                <input name="range-3c" id="electrodos_pediatricos" min="0" max="10" value="0" type="range" />
+            </div>
+            <div data-role="rangeslider" data-track-theme="c">
+                <label for="papel_electrocardiograma">Papel de electrocardiagrama:</label>
+                <input name="range-3c" id="papel_electrocardiograma" min="0" max="10" value="0" type="range" />
+            </div>
         </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Tubo endrotraqueal 8:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Tubo endrotraqueal 8.5:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Mascarilla laringea:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Mascarilla pediátrica:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Cánula orofaringea:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Venopac microgotero:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Jeringa de insulina:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Clambs umbilicales:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Electrodos adulto:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Electrodos pediátricos:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Papel de electrocardiagrama:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
+        <center>
+            <a href="#insumos_avanzados" data-transition="slide" id="btnNext2" data-state="q2" class="button"  style="color:   #000000;">Siguiente</a>
+        </center>
 
-        <a href="#insumos_avanzados" data-transition="slide" id="boton1" data-state="q2" class="ui-btn ui-btn-raised clr-primary" style="background: green;">Siguiente</a>
 
     </div>
 </div>
+
+
+
+<!--    INSUMOS AVANZADOS      -->
+<!-- ====================================================================================-->
 <div data-role="page" style="" id="insumos_avanzados">
     <div class="contenido-form">
 
         <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Tubo endrotraqueal 3.5:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
+            <label for="tubo_endrotrauqeal_35">Tubo endrotraqueal 3.5:</label>
+            <input name="range-3c" id="tubo_endrotrauqeal_35" min="0" max="10" value="0" type="range" />
         </div>
         <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Tubo endrotraqueal 4:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
+            <label for="tubo_endrotrauqeal_4">Tubo endrotraqueal 4:</label>
+            <input name="range-3c" id="tubo_endrotrauqeal_4" min="0" max="10" value="0" type="range" />
         </div>
         <div data-role="rangeslider" data-track-theme="c">
+            <label for="trocar_toracico_14">Trocar torácico 14:</label>
+            <input name="range-3c" id="trocar_toracico_14" min="0" max="10" value="0" type="range" />
+        </div>
+        <div data-role="rangeslider" data-track-theme="c">
+            <label for="trocar_toracico_16">Trocar torácico 16:</label>
+            <input name="range-3c" id="trocar_toracico_16" min="0" max="10" value="0" type="range" />
+        </div>
+        <!-- <div data-role="rangeslider" data-track-theme="c">
             <label for="range-3c">Trocar torácico 14:</label>
             <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
+        </div> -->
+        <div data-role="rangeslider" data-track-theme="c">
+            <label for="trocar_toracico_18">Trocar torácico 18:</label>
+            <input name="range-3c" id="trocar_toracico_18" min="0" max="10" value="0" type="range" />
         </div>
         <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Trocar torácico 16:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
+            <label for="sonda_nasogastrica">Sonda nasogástrica:</label>
+            <input name="range-3c" id="sonda_nasogastrica" min="0" max="10" value="0" type="range" />
         </div>
         <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Trocar torácico 14:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
+            <label for="parches_marcapasos">Parches de marcapasos:</label>
+            <input name="range-3c" id="parches_marcapasos" min="0" max="10" value="0" type="range" />
         </div>
         <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Trocar torácico 18:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Sonda nasogástrica:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Parches de marcapasos:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
-        </div>
-        <div data-role="rangeslider" data-track-theme="c">
-            <label for="range-3c">Otros:</label>
-            <input name="range-3c" id="range-3b" min="0" max="10" value="0" type="range" />
+            <label for="insumos_otros">Otros:</label>
+            <input name="range-3c" id="insumos_otros" min="0" max="10" value="0" type="range" />
         </div>
 
-        <a href="#medicamentos" data-transition="slide" id="boton1" data-state="q2" class="ui-btn ui-btn-raised clr-primary" style="background: green;">Siguiente</a>
+        <center>
+            <a href="#medicamentos" data-transition="slide" id="btnNext3" data-state="q2" class="button"  style="color:    #000000;">Siguiente</a>
+        </center>
 
     </div>
 </div>
+
+
+
+<!--    MEDICAMENTOS      -->
+<!-- ====================================================================================-->
 <div data-role="page" style="" id="medicamentos">
     <div class="contenido-form">
-        <label for="time-2">Hora*</label>
-        <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">
-        <label for="name2b">Medicamento*</label>
-        <input type="text" name="name2" id="name2b" value="" data-clear-btn="true" placeholder="Nombre del paciente">
-        <label for="name2b">Dosis:</label>
-        <input type="text" name="name2" id="name2b" value="" data-clear-btn="true" placeholder="Nombre del paciente">
+        <label for="time-2">Hora: </label>
+        <input type="time" data-clear-btn="true" name="medicamentos_hora" id="medicamentos_hora" value="">
+        <label for="medicamento">Medicamento*</label>
+        <input type="text" name="medicamento" id="medicamento" value="" data-clear-btn="true" placeholder="Medicamento suministrado">
+        <label for="dosis">Dosis:</label>
+        <input type="text" name="dosis" id="dosis" value="" data-clear-btn="true" placeholder="Dosis">
 
         <div class="ui-grid-a my-breakpoint">
             <div class="ui-block-a">
                 <fieldset data-role="controlgroup" data-direction="vertical">
-                    <input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a">
-                    <label for="checkbox-v-2a">Oral</label>
-                    <input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b">
-                    <label for="checkbox-v-2b">Sublingual</label>
-                    <input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c">
-                    <label for="checkbox-v-2c">Gastroentérica</label>
-                    <input type="checkbox" name="checkbox-v-2d" id="checkbox-v-2d">
-                    <label for="checkbox-v-2d">Rectal</label>
-                    <input type="checkbox" name="checkbox-v-2e" id="checkbox-v-2e">
-                    <label for="checkbox-v-2e">Intravenosa</label>
-                    <input type="checkbox" name="checkbox-v-f" id="checkbox-v-2f">
-                    <label for="checkbox-v-2f">Intraarterial</label>
+                    <input type="checkbox" name="checkbox_oral" id="checkbox_oral">
+                    <label for="checkbox_oral">Oral</label>
+                    <input type="checkbox" name="checkbox_sublingual" id="checkbox_sublingual">
+                    <label for="checkbox_sublingual">Sublingual</label>
+                    <input type="checkbox" name="checkbox_gastro" id="checkbox_gastro">
+                    <label for="checkbox_gastro">Gastroentérica</label>
+                    <input type="checkbox" name="checkbox_rectal" id="checkbox_rectal">
+                    <label for="checkbox_rectal">Rectal</label>
+                    <input type="checkbox" name="checkbox_intravenosa" id="checkbox_intravenosa">
+                    <label for="checkbox_intravenosa">Intravenosa</label>
+                    <input type="checkbox" name="checkbox_intraarterial" id="checkbox_intraarterial">
+                    <label for="checkbox_intraarterial">Intraarterial</label>
                 </fieldset>
             </div>
             <div class="ui-block-b">
                 <fieldset data-role="controlgroup" data-direction="vertical">
-                    <input type="checkbox" name="checkbox-v-2g" id="checkbox-v-2g">
-                    <label for="checkbox-v-2g">Intramuscular</label>
-                    <input type="checkbox" name="checkbox-v-2h" id="checkbox-v-2h">
-                    <label for="checkbox-v-2h">Subcutánea</label>
-                    <input type="checkbox" name="checkbox-v-2i" id="checkbox-v-2i">
-                    <label for="checkbox-v-2i">Respiratoria</label>
-                    <input type="checkbox" name="checkbox-v-2j" id="checkbox-v-2j">
-                    <label for="checkbox-v-2j">Oftálmica</label>
-                    <input type="checkbox" name="checkbox-v-2k" id="checkbox-v-2k">
-                    <label for="checkbox-v-2k">Transdérmica</label>
-                    <input type="checkbox" name="checkbox-v-2l" id="checkbox-v-2l">
-                    <label for="checkbox-v-2l">Óptica</label>
+                    <input type="checkbox" name="checkbox_intramuscular" id="checkbox_intramuscular">
+                    <label for="checkbox_intramuscular">Intramuscular</label>
+                    <input type="checkbox" name="checkbox_subcutanea" id="checkbox_subcutanea">
+                    <label for="checkbox_subcutanea">Subcutánea</label>
+                    <input type="checkbox" name="checkbox_resp" id="checkbox_resp">
+                    <label for="checkbox_resp">Respiratoria</label>
+                    <input type="checkbox" name="checkbox_oftalmica" id="checkbox_oftalmica">
+                    <label for="checkbox_oftalmica">Oftálmica</label>
+                    <input type="checkbox" name="checkbox_dermica" id="checkbox_dermica">
+                    <label for="checkbox_dermica">Transdérmica</label>
+                    <input type="checkbox" name="checkbox_optica" id="checkbox_optica">
+                    <label for="checkbox_optica">Óptica</label>
                 </fieldset>
             </div>
         </div>
-        <a href="#signos" data-transition="slide" id="boton1" data-state="q2" class="ui-btn ui-btn-raised clr-primary" style="background: green;">Siguiente</a>
+
+        <center>
+            <a href="#signos" data-transition="slide" id="btnNext4" data-state="q2" class="button"  style="color:  #000000;">Siguiente</a>
+        </center>
+
 
     </div>
 </div>
 
+
+<!--    SIGNOS VITALES      -->
+<!-- ====================================================================================-->
 <div data-role="page" style="" id="signos">
     <div class="contenido-form">
-        <span>Escala Glasgow </span>
-        <label for="time-2">Hora*</label>
-        <input type="time" data-clear-btn="true" name="time-2" id="time-2" value="">
+        <h2 class="seccion" align="center">Escala Glasgow</h2>
+        <h4 class="labels"> Hora:</h4>
+        <input type="time" name="time-2" id="time-2" value=""  style="width:30%;">
+
+
+
+        <div id="fieldSet">
         <fieldset data-role="controlgroup" data-direction="vertical">
             <span>Verbal:*</span>
             <input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a">
@@ -320,45 +371,50 @@
             <input type="checkbox" name="checkbox-v-2d" id="checkbox-v-2d">
             <label for="checkbox-v-2d">Ninguna</label>
         </fieldset>
+
         <fieldset data-role="controlgroup" data-direction="vertical">
             <span>Motora:*</span>
-            <input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2e">
-            <label for="checkbox-v-2a">Obedece</label>
-            <input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2f">
-            <label for="checkbox-v-2b">Confuso</label>
-            <input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2g">
-            <label for="checkbox-v-2c">Inapropiado</label>
-            <input type="checkbox" name="checkbox-v-2d" id="checkbox-v-2h">
-            <label for="checkbox-v-2d">Ninguna</label>
+            <input type="checkbox" name="checkbox-v-2e" id="checkbox-v-2e">
+            <label for="checkbox-v-2e">Obedece</label>
+            <input type="checkbox" name="checkbox-v-2f" id="checkbox-v-2f">
+            <label for="checkbox-v-2f">Confuso</label>
+            <input type="checkbox" name="checkbox-v-2g" id="checkbox-v-2g">
+            <label for="checkbox-v-2g">Inapropiado</label>
+            <input type="checkbox" name="checkbox-v-2h" id="checkbox-v-2h">
+            <label for="checkbox-v-2h">Ninguna</label>
         </fieldset>
+
         <fieldset data-role="controlgroup" data-direction="vertical">
             <span>Ocular:*</span>
-            <input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2i">
-            <label for="checkbox-v-2a">Obedece</label>
-            <input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2j">
-            <label for="checkbox-v-2b">Confuso</label>
-            <input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2k">
-            <label for="checkbox-v-2c">Inapropiado</label>
-            <input type="checkbox" name="checkbox-v-2d" id="checkbox-v-2l">
-            <label for="checkbox-v-2d">Ninguna</label>
+            <input type="checkbox" name="checkbox-v-2i" id="checkbox-v-2i">
+            <label for="checkbox-v-2i">Obedece</label>
+            <input type="checkbox" name="checkbox-v-2j" id="checkbox-v-2j">
+            <label for="checkbox-v-2j">Confuso</label>
+            <input type="checkbox" name="checkbox-v-2k" id="checkbox-v-2k">
+            <label for="checkbox-v-2k">Inapropiado</label>
+            <input type="checkbox" name="checkbox-v-2l" id="checkbox-v-2l">
+            <label for="checkbox-v-2l">Ninguna</label>
         </fieldset>
-        <label for="number-2">FC:*"</label>
-        <input type="number" data-clear-btn="true" name="number-2" id="number-2" value="">
-        <label for="number-2">FR:*</label>
-        <input type="number" data-clear-btn="true" name="number-2" id="number-2" value="">
-        <label for="number-2">TAS:*</label>
-        <input type="number" data-clear-btn="true" name="number-2" id="number-2" value="">
-        <label for="number-2">TAD:*"</label>
-        <input type="number" data-clear-btn="true" name="number-2" id="number-2" value="">
-        <label for="number-2">SaO2:</label>
-        <input type="number" data-clear-btn="true" name="number-2" id="number-2" value="">
-        <label for="number-2">Temperatura:</label>
-        <input type="number" data-clear-btn="true" name="number-2" id="number-2" value="">
-        <label for="number-2">Glucosa:</label>
-        <input type="number" data-clear-btn="true" name="number-2" id="number-2" value="">
+    </div>
+
+        <h4 for="id_fc" class="labels">FC:*"</h4>
+        <input type="number" data-clear-btn="true" name="id_fc" id="id_fc" value="">
+        <h4 for="id_fr" class="labels">FR:*</h4>
+        <input type="number" data-clear-btn="true" name="id_fr" id="id_fr" value="">
+        <h4 for="id_tas" class="labels">TAS:*</h4>
+        <input type="number" data-clear-btn="true" name="id_tas" id="id_tas" value="">
+        <h4 for="id_tad" class="labels">TAD:*"</h4>
+        <input type="number" data-clear-btn="true" name="id_tad" id="id_tad" value="">
+        <h4 for="id_sao2" class="labels">SaO2:</h4>
+        <input type="number" data-clear-btn="true" name="id_sao2" id="id_sao2" value="">
+        <h4 for="id_tmp" class="labels">Temperatura:</h4>
+        <input type="number" data-clear-btn="true" name="id_tmp" id="id_tmp" value="">
+        <h4 for="id_glucosa" class="labels">Glucosa:</h4>
+        <input type="number" data-clear-btn="true" name="id_glucosa" id="id_glucosa" value="">
 
     </div>
 </div>
+
 
 
 </body>

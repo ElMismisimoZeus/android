@@ -112,8 +112,8 @@ function DATOS_PACIENTE(){
         this.APELLIDO_MATERNO = ( iframe.find('#a_materno').val() != '') ? iframe.find('#a_materno').val() : ' ',
         this.FECHA_NACIMIENTO = ( iframe.find('#fecha_nacimiento').val() != '') ? iframe.find('#fecha_nacimiento').val() : ' ',
         this.TELEFONO = ( iframe.find('#telefono').val() != '') ? iframe.find('#telefono').val() : ' ' ,
-        this.OCUPACION = ( iframe.find('#ocupacion').val() != '') ? iframe.find('#ocupacion').val() : ' ',
-            this.CORREO_ELECTRONICO = '-'
+        this.OCUPACION = ( iframe.find('#ocupacion').val() != '') ? iframe.find('#ocupacion').val() : ' '
+        //this.CORREO_ELECTRONICO = '-'
         //this.iMOTIVO_ATENCION =( iframe.find('input[name=motivo_atencion]:checked').size() > 0 ? iframe.find('input[name=motivo_atencion]:checked').val(): 0)
         //this.iID_CTLG_SEXOS  = ( iframe.find('input[name=sexo]:checked').size() > 0 ? iframe.find('input[name=sexo]:checked').val(): 0)
 };
@@ -334,7 +334,8 @@ function CONSENTIMIENTO()
 
 function MANEJO_VIA_AEREA()
 {
-    this.iID_MANEJO_VIA_AEREA = 0,
+
+    //this.iID_MANEJO_VIA_AEREA = 0,
         this.iID_CTLG_DISPOSITIVO_APERTURA = checkValue(iframe.find('input[name=dispositivo_apertura]:checked').val()),
         this.iID_CTLG_MANEJO_VIA_AEREA = checkValue(iframe.find('input[name=manejo_via_aerea]:checked').val()),
         this.iASPIRACION = checkValue(iframe.find('input[name=aspiracion]:checked').val()),
@@ -422,13 +423,20 @@ function TRATAMIENTO()
         this.OBSERVACIONES = (iframe.find('#tratamiento_observaciones').val() != '') ? iframe.find('#tratamiento_observaciones').val() : '-'
 }
 
+// ---------------------->  Aqui termina Tratamiento
+
+
+
+
+
 function CLINICO()
 {
     this.iID_FRAP = idFRAP,
         this.TIPO_FRAP = 'online',
 
         this.DIAGNOSTICO_SINDROMATICO = checkText(iframe.find('#diagnostico_sindromatico').val()),
-        this.iID_CTLG_ORIGEN_PROBABLE = checkValue(iframe.find('input[name=origen_probable]:checked').size()),
+        this.iID_CTLG_ORIGEN_PROBABLE = checkValue(iframe.find('input[name=origen_probable]:checked').val()),
+
         this.OBSERVACIONES = checkText(iframe.find('#ds_observaciones').val())
 }
 
@@ -437,9 +445,9 @@ function TRAUMA()
     this.iID_FRAP = idFRAP,
         this.TIPO_FRAP = 'online',
 
-        this.iINTENCIONALIDAD = checkValue(iframe.find('input[name=trauna_intencionalidad]:checked').size()),
-        this.iID_CTLG_AGENTE_CAUSAL_GENERAL = checkValue(iframe.find('input[name=trauna_ac]:checked').size()),
-        this.iID_CTLG_AGENTE_CAUSAL_ESPECIFICO = checkValue(iframe.find('input[name=trauna_ace]:checked').size()),
+        this.iINTENCIONALIDAD = checkValue(iframe.find('input[name=trauna_intencionalidad]:checked').val()),
+        this.iID_CTLG_AGENTE_CAUSAL_GENERAL = checkValue(iframe.find('input[name=trauna_ac]:checked').val()),
+        this.iID_CTLG_AGENTE_CAUSAL_ESPECIFICO = checkValue(iframe.find('input[name=trauna_ace]:checked').val()),
         this.OBSERVACIONES = checkText(iframe.find('#trauma_observaciones').val())
 }
 
@@ -526,14 +534,22 @@ function NEGATIVA_ATENCION()
         this.FIRMA_PACIENTE = '-'//(imgNegativaFirmaPaciente !='') ? imgNegativaFirmaPaciente : '-';
 }
 
+
+
+
+//////////////////////////////////////////////////////////////////////
+//                  Datos complementarios                           //
+//////////////////////////////////////////////////////////////////////
+
+
 // Inicia la validación de insumos
 
 function INSUMOS_NIVEL_BASICO()
 {
     // verify all local ***
 
-    this.iID_INSUMOS_NIVEL_BASICO = 0,
-    this.SONDA_ASPIRACION = (((iframe.find('#sonda_aspiracion').val() != 'Selecciona un valor') || (!iframe.find('#sonda_aspiracion').val()))) ? iframe.find('#sonda_aspiracion').val() :0,
+    //this.iID_INSUMOS_NIVEL_BASICO = 0,
+    this.SONDA_ASPIRACION = checkValue(iframe.find('#sonda_aspiracion').val()),
         this.PUNTAS_NASALES = check_insumos(iframe.find('#puntas_nasales').val()),
         this.MASCARILLA_ADULTO = check_insumos(iframe.find('#mascarilla_adulto').val()),
         this.PUNZOCATH_14 = check_insumos(iframe.find('#punzocath_14').val()),
@@ -565,7 +581,7 @@ function INSUMOS_NIVEL_INTERMEDIO()
 {
     // verify all local ***
 
-    this.iID_INSUMOS_NIVEL_INTERMEDIO = 0,
+    //this.iID_INSUMOS_NIVEL_INTERMEDIO = 0,
     this.TUBO_ENDROTRAQUEAL_75 = check_insumos(iframe.find('#tubo_endrotrauqeal_75').val()),
         this.TUBO_ENDROTRAQUEAL_8 = check_insumos(iframe.find('#tubo_endrotrauqeal_8').val()),
         this.TUBO_ENDROTRAQUEAL_85 = check_insumos(iframe.find('#tubo_endrotrauqeal_85').val()),
@@ -584,8 +600,8 @@ function INSUMOS_NIVEL_INTERMEDIO()
 function INSUMOS_NIVEL_AVANZADO()
 {
     // verify all local ***
-    this.iID_INSUMOS_NIVEL_AVANZADO = 0,
-    this.TUBO_ENDROTRAQUEAL_35 = (iframe.find('#tubo_endrotrauqeal_35').val()),
+    //this.iID_INSUMOS_NIVEL_AVANZADO = 0,
+    this.TUBO_ENDROTRAQUEAL_35 = checkValue(iframe.find('#tubo_endrotrauqeal_35').val()),
         this.TUBO_ENDROTRAQUEAL_4 = check_insumos(iframe.find('#tubo_endrotrauqeal_4').val()),
         this.TROCAR_TORACICO_14 = check_insumos(iframe.find('#trocar_toracico_14').val()),
         this.TROCAR_TORACICO_16 = check_insumos(iframe.find('#trocar_toracico_16').val()),
@@ -596,18 +612,14 @@ function INSUMOS_NIVEL_AVANZADO()
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+function  MEDICAMENTOS()
+{
+    this.HORA = checkText(iframe.find('#medicamentos_hora').val()),
+    this.MEDICAMENTO = checkText(iframe.find('#medicamento').val()),
+    this.DOSIS = checkText(iframe.find('#dosis').val())
+    // valores que deben ser recuperados de forma distinta dbido a que son de opcion multiple
+    //this.ID_MEDICAMENTO_VIA_ADMINISTRACION = 0
+}
 
 
 
@@ -631,7 +643,7 @@ var tbNegativa = {};
 var tbInsumos_nivelBasico = {};
 var tbInsumos_nivelIntermedio = {};
 var tbInsumos_nivelAvanzado = {};
-
+var tbMedicamentos = {};
 var tbMedia_filiacion = {};
 
 // Funciones para guardar de forma local
@@ -1011,8 +1023,6 @@ function guardarEvaluacion_secundaria()
         dataBase.saveTable('EVALUACION_SECUNDARIA', tbEvaluacion_secundaria);
 
 
-
-
     });
     /*
     $.when.apply(null, funciones).done(function () {
@@ -1265,6 +1275,14 @@ function guardar_insumosAvanzado()
     tbInsumos_nivelAvanzado = frap.secciones.insumosAvanzados;
 
     dataBase.saveTable('INSUMOS_NIVEL_AVANZADO', tbInsumos_nivelAvanzado);
+}
+
+function guardar_medicamentos()
+{
+    frap.secciones.medicamentos = new MEDICAMENTOS();
+    tbMedicamentos = frap.secciones.medicamentos;
+
+    dataBase.saveTable('MEDICAMENTOS', tbMedicamentos);
 }
 
 
