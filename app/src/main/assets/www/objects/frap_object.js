@@ -1,4 +1,5 @@
 
+var objAux ={};
 
 var frap = {};
 
@@ -130,6 +131,56 @@ frap.initPaciente2 = function(){
     //return frap.secciones.paciente;
 
 };
+// Funciones auxiliares
+
+frap.auxiliares = {};
+
+frap.auxiliares.Paciente = function(){
+    this.iID_CTLG_SERVICIO_MEDICO = objAux.ID_CTLG_SERVICIO_MEDICO
+};
+
+frap.auxiliares.Direccion = function(){
+    this.CALLE = objAux,
+        this.iNUMERO_EXTERIOS = objAux,
+        this.iNUMERO_INTERIOR = objAux,
+        this.COLONIA  = objAux,
+        this.DELEGACION  = objAux,
+        this.ESTADO = objAux,
+        this.iCP = objAux
+};
+
+frap.auxiliares.MediaFiliacion = function(){
+    this.iD_CTLG_MEDIA_FILIACION_ACCESORIOS = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_CABELLO = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_COLOR_PIEL = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_COMPLEXION = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_NARIZ = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_PARTE_CUERPO = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_ROPA = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_SENIAS = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_SENIA_LUGAR = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_TAMANIO = objAux,
+        this.iID_CTLG_MEDIA_FILIACION_VOLUMEN = objAux
+};
+
+
+
+frap.auxiliares.DatosPaciente = function(){
+    this.NOMBRE = objAux.NOMBRE,
+        this.APELLIDO_PATERNO = objAux.APELLIDO_PATERNO,
+        this.APELLIDO_MATERNO = objAux.APELLIDO_MATERNO
+};
+
+
+
+
+
+
+
+
+
 
 frap.initPaciente = function(){
     this.iID_CTLG_SERVICIO_MEDICO = 0
@@ -511,11 +562,21 @@ frap.recuperacion['PACIENTE']= function(){
     {
         var len = results.rows.length;
 
-        if (len < 0)
+        if (len > 0)
         {
+            objAux.NOMBRE = results.rows.item(0).NOMBRE;
+            objAux.APELLIDO_PATERNO = results.rows.item(0).APELLIDO_PATERNO;
+            objAux.APELLIDO_MATERNO = results.rows.item(0).APELLIDO_MATERNO;
 
-            frap.secciones.paciente["NOMBRE"] = { "PACIENTE":results.rows.item(0).PACIENTE};
-            console.log(frap.secciones.paciente["NOMBRE"]);
+
+            frap.secciones.datos_paciente = new frap.auxiliares.DatosPaciente();
+            frap.secciones.paciente = new PACIENTE();
+            frap.secciones.motivo_atencion = new MOTIVO_ATENCION();
+            frap.secciones.direccion = new DIRECCION();
+
+            console.log(frap);
+
+            $.jStorage.set("frap", frap);
 
         }
 
@@ -526,6 +587,7 @@ frap.recuperacion['PACIENTE']= function(){
     };
 
 
+    console.log('idFRAP'+idFRAP);
     dataBase.getTable('PACIENTE', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
 
 };
@@ -705,6 +767,12 @@ fs['CLINICO']=[];
 fs['GINECOLOGICO']=[];
 fs['VIAL']=[];
 
+fs['FRAP_OTROS']=[];
+fs['CONSENTIMIENTO']=[];
+
+fs['EMERGENCIA_RESULTADO']=[];
+fs['FRAP_LEGAL']=[];
+
 
 
 
@@ -750,33 +818,34 @@ frap.preparar = function (){
     frap_elementos["TERAPIA_ELECTRICA"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.terapia_electrica};
     frap_elementos["TRATAMIENTO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.tratamiento};
 
+    console.log('fiajte factores');
+    console.log(frap.secciones.evaluacion_secundaria.factores);
     frap_elementos["FACTORES_RIESGO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.evaluacion_secundaria.factores};
+
+
+
     frap_elementos["HALLAZGOS_FISICOS"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.hallazgos};
 
 
-    console.log('fiajte trauma');
-    console.log(frap.secciones.trauma);
 
     frap_elementos["TRAUMA"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.trauma};
 
 
-    console.log('fiajte clinico');
-    console.log(frap.secciones.clinico);
     frap_elementos["CLINICO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.clinico};
-
-
-    console.log('fiajte vial');
-    console.log(frap.secciones.vial);
     frap_elementos["VIAL"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.vial};
-
-
-    console.log('fiajte ginecologico');
-    console.log(frap.secciones.ginecologico);
     frap_elementos["GINECOLOGICO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.ginecologico};
 
-    //frap_elementos["CLINICO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.clinico};
-    //frap_elementos["GINECOLOGICO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.ginecologico};
-    //frap_elementos["VIAL"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.vial};
+
+    frap_elementos["FRAP_OTROS"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.otros};
+    frap_elementos["CONSENTIMIENTO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.consentimiento};
+
+    console.log('fiajte resultado');
+    console.log(frap.secciones.emergencia_resultado);
+    frap_elementos["EMERGENCIA_RESULTADO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.emergencia_resultado};
+
+    console.log('fiajte legal');
+    console.log(frap.secciones.legal);
+    frap_elementos["FRAP_LEGAL"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.legal};
 
 
 
