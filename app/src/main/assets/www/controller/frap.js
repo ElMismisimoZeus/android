@@ -38,7 +38,34 @@ function msgBoxClose() {
 
 
 
+function cargarPACIENTE(){
 
+    iframe.find('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+    iframe.find('#a_paterno').val(frap.secciones.datos_paciente.APELLIDO_PATERNO);
+    iframe.find('#a_materno').val(frap.secciones.datos_paciente.APELLIDO_MATERNO);
+    iframe.find('#fecha_nacimiento').val(frap.secciones.datos_paciente.FECHA_NACIMIENTO);
+    iframe.find('#telefono').val(frap.secciones.datos_paciente.TELEFONO);
+    iframe.find('#ocupacion').val(frap.secciones.datos_paciente.OCUPACION);
+
+    //DATOS DE DIRECCION
+
+    iframe.find('#calle').val(frap.secciones.datos_paciente.NOMBRE);
+    iframe.find('#numero').val(frap.secciones.datos_paciente.NOMBRE);
+    iframe.find('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+    iframe.find('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+    iframe.find('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+    iframe.find('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+    iframe.find('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+
+
+
+
+
+
+}
 
 
 
