@@ -97,7 +97,7 @@ function checkText(value)
 //============================================================================
 
 function CABECERA(){
-    this.ID_FRAP=idFRAP,
+    this.iID_FRAP=idFRAP,
     this.TIPO_FRAP=tipoFRAP
 }
 
@@ -161,49 +161,17 @@ function MEDIA_FILIACION(){
 
 function EVALUACION_PRIMARIA()
 {
-    this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
-
-        //this.iID_EVALUACION_PRIMARIA = 0,
-
         this.iID_CTLG_PRIORIDAD  = (checkValue(iframe.find('input[name = ep_prioridad]:checked').val())),
-        //console.log(iframe.find('input[name = ep_prioridad]:checked').val());
-
         this.iID_CTLG_NIVEL_CONCIENCIA = (checkValue(iframe.find('input[name = nivel_conciencia]:checked').val())),
-        //console.log(iframe.find('input[name = nivel_conciencia]:checked').val());
-
         this.iID_CTLG_VIA_AEREA = (checkValue(iframe.find('input[name = via_aerea]:checked').val())),
-        //console.log(iframe.find('input[name = via_aerea]:checked').val());
-
         this.iID_CTLG_VENTILACION = (checkValue(iframe.find('input[name = ventilacion]:checked').val())),
-        //console.log(iframe.find('input[name = ventilacion]:checked').val());
-
         this.iID_CTLG_CALIDAD_VENTILACION = (checkValue(iframe.find('input[name = calidad_ventilacion]:checked').val())),
-        //console.log(iframe.find('input[name = calidad_ventilacion]:checked').val());
-
         this.iID_CTLG_PULSOS = (checkValue(iframe.find('input[name = pulsos]:checked').val())),
-        //console.log(iframe.find('input[name = pulsos]:checked').val());
-
         this.iID_CTLG_PULSOS_CALIDAD = (checkValue(iframe.find('input[name = ep_calidad]:checked').val())),
-        //console.log(iframe.find('input[name = ep_calidad]:checked').val());
-
         this.iID_CTLG_RITMO = (checkValue(iframe.find('input[name = ep_ritmo]:checked').val())),
-        //console.log(iframe.find('input[name = ep_ritmo]:checked').val());
-
         this.iID_CTLG_COLORACION = (checkValue(iframe.find('input[name = ep_coloracion]:checked').val())),
-        //console.log(iframe.find('input[name = ep_coloracion]:checked').val());
-
         this.iID_CTLG_TEMPERATURA = (checkValue(iframe.find('input[name = ep_temperatura]:checked').val())),
-        //console.log(iframe.find('input[name = ep_temperatura]:checked').val());
-
         this.iID_CTLG_CONDICION = (checkValue(iframe.find('input[name = ep_condicion]:checked').val()))
-        //console.log(iframe.find('input[name = ep_condicion]:checked').val());
-
-        //this.iPOSICION = (checkValue(iframe.find('input[name = ep_posicion]:checked').val()))
-    //console.log(iframe.find('input[name = ep_posicion]:checked').val());
-
-    /*this.iCTLG_EMERGENCIA_MOTIVOS = (checkValue(iframe.find('input[name = nivel_conciencia]:checked')).val())
-        console.log(iframe.find('input[name = nivel_conciencia]:checked').val());*/
 }
 
 
@@ -236,8 +204,7 @@ function SAMPLER()
 
 function EVALUACION_SECUNDARIA()
 {
-    this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
+
 
         this.DIAGNOSTICO_ELECTROGRAFICO = (checkText(iframe.find('#diagnostico_electrografico').val())),
 
@@ -291,10 +258,6 @@ function PARO_CARDIORESPIRATORIO()
 
 function EMERGENCIA_RESULTADO()
 {
-    this.iID_FRAP = idFrap,
-        this.TIPO_FRAP = 'online',
-        //this.iID_EMERGENCIA_RESULTADO = 0,
-
         this.iRESULTADO = checkValue(iframe.find('input[name=resultado_emergencia]:checked').val()),
         this.iTRASLADO = checkValue(iframe.find('input[name=resultado_traslado]:checked').val()),
         this.iPRIORIDAD_FINAL = checkValue(iframe.find('input[name=pridad_final]:checked').val()),
@@ -306,25 +269,19 @@ function EMERGENCIA_RESULTADO()
 
 function FRAP_OTROS()
 {
-    this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
-
-        //this.iID_FRAP_OTROS = 0,
         this.DEPENDENCIA = checkText(iframe.find('#otros_dependencia').val()),
         this.UNIDADES = checkText(iframe.find('#otros_unidades').val()),
         this.NOMBRE = checkText(iframe.find('#otros_nombre').val())
 
 }
 
-function CONSENTIMIENTO()
+function CONSENTIMIENTO(imgP, imgT)
 {
-    this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
 
         this.NOMBRE_PACIENTE = checkText(iframe.find('#consentimiento_nombre_paciente').val()),
-        this.NOMBRE_TESTIGO = checkText(iframe,find('#consentimiento_nombre_testigo').val())
-    //this.FIRMA_PACIENTE = (imgConsentimientoFirmaPaciente != '') ? imgConsentimientoFirmaPaciente : '-';
-    //this.FIRMA_TESTIGO = (imgConsentimientoFirmaTestigo != '') ? imgConsentimientoFirmaTestigo : '-';
+        this.NOMBRE_TESTIGO = checkText(iframe.find('#consentimiento_nombre_testigo').val()),
+        this.FIRMA_PACIENTE = (imgP != '') ? imgP : '-';
+        this.FIRMA_TESTIGO = (imgT != '') ? imgT : '-';
 }
 
 
@@ -405,9 +362,6 @@ function TERAPIA_ELECTRICA()
 
 function TRATAMIENTO()
 {
-    // add all parts
-    this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
 
         this.ID_TRATAMIENTO = 0,
         /*
@@ -431,8 +385,7 @@ function TRATAMIENTO()
 
 function CLINICO()
 {
-    this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
+
 
         this.DIAGNOSTICO_SINDROMATICO = checkText(iframe.find('#diagnostico_sindromatico').val()),
         this.iID_CTLG_ORIGEN_PROBABLE = checkValue(iframe.find('input[name=origen_probable]:checked').val()),
@@ -510,16 +463,13 @@ function GINECOLOGICO()
 }
 
 
-function FRAP_LEGAL()
+function FRAP_LEGAL(imgFirmaRecibe)
 {
-    this.iFRAP_ID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
-
-        this.iID_FRAP_LEGAL = 0,
-
         this.PERTENENCIAS = checkText(iframe.find('#legal_pertenencias').val()),
         this.NOMBRE = checkText(iframe.find('#recibe_pertenencias').val()),
-        //this.FIRMA = (imgFirmaRecibe != '') ? imgFirmaRecibe : '-';
+
+            this.FIRMA = (imgFirmaRecibe != '') ? imgFirmaRecibe : '-',
+
         this.TOMA_CONOCIMIENTO = checkText(iframe.find('#legal_toma').val()),
         this.OBSERVACIONES = checkText(iframe.find('#legal_observaciones').val())
 }
@@ -685,6 +635,8 @@ function guardarPaciente()
 
     // HTML -> objeto frap : correspondiendo con el modelo de la base de datos del servidor
     //=========================================================================================
+
+    console.log('idFRAP'+idFRAP);
     var tbAuxCabecera = new CABECERA();
     frap.secciones.paciente = new PACIENTE();
     frap.secciones.motivo_atencion = new MOTIVO_ATENCION();
@@ -739,14 +691,12 @@ function guardarMediaFiliacion()
 
 function guardarEvaluacion_primaria()
 {
-    idFRAP = $.jStorage.get("idFRAP");
-
+    var tbAuxCabecera = new CABECERA();
     frap.secciones.evaluacion_primaria = new EVALUACION_PRIMARIA();
 
-    //union1 = $.extend(tbAuxCabecera, frap.secciones.paciente);
-    tbEvaluacion_primaria = frap.secciones.evaluacion_primaria;
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.paciente);
+    tbEvaluacion_primaria = union1;
 
-    //frap.secciones.evaluacion_primaria = tbEvaluacion_primaria;
 
     dataBase.saveTable('EVALUACION_PRIMARIA', tbEvaluacion_primaria);
 
@@ -756,13 +706,19 @@ function guardarEvaluacion_primaria()
 
 function guardarEvaluacion_secundaria()
 {
-    idFRAP = $.jStorage.get("idFRAP");
+
+    var tbAuxCabecera = new CABECERA();
+
 
     frap.secciones.simbologia_dolor = new SEMIOLOGIA_DOLOR();
     frap.secciones.sampler = new SAMPLER();
-    frap.secciones.evaluacion_secundaria = new EVALUACION_SECUNDARIA();
 
-    tbEvaluacion_secundaria = $.extend(frap.secciones.evaluacion_secundaria, ($.extend(frap.secciones.simbologia_dolor, frap.secciones.sampler)));
+
+    frap.secciones.evaluacion_secundaria = new EVALUACION_SECUNDARIA();
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.evaluacion_secundaria);
+
+
+    tbEvaluacion_secundaria = $.extend(union1, ($.extend(frap.secciones.simbologia_dolor, frap.secciones.sampler)));
 
     // frap.secciones.evaluacion_secundaria = tbEvaluacion_secundaria;
 
@@ -1121,8 +1077,8 @@ function guardarParo_cardioRespiratorio()
 
 function guardar_tratamiento()
 {
-    idFRAP = $.jStorage.get("idFRAP");
 
+    var tbAuxCabecera = new CABECERA();
 
     frap.secciones.manejo_via_aerea = new MANEJO_VIA_AEREA();
     frap.secciones.asistencia_ventilatoria = new ASISTENCIA_VENTILATORIA();
@@ -1132,7 +1088,11 @@ function guardar_tratamiento()
     frap.secciones.acceso_circulatorio = new ACCESO_CIRCULATORIO();
     frap.secciones.intervenciones = new INTERVENCIONES();
     frap.secciones.terapia_electrica = new TERAPIA_ELECTRICA();
+
     frap.secciones.tratamiento = new TRATAMIENTO();
+
+    //Une la cabecera con el tratamiento
+    var union0 = $.extend(tbAuxCabecera, frap.secciones.tratamiento);
 
     //Pude hacer esto en una linea, pero es mejor para el debug y la corrección de errores
 
@@ -1146,7 +1106,7 @@ function guardar_tratamiento()
     unionUniniones3 = $.extend(unionUniniones2, union4);
 
 
-    tbTratamiento = $.extend(unionUniniones3, frap.secciones.tratamiento);
+    tbTratamiento = $.extend(unionUniniones3, union0);
 
     //frap.secciones.tratamiento = tbTratamiento;
 
@@ -1158,28 +1118,37 @@ function guardar_tratamiento()
 
 function guardar_emergencia_resultado()
 {
-    frap.secciones.emergencia_resultado = new EMERGENCIA_RESULTADO();
+    var tbAuxCabecera = new CABECERA();
 
-    tbEmergencia_resultado = frap.secciones.emergencia_resultado;
-    frap.secciones.emergencia_resultado = tbEmergencia_resultado;
+    frap.secciones.emergencia_resultado = new EMERGENCIA_RESULTADO();
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.emergencia_resultado);
+
+    tbEmergencia_resultado = union1;
+
 
     dataBase.saveTable('EMERGENCIA_RESULTADO', tbEmergencia_resultado);
 }
 
 function guardar_otros()
 {
+    var tbAuxCabecera = new CABECERA();
     frap.secciones.otros = new FRAP_OTROS();
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.otros);
 
-    tbFrap_otros = frap.secciones.otros;
-    frap.secciones.otros = tbFrap_otros;
+    tbFrap_otros = union1;
 
     dataBase.saveTable('FRAP_OTROS', tbFrap_otros);
 }
 
 function guardar_legal()
 {
-    frap.secciones.legal = new FRAP_LEGAL();
-    tbFrap_legal = frap.secciones.legal;
+    var imgFirmaRecibe = $.jStorage.get("imgFirmaRecibe");
+
+    var tbAuxCabecera = new CABECERA();
+    frap.secciones.legal = new FRAP_LEGAL(imgFirmaRecibe);
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.legal);
+
+    tbFrap_legal = union1;
 
     dataBase.saveTable('FRAP_LEGAL', tbFrap_legal);
 
@@ -1187,10 +1156,14 @@ function guardar_legal()
 
 function guardar_consentimiento()
 {
-    frap.secciones.consentimiento = new CONSENTIMIENTO();
+    var imgConsentimientoFirmaTestigo =  $.jStorage.get("imgConsentimientoFirmaTestigo");
+    var imgConsentimientoFirmaPaciente = $.jStorage.get("imgConsentimientoFirmaPaciente");
 
-    tbConsentimiento = frap.secciones.consentimiento;
-    frap.secciones.consentimiento = tbConsentimiento;
+    var tbAuxCabecera = new CABECERA();
+    frap.secciones.consentimiento = new CONSENTIMIENTO(imgConsentimientoFirmaTestigo,imgConsentimientoFirmaPaciente);
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.consentimiento);
+
+    tbConsentimiento = union1;
 
     dataBase.saveTable('CONSENTIMIENTO', tbConsentimiento);
 
@@ -1198,23 +1171,26 @@ function guardar_consentimiento()
 
 function guardar_clinico()
 {
+    var tbAuxCabecera = new CABECERA();
 
     frap.secciones.clinico = new CLINICO();
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.clinico);
 
-    tbClinico = frap.secciones.clinico;
-    frap.secciones.clinico = tbClinico;
+    tbClinico = union1;
 
     dataBase.saveTable('CLINICO', tbClinico);
 
-    frap.enviar();
+    //frap.enviar();
 }
 
 function guardar_trauma()
 {
-    frap.secciones.trauma = new TRAUMA();
+    var tbAuxCabecera = new CABECERA();
 
-    tbTrauma = frap.secciones.trauma;
-    frap.secciones.trauma = tbTrauma;
+    frap.secciones.trauma = new TRAUMA();
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.trauma);
+
+    tbTrauma = union1;
 
     dataBase.saveTable('TRAUMA',tbTrauma);
 
@@ -1225,9 +1201,12 @@ function guardar_trauma()
 function guardar_vial()
 {
 
+    var tbAuxCabecera = new CABECERA();
 
     frap.secciones.vial = new VIAL();
-    tbVial = frap.secciones.vial;
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.vial);
+
+    tbVial = union1;
 
     dataBase.saveTable('VIAL', tbVial);
 
@@ -1237,12 +1216,16 @@ function guardar_vial()
 
 function guardar_ginecologico()
 {
+    var tbAuxCabecera = new CABECERA();
+
     frap.secciones.ginecologico = new GINECOLOGICO();
-    tbGinecologico = frap.secciones.ginecologico;
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.ginecologico);
+
+    tbGinecologico = union1;
 
     dataBase.saveTable('GINECOLOGICO', tbGinecologico);
 
-    frap.enviar();
+    //frap.enviar();
 }
 
 function guardar_negativa()
