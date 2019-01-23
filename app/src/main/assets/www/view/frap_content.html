@@ -47,6 +47,9 @@
 
     <script type="text/javascript" src="../model/dataBaseApp.js"></script>
     <script type="text/javascript" src="../controller/frap_data.js"></script>
+
+    <script type="text/javascript" src="../objects/frap_object.js"></script>
+
     <!--
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
@@ -58,6 +61,7 @@
     <script>
 
 
+        var frap;
         var currentControl = null;
 
         $(document).on("pageshow","#consentimiento",function(){ // When entering pagetwo
@@ -76,7 +80,7 @@
                 if(imgConsentimientoFirmaPaciente !== '')
                     $('#standFirmaPaciente').attr("src", imgConsentimientoFirmaPaciente);
 
-                if(imgConsentimientoFirmaTestigo !== '')
+                if(imgConsentimientoFirmaPaciente !== '')
                     $('#standFirmaTestigo').attr("src", imgConsentimientoFirmaTestigo);
             }else{
                 /*
@@ -93,6 +97,10 @@
                 else
                     imgConsentimientoFirmaTestigo=imagenFirma;
             }
+
+
+            $.jStorage.set("imgConsentimientoFirmaPaciente", imgConsentimientoFirmaPaciente,{});
+            $.jStorage.set("imgConsentimientoFirmaPaciente", imgConsentimientoFirmaPaciente,{});
 
 
             /*
@@ -132,6 +140,7 @@
                 imgFirmaRecibe =imagenFirma;
             }
 
+            $.jStorage.set("imgFirmaRecibe", imgFirmaRecibe,{});
 
             // manage offLine singnal
             /*
@@ -176,6 +185,16 @@
                else
                    $('#dvMostrarDir').fadeOut('slow');
             });
+
+
+            if(frap != null){
+                parent.cargarPACIENTE();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+            }
+
+
+
         });
 
         $(document).on("pageshow","#tratamiento",function(){
@@ -227,6 +246,10 @@
         var seccion_motivo ='';
 
         $(document).ready(function() {
+
+            frap = $.jStorage.get("frap");
+
+            console.log(frap);
 
              $("#venti_t").click(function(){
                         $("#opciones_nombre").slideDown();
@@ -2771,6 +2794,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!---
                                 EVALUACION SECUNDARIA
     =======================================================================================
@@ -3538,6 +3574,13 @@
 
 
 
+
+
+
+
+
+
+
 <!---
                                TRATAMIENTO
    =======================================================================================
@@ -4277,6 +4320,12 @@
 </div>
 
 
+
+
+
+
+
+
 <!---
                CLINICO
    =======================================================================================
@@ -4345,6 +4394,7 @@
 
         <div style=" width: 90%; margin: 0 auto;">
 
+            <h3 style="font-size:5vw; text-align: center;">Clínico</h3>
 
     <div class="contenido-form">
 
@@ -4402,6 +4452,10 @@
 
     </div>
 </div>
+
+
+
+
 
 
 <!---
@@ -4688,6 +4742,8 @@
 
         <div style=" width: 90%; margin: 0 auto;">
 
+            <h3 style="font-size:5vw; text-align: center;">Vial</h3>
+
 
     <div class="contenido-form">
 
@@ -4953,6 +5009,9 @@
 
     </div>
 </div>
+
+
+
 
 
 <!---
@@ -5621,6 +5680,9 @@
 
     </div>
 </div>
+
+
+
 
 
 <!---
