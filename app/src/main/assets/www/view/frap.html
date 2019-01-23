@@ -279,6 +279,8 @@ function homeVehicules(){
 
 
 
+
+
         console.log('valores de diagrama de flujo ');
 
         console.log('isNew'+isNew);
@@ -290,9 +292,11 @@ function homeVehicules(){
         frap.secciones.init();
 
 
+
         // Paso 2.5 : Inicializamos todas las demas variables a defoutl
 
         dataBase.openDb();
+
 
         // Be careful !!!!!
         // cuando cargue fraps OFFline debe cargar el valor de la base detos como defoult
@@ -369,6 +373,11 @@ function homeVehicules(){
 
 
 
+
+
+
+
+
         // termina TRAUMA
         iframe.find("#btnNext5").click(function()
         {
@@ -400,10 +409,17 @@ function homeVehicules(){
         });
 
 
+
+
+
+
+
+
         // termina CONSENTIMIENTO
         iframe.find("#btnNext9").click(function()
         {
-
+            guardar_consentimiento();
+            guardar_otros();
             deltaZ('slide', 'consentimiento', 'menu-consentimiento', iframe.find("#btnNext9").attr('data-state'));
         });
 
@@ -412,6 +428,8 @@ function homeVehicules(){
 
         iframe.find("#btnNext10").click(function()
         {
+            guardar_legal();
+            guardar_emergencia_resultado();
             deltaZ('slide', 'pertenencias', 'menu-pertenencias', iframe.find("#btnNext10").attr('data-state'));
         });
 
