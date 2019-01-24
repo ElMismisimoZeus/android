@@ -149,23 +149,25 @@ frap.auxiliares.Paciente = function(){
 
 frap.auxiliares.Direccion = function(){
     this.CALLE = objAux.CALLE,
-        // this.NUMERO_EXTERIOR = objAux.NUMERO_EXTERIOR,
-        // this.NUMERO_INTERIOR = objAux.NUMERO_INTERIOR,
-        //this.COLONIA  = objAux.,
-        // this.DELEGACION  = objAux,
-        //this.iCP = objAux
-        this.ESTADO = objAux.ESTADO
+    this.ESTADO = objAux.ESTADO
+    // this.NUMERO_EXTERIOR = objAux.NUMERO_EXTERIOR,
+    // this.NUMERO_INTERIOR = objAux.NUMERO_INTERIOR,
+    //this.COLONIA  = objAux.,
+    // this.DELEGACION  = objAux,
+    //this.iCP = objAux
+
 
 };
 
 
 frap.auxiliares.DatosPaciente = function(){
     this.NOMBRE = objAux.NOMBRE,
-        this.APELLIDO_PATERNO = objAux.APELLIDO_PATERNO,
-        this.APELLIDO_MATERNO = objAux.APELLIDO_MATERNO,
-        this.FECHA_NACIMIENTO = objAux.FECHA_NACIMIENTO,
-        this.TELEFONO = objAux.TELEFONO,
-        this.OCUPACION = objAux.OCUPACION
+    this.APELLIDO_PATERNO = objAux.APELLIDO_PATERNO,
+    this.APELLIDO_MATERNO = objAux.APELLIDO_MATERNO,
+    this.FECHA_NACIMIENTO = objAux.FECHA_NACIMIENTO,
+    this.TELEFONO = objAux.TELEFONO,
+    this.OCUPACION = objAux.OCUPACION
+
 };
 
 
@@ -254,7 +256,8 @@ frap.initDatosPaciente = function(){
     this.APELLIDO_MATERNO = '-',
     this.CORREO_ELECTRONICO = '-',
     this.EDAD = 0,
-    this.FECHA_NACIMIENTO = '',
+    this.FECHA_NACIMIENTO = 0000-00-00,
+    this.FECHA_NACIMIENTO = 0000-00-00,
     this.TELEFONO =  0,
     this.OCUPACION = '-'
     this.iID_CTLG_SEXOS  = 0
@@ -577,7 +580,7 @@ frap.cargas.loadES_Factores = function (){
 
 
     dataBase.getTable('FACTORES', '*', " WHERE FRAP_ID ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
-}
+};
 
 
 frap.recuperacion = {};
@@ -585,6 +588,8 @@ frap.recuperacion = {};
 frap.recuperacion['PACIENTE']= function(){
 
     console.log('dentro de la funcion paciente');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
 
 
 
@@ -592,6 +597,31 @@ frap.recuperacion['PACIENTE']= function(){
     dataBase.onSuccess = function(tx, results)
     {
         var len = results.rows.length;
+
+        console.log(len + " Aquiiiii");
+
+        console.log('idFRAP    '+ idFRAP);
+        console.log('TIPO_FRAP    '+ tipoFRAP);
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        $.each(results.rows, function (value){
+
+            console.log('primero'+value);
+
+        });
+
+        $.each(results.rows.item, function (value){
+
+            console.log('segindo'+value);
+
+        });
+
+
+
 
         if (len > 0)
         {
@@ -605,34 +635,36 @@ frap.recuperacion['PACIENTE']= function(){
             //SERVICIO MEDICO
             objAux.iID_CTLG_SERVICIO_MEDICO = results.rows.item(0).ID_CTLG_SERVICIO_MEDICO;
             console.log(objAux.iID_CTLG_SERVICIO_MEDICO );
+
             //DIRECCION
 
+
             objAux.CALLE = results.rows.item(0).CALLE;
+            
+
+
+            console.log(objAux.CALLE + "objAux.CALLE");
+            console.log(results.rows.item(0).CALLE + "results.rows.item(0).CALLE ");
+
             objAux.ESTADO = results.rows.item(0).ESTADO;
 
 
 
             // Motivos atencion
 
-            objAux.iID_MOTIVO_ATENCION = results.rows.item(0).ID_CTLG_MOTIVO_ATENCION;
-            console.log(objAux.iID_MOTIVO_ATENCION );
+            objAux.iID_CTLG_MOTIVO_ATENCION = results.rows.item(0).ID_CTLG_MOTIVO_ATENCION;
+            console.log(objAux.iID_CTLG_MOTIVO_ATENCION );
 
 
             frap.secciones.paciente = new frap.auxiliares.Paciente();
-
             frap.secciones.direccion_paciente = new frap.auxiliares.Direccion();
-
             frap.secciones.datos_paciente = new frap.auxiliares.DatosPaciente();
-
             frap.secciones.motivo_atencion = new frap.auxiliares.MotivoAtencion();
-
-
-
 
 
             console.log(frap);
 
-            $.jStorage.set("frap", frap);
+            //$.jStorage.set("frap", frap);
 
         }
 
@@ -643,7 +675,8 @@ frap.recuperacion['PACIENTE']= function(){
     };
 
 
-    console.log('idFRAP'+idFRAP);
+
+
     dataBase.getTable('PACIENTE', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
 
 };
@@ -652,6 +685,7 @@ frap.recuperacion['PACIENTE']= function(){
 
 
 
+/*
 frap.recuperacion['MEDIA_FILIACION']= function(){
 
 
@@ -698,8 +732,7 @@ frap.recuperacion['MEDIA_FILIACION']= function(){
 
 };
 
-
-
+*/
 
 
 frap.recuperacion['EVALUACION_PRIMARIA'] = function(){

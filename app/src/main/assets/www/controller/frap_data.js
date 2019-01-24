@@ -110,7 +110,7 @@ function DATOS_PACIENTE(){
         this.NOMBRE = (iframe.find('#nombre').val() != '') ? iframe.find('#nombre').val() : ' ',
         this.APELLIDO_PATERNO = ( iframe.find('#a_paterno').val() != '') ? iframe.find('#a_paterno').val() : ' ',
         this.APELLIDO_MATERNO = ( iframe.find('#a_materno').val() != '') ? iframe.find('#a_materno').val() : ' ',
-        this.FECHA_NACIMIENTO = ( iframe.find('#fecha_nacimiento').val() != '') ? iframe.find('#fecha_nacimiento').val() : ' ',
+        this.FECHA_NACIMIENTO = ( iframe.find('#fecha_nacimiento').val() != '') ? iframe.find('#fecha_nacimiento').val() : 0000-00-00,
         this.TELEFONO = ( iframe.find('#telefono').val() != '') ? iframe.find('#telefono').val() : ' ' ,
         this.OCUPACION = ( iframe.find('#ocupacion').val() != '') ? iframe.find('#ocupacion').val() : ' '
         //this.CORREO_ELECTRONICO = '-'
@@ -122,11 +122,12 @@ function DIRECCION(){
     //this.iNUMERO_INTERIOR =0,
 
         this.CALLE = ( iframe.find('#calle').val() != '') ? iframe.find('#calle').val() : ' ',
-        this.iNUMERO_EXTERIOR = ( iframe.find('#numero').val() != '') ? iframe.find('#numero').val() : 0 ,
-        this.COLONIA  = ( iframe.find('input[name=colonia]:checked').val() > 0 ? iframe.find('input[name=colonia]:checked').val(): 0),
-        this.DELEGACION  = ( iframe.find('input[name=delegacion]:checked').val() > 0 ? iframe.find('input[name=delegacion]:checked').val(): 0),
+        //this.iNUMERO_EXTERIOR = ( iframe.find('#numero_exterior').val() != '') ? iframe.find('#numero').val() : 0,
+        //this.iNUMERO_INTERIOR = ( iframe.find('#numero').val() != '') ? iframe.find('#numero').val() : 0 ,
+        //his.COLONIA = ( iframe.find('#colonia').val() != '') ? iframe.find('#colonia').val() : ' ',
+        this.DELEGACION = ( iframe.find('#delegacion_municipio').val() != '') ? iframe.find('#delegacion_municipio').val() : ' ',
         this.ESTADO = ( iframe.find('input[name=estado]:checked').size() > 0 ? iframe.find('input[name=estado]:checked').val(): 0),
-        this.iCP = ((iframe.find('#cp').val() != '') ? iframe.find('#cp').val() : '_')
+        this.iCP = ((iframe.find('#cp').val() != '') ? iframe.find('#cp').val() : 0)
 };
 
 function MOTIVO_ATENCION()
@@ -172,7 +173,7 @@ function EVALUACION_PRIMARIA()
         this.iID_CTLG_COLORACION = (checkValue(iframe.find('input[name = ep_coloracion]:checked').val())),
         this.iID_CTLG_TEMPERATURA = (checkValue(iframe.find('input[name = ep_temperatura]:checked').val())),
         this.iID_CTLG_CONDICION = (checkValue(iframe.find('input[name = ep_condicion]:checked').val())),
-            this.iPOSICION = (checkValue(iframe.find('input[name = ep_orientacion]:checkec').val()))
+            this.iPOSICION = (checkValue(iframe.find('input[name = ep_orientacion]:checked').val()))
 }
 
 
@@ -650,16 +651,17 @@ function guardarPaciente()
     //tbPaciente = $.extend(frap.secciones.paciente, frap.secciones.direccion);
 
     var union1 = $.extend(tbAuxCabecera, frap.secciones.paciente);
-    var union2 = $.extend(union1,frap.secciones.motivo_atencion);
-    var union3 = $.extend(union2, frap.secciones.datos_paciente);
-    var union4 = $.extend(union3, frap.secciones.direccion );
-
-    var unionUniniones = $.extend(tbAuxCabecera,frap.secciones.paciente);
-    unionUniniones2 = $.extend(unionUniniones, union3);
-    tbPaciente = $.extend(unionUniniones2, union4);
+    var union2 = $.extend(frap.secciones.motivo_atencion, frap.secciones.datos_paciente);
+    var unionDeUniones1 = $.extend(union1, union2);
+    var unionDeUniones2 = $.extend(unionDeUniones1, frap.secciones.direccion_paciente);
 
 
-    //frap.secciones.paciente = tbPaciente;
+
+    tbPaciente = unionDeUniones2;
+
+    console.log(tbPaciente);
+    console.log("aquiiiii estoy ");
+
 
     dataBase.saveTable('PACIENTE', tbPaciente);
 
@@ -669,9 +671,11 @@ function guardarPaciente()
     // console.log(estado_secciones['PACIENTE']);
     // guarda el objeto actual
 
+    //$.jStorage.deleteKey(estado_secciones['PACIENTE']);
 
     $.jStorage.set("estado_secciones", estado_secciones);
-    $.jStorage.set("estado_frap", String('1'),{});
+
+    $.jStorage.set("estado_frap", String('1'), {});
 
     //frap.enviar();
 
@@ -689,9 +693,7 @@ function guardarMediaFiliacion()
     dataBase.saveTable('MEDIA_FILIACION', tbMedia_filiacion);
 
 
-    estado_secciones['MEDIA_FILIACION'] = 1;
-
-
+    //estado_secciones['MEDIA_FILIACION'] = 1;
 
 }
 
@@ -702,17 +704,17 @@ function guardarEvaluacion_primaria()
     var tbAuxCabecera = new CABECERA();
     frap.secciones.evaluacion_primaria = new EVALUACION_PRIMARIA();
 
-    var union1 = $.extend(tbAuxCabecera, frap.secciones.paciente);
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.evaluacion_primaria);
     tbEvaluacion_primaria = union1;
 
 
     dataBase.saveTable('EVALUACION_PRIMARIA', tbEvaluacion_primaria);
 
     // modifica el estado de una entrada del objeto
-    estado_secciones['EVALUACION_PRIMARIA'] = 1;
+    //estado_secciones['EVALUACION_PRIMARIA'] = 1;
 
-    $.jStorage.set("estado_secciones", estado_secciones);
-    $.jStorage.set("estado_frap", String('1'),{});
+    //$.jStorage.set("estado_secciones", estado_secciones);
+    //$.jStorage.set("estado_frap", String('1'),{});
 
    // frap.enviar();
 }

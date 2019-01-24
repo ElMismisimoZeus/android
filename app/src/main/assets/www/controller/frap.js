@@ -43,6 +43,7 @@ function msgBoxClose() {
 
 function cargarPACIENTE() {
 
+    console.log("funcion cargar " + frap);
     iframe.find('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
     iframe.find('#a_paterno').val(frap.secciones.datos_paciente.APELLIDO_PATERNO);
     iframe.find('#a_materno').val(frap.secciones.datos_paciente.APELLIDO_MATERNO);
@@ -58,9 +59,9 @@ function cargarPACIENTE() {
     //DATOS DE DIRECCION
 
     iframe.find('#calle').val(frap.secciones.direccion_paciente.CALLE);
-    //iframe.find('#dc_ep_municipio_t').val(frap.secciones.direccion.DELEGACION);
     iframe.find('#dc_ep_estado_t').val(frap.secciones.direccion_paciente.ESTADO);
     //iframe.find('#numero').val(frap.secciones.direccion.NUMERO);
+    //iframe.find('#dc_ep_municipio_t').val(frap.secciones.direccion.DELEGACION);
 
 
 };
@@ -85,7 +86,7 @@ function cargarEVALUACION_PRIMARIA()
 
 
 
-function CargarMEDIA_FILIACION()
+function cargarMEDIA_FILIACION()
 {
     //DATOS DE MEDIA FILIACION
 

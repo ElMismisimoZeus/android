@@ -189,7 +189,7 @@
 
             if(frap != null){
                 parent.cargarPACIENTE();
-                parent.CargarMEDIA_FILIACION();
+                //parent.CargarMEDIA_FILIACION();
                 //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
 
             }
@@ -269,9 +269,9 @@
 
         $(document).ready(function() {
 
-            frap = $.jStorage.get("frap");
+            //frap = $.jStorage.get("frap");
 
-            console.log(frap);
+            //console.log(frap);
 
              $("#venti_t").click(function(){
                         $("#opciones_nombre").slideDown();
@@ -1341,6 +1341,7 @@
             <label  class="container">SSA
                 <input onclick="CambiarV('#cd_ep_servicioMedico_t','SSA');" type="radio" name="servicio_medico" id="ssa" value="12" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
+            </label>
                 <label  class="container">Ninguno
                     <input onclick="CambiarV('#cd_ep_servicioMedico_t','Ninguno');" type="radio" name="servicio_medico" id="ningno" value="7" data-theme="b" data-rel="close">
                     <span class="checkmark"></span>
@@ -2101,10 +2102,17 @@
 
 
 
+
+
+            <!-- seccion que dibuja los controles de media filiacion -->
+            <!-- ============================================================================= -->
+
             <label>
                 <input type="checkbox" id="optDir" name="optDir" class="fantasmaDir" unchecked />
                 No Proporciona dirección
             </label>
+
+
 
             <div id="dvMostrarDir">
                 <h2 align="center">Domicilio</h2>
@@ -2112,15 +2120,27 @@
                 <div class="contenido-direccion-1">
                     <h4 class="labels">Calle:</h4>
                     <input type="text" value=""  id="calle" style="width:30%;">
-                    <h4 class="labels">Número:</h4>
-                    <input type="number" value="" id="numero" style="width:30%;">
+                    <h4 class="labels">Número exterior:</h4>
+                    <input type="number" value="" id="numero_exterior" style="width:30%;">
+                    <h4 class="labels">Número interior:</h4>
+                    <input type="number" value=""  id="numero_interior" style="width:30%;">
+                    <h4 class="labels">Colonia:</h4>
+                    <input type="text" value="" id="colonia" style="width:30%;">
+                    <h4 class="labels">Delegación:</h4>
+                    <input type="text" value="" id="delegacion_municipio" style="width:30%;">
+                    <h4 class="labels">CP:</h4>
+                    <input type="text" value="" id="cp" style="width:30%;">
+
+
+
+                    "NUMERO_EXTERIOR INTEGER,"+
 
                 </div >
 
 
                 <div style=" width: 90%; margin: 0 auto;">
 
-                    <!--  parte que dibuja el control -->
+                    <!--  parte que dibuja el control
                     <div style="width: 100%; height: 65px; ">
                         <div style=" width: 47%;float: left;">
                             <h4 class="labels">Estado</h4>
@@ -2134,7 +2154,7 @@
                             </div>
                         </a>
                     </div>
-                    <!--  termina dibujo -->
+                     termina dibujo -->
 
 
                     <div style="width: 100%; height: 65px;">
@@ -2151,7 +2171,8 @@
                         </a>
                     </div>
 
-                    <div style="width: 100%; height: 65px;">
+                    <!--  parte que dibuja el control COLONIA -->
+                   <!-- <div style="width: 100%; height: 65px;">
                         <div style=" width: 47%;float: left;">
                             <h4 class="labels">Colonia</h4>
                         </div>
@@ -2163,7 +2184,9 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
+                    </div> -->
+
+
                 </div>
 
             </div>

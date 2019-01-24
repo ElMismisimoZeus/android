@@ -635,7 +635,29 @@ dataBase.createSchema = function(){
         tx.executeSql(sql_media_filiacion, [], dataBase.onSuccess, dataBase.onError);
 
         dataBase.tableName ='sql_paciente';
-        tx.executeSql(sql_paciente,[], dataBase.onSuccess, dataBase.onError);
+        tx.executeSql(sql_paciente,[], dataBase.onfunction borrarLocal(table, where){
+
+    var query = 'DELETE FROM '+table + where;
+    //alert(query);
+
+    var db = window.openDatabase(shortName, version, displayName, maxSize);
+
+     db.transaction(
+             function(transaction){ // DATABASE TRANSACTION
+
+                    //alert(query);
+                    transaction.executeSql(query);
+             },
+             function(err){  // ON ERROR
+                 //alert('errro al eliminar' + err.code);
+             },
+             function(){  // ON SUCCESS
+                // alert('Se elimino el registro');
+             }
+                     );
+    return resultado;
+
+}Success, dataBase.onError);
 
         dataBase.tableName ='sql_evaluacion_primaria';
         tx.executeSql(sql_evaluacion_primaria,[], dataBase.onSuccess, dataBase.onError);
@@ -716,26 +738,7 @@ dataBase.deleteSchema = function(){
 
         tx.executeSql("DROP TABLE PACIENTE",[], dataBase.onSuccess,dataBase.onError);
 
-
-
-
-
-
         tx.executeSql("DROP TABLE MEDIA_FILIACION", [], dataBase.onSuccess, dataBase.onError);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         tx.executeSql("DROP TABLE EVALUACION_PRIMARIA", [], dataBase.onSuccess, dataBase.onError);
         tx.executeSql("DROP TABLE EVALUACION_SECUNDARIA", [], dataBase.onSuccess, dataBase.onError);
@@ -761,6 +764,62 @@ dataBase.deleteSchema = function(){
 
     }, dataBase.onSuccess, dataBase.onError);
 };
+
+
+
+
+
+//////////////////////////////
+//      Cabios de JC_
+/////////////////////////////
+
+
+dataBase.borrarRegistroCB = function (table, where, CB){
+
+    var query = 'DELETE FROM '+table + where;
+    //alert(query);
+
+    dataBase.db.transaction(function(tx){
+        tx.executeSql(query,[],  dataBase.onSuccess, CB);
+    });
+
+
+
+};
+
+dataBase.borrarRegistro = function (table, where){
+
+    var query = 'DELETE FROM '+table + where;
+    //alert(query);
+
+    dataBase.db.transaction(function(tx){
+        tx.executeSql(query,[],  dataBase.onSuccess,dataBase.onError);
+    });
+
+
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 dataBase.saveTableA =  function(table, elements, cb){
