@@ -131,47 +131,78 @@ frap.initPaciente2 = function(){
     //return frap.secciones.paciente;
 
 };
+
+
+
+
+
+
+
+
 // Funciones auxiliares
 
 frap.auxiliares = {};
 
 frap.auxiliares.Paciente = function(){
-    this.iID_CTLG_SERVICIO_MEDICO = objAux.ID_CTLG_SERVICIO_MEDICO
+    this.iID_CTLG_SERVICIO_MEDICO = objAux.iID_CTLG_SERVICIO_MEDICO
 };
 
 frap.auxiliares.Direccion = function(){
-    this.CALLE = objAux,
-        this.iNUMERO_EXTERIOS = objAux,
-        this.iNUMERO_INTERIOR = objAux,
-        this.COLONIA  = objAux,
-        this.DELEGACION  = objAux,
-        this.ESTADO = objAux,
-        this.iCP = objAux
-};
+    this.CALLE = objAux.CALLE,
+        // this.NUMERO_EXTERIOR = objAux.NUMERO_EXTERIOR,
+        // this.NUMERO_INTERIOR = objAux.NUMERO_INTERIOR,
+        //this.COLONIA  = objAux.,
+        // this.DELEGACION  = objAux,
+        //this.iCP = objAux
+        this.ESTADO = objAux.ESTADO
 
-frap.auxiliares.MediaFiliacion = function(){
-    this.iD_CTLG_MEDIA_FILIACION_ACCESORIOS = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_CABELLO = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_COLOR_PIEL = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_COMPLEXION = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_NARIZ = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_PARTE_CUERPO = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_ROPA = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_SENIAS = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_SENIA_LUGAR = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_TAMANIO = objAux,
-        this.iID_CTLG_MEDIA_FILIACION_VOLUMEN = objAux
 };
-
 
 
 frap.auxiliares.DatosPaciente = function(){
     this.NOMBRE = objAux.NOMBRE,
         this.APELLIDO_PATERNO = objAux.APELLIDO_PATERNO,
-        this.APELLIDO_MATERNO = objAux.APELLIDO_MATERNO
+        this.APELLIDO_MATERNO = objAux.APELLIDO_MATERNO,
+        this.FECHA_NACIMIENTO = objAux.FECHA_NACIMIENTO,
+        this.TELEFONO = objAux.TELEFONO,
+        this.OCUPACION = objAux.OCUPACION
 };
+
+
+
+
+
+
+frap.auxiliares.MediaFiliacion = function(){
+    //this.iD_CTLG_MEDIA_FILIACION_ACCESORIOS = objAux.,
+        this.iID_CTLG_MEDIA_FILIACION_CABELLO = objAux.iID_CTLG_MEDIA_FILIACION_CABELLO,
+        this.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR = objAux.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR,
+        this.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS = objAux.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS,
+        this.iID_CTLG_MEDIA_FILIACION_COLOR_PIEL = objAux.iID_CTLG_MEDIA_FILIACION_COLOR_PIEL,
+        this.iID_CTLG_MEDIA_FILIACION_COMPLEXION = objAux.iID_CTLG_MEDIA_FILIACION_COMPLEXION ,
+        this.iID_CTLG_MEDIA_FILIACION_NARIZ = objAux.iID_CTLG_MEDIA_FILIACION_NARIZ,
+        this.iID_CTLG_MEDIA_FILIACION_PARTE_CUERPO = objAux.iID_CTLG_MEDIA_FILIACION_PARTE_CUERPO,
+        //this.ID_CTLG_MEDIA_FILIACION_ROPA = objAux.ID_CTLG_MEDIA_FILIACION_ROPA,
+        this.iID_CTLG_MEDIA_FILIACION_SENIAS = objAux.iID_CTLG_MEDIA_FILIACION_SENIAS,
+        this.iID_CTLG_MEDIA_FILIACION_SENIA_LUGAR = objAux.iID_CTLG_MEDIA_FILIACION_SENIA_LUGAR,
+        this.iID_CTLG_MEDIA_FILIACION_TAMANIO = objAux.iID_CTLG_MEDIA_FILIACION_TAMANIO,
+        this.iID_CTLG_MEDIA_FILIACION_VOLUMEN = objAux.iID_CTLG_MEDIA_FILIACION_VOLUMEN
+};
+
+
+frap.auxiliares.MotivoAtencion = function(){
+    this.iID_CTLG_MOTIVO_ATENCION = objAux.iID_CTLG_MOTIVO_ATENCION
+
+};
+
+
+
+
+
+
+
+
+
 
 
 
@@ -200,7 +231,7 @@ frap.initDireccion = function(){
 };
 
 frap.initMediaFiliacion = function(){
-        this.iD_CTLG_MEDIA_FILIACION_ACCESORIOS = 1,
+        this.iID_CTLG_MEDIA_FILIACION_ACCESORIOS = 1,
         this.iID_CTLG_MEDIA_FILIACION_CABELLO = 1,
         this.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR = 1,
         this.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS = 1,
@@ -222,9 +253,9 @@ frap.initDatosPaciente = function(){
     this.APELLIDO_PATERNO = '-',
     this.APELLIDO_MATERNO = '-',
     this.CORREO_ELECTRONICO = '-',
-    this.EDAD = '-',
+    this.EDAD = 0,
     this.FECHA_NACIMIENTO = '',
-    this.TELEFONO = '-' ,
+    this.TELEFONO =  0,
     this.OCUPACION = '-'
     this.iID_CTLG_SEXOS  = 0
     //this.iMOTIVO_ATENCION =0
@@ -252,7 +283,7 @@ frap.initEvaluacionPrimaria = function(){
     this.iID_CTLG_COLORACION = 0,
     this.iID_CTLG_CONDICION = 0,
     this.iID_CTLG_TEMPERATURA = 0,
-    //this.iPOSICION = 0,
+    this.iPOSICION = 0,
     this.iID__CTLG_PRIORIDAD = 0,
     this.iID_CTLG_PULSOS_CALIDAD = 0,
     this.iID_CTLG_RITMO = 0,
@@ -567,12 +598,37 @@ frap.recuperacion['PACIENTE']= function(){
             objAux.NOMBRE = results.rows.item(0).NOMBRE;
             objAux.APELLIDO_PATERNO = results.rows.item(0).APELLIDO_PATERNO;
             objAux.APELLIDO_MATERNO = results.rows.item(0).APELLIDO_MATERNO;
+            objAux.FECHA_NACIMIENTO = results.rows.item(0).FECHA_NACIMIENTO;
+            objAux.TELEFONO = results.rows.item(0).TELEFONO;
+            objAux.OCUPACION = results.rows.item(0).OCUPACION;
 
+            //SERVICIO MEDICO
+            objAux.iID_CTLG_SERVICIO_MEDICO = results.rows.item(0).ID_CTLG_SERVICIO_MEDICO;
+            console.log(objAux.iID_CTLG_SERVICIO_MEDICO );
+            //DIRECCION
+
+            objAux.CALLE = results.rows.item(0).CALLE;
+            objAux.ESTADO = results.rows.item(0).ESTADO;
+
+
+
+            // Motivos atencion
+
+            objAux.iID_MOTIVO_ATENCION = results.rows.item(0).ID_CTLG_MOTIVO_ATENCION;
+            console.log(objAux.iID_MOTIVO_ATENCION );
+
+
+            frap.secciones.paciente = new frap.auxiliares.Paciente();
+
+            frap.secciones.direccion_paciente = new frap.auxiliares.Direccion();
 
             frap.secciones.datos_paciente = new frap.auxiliares.DatosPaciente();
-            frap.secciones.paciente = new PACIENTE();
-            frap.secciones.motivo_atencion = new MOTIVO_ATENCION();
-            frap.secciones.direccion = new DIRECCION();
+
+            frap.secciones.motivo_atencion = new frap.auxiliares.MotivoAtencion();
+
+
+
+
 
             console.log(frap);
 
@@ -591,6 +647,60 @@ frap.recuperacion['PACIENTE']= function(){
     dataBase.getTable('PACIENTE', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
 
 };
+
+
+
+
+
+frap.recuperacion['MEDIA_FILIACION']= function(){
+
+
+//Aquí comienza mi edición @JC_Worthing
+
+    console.log('dentro de la funcion media filiacion');
+
+    dataBase.onSuccess = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        if (len > 0) {
+
+
+            //MEDIA FILIACION
+            objAux.iID_CTLG_MEDIA_FILIACION_CABELLO = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_CABELLO;
+            objAux.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_CABELLO_COLOR;
+            objAux.iID_CTLG_MEDIA_FILIACION_VOLUMEN = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_VOLUMEN;
+            objAux.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_COLOR_OJOS;
+            objAux.iID_CTLG_MEDIA_FILIACION_COLOR_PIEL = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_COLOR_PIEL;
+            objAux.iID_CTLG_MEDIA_FILIACION_COMPLEXION = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_COMPLEXION;
+            objAux.iID_CTLG_MEDIA_FILIACION_NARIZ = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_NARIZ;
+            objAux.iID_CTLG_MEDIA_FILIACION_TAMANIO = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_TAMANIO;
+            objAux.iID_CTLG_MEDIA_FILIACION_SENIAS = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_SENIAS;
+            objAux.iID_CTLG_MEDIA_FILIACION_SENIA_LUGAR = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_SENIA_LUGAR;
+            objAux.iID_CTLG_MEDIA_FILIACION_PARTE_CUERPO = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_PARTE_CUERPO;
+
+
+
+
+
+            frap.secciones.media_filiacion = new frap.auxiliares.MediaFiliacion();
+
+
+            $.jStorage.set("frap", frap);
+
+
+        }
+    };
+
+
+    console.log('idFRAP'+idFRAP);
+    dataBase.getTable('MEDIA_FILIACION', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
+
+};
+
+
+
+
 
 frap.recuperacion['EVALUACION_PRIMARIA'] = function(){
     console.log('dentro de la funcion EVALUACION_PRIMARIA');
@@ -658,7 +768,8 @@ frap.cargas.loadDireccion = function(){
             frap.secciones.paciente.COLONIA = results.rows.item(0).COLONIA;
             frap.secciones.paciente.DELEGACION = results.rows.item(0).DELEGACION;
             frap.secciones.paciente.iCP = results.rows.item(0).CP;
-            frap.secciones.paciente.iCTLG_ESTADOS_ID_ESTADOS = results.rows.item(0).CTLG_ESTADOS_ID_ESTADOS;
+            frap.secciones.paciente.iID_CTLG_ESTADOS = results.rows.item(0).ID_CTLG_ESTADOS;
+
 
         }
         frap.cargas.loadEvaluacionPrimaria();

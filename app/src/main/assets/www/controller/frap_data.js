@@ -120,11 +120,11 @@ function DATOS_PACIENTE(){
 
 function DIRECCION(){
     //this.iNUMERO_INTERIOR =0,
-        this.iCP = 0
+
         this.CALLE = ( iframe.find('#calle').val() != '') ? iframe.find('#calle').val() : ' ',
         this.iNUMERO_EXTERIOR = ( iframe.find('#numero').val() != '') ? iframe.find('#numero').val() : 0 ,
-        this.COLONIA  = ( iframe.find('input[name=colonia]:checked').size() > 0 ? iframe.find('input[name=colonia]:checked').val(): 0),
-        this.DELEGACION  = ( iframe.find('input[name=delegacion]:checked').size() > 0 ? iframe.find('input[name=delegacion]:checked').val(): 0),
+        this.COLONIA  = ( iframe.find('input[name=colonia]:checked').val() > 0 ? iframe.find('input[name=colonia]:checked').val(): 0),
+        this.DELEGACION  = ( iframe.find('input[name=delegacion]:checked').val() > 0 ? iframe.find('input[name=delegacion]:checked').val(): 0),
         this.ESTADO = ( iframe.find('input[name=estado]:checked').size() > 0 ? iframe.find('input[name=estado]:checked').val(): 0),
         this.iCP = ((iframe.find('#cp').val() != '') ? iframe.find('#cp').val() : '_')
 };
@@ -171,7 +171,8 @@ function EVALUACION_PRIMARIA()
         this.iID_CTLG_RITMO = (checkValue(iframe.find('input[name = ep_ritmo]:checked').val())),
         this.iID_CTLG_COLORACION = (checkValue(iframe.find('input[name = ep_coloracion]:checked').val())),
         this.iID_CTLG_TEMPERATURA = (checkValue(iframe.find('input[name = ep_temperatura]:checked').val())),
-        this.iID_CTLG_CONDICION = (checkValue(iframe.find('input[name = ep_condicion]:checked').val()))
+        this.iID_CTLG_CONDICION = (checkValue(iframe.find('input[name = ep_condicion]:checked').val())),
+            this.iPOSICION = (checkValue(iframe.find('input[name = ep_orientacion]:checkec').val()))
 }
 
 
@@ -641,7 +642,7 @@ function guardarPaciente()
     frap.secciones.paciente = new PACIENTE();
     frap.secciones.motivo_atencion = new MOTIVO_ATENCION();
     frap.secciones.datos_paciente =  new DATOS_PACIENTE();
-    frap.secciones.direccion = new DIRECCION();
+    frap.secciones.direccion_paciente = new DIRECCION();
 
 
     // objecto frap -> DB loca : gestiona las secciones de objeto frap en objectos TB-Name para guardar en base de datos
@@ -663,10 +664,12 @@ function guardarPaciente()
     dataBase.saveTable('PACIENTE', tbPaciente);
 
     // modifica el estado de una entrada del objeto
-    estado_secciones['PACIENTE']=1;
+    estado_secciones['PACIENTE'] = 1;
 
-    console.log(estado_secciones['PACIENTE']);
+    // console.log(estado_secciones['PACIENTE']);
     // guarda el objeto actual
+
+
     $.jStorage.set("estado_secciones", estado_secciones);
     $.jStorage.set("estado_frap", String('1'),{});
 
@@ -685,6 +688,11 @@ function guardarMediaFiliacion()
 
     dataBase.saveTable('MEDIA_FILIACION', tbMedia_filiacion);
 
+
+    estado_secciones['MEDIA_FILIACION'] = 1;
+
+
+
 }
 
 
@@ -699,6 +707,12 @@ function guardarEvaluacion_primaria()
 
 
     dataBase.saveTable('EVALUACION_PRIMARIA', tbEvaluacion_primaria);
+
+    // modifica el estado de una entrada del objeto
+    estado_secciones['EVALUACION_PRIMARIA'] = 1;
+
+    $.jStorage.set("estado_secciones", estado_secciones);
+    $.jStorage.set("estado_frap", String('1'),{});
 
    // frap.enviar();
 }

@@ -189,6 +189,7 @@
 
             if(frap != null){
                 parent.cargarPACIENTE();
+                parent.CargarMEDIA_FILIACION();
                 //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
 
             }
@@ -197,7 +198,28 @@
 
         });
 
-        $(document).on("pageshow","#tratamiento",function(){
+
+        ///////////////////////////////////////////////////////////////
+        ///////// ADD PAGE SHOW OF ALL SECTIONS ON FRAP CODE BY JC
+        ///////////////////////////////////////////////////////////////
+
+        /*$(document).on("pageshow","#tratamiento",function(){
+
+
+            if(frap != null){
+                parent.cargarEVALUACION_PRIMARIA();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+            }
+
+
+        });*/
+
+
+
+
+
+        $(document).on("pageshow","#evaluacion_primaria",function(){
 
             console.log($.jStorage.get("motivo_atencion"));
              var refMotivo = $.jStorage.get("motivo_atencion");
@@ -266,7 +288,7 @@
             //console.log('dentro ' +currentId);
 
             //Manage motivo atencion
-            if( currentId == "motivo_atencion"){
+            if( currentId == "evaluacion_primaria"){
 
                 seccion_motivo  = $.jStorage.get("motivo_atencion");
                 console.log('dentro ' +currentId);
@@ -1328,7 +1350,7 @@
         </div>
     </div><!-- /panel -->
 
-    <!-- panel:prioridad -->
+    <!-- panel: motivo atencion -->
     <div data-role="panel" id="pnlMotivoAtencion" data-display="overlay" data-position="right" style=" width: 310px;">
         <div class="ui-panel-inner" style="width: 300px;">
             <h2>Motivo de la atención:</h2>
