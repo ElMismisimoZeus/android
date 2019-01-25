@@ -137,7 +137,6 @@ function MOTIVO_ATENCION()
         this.MOTIVO = 0
 };
 
-
 // Edicion de guardado del objeto frap, Sección media filiación
 
 
@@ -220,10 +219,10 @@ function EVALUACION_SECUNDARIA()
         this.EVALUACION_GLASGOW = checkValue(iframe.find('input[name = glasgow_motora]:checked').val()) + checkValue(iframe.find('input[name = glasgow_verbal]:checked').val()) + checkValue(iframe.find('input[name = ocular]:checked').val()),
         // console.log(((iframe.find('input[name = glasgow_motora]:checked')).val()) + ((iframe.find('input[name = glasgow_verbal:checked')).val()) + ((iframe.find('input[name = ocular]:checked')).val()))
         this.iID_CTLG_SIGNOS_NEUROLOGICOS = checkValue(iframe.find('input[name = es_signos_neurologicos]:checked').val()),
-        this.iPUPILAS_IZQUIERDA = checkValue(iframe.find('input[name = pupilas_zquierda]:checked').size()),
-        this.iPUPILAS_DERECHA = checkValue(iframe.find('input[name = pupilas_derecha]:checked').size()),
-        this.iRITMO = checkValue(iframe.find('input[name = es_ritmo]:checked').size()),
-        this.iPERISTALSIS = checkValue(iframe.find('input[name = peristalsis]:checked').size())
+        this.iPUPILAS_IZQUIERDA = checkValue(iframe.find('input[name = pupilas_zquierda]:checked').val()),
+        this.iPUPILAS_DERECHA = checkValue(iframe.find('input[name = pupilas_derecha]:checked').val()),
+        this.iRITMO = checkValue(iframe.find('input[name = es_ritmo]:checked').val()),
+        this.iPERISTALSIS = checkValue(iframe.find('input[name = peristalsis]:checked').val())
 
     // --> this.iFRECUENCIA_CARDIACA = 0, // (checkText(iframe.find('input[name = frecuencia_cardiaca]:checked')).val()),
     // -->this.iTEMPERATURA = 0, //(checkText(iframe.find('input[name = metabolico_temperatura]:checked')).val()),
@@ -693,7 +692,10 @@ function guardarMediaFiliacion()
     dataBase.saveTable('MEDIA_FILIACION', tbMedia_filiacion);
 
 
-    //estado_secciones['MEDIA_FILIACION'] = 1;
+    estado_secciones['MEDIA_FILIACION'] = 1;
+
+    $.jStorage.set("estado_secciones", estado_secciones);
+
 
 }
 
@@ -711,9 +713,9 @@ function guardarEvaluacion_primaria()
     dataBase.saveTable('EVALUACION_PRIMARIA', tbEvaluacion_primaria);
 
     // modifica el estado de una entrada del objeto
-    //estado_secciones['EVALUACION_PRIMARIA'] = 1;
+    estado_secciones['EVALUACION_PRIMARIA'] = 1;
 
-    //$.jStorage.set("estado_secciones", estado_secciones);
+    $.jStorage.set("estado_secciones", estado_secciones);
     //$.jStorage.set("estado_frap", String('1'),{});
 
    // frap.enviar();
@@ -946,7 +948,7 @@ function guardarEvaluacion_secundaria()
     var fn = function(){
         var dfd = $.Deferred();
 
-        dataBase.onSuccess = function(tx, results) {
+        var cb = function(tx, results) {
             console.log('adentro Hallasgos');
 
             var  hallazgos ={};
@@ -974,7 +976,7 @@ function guardarEvaluacion_secundaria()
         console.log('idFRAP'+idFRAP);
         console.log('tipoFRAP'+tipoFRAP);
 
-        dataBase.getTable('HALLAZGOS_FISICOS', '*', " WHERE FRAP_ID ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
+        dataBase.getTableS('HALLAZGOS_FISICOS', '*', " WHERE FRAP_ID ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
 
         return dfd.promise();
     };
@@ -985,14 +987,14 @@ function guardarEvaluacion_secundaria()
     $.when.apply(null,funciones).done(function () {
         console.log('todas terminaron');
 
-        dataBase.onSuccess = function(tx, r) {
+        var cb = function(tx, r) {
             console.log(" when call");
 
             frap.cargas.loadES_Factores();
         };
 
 
-        dataBase.saveTable('EVALUACION_SECUNDARIA', tbEvaluacion_secundaria);
+        dataBase.saveTableA('EVALUACION_SECUNDARIA', tbEvaluacion_secundaria, cb);
 
 
     });

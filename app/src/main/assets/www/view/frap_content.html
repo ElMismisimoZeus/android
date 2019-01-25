@@ -189,7 +189,7 @@
 
             if(frap != null){
                 parent.cargarPACIENTE();
-                //parent.CargarMEDIA_FILIACION();
+                parent.cargarMEDIA_FILIACION();
                 //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
 
             }
@@ -203,8 +203,22 @@
         ///////// ADD PAGE SHOW OF ALL SECTIONS ON FRAP CODE BY JC
         ///////////////////////////////////////////////////////////////
 
-        /*$(document).on("pageshow","#tratamiento",function(){
+        $(document).on("pageshow","#tratamiento",function(){
 
+            console.log($.jStorage.get("motivo_atencion"));
+            var refMotivo = $.jStorage.get("motivo_atencion");
+
+            $('#btnNext4').attr('href', ('#' + refMotivo));
+
+
+
+        });
+
+
+
+
+
+        $(document).on("pageshow","#evaluacion_primaria",function(){
 
             if(frap != null){
                 parent.cargarEVALUACION_PRIMARIA();
@@ -213,22 +227,26 @@
             }
 
 
-        });*/
-
-
-
-
-
-        $(document).on("pageshow","#evaluacion_primaria",function(){
-
-            console.log($.jStorage.get("motivo_atencion"));
-             var refMotivo = $.jStorage.get("motivo_atencion");
-
-            $('#btnNext4').attr('href', ('#' + refMotivo));
 
 
 
         });
+
+        $(document).on("pageshow","#evaluacion_secundaria",function(){
+
+            if(frap != null){
+                parent.cargarEVALUACION_SECUNDARIA();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+            }
+
+
+        });
+
+
+
+
+
 
         function getURLParameter(name) {
             return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
@@ -288,7 +306,7 @@
             //console.log('dentro ' +currentId);
 
             //Manage motivo atencion
-            if( currentId == "evaluacion_primaria"){
+            if( currentId == "motivo_atencion"){
 
                 seccion_motivo  = $.jStorage.get("motivo_atencion");
                 console.log('dentro ' +currentId);

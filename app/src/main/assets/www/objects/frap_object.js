@@ -170,18 +170,13 @@ frap.auxiliares.DatosPaciente = function(){
 
 };
 
-
-
-
-
-
 frap.auxiliares.MediaFiliacion = function(){
     //this.iD_CTLG_MEDIA_FILIACION_ACCESORIOS = objAux.,
         this.iID_CTLG_MEDIA_FILIACION_CABELLO = objAux.iID_CTLG_MEDIA_FILIACION_CABELLO,
         this.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR = objAux.iID_CTLG_MEDIA_FILIACION_CABELLO_COLOR,
         this.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS = objAux.iID_CTLG_MEDIA_FILIACION_COLOR_OJOS,
         this.iID_CTLG_MEDIA_FILIACION_COLOR_PIEL = objAux.iID_CTLG_MEDIA_FILIACION_COLOR_PIEL,
-        this.iID_CTLG_MEDIA_FILIACION_COMPLEXION = objAux.iID_CTLG_MEDIA_FILIACION_COMPLEXION ,
+        this.iID_CTLG_MEDIA_FILIACION_COMPLEXION = objAux.iID_CTLG_MEDIA_FILIACION_COMPLEXION,
         this.iID_CTLG_MEDIA_FILIACION_NARIZ = objAux.iID_CTLG_MEDIA_FILIACION_NARIZ,
         this.iID_CTLG_MEDIA_FILIACION_PARTE_CUERPO = objAux.iID_CTLG_MEDIA_FILIACION_PARTE_CUERPO,
         //this.ID_CTLG_MEDIA_FILIACION_ROPA = objAux.ID_CTLG_MEDIA_FILIACION_ROPA,
@@ -196,6 +191,71 @@ frap.auxiliares.MotivoAtencion = function(){
     this.iID_CTLG_MOTIVO_ATENCION = objAux.iID_CTLG_MOTIVO_ATENCION
 
 };
+
+
+frap.auxiliares.EvaluacionPrimaria = function()
+{
+        this.iID_CTLG_NIVEL_CONCIENCIA = objAux.iID_CTLG_NIVEL_CONCIENCIA,
+        this.iID_CTLG_VENTILACION = objAux.iID_CTLG_VENTILACION,
+        this.iID_CTLG_CALIDAD_VENTILACION = objAux.iID_CTLG_CALIDAD_VENTILACION,
+        this.iID_CTLG_PULSOS = objAux.iID_CTLG_PULSOS,
+        this.iID_CTLG_COLORACION = objAux.iID_CTLG_COLORACION,
+        this.iID_CTLG_CONDICION = objAux.iID_CTLG_CONDICION,
+        this.iID_CTLG_TEMPERATURA = objAux.iID_CTLG_TEMPERATURA,
+        this.iPOSICION = objAux.iPOSICION,
+        this.iID__CTLG_PRIORIDAD = objAux.iID_CTLG_PRIORIDAD,
+        this.iID_CTLG_PULSOS_CALIDAD = objAux.iID_CTLG_PULSOS_CALIDAD,
+        this.iID_CTLG_RITMO = objAux.iID_CTLG_RITMO,
+        this.iID_CTLG_VIA_AEREA = objAux.iID_CTLG_VIA_AEREA
+};
+
+// every commented code must be uncommented by JC qhen is finish
+
+frap.auxiliares.EvaluacionSecundaria = function()
+{
+
+    //this.DIAGNOSTICO_ELECTROGRAFICO = objAux.DIAGNOSTICO_ELECTROGRAFICO;
+    //this.DERIVACIONES = objAux.DERIVACIONES;
+
+    this.iID_CTLG_GLASGOW_MOTRIZ = objAux.iID_CTLG_GLASGOW_MOTRIZ;
+    this.iID_CTLG_GLASGOW_VERBAL = objAux.iID_CTLG_GLASGOW_VERBAL;
+    this.iID_CTLG_GLASGOW_VISUAL = objAux.iID_CTLG_GLASGOW_VISUAL;
+    this.EVALUACION_GLASGOW = objAux.EVALUACION_GLASGOW;
+
+    this.iID_CTLG_SIGNOS_NEUROLOGICOS = objAux.iID_CTLG_SIGNOS_NEUROLOGICOS;
+    this.iPUPILAS_IZQUIERDA = objAux.iPUPILAS_IZQUIERDA;
+    this.iPUPILAS_DERECHA = objAux.iPUPILAS_DERECHA;
+    this.iRITMO = objAux.iRITMO;
+    this.iPERISTALSIS = objAux.iPERISTALSIS;
+
+    //this.iFRECUENCIA_CARDIACA = objAux.iFRECUENCIA_CARDIACA;
+    //this.iTEMPERATURA = objAux.iTEMPERATURA;
+    //this.iGLUCOMETRIA = objAux.iGLUCOMETRIA;
+};
+
+frap.auxiliares.Sampler = function()
+{
+    this.SINTOMAS = objAux.SINTOMAS;
+    this.ALERGIAS = objAux.ALERGIAS;
+    this.MEDICAMENTOS = objAux.MEDICAMENTOS;
+    this.PADECIMIENTOS = objAux.PADECIMIENTOS;
+    this.ULTIMA_COMIDA = objAux.ULTIMA_COMIDA;
+    this.EVENTOS_RELACIONADOS = objAux.EVENTOS_RELACIONADOS;
+};
+
+
+frap.auxiliares.SimbologiaDolor = function()
+{
+    // this.iAPARICION = objAux.iAPARICION;
+    this.LOCALIZACION = objAux.LOCALIZACION;
+    this.IRRADIACION = objAux.IRRADIACION;
+    this.CARACTERISTICAS = objAux.CARACTERISTICAS;
+    this.ALIVIO = objAux.ALIVIO;
+    this.HORA_INICIO = objAux.HORA_INICIO;
+    this.iINTENSIDAD = objAux.iINTENSIDAD;
+
+};
+
 
 
 
@@ -553,8 +613,8 @@ frap.cargas = {};
 
 frap.cargas.loadES_Factores = function (){
 
-    dataBase.onSuccess = function(tx, results) {
-       // console.log('adentro loadF');
+    var cb = function(tx, results) {
+        console.log('adentro loadF');
 
         var factores = {};
         var len = results.rows.length;
@@ -576,10 +636,15 @@ frap.cargas.loadES_Factores = function (){
         //console.log(frap.secciones.evaluacion_secundaria.factores);
 
         //frap.enviar();
+
+
+        estado_secciones['EVALUACION_SECUNDARIA'] = 1;
+
+        $.jStorage.set("estado_secciones", estado_secciones);
     };
 
 
-    dataBase.getTable('FACTORES', '*', " WHERE FRAP_ID ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
+    dataBase.getTableS('FACTORES', '*', " WHERE FRAP_ID ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
 };
 
 
@@ -594,7 +659,7 @@ frap.recuperacion['PACIENTE']= function(){
 
 
     //Aquí comienza mi edición @JC_Worthing
-    dataBase.onSuccess = function(tx, results)
+    var cb = function(tx, results)
     {
         var len = results.rows.length;
 
@@ -675,17 +740,12 @@ frap.recuperacion['PACIENTE']= function(){
     };
 
 
+    dataBase.getTableS('PACIENTE', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
 
-
-    dataBase.getTable('PACIENTE', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
+   // dataBase.getTable('PACIENTE', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
 
 };
 
-
-
-
-
-/*
 frap.recuperacion['MEDIA_FILIACION']= function(){
 
 
@@ -693,7 +753,7 @@ frap.recuperacion['MEDIA_FILIACION']= function(){
 
     console.log('dentro de la funcion media filiacion');
 
-    dataBase.onSuccess = function(tx, results)
+    var cb = function(tx, results)
     {
         var len = results.rows.length;
 
@@ -714,13 +774,7 @@ frap.recuperacion['MEDIA_FILIACION']= function(){
             objAux.iID_CTLG_MEDIA_FILIACION_PARTE_CUERPO = results.rows.item(0).ID_CTLG_MEDIA_FILIACION_PARTE_CUERPO;
 
 
-
-
-
             frap.secciones.media_filiacion = new frap.auxiliares.MediaFiliacion();
-
-
-            $.jStorage.set("frap", frap);
 
 
         }
@@ -728,20 +782,124 @@ frap.recuperacion['MEDIA_FILIACION']= function(){
 
 
     console.log('idFRAP'+idFRAP);
-    dataBase.getTable('MEDIA_FILIACION', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
+    //dataBase.getTable('MEDIA_FILIACION', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
+    dataBase.getTable('MEDIA_FILIACION', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb );
 
 };
 
-*/
 
 
-frap.recuperacion['EVALUACION_PRIMARIA'] = function(){
-    console.log('dentro de la funcion EVALUACION_PRIMARIA');
+
+frap.recuperacion['EVALUACION_PRIMARIA'] = function()
+{
+    var cb  = function(tx, results) {
+        var len = results.rows.length;
+
+        console.log('evaliuacion primaria');
+        console.log('idFRAP    '+ idFRAP);
+        console.log('TIPO_FRAP    '+ tipoFRAP);
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0) {
+
+
+            objAux.iID_CTLG_PRIORIDAD = results.rows.item(0).ID_CTLG_PRIORIDAD;
+            objAux.iID_CTLG_NIVEL_CONCIENCIA = results.rows.item(0).ID_CTLG_NIVEL_CONCIENCIA;
+            objAux.iID_CTLG_VIA_AEREA = results.rows.item(0).ID_CTLG_VIA_AEREA;
+            objAux.iID_CTLG_VENTILACION = results.rows.item(0).ID_CTLG_VENTILACION;
+            objAux.iID_CTLG_CALIDAD_VENTILACION = results.rows.item(0).ID_CTLG_CALIDAD_VENTILACION;
+            objAux.iID_CTLG_PULSOS = results.rows.item(0).ID_CTLG_PULSOS;
+            objAux.iID_CTLG_PULSOS_CALIDAD = results.rows.item(0).ID_CTLG_PULSOS_CALIDAD;
+            objAux.iID_CTLG_RITMO = results.rows.item(0).ID_CTLG_RITMO;
+            objAux.iID_CTLG_COLORACION = results.rows.item(0).ID_CTLG_COLORACION;
+            objAux.iID_CTLG_TEMPERATURA = results.rows.item(0).ID_CTLG_TEMPERATURA;
+            objAux.iID_CTLG_CONDICION = results.rows.item(0).ID_CTLG_CONDICION;
+            objAux.iPOSICION = results.rows.item(0).POSICION;
+
+            frap.secciones.evaluacion_primaria = new frap.auxiliares.EvaluacionPrimaria();
+        }
+    };
+
+    //dataBase.getTable('EVALUACION_PRIMARIA', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
+    dataBase.getTableS('EVALUACION_PRIMARIA', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
 };
+
+
+
+
+
 
 frap.recuperacion['EVALUACION_SECUNDARIA'] = function(){
+
     console.log('dentro de la funcion EVALUACION_SECUNDARIA');
+
+
+    var cb  = function(tx, results) {
+        var len = results.rows.length;
+
+        //console.log('evaliuacion secundaria');
+        console.log('idFRAP    '+ idFRAP);
+        console.log('TIPO_FRAP    '+ tipoFRAP);
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0) {
+
+            objAux.iAPARICION = results.rows.item(0).APARICION;
+            objAux.LOCALIZACION = results.rows.item(0).LOCALIZACION;
+            objAux.IRRADIACION = results.rows.item(0).IRRADIACION;
+            objAux.CARACTERISTICAS = results.rows.item(0).CARACTERISTICAS;
+            objAux.ALIVIO = results.rows.item(0).ALIVIO;
+            objAux.HORA_INICIO = results.rows.item(0).HORA_INICIO;
+            objAux.iINTENSIDAD = results.rows.item(0).INTENSIDAD;
+
+            objAux.SINTOMAS = results.rows.item(0).SINTOMAS;
+            objAux.ALERGIAS = results.rows.item(0).ALERGIAS;
+            objAux.MEDICAMENTOS = results.rows.item(0).MEDICAMENTOS;
+            objAux.PADECIMIENTOS = results.rows.item(0).PADECIMIENTOS;
+            objAux.ULTIMA_COMIDA = results.rows.item(0).ULTIMA_COMIDA;
+            objAux.EVENTOS_RELACIONADOS = results.rows.item(0).EVENTOS_RELACIONADOS;
+
+            objAux.DIAGNOSTICO_ELECTROGRAFICO = results.rows.item(0).DIAGNOSTICO_ELECTROGRAFICO;
+            objAux.DERIVACIONES = results.rows.item(0).DERIVACIONES;
+            objAux.iID_CTLG_GLASGOW_MOTRIZ = results.rows.item(0).ID_CTLG_GLASGOW_MOTRIZ;
+            objAux.iID_CTLG_GLASGOW_VERBAL = results.rows.item(0).ID_CTLG_GLASGOW_VERBAL;
+            objAux.iID_CTLG_GLASGOW_VISUAL = results.rows.item(0).ID_CTLG_GLASGOW_VISUAL;
+            objAux.EVALUACION_GLASGOW = results.rows.item(0).EVALUACION_GLASGOW;
+            objAux.iID_CTLG_SIGNOS_NEUROLOGICOS = results.rows.item(0).ID_CTLG_SIGNOS_NEUROLOGICOS;
+            objAux.iPUPILAS_IZQUIERDA = results.rows.item(0).PUPILAS_IZQUIERDA;
+            objAux.iPUPILAS_DERECHA = results.rows.item(0).PUPILAS_DERECHA;
+            objAux.iRITMO = results.rows.item(0).RITMO;
+            objAux.iPERISTALSIS = results.rows.item(0).PERISTALSIS;
+            objAux.iFRECUENCIA_CARDIACA = results.rows.item(0).FRECUENCIA_CARDIACA;
+            objAux.iTEMPERATURA = results.rows.item(0).TEMPERATURA;
+            objAux.iGLUCOMETRIA = results.rows.item(0).GLUCOMETRIA;
+
+
+            console.log(objAux);
+            frap.secciones.sampler = new frap.auxiliares.Sampler();
+            frap.secciones.simbologia_dolor = new frap.auxiliares.SimbologiaDolor();
+            frap.secciones.evaluacion_secundaria = new frap.auxiliares.EvaluacionSecundaria();
+
+            console.log(frap);
+        }
+    };
+
+    //dataBase.getTable('EVALUACION_PRIMARIA', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
+    dataBase.getTableS('EVALUACION_SECUNDARIA', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+
+
 };
+
+
+
 
 frap.recuperacion['TRATAMIENTO'] = function(){
     console.log('dentro de la funcion TRATAMIENTO');

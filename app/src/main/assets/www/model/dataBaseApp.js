@@ -635,29 +635,8 @@ dataBase.createSchema = function(){
         tx.executeSql(sql_media_filiacion, [], dataBase.onSuccess, dataBase.onError);
 
         dataBase.tableName ='sql_paciente';
-        tx.executeSql(sql_paciente,[], dataBase.onfunction borrarLocal(table, where){
+        tx.executeSql(sql_paciente,[], dataBase.onSuccess, dataBase.onError);
 
-    var query = 'DELETE FROM '+table + where;
-    //alert(query);
-
-    var db = window.openDatabase(shortName, version, displayName, maxSize);
-
-     db.transaction(
-             function(transaction){ // DATABASE TRANSACTION
-
-                    //alert(query);
-                    transaction.executeSql(query);
-             },
-             function(err){  // ON ERROR
-                 //alert('errro al eliminar' + err.code);
-             },
-             function(){  // ON SUCCESS
-                // alert('Se elimino el registro');
-             }
-                     );
-    return resultado;
-
-}Success, dataBase.onError);
 
         dataBase.tableName ='sql_evaluacion_primaria';
         tx.executeSql(sql_evaluacion_primaria,[], dataBase.onSuccess, dataBase.onError);
@@ -780,7 +759,7 @@ dataBase.borrarRegistroCB = function (table, where, CB){
     //alert(query);
 
     dataBase.db.transaction(function(tx){
-        tx.executeSql(query,[],  dataBase.onSuccess, CB);
+        tx.executeSql(query,[],  CB, dataBase.onError);
     });
 
 
@@ -856,6 +835,7 @@ dataBase.saveTableA =  function(table, elements, cb){
     });
     var query = 'INSERT INTO ' + table + '('+fields+') VALUES('+ values +')';
 
+    console.log('query'+query);
     //alert(query);
 
     dataBase.tableName = table;

@@ -343,6 +343,8 @@ function homeVehicules(){
         // Termina datos del paciente
         iframe.find("#btnNext1").click(function()
         {
+            dataBase.borrarRegistro('PACIENTE', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
+
             guardarMediaFiliacion();
             guardarPaciente();
             deltaZ('slide', 'datos_paciente', 'menu-datos-paciente', iframe.find("#btnNext1").attr('data-state'));
@@ -351,6 +353,7 @@ function homeVehicules(){
         // termina evaluacion primaria
         iframe.find("#btnNext2").click(function()
         {
+            dataBase.borrarRegistro('EVALUACION_PRIMARIA', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardarEvaluacion_primaria();
            // $('#menu-evaluacion-primaria').css("background", "#2DCC70");
             deltaZ('slide', 'evaluacion_primaria', 'menu-evaluacion-primaria', iframe.find("#btnNext2").attr('data-state'));
@@ -359,7 +362,9 @@ function homeVehicules(){
         // termina evaluacion secundaria
         iframe.find("#btnNext3").click(function()
         {
+            dataBase.borrarRegistro('EVALUACION_SECUNDARIA', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardarEvaluacion_secundaria();
+
             deltaZ('slide', 'evaluacion_secundaria', 'menu-evaluacion-secundaria', iframe.find("#btnNext3").attr('data-state'));
         });
 
