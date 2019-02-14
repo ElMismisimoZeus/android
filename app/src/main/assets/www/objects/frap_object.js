@@ -50,6 +50,16 @@ frap.secciones.ginecologico = [];
 
 
 
+
+frap.secciones.insumosBasicos = [];
+frap.secciones.insumosMedio = [];
+frap.secciones.insumosAvanzados = [];
+
+
+
+
+
+
 // Acciones de inicialización
 //============================================================================
 //============================================================================
@@ -254,6 +264,235 @@ frap.auxiliares.SimbologiaDolor = function()
     this.HORA_INICIO = objAux.HORA_INICIO;
     this.iINTENSIDAD = objAux.iINTENSIDAD;
 
+};
+
+
+
+
+
+// Tratamiento
+// ============================================================================================
+frap.auxiliares.MANEJO_VIA_AEREA = function()
+{
+    this.iASPIRACION = objAux.iASPIRACION;
+    this.iID_CTLG_MANEJO_VIA_AEREA = objAux.iID_CTLG_MANEJO_VIA_AEREA;
+    this.iID_INTUBACION = objAux.ID_INTUBACION;
+    this.iID_CTLG_DISPOSITIVO_APERTURA = objAux.iID_CTLG_DISPOSITIVO_APERTURA;
+
+};
+
+
+frap.auxiliares.ASISTENCIA_VENTILATORIA = function()
+{
+
+    this.iID_CTLG_DISPOSITIVO = objAux.iID_CTLG_DISPOSITIVO;
+    this.iVOLUMEN = objAux.iVOLUMEN;
+    this.MODALIDAD_VENTILATORIA = objAux.MODALIDAD_VENTILATORIA;
+    this.iFRECUENCIA = objAux.iFRECUENCIA;
+
+};
+
+
+
+frap.auxiliares.OXIGENO_TERAPIA = function()
+{
+    this.iLITROS_MINUTO = objAux.iLITROS_MINUTO;
+    this.iID_OXIGENO_TERAPIA = objAux.iID_OXIGENO_TERAPIA;
+    this.iID_CTLG_OXIGENOTERAPIA = objAux.iID_CTLG_OXIGENOTERAPIA;
+};
+
+
+frap.auxiliares.DESCOMPRESION_PLEURAL = function()
+{
+    this.iID_CTLG_HEMITORAX = objAux.iID_CTLG_HEMITORAX;
+    this.iCALIBRE = objAux.iCALIBRE;
+
+};
+
+
+frap.auxiliares.CONTROL_HEMORRAGIAS = function()
+{
+    this.HORA_COLOCACION = objAux.HORA_COLOCACION;
+    this.iID_CTLG_CONTROL_HEMORAGIAS = objAux.iID_CTLG_CONTROL_HEMORAGIAS;
+
+};
+
+
+
+frap.auxiliares.ACCESO_CIRCULATORIO = function()
+{
+    this.iID_CTLG_VIA_ACCESO = objAux.iID_CTLG_VIA_ACCESO;
+    this.iID_CTLG_ZONA_COLOCACION = objAux.iID_CTLG_ZONA_COLOCACION;
+    this.iID_CTLG_SOLUCION = objAux.iID_CTLG_SOLUCION;
+    this.iBOMBA_INFUSION = objAux.iBOMBA_INFUSION;
+    this.iCALIBRE = objAux.iCALIBRE;
+    this.iVOLUMEN_INFUNDIDO = objAux.iVOLUMEN_INFUNDIDO;
+
+};
+
+
+
+frap.auxiliares.INTERVENCIONES = function()
+{
+    this.iCONTROL_CERVICAL = objAux.iCONTROL_CERVICAL;
+    this.iEMPAQUETAMIENTO = objAux.iEMPAQUETAMIENTO;
+    this.iCURACION_VENDAJE = objAux.iCURACION_VENDAJE;
+    this.iINMOVILIZACION_EXTREMIDADES = objAux.iINMOVILIZACION_EXTREMIDADES;
+
+};
+
+
+
+frap.auxiliares.TERAPIA_ELECTRICA = function()
+{
+    this.iDESCARGAS = objAux.iDESCARGAS;
+    this.iJOULES = objAux.iJOULES;
+    this.iMARCAPASOS_TRANSCUTANEO = objAux.iMARCAPASOS_TRANSCUTANEO;
+    this.iMA = objAux.iMA;
+    this.iFRECUENCIA = objAux.iFRECUENCIA;
+};
+
+
+
+frap.auxiliares.TRATAMIENTO = function()
+{
+    this.iID_TRATAMIENTO = objAux.iID_TRATAMIENTO;
+    this.OBSERVACIONES = objAux.OBSERVACIONES;
+
+};
+
+
+
+
+
+
+
+
+
+
+// added by JC
+
+frap.auxiliares.Ginecologico = function()
+{
+    this.iGESTA = objAux.iGESTA;
+    this.iPARA = objAux.iPARA;
+    this.iCESARIA = objAux.iCESARIA;
+    this.iABORTOS = objAux.iABORTOS;
+    this.iSEMANAS_GESTACION = objAux.iSEMANAS_GESTACION;
+    this.FUM = objAux.FUM;
+    this.HORA_INICIO_CONTRACCIONES = objAux.HORA_INICIO_CONTRACCIONES;
+    this.iFRECUENCIA = objAux.iFRECUENCIA;
+    this.iDURACION = objAux.iDURACION;
+
+    this.HORA_NACIOMIENTO = objAux.HORA_NACIOMIENTO;
+    this.iPLACENTA_EXPULSADA = objAux.iPLACENTA_EXPULSADA;
+    this.LUGAR_NACIMIENTO = objAux.LUGAR_NACIMIENTO;
+    this.iPRODUCTO_VIVO = objAux.iPRODUCTO_VIVO;
+    this.iSEXO = objAux.iSEXO;
+    this.iCONTROL_PARENTAL = objAux.iCONTROL_PARENTAL;
+    this.iEMBARAZO_ALTO_RIESGO = objAux.iEMBARAZO_ALTO_RIESGO;
+    this.iESQUEMA_MADURACION_PULMONAR = objAux.iESQUEMA_MADURACION_PULMONAR;
+    this.iAPGAR1 = objAux.iAPGAR1;
+    this.iAPGAR5 = objAux.iAPGAR5;
+    this.iAPGAR10 = objAux.iAPGAR10;
+    this.iSILVERMAN = objAux.iSILVERMAN;
+    this.iMEMBRANAS_INTEGRAS = objAux.iMEMBRANAS_INTEGRAS;
+    this.OBSERVACIONES = objAux.OBSERVACIONES;
+};
+
+
+frap.auxiliares.Clinico = function()
+{
+    this.DIAGNOSTICO_SINDROMATICO = objAux.DIAGNOSTICO_SINDROMATICO;
+    this.iID_CTLG_ORIGEN_PROBABLE = objAux.iID_CTLG_ORIGEN_PROBABLE;
+    this.OBSERVACIONES = objAux.OBSERVACIONES;
+};
+
+frap.auxiliares.Trauma = function()
+{
+    this.iINTENCIONALIDAD = objAux.iINTENCIONALIDAD;
+    this.iID_CTLG_AGENTE_CAUSAL_GENERAL = objAux.iID_CTLG_AGENTE_CAUSAL_GENERAL;
+    this.iID_CTLG_AGENTE_CAUSAL_ESPECIFICO = objAux.iID_CTLG_AGENTE_CAUSAL_ESPECIFICO;
+    this.OBSERVACIONES = objAux.OBSERVACIONES;
+};
+
+frap.auxiliares.Vial = function()
+{
+    this.iID_CTLG_TIPO_ACCIDENTE_VIAL = objAux.iID_CTLG_TIPO_ACCIDENTE_VIAL;
+    this.iID_CTLG_TIPO_LESIONADO = objAux.iID_CTLG_TIPO_LESIONADO;
+    this.iID_CTLG_ACTOR_VIAL = objAux.iID_CTLG_ACTOR_VIAL;
+    this.iID_CTLG_IMPACTO = objAux.iID_CTLG_IMPACTO;
+    this.iID_CTLG_VOLANTE = objAux.iID_CTLG_VOLANTE;
+    this.iID_CTLG_PARABRISAS = objAux.iID_CTLG_PARABRISAS;
+    this.iID_CTLG_BOLSA_AIRE = objAux.iID_CTLG_BOLSA_AIRE;
+    this.iID_CTLG_CINTURON_SEGURIDAD = objAux.iID_CTLG_CINTURON_SEGURIDAD;
+    this.iEYECTADO = objAux.iEYECTADO;
+    this.iDECESOS = objAux.iDECESOS;
+    this.iPRENSADO = objAux.iPRENSADO;
+    this.iCASCO = objAux.iCASCO;
+    this.OBSERVACIONES = objAux.OBSERVACIONES;
+};
+
+
+
+//insumos added by JC
+
+frap.auxiliares.Insumos_Nivel_Basico = function()
+{
+    this.SONDA_ASPIRACION = objAux.SONDA_ASPIRACION;
+    this.PUNTAS_NASALES = objAux.PUNTAS_NASALES;
+    this.MASCARILLA_ADULTO = objAux.MASCARILLA_ADULTO;
+    this.PUNZOCATH_14 = objAux.PUNZOCATH_14;
+    this.PUNZOCATH_16 = objAux.PUNZOCATH_16;
+    this.PUNZOCATH_18 = objAux.PUNZOCATH_18;
+    this.PUNZOCATH_20 = objAux.PUNZOCATH_20;
+    this.PUNZOCATH_22 = objAux.PUNZOCATH_22;
+    this.VENOPACK_NORMOGOTERO = objAux.VENOPACK_NORMOGOTERO;
+    this.JERINGA_5_CC = objAux.JERINGA_5_CC;
+    this.JERINGA_10_CC = objAux.JERINGA_10_CC;
+    this.GUANTES = objAux.GUANTES;
+    this.GASA_SIMPLE = objAux.GASA_SIMPLE;
+    this.VENDA_ELASTICA_5_CM = objAux.VENDA_ELASTICA_5_CM;
+    this.VENDA_ELASTICA_10_CM = objAux.VENDA_ELASTICA_10_CM;
+    this.VENDA_ELASTICA_30_CM = objAux.VENDA_ELASTICA_30_CM;
+    this.TIRA_REACTIVA = objAux.TIRA_REACTIVA;
+    this.LANCETA = objAux.LANCETA;
+    this.NaCL_9 = objAux.NaCL_9;
+    this.HARTMANN = objAux.HARTMANN;
+    this.GLUCOSA_5 = objAux.GLUCOSA_5;
+    this.GLUCOSA_10 = objAux.GLUCOSA_10;
+    this.GLUCOSA_50 = objAux.GLUCOSA_50;
+    this.MIXTA = objAux.MIXTA;
+    this.SABANA_DESECHABLE = objAux.SABANA_DESECHABLE;
+    this.EQUIPO_PARTO = objAux.EQUIPO_PARTO;
+};
+
+frap.auxiliares.Insumos_Nivel_Medio = function()
+{
+    this.TUBO_ENDROTRAQUEAL_75 = objAux.TUBO_ENDROTRAQUEAL_75;
+    this.TUBO_ENDROTRAQUEAL_8 = objAux.TUBO_ENDROTRAQUEAL_8;
+    this.TUBO_ENDROTRAQUEAL_85 = objAux.TUBO_ENDROTRAQUEAL_85;
+    this.MASCARILLA_LARINGEA = objAux.MASCARILLA_LARINGEA;
+    this.MASCARILLA_PEDIATRICA = objAux.MASCARILLA_PEDIATRICA;
+    this.CANULA_OROFARINGEA = objAux.CANULA_OROFARINGEA;
+    this.VENOPACK_MICROGOTERO = objAux.VENOPACK_MICROGOTERO;
+    this.JERINGA_INSULINA = objAux.JERINGA_INSULINA;
+    this.CLAMPS_UMBILICALES = objAux.CLAMPS_UMBILICALES;
+    this.ELECTRODOS_ADULTO = objAux.ELECTRODOS_ADULTO;
+    this.ELECTRODOS_PEDIATRICOS = objAux.ELECTRODOS_PEDIATRICOS;
+    this.FORMATO_REGISTRO_ATENCION_PREHOSPITALARIA = objAux.FORMATO_REGISTRO_ATENCION_PREHOSPITALARIA;
+};
+
+frap.auxiliares.Insumos_Nivel_Avanzado = function()
+{
+    this.TUBO_ENDROTRAQUEAL_35 = objAux.TUBO_ENDROTRAQUEAL_35;
+    this.TUBO_ENDROTRAQUEAL_4 = objAux.TUBO_ENDROTRAQUEAL_4;
+    this.TROCAR_TORACICO_14 = objAux.TROCAR_TORACICO_14;
+    this.TROCAR_TORACICO_16 = objAux.TROCAR_TORACICO_16;
+    this.TROCAR_TORACICO_18 = objAux.TROCAR_TORACICO_18;
+    this.SONDA_NASOGASTRICA = objAux.SONDA_NASOGASTRICA;
+    this.PARCHES_MARCAPASOS = objAux.PARCHES_MARCAPASOS;
+    this.OTRO = objAux.OTRO;
 };
 
 
@@ -902,8 +1141,424 @@ frap.recuperacion['EVALUACION_SECUNDARIA'] = function(){
 
 
 frap.recuperacion['TRATAMIENTO'] = function(){
+
     console.log('dentro de la funcion TRATAMIENTO');
+
+
+    var cb  = function(tx, results) {
+        var len = results.rows.length;
+
+        //console.log('evaliuacion secundaria');
+        console.log('idFRAP    '+ idFRAP);
+        console.log('TIPO_FRAP    '+ tipoFRAP);
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0) {
+
+
+            objAux.iASPIRACION = results.rows.item(0).ASPIRACION;
+            objAux.iID_CTLG_MANEJO_VIA_AEREA = results.rows.item(0).ID_CTLG_MANEJO_VIA_AEREA;
+            objAux.iID_INTUBACION = results.rows.item(0).ID_INTUBACION;
+            objAux.iID_CTLG_DISPOSITIVO_APERTURA = results.rows.item(0).ID_CTLG_DISPOSITIVO_APERTURA;
+            objAux.iID_CTLG_MANEJO_VIA_AEREA = results.rows.item(0).ID_CTLG_MANEJO_VIA_AEREA;
+            objAux.iID_CTLG_DISPOSITIVO = results.rows.item(0).ID_CTLG_DISPOSITIVO;
+            objAux.iVOLUMEN = results.rows.item(0).VOLUMEN;
+            objAux.MODALIDAD_VENTILATORIA = results.rows.item(0).MODALIDAD_VENTILATORIA;
+            objAux.iLITROS_MINUTO = results.rows.item(0).LITROS_MINUTO;
+            objAux.iID_OXIGENO_TERAPIA = results.rows.item(0).ID_OXIGENO_TERAPIA;
+            objAux.iID_CTLG_OXIGENOTERAPIA = results.rows.item(0).ID_CTLG_OXIGENOTERAPIA;
+            objAux.iID_CTLG_HEMITORAX = results.rows.item(0).ID_CTLG_HEMITORAX;
+            objAux.HORA_COLOCACION = results.rows.item(0).HORA_COLOCACION;
+            objAux.iID_CTLG_CONTROL_HEMORAGIAS = results.rows.item(0).ID_CTLG_CONTROL_HEMORAGIAS;
+            objAux.iID_CTLG_VIA_ACCESO = results.rows.item(0).ID_CTLG_VIA_ACCESO;
+            objAux.iID_CTLG_ZONA_COLOCACION = results.rows.item(0).ID_CTLG_ZONA_COLOCACION;
+            objAux.iID_CTLG_SOLUCION = results.rows.item(0).ID_CTLG_SOLUCION;
+            objAux.iBOMBA_INFUSION = results.rows.item(0).BOMBA_INFUSION;
+            objAux.iCALIBRE = results.rows.item(0).CALIBRE;
+            objAux.iVOLUMEN_INFUNDIDO = results.rows.item(0).VOLUMEN_INFUNDIDO;
+            objAux.iCONTROL_CERVICAL = results.rows.item(0).CONTROL_CERVICAL;
+            objAux.iEMPAQUETAMIENTO = results.rows.item(0).EMPAQUETAMIENTO;
+            objAux.iCURACION_VENDAJE = results.rows.item(0).CURACION_VENDAJE;
+            objAux.iINMOVILIZACION_EXTREMIDADES = results.rows.item(0).INMOVILIZACION_EXTREMIDADES;
+            objAux.iDESCARGAS = results.rows.item(0).DESCARGAS;
+            objAux.iJOULES = results.rows.item(0).JOULES;
+            objAux.iMARCAPASOS_TRANSCUTANEO = results.rows.item(0).MARCAPASOS_TRANSCUTANEO;
+            objAux.iMA = results.rows.item(0).MA;
+            objAux.iFRECUENCIA = results.rows.item(0).FRECUENCIA;
+            objAux.iID_TRATAMIENTO = results.rows.item(0).ID_TRATAMIENTO;
+            objAux.OBSERVACIONES = results.rows.item(0).OBSERVACIONES;
+
+
+
+            console.log(objAux);
+
+            frap.secciones.manejo_via_aerea = new frap.auxiliares.MANEJO_VIA_AEREA();
+            frap.secciones.asistencia_ventilatoria = new frap.auxiliares.ASISTENCIA_VENTILATORIA();
+            frap.secciones.oxigenoterapia = new frap.auxiliares.OXIGENO_TERAPIA();
+            frap.secciones.desc_ple = new frap.auxiliares.DESCOMPRESION_PLEURAL();
+            frap.secciones.control_hemorragias = new frap.auxiliares.CONTROL_HEMORRAGIAS();
+            frap.secciones.acceso_circulatorio = new frap.auxiliares.ACCESO_CIRCULATORIO();
+            frap.secciones.intervenciones = new frap.auxiliares.INTERVENCIONES();
+            frap.secciones.terapia_electrica = new frap.auxiliares.TERAPIA_ELECTRICA();
+
+            frap.secciones.tratamiento = new frap.auxiliares.TRATAMIENTO();
+
+            console.log(frap);
+        }
+    };
+
+
+    dataBase.getTableS('TRATAMIENTO', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
 };
+
+
+
+
+frap.recuperacion['CLINICO'] = function()
+{
+
+    console.log('saca clinico');
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0)
+        {
+            objAux.DIAGNOSTICO_SINDROMATICO = results.rows.item(0).DIAGNOSTICO_SINDROMATICO;
+            objAux.iID_CTLG_ORIGEN_PROBABLE = results.rows.item(0).ID_CTLG_ORIGEN_PROBABLE;
+            objAux.OBSERVACIONES = results.rows.item(0).OBSERVACIONES;
+
+
+            frap.secciones.clinico = new frap.auxiliares.Clinico();
+
+
+            console.log(frap);
+
+            //$.jStorage.set("frap", frap);
+
+        }
+
+        //console.log('en rescate factores');
+        //console.log(frap.secciones.evaluacion_secundaria.factores);
+
+        //frap.enviar();
+    };
+
+    dataBase.getTableS('CLINICO', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+
+frap.recuperacion['TRAUMA'] = function()
+{
+
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0)
+        {
+            objAux.iINTENCIONALIDAD = results.rows.item(0).INTENCIONALIDAD;
+            objAux.iID_CTLG_AGENTE_CAUSAL_GENERAL = results.rows.item(0).ID_CTLG_AGENTE_CAUSAL_GENERAL;
+            objAux.iID_CTLG_AGENTE_CAUSAL_ESPECIFICO = results.rows.item(0).ID_CTLG_AGENTE_CAUSAL_ESPECIFICO;
+            objAux.OBSERVACIONES = results.rows.item(0).OBSERVACIONES;
+
+            frap.secciones.trauma = new frap.auxiliares.Trauma();
+
+            console.log(frap);
+
+            //$.jStorage.set("frap", frap);
+
+        }
+
+
+    };
+
+    dataBase.getTableS('TRAUMA', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+
+
+frap.recuperacion['VIAL'] = function()
+{
+
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0)
+        {
+            objAux.iID_CTLG_TIPO_ACCIDENTE_VIAL = results.rows.item(0).ID_CTLG_TIPO_ACCIDENTE_VIAL;
+            objAux.iID_CTLG_TIPO_LESIONADO = results.rows.item(0).ID_CTLG_TIPO_LESIONADO;
+            objAux.iID_CTLG_ACTOR_VIAL = results.rows.item(0).ID_CTLG_ACTOR_VIAL;
+            objAux.iID_CTLG_ATROPELLADO_POR = results.rows.item(0).ID_CTLG_ATROPELLADO_POR;
+            objAux.iID_CTLG_IMPACTO = results.rows.item(0).ID_CTLG_IMPACTO;
+            objAux.iID_CTLG_VOLANTE = results.rows.item(0).ID_CTLG_VOLANTE;
+            objAux.iID_CTLG_PARABRISAS = results.rows.item(0).ID_CTLG_PARABRISAS;
+            objAux.iID_CTLG_BOLSA_AIRE = results.rows.item(0).ID_CTLG_BOLSA_AIRE;
+            objAux.iID_CTLG_CINTURON_SEGURIDAD = results.rows.item(0).ID_CTLG_CINTURON_SEGURIDAD;
+            objAux.iEYECTADO = results.rows.item(0).EYECTADO;
+            objAux.iDECESOS = results.rows.item(0).DECESOS;
+            objAux.iPRENSADO = results.rows.item(0).PRENSADO;
+            objAux.iCASCO = results.rows.item(0).CASCO;
+            objAux.OBSERVACIONES = results.rows.item(0).OBSERVACIONES;
+
+            frap.secciones.vial = new frap.auxiliares.Vial();
+
+            console.log(frap);
+
+            //$.jStorage.set("frap", frap);
+
+        }
+
+
+    };
+
+    dataBase.getTableS('VIAL', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+
+frap.recuperacion['GINECOLOGICO'] = function()
+{
+
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0)
+        {
+
+            objAux.iGESTA = results.rows.item(0).GESTA;
+            objAux.iPARA = results.rows.item(0).PARA;
+            objAux.iCESARIA = results.rows.item(0).CESARIA;
+            objAux.iABORTOS = results.rows.item(0).ABORTOS;
+            objAux.iSEMANAS_GESTACION = results.rows.item(0).SEMANAS_GESTACION;
+            objAux.FUM = results.rows.item(0).FUM;
+            objAux.HORA_INICIO_CONTRACCIONES = results.rows.item(0).HORA_INICIO_CONTRACCIONES;
+            objAux.iFRECUENCIA = results.rows.item(0).FRECUENCIA;
+            objAux.iDURACION = results.rows.item(0).DURACION;
+
+
+            objAux.HORA_NACIOMIENTO = results.rows.item(0).HORA_NACIOMIENTO;
+            objAux.iPLACENTA_EXPULSADA = results.rows.item(0).PLACENTA_EXPULSADA;
+            objAux.LUGAR_NACIMIENTO = results.rows.item(0).LUGAR_NACIMIENTO;
+            objAux.iPRODUCTO_VIVO = results.rows.item(0).PRODUCTO_VIVO;
+            objAux.iSEXO = results.rows.item(0).SEXO;
+            objAux.iCONTROL_PARENTAL = results.rows.item(0).CONTROL_PARENTAL;
+            objAux.iEMBARAZO_ALTO_RIESGO = results.rows.item(0).EMBARAZO_ALTO_RIESGO;
+            objAux.iESQUEMA_MADURACION_PULMONAR = results.rows.item(0).ESQUEMA_MADURACION_PULMONAR;
+            objAux.iAPGAR1 = results.rows.item(0).APGAR1;
+            objAux.iAPGAR5 = results.rows.item(0).APGAR5;
+            objAux.iAPGAR10 = results.rows.item(0).APGAR10;
+            objAux.iSILVERMAN = results.rows.item(0).SILVERMAN;
+            objAux.iMEMBRANAS_INTEGRAS = results.rows.item(0).MEMBRANAS_INTEGRAS;
+            objAux.OBSERVACIONES = results.rows.item(0).OBSERVACIONES;
+
+
+
+            frap.secciones.ginecologico = new frap.auxiliares.Ginecologico();
+
+
+            console.log(frap);
+
+            //$.jStorage.set("frap", frap);
+
+        }
+
+        //console.log('en rescate factores');
+        //console.log(frap.secciones.evaluacion_secundaria.factores);
+
+        //frap.enviar();
+    };
+
+    dataBase.getTableS('GINECOLOGICO', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+
+
+
+
+//insumos added by JC
+
+
+frap.recuperacion['INSUMOS_NIVEL_BASICO'] = function()
+{
+    console.log("en recuperacion de insumos_basicos de FRAP_OBJECT");
+
+    console.log('dentro de la funcion paciente');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
+
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0)
+        {
+            objAux.SONDA_ASPIRACION = results.rows.item(0).SONDA_ASPIRACION;
+            objAux.PUNTAS_NASALES = results.rows.item(0).PUNTAS_NASALES;
+            objAux.MASCARILLA_ADULTO = results.rows.item(0).MASCARILLA_ADULTO;
+            objAux.PUNZOCATH_14 = results.rows.item(0).PUNZOCATH_14;
+            objAux.PUNZOCATH_16 = results.rows.item(0).PUNZOCATH_16;
+            objAux.PUNZOCATH_18 = results.rows.item(0).PUNZOCATH_18;
+            objAux.PUNZOCATH_20 = results.rows.item(0).PUNZOCATH_20;
+            objAux.PUNZOCATH_22 = results.rows.item(0).PUNZOCATH_22;
+            objAux.VENOPACK_NORMOGOTERO = results.rows.item(0).VENOPACK_NORMOGOTERO;
+            objAux.JERINGA_5_CC = results.rows.item(0).JERINGA_5_CC;
+            objAux.JERINGA_10_CC = results.rows.item(0).JERINGA_10_CC;
+            objAux.GUANTES = results.rows.item(0).GUANTES;
+            objAux.GASA_SIMPLE = results.rows.item(0).GASA_SIMPLE;
+            objAux.VENDA_ELASTICA_5_CM = results.rows.item(0).VENDA_ELASTICA_5_CM;
+            objAux.VENDA_ELASTICA_10_CM = results.rows.item(0).VENDA_ELASTICA_10_CM;
+            objAux.VENDA_ELASTICA_30_CM = results.rows.item(0).VENDA_ELASTICA_30_CM;
+            objAux.TIRA_REACTIVA = results.rows.item(0).TIRA_REACTIVA;
+            objAux.LANCETA = results.rows.item(0).LANCETA;
+            objAux.NaCL_9 = results.rows.item(0).NaCL_9;
+            objAux.HARTMANN = results.rows.item(0).HARTMANN;
+            objAux.GLUCOSA_5 = results.rows.item(0).GLUCOSA_5;
+            objAux.GLUCOSA_10 = results.rows.item(0).GLUCOSA_10;
+            objAux.GLUCOSA_50 = results.rows.item(0).GLUCOSA_50;
+            objAux.MIXTA = results.rows.item(0).MIXTA;
+            objAux.SABANA_DESECHABLE = results.rows.item(0).SABANA_DESECHABLE;
+            objAux.EQUIPO_PARTO = results.rows.item(0).EQUIPO_PARTO;
+
+            frap.secciones.insumosBasicos = new frap.auxiliares.Insumos_Nivel_Basico();
+
+
+            console.log(frap);
+
+            //$.jStorage.set("frap", frap);
+
+        }
+    };
+
+    dataBase.getTableS('INSUMOS_NIVEL_BASICO', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+frap.recuperacion['INSUMOS_NIVEL_INTERMEDIO'] = function()
+{
+    console.log("en recuperacion de insumos_medios de FRAP_OBJECT");
+
+    console.log('dentro de la funcion paciente');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
+
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0)
+        {
+            objAux.TUBO_ENDROTRAQUEAL_75 = results.rows.item(0).TUBO_ENDROTRAQUEAL_75;
+            objAux.TUBO_ENDROTRAQUEAL_8 = results.rows.item(0).TUBO_ENDROTRAQUEAL_8;
+            objAux.TUBO_ENDROTRAQUEAL_85 = results.rows.item(0).TUBO_ENDROTRAQUEAL_85;
+            objAux.MASCARILLA_LARINGEA = results.rows.item(0).MASCARILLA_LARINGEA;
+            objAux.MASCARILLA_PEDIATRICA = results.rows.item(0).MASCARILLA_PEDIATRICA;
+            objAux.CANULA_OROFARINGEA = results.rows.item(0).CANULA_OROFARINGEA;
+            objAux.VENOPACK_MICROGOTERO = results.rows.item(0).VENOPACK_MICROGOTERO;
+            objAux.JERINGA_INSULINA = results.rows.item(0).JERINGA_INSULINA;
+            objAux.CLAMPS_UMBILICALES = results.rows.item(0).CLAMPS_UMBILICALES;
+            objAux.ELECTRODOS_ADULTO = results.rows.item(0).ELECTRODOS_ADULTO;
+            objAux.ELECTRODOS_PEDIATRICOS = results.rows.item(0).ELECTRODOS_PEDIATRICOS;
+            objAux.FORMATO_REGISTRO_ATENCION_PREHOSPITALARIA = results.rows.item(0).FORMATO_REGISTRO_ATENCION_PREHOSPITALARIA;
+
+
+            frap.secciones.insumosMedio = new frap.auxiliares.Insumos_Nivel_Medio();
+
+        }
+
+
+
+        console.log(frap);
+
+        //$.jStorage.set("frap", frap);
+    };
+
+    dataBase.getTableS('INSUMOS_NIVEL_INTERMEDIO', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+frap.recuperacion['INSUMOS_NIVEL_AVANZADO'] = function()
+{
+    console.log("en recuperacion de insumos_avanzado de FRAP_OBJECT");
+
+    console.log('dentro de la funcion paciente');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
+
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0)
+        {
+            objAux.TUBO_ENDROTRAQUEAL_35 = results.rows.item(0).TUBO_ENDROTRAQUEAL_35;
+            objAux.TUBO_ENDROTRAQUEAL_4 = results.rows.item(0).TUBO_ENDROTRAQUEAL_4;
+            objAux.TROCAR_TORACICO_14 = results.rows.item(0).TROCAR_TORACICO_14;
+            objAux.TROCAR_TORACICO_16 = results.rows.item(0).TROCAR_TORACICO_16;
+            objAux.TROCAR_TORACICO_18 = results.rows.item(0).TROCAR_TORACICO_18;
+            objAux.SONDA_NASOGASTRICA = results.rows.item(0).SONDA_NASOGASTRICA;
+            objAux.PARCHES_MARCAPASOS = results.rows.item(0).PARCHES_MARCAPASOS;
+            objAux.OTRO = results.rows.item(0).OTRO;
+
+
+            frap.secciones.insumosAvanzados = new frap.auxiliares.Insumos_Nivel_Avanzado();
+
+        }
+
+        console.log(frap);
+
+        //$.jStorage.set("frap", frap);
+    };
+
+    dataBase.getTableS('INSUMOS_NIVEL_AVANZADO', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1220,8 +1875,13 @@ frap.enviar = function() {
                         console.log(data.status);
                         console.log(data.validation);
                         console.log(data.number);
+                        if(data.status){
+                            frap.secciones.frap =  new frap.initFRAP(data.status, data.validation, data.number);
+                        }else{
+                            frap.secciones.frap =  new frap.initFRAP('true', '22222', '23');
+                        }
 
-                        frap.secciones.frap =  new frap.initFRAP(data.status, data.validation, data.number);
+                        //frap.secciones.frap =  new frap.initFRAP(data.status, data.validation, data.number);
                         frap_elementos["FRAP"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.frap};
 
                         console.log('fiajte frap');
@@ -1367,5 +2027,14 @@ frap.enviar = function() {
         }
 
     });
+
+};
+
+
+frap.commit = new function(){
+
+};
+
+frap.set = new function(){
 
 };

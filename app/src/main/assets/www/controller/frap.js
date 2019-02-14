@@ -304,6 +304,7 @@ function cargarMEDIA_FILIACION()
 
 };
 
+
 function cargarEVALUACION_SECUNDARIA(){
 
     // SIMBOLOGIA DOLOR
@@ -461,6 +462,574 @@ function cargarEVALUACION_SECUNDARIA(){
 
 }
 
+
+
+
+function cargarTRATAMIENTO(){
+
+
+    // MANEJO DE VIA AERTEA
+
+    // ===========================================================================================
+    var radios = iframe.find('input[name=dispositivo_apertura]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.manejo_via_aerea.iID_CTLG_DISPOSITIVO_APERTURA){
+            iframe.find('input:radio[name=dispositivo_apertura][value='+radios[i].value+']').click();
+            //iframe.find('#trat_dispositivo').val(radios[i].id);
+        }
+
+    }
+
+
+    radios = iframe.find('input[name=manejo_via_aerea]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.manejo_via_aerea.iID_CTLG_MANEJO_VIA_AEREA){
+            iframe.find('input:radio[name=manejo_via_aerea][value='+radios[i].value+']').click();
+            //iframe.find('#trat_disp_ven').val(radios[i].id);
+        }
+
+    }
+
+    radios = iframe.find('input[name=aspiracion]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.manejo_via_aerea.iASPIRACION){
+            iframe.find('input:radio[name=aspiracion][value='+radios[i].value+']').click();
+            //iframe.find('#trat_aspiracion').val(radios[i].id);
+        }
+
+    }
+
+
+    //this.iID_INTUBACION = 0
+
+
+
+
+
+
+    // ASISTENCIA VENTILATORIA
+    radios = iframe.find('input[name=dispositivo]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.asistencia_ventilatoria.iID_CTLG_DISPOSITIVO){
+            iframe.find('input:radio[name=dispositivo_apertura][value='+radios[i].value+']').click();
+           // iframe.find('#trat_dispositivo').val(radios[i].id);
+        }
+
+    }
+
+    iframe.find('#asistencia_frecuencia').val(frap.secciones.asistencia_ventilatoria.iFRECUENCIA);
+    iframe.find('#asistencia_volumen').val(frap.secciones.asistencia_ventilatoria.iVOLUMEN);
+    iframe.find('#asistencia_modalidad').val(frap.secciones.asistencia_ventilatoria.MODALIDAD_VENTILATORIA);
+
+
+
+
+
+
+    // OXIGENOTERAPIA
+    //this.iID_OXIGENO_TERAPIA = 0,
+    iframe.find('#oxi_litros').val(frap.secciones.oxigenoterapia.iLITROS_MINUTO);
+
+    radios = iframe.find('input[name=tipo_oxigenoterapia]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.oxigenoterapia.iID_OXIGENO_TERAPIA){
+            iframe.find('input:radio[name=tipo_oxigenoterapia][value='+radios[i].value+']').click();
+           // iframe.find('#trat_oxig').val(radios[i].id);
+        }
+
+    }
+
+
+
+
+
+
+    // DESCOMPRESION PLEURAL
+    iframe.find('#hemitorax_calibre').val(frap.secciones.desc_ple.iCALIBRE);
+
+    radios = iframe.find('input[name=hemitorax]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.desc_ple.iID_CTLG_HEMITORAX){
+            iframe.find('input:radio[name=hemitorax][value='+radios[i].value+']').click();
+            //iframe.find('#trat_desc_pl').val(radios[i].id);
+        }
+
+    }
+
+
+
+
+
+
+    // CONTROL DE EMORRAGIAS
+    radios = iframe.find('input[name=control_hemorragia]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.control_hemorragias.iID_CTLG_CONTROL_HEMORAGIAS){
+            iframe.find('input:radio[name=control_hemorragia][value='+radios[i].value+']').click();
+            //iframe.find('#trat_control_hemo').val(radios[i].id);
+        }
+
+    }
+
+    iframe.find('#control_hemorragia_HORA').val(frap.secciones.control_hemorragias.HORA_COLOCACION);
+
+
+
+
+
+    // ACCESO CIRCULATOPERIO
+    radios = iframe.find('input[name=acceso_via_acceso]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.acceso_circulatorio.iID_CTLG_VIA_ACCESO){
+            iframe.find('input:radio[name=acceso_via_acceso][value='+radios[i].value+']').click();
+            //iframe.find('#trat_acceso_cir').val(radios[i].id);
+        }
+
+    }
+
+
+    radios = iframe.find('input[name=acceso_zona]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.acceso_circulatorio.iID_CTLG_ZONA_COLOCACION){
+            iframe.find('input:radio[name=acceso_zona][value='+radios[i].value+']').click();
+           // iframe.find('#trat_acceso_cir_zona').val(radios[i].id);
+        }
+
+    }
+
+    radios = iframe.find('input[name=acceso_tipo]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.acceso_circulatorio.iID_CTLG_SOLUCION){
+            iframe.find('input:radio[name=acceso_tipo][value='+radios[i].value+']').click();
+           // iframe.find('#trat_intervenciones_tipo').val(radios[i].id);
+        }
+
+    }
+
+
+    radios = iframe.find('input[name=acceso_bomba]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.acceso_circulatorio.iBOMBA_INFUSION){
+            iframe.find('input:radio[name=acceso_bomba][value='+radios[i].value+']').click();
+            //iframe.find('#trat_intervenciones_bomba').val(radios[i].id);
+        }
+
+    }
+
+    iframe.find('#acceso_calibre').val(frap.secciones.acceso_circulatorio.iCALIBRE);
+    iframe.find('#acceso_volumen').val(frap.secciones.acceso_circulatorio.iVOLUMEN_INFUNDIDO);
+    iframe.find('#acceso_hora').val(frap.secciones.acceso_circulatorio.HORA_COLOCACION);
+
+
+
+
+    // INTERVENCIONES
+
+    radios = iframe.find('input[name=intervenciones_control]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.intervenciones.iCONTROL_CERVICAL){
+            iframe.find('input:radio[name=intervenciones_control][value='+radios[i].value+']').click();
+            //iframe.find('#trat_intervenciones_control').val(radios[i].id);
+        }
+
+    }
+
+
+    radios = iframe.find('input[name=intervenciones_empaquetamiento]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.intervenciones.iEMPAQUETAMIENTO){
+            iframe.find('input:radio[name=intervenciones_empaquetamiento][value='+radios[i].value+']').click();
+           // iframe.find('#trat_intervenciones_emp').val(radios[i].id);
+        }
+
+    }
+
+
+    radios = iframe.find('input[name=intervenciones_curacion]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.intervenciones.iCURACION_VENDAJE){
+            iframe.find('input:radio[name=intervenciones_curacion][value='+radios[i].value+']').click();
+            //iframe.find('#trat_intervenciones_cur').val(radios[i].id);
+        }
+
+    }
+
+
+    radios = iframe.find('input[name=intervenciones_inmobilizacion]');
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.intervenciones.iINMOVILIZACION_EXTREMIDADES){
+            iframe.find('input:radio[name=intervenciones_inmobilizacion][value='+radios[i].value+']').click();
+            //iframe.find('#trat_intervenciones_inmo').val(radios[i].id);
+        }
+
+    }
+
+
+
+
+
+    // TERAPIA ELECTRICA
+    iframe.find('#terapia_descargas').val(frap.secciones.terapia_electrica.iDESCARGAS);
+    iframe.find('#terapia_joules').val(frap.secciones.terapia_electrica.iJOULES);
+    //this.iMARCAPASOS_TRANSCUTANEO = 0,
+    iframe.find('#terapia_ma').val(frap.secciones.terapia_electrica.iMA);
+    iframe.find('#terapia_frecuencia').val(frap.secciones.terapia_electrica.iFRECUENCIA);
+
+
+
+
+    // TRATAMIENTO
+    //this.ID_TRATAMIENTO = 0,
+    iframe.find('#tratamiento_observaciones').val(frap.secciones.tratamiento.OBSERVACIONES);
+
+
+}
+
+
+
+
+function  cargarCLINICO()
+{
+    console.log('llega?');
+    iframe.find('#diagnostico_sindromatico').val(frap.secciones.clinico.DIAGNOSTICO_SINDROMATICO);
+    iframe.find('#ds_observaciones').val(frap.secciones.clinico.OBSERVACIONES);
+
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=origen_probable]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.iID_CTLG_ORIGEN_PROBABLE){
+            //radios[i].id
+            iframe.find('#c_origen').val(radios[i].id);
+            iframe.find('input:radio[name=origen_probable][value='+radios[i].value+']').click();
+        }
+
+    }
+};
+
+function cargarTRAUMA()
+{
+    // ===========================================================================================
+    radios = iframe.find('input[name=trauna_intencionalidad]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.trauma.iINTENCIONALIDAD){
+            //radios[i].id
+            iframe.find('#t_intencionalidad').val(radios[i].id);
+            iframe.find('input:radio[name=trauna_intencionalidad][value='+radios[i].value+']').click();
+        }
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=trauna_ac]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.trauma.iID_CTLG_AGENTE_CAUSAL_GENERAL){
+            //radios[i].id
+            iframe.find('#t_agente').val(radios[i].id);
+            iframe.find('input:radio[name=trauna_ac][value='+radios[i].value+']').click();
+        }
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=trauna_ace]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.trauma.iID_CTLG_AGENTE_CAUSAL_ESPECIFICO){
+            //radios[i].id
+            iframe.find('#t_causal').val(radios[i].id);
+            iframe.find('input:radio[name=trauna_ace][value='+radios[i].value+']').click();
+        }
+    }
+
+    iframe.find('#trauma_observaciones').val(frap.secciones.trauma.OBSERVACIONES);
+
+};
+
+function cargarVIAL()
+{
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_tipo]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iID_CTLG_TIPO_ACCIDENTE_VIAL){
+            //radios[i].id
+            iframe.find('#v_tipo').val(radios[i].id);
+            iframe.find('input:radio[name=vial_tipo][value='+radios[i].value+']').click();
+        }
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_lesionado]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iID_CTLG_TIPO_LESIONADO){
+            //radios[i].id
+            iframe.find('#v_lesionado').val(radios[i].id);
+            iframe.find('input:radio[name=vial_lesionado][value='+radios[i].value+']').click();
+        }
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_actor]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iID_CTLG_ACTOR_VIAL){
+            //radios[i].id
+            iframe.find('#v_actorVial').val(radios[i].id);
+            iframe.find('input:radio[name=vial_actor][value='+radios[i].value+']').click();
+        }
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_tropella]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iID_CTLG_ATROPELLADO_POR){
+            //radios[i].id
+            iframe.find('#v_atropelladoPor').val(radios[i].id);
+            iframe.find('input:radio[name=vial_tropella][value='+radios[i].value+']').click();
+        }
+    }
+
+
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_impacto]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iID_CTLG_IMPACTO){
+            //radios[i].id
+            iframe.find('#v_impacto').val(radios[i].id);
+            iframe.find('input:radio[name=vial_impacto][value='+radios[i].value+']').click();
+        }
+    }
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_volante]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iID_CTLG_VOLANTE){
+            //radios[i].id
+            iframe.find('#v_volante').val(radios[i].id);
+            iframe.find('input:radio[name=vial_volante][value='+radios[i].value+']').click();
+        }
+    }
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_parabrisas]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iID_CTLG_PARABRISAS){
+            //radios[i].id
+            iframe.find('#v_parabrisas').val(radios[i].id);
+            iframe.find('input:radio[name=vial_parabrisas][value='+radios[i].value+']').click();
+        }
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_bolsas]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iID_CTLG_BOLSA_AIRE){
+            //radios[i].id
+            iframe.find('#v_bolsas').val(radios[i].id);
+            iframe.find('input:radio[name=vial_bolsas][value='+radios[i].value+']').click();
+        }
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_cinturon]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iID_CTLG_CINTURON_SEGURIDAD){
+            //radios[i].id
+            iframe.find('#v_cinturon').val(radios[i].id);
+            iframe.find('input:radio[name=vial_cinturon][value='+radios[i].value+']').click();
+        }
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_eyectado]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iEYECTADO){
+            //radios[i].id
+            iframe.find('#v_eyectados').val(radios[i].id);
+            iframe.find('input:radio[name=vial_eyectado][value='+radios[i].value+']').click();
+        }
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_decesos]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iDECESOS){
+            //radios[i].id
+            iframe.find('#v_decesos').val(radios[i].id);
+            iframe.find('input:radio[name=vial_decesos][value='+radios[i].value+']').click();
+        }
+    }
+
+
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_prensado]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iPRENSADO){
+            //radios[i].id
+            iframe.find('#v_prensado').val(radios[i].id);
+            iframe.find('input:radio[name=vial_prensado][value='+radios[i].value+']').click();
+        }
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=vial_casco]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value ==  frap.secciones.vial.iCASCO){
+            //radios[i].id
+            iframe.find('#v_casco').val(radios[i].id);
+            iframe.find('input:radio[name=vial_casco][value='+radios[i].value+']').click();
+        }
+    }
+
+    iframe.find('#vial_observaciones').val(frap.secciones.vial.OBSERVACIONES);
+
+};
+
+
+function cargarGINECOLOGICO()
+{
+    iframe.find('#ginecologico_gesta').val(frap.secciones.ginecologico.iGESTA);
+    iframe.find('#ginecologico_para').val(frap.secciones.ginecologico.iPARA);
+    iframe.find('#ginecologico_cesarea').val(frap.secciones.ginecologico.iCESARIA);
+    iframe.find('#ginecologico_abortos').val(frap.secciones.ginecologico.iABORTOS);
+    iframe.find('#ginecologico_semanas').val(frap.secciones.ginecologico.iSEMANAS_GESTACION);
+    iframe.find('#fum').val(frap.secciones.ginecologico.FUM);
+
+    iframe.find('#ginecologico_hora').val(frap.secciones.ginecologico.HORA_INICIO_CONTRACCIONES);
+    iframe.find('#ginecologico_frecuencia').val(frap.secciones.ginecologico.iFRECUENCIA);
+    iframe.find('#ginecologico_duracion').val(frap.secciones.ginecologico.iDURACION);
+
+
+    iframe.find('#apgar1').val(frap.secciones.ginecologico.iAPGAR1);
+    iframe.find('#apgar5').val(frap.secciones.ginecologico.iAPGAR5);
+    iframe.find('#apgar10').val(frap.secciones.ginecologico.iAPGAR10);
+    iframe.find('#silvermann').val(frap.secciones.ginecologico.iSILVERMAN);
+    iframe.find('#ginecologico_lugarN').val(frap.secciones.ginecologico.LUGAR_NACIMIENTO);
+
+    iframe.find('#ginecologico_observaciones').val(frap.secciones.ginecologico.OBSERVACIONES);
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=placenta]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.ginecologico.iPLACENTA_EXPULSADA){
+            //radios[i].id
+            iframe.find('#g_placenta').val(radios[i].id);
+            iframe.find('input:radio[name=placenta][value='+radios[i].value+']').click();
+        }
+
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=maduracion_pulmonar]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.ginecologico.iESQUEMA_MADURACION_PULMONAR){
+            //radios[i].id
+            iframe.find('#g_esquema').val(radios[i].id);
+            iframe.find('input:radio[name=maduracion_pulmonar][value='+radios[i].value+']').click();
+        }
+
+    }
+
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=producto]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.ginecologico.iPRODUCTO_VIVO){
+            //radios[i].id
+            iframe.find('#g_producto').val(radios[i].id);
+            iframe.find('input:radio[name=producto][value='+radios[i].value+']').click();
+        }
+
+    }
+
+
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=producto_sexo]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.ginecologico.iSEXO){
+            //radios[i].id
+            iframe.find('#g_sexo').val(radios[i].id);
+            iframe.find('input:radio[name=producto_sexo][value='+radios[i].value+']').click();
+        }
+
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=membranas]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.ginecologico.iMEMBRANAS_INTEGRAS){
+            iframe.find('input:radio[name=membranas][value='+radios[i].value+']').click();
+
+        }
+
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=control_parental]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.ginecologico.iCONTROL_PARENTAL){
+            iframe.find('input:radio[name=control_parental][value='+radios[i].value+']').click();
+
+        }
+
+    }
+
+
+    // ===========================================================================================
+    radios = iframe.find('input[name=emarazo_riesgo]');
+
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if(radios[i].value == frap.secciones.ginecologico.iEMBARAZO_ALTO_RIESGO){
+            iframe.find('input:radio[name=emarazo_riesgo][value='+radios[i].value+']').click();
+
+        }
+
+    }
+
+
+
+};
 
 
 

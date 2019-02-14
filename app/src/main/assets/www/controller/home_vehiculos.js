@@ -471,13 +471,14 @@ function cargarServiciosVehiculo(id_t){
                                     $("#vehiculo_tipo").html(data.kind);
                                     $("#vehiculo_nivel").html(data.level);
 
+                                    /*
                                     if(data.crewCount > 1){
                                         $("#operador").html(data.crew[0].userName);
-                                        $("#jefe").html(data.crew[1].userName);
+                                        //$("#jefe").html(data.crew[1].userName);
                                     }else{
                                         $("#operador").html(data.crew.userName);
                                     }
-
+*/
 
 
 
@@ -497,7 +498,7 @@ function cargarServiciosVehiculo(id_t){
 
                                 },
                                 error: function(jqXHR, textStatus, errorThrown){
-                                    alert('addWine error: ' + textStatus);
+                                    alert('addWine 07 error: ' + textStatus);
                                 }
                         });
 
@@ -505,7 +506,7 @@ function cargarServiciosVehiculo(id_t){
 
                     },
                     error: function(jqXHR, textStatus, errorThrown){
-                        alert('addWine error: ' + textStatus);
+                        alert('addWine 08  error: ' + textStatus);
                     }
             });
 }

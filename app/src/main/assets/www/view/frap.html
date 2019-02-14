@@ -372,6 +372,7 @@ function homeVehicules(){
         // termina TRATAMIENTO
         iframe.find("#btnNext4").click(function()
         {
+            dataBase.borrarRegistro('TRATAMIENTO', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_tratamiento();
             deltaZ('slide', 'tratamiento', 'menu-tratamiento', iframe.find("#btnNext4").attr('data-state'));
         });

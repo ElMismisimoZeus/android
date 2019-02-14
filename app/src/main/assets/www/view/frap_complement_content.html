@@ -30,7 +30,51 @@
     <script type="text/javascript" src="../model/dataBaseApp.js"></script>
     <script type="text/javascript" src="../controller/frap_data.js"></script>
 
+    <script type="text/javascript" src="../objects/frap_object.js"></script>
+
     <script>
+
+
+
+
+        //////////////////////////////////////////////////////////////////////
+        //                  Aqui comienza la edicion de JC                 //
+        ////////////////////////////////////////////////////////////////////
+
+        $(document).on("pageshow","#insumos_basicos",function(){
+
+            if(frap != null){
+                console.log("en recuperacion de insumos_basicos");
+                parent.cargarINSUMOS_NIVEL_BASICO();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+            }
+        });
+
+
+        $(document).on("pageshow","#insumos_intermedios",function(){
+
+            if(frap != null){
+                console.log("en recuperacion de insumos_medios");
+                parent.cargarINSUMOS_NIVEL_MEDIO();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+            }
+        });
+
+
+        $(document).on("pageshow","#insumos_avanzados",function(){
+
+            if(frap != null){
+                console.log("en recuperacion de insumos_avanzados");
+                parent.cargarINSUMOS_NIVEL_AVANZADO();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+            }
+        });
+
+
+
+
+
+
 
         function getURLParameter(name) {
             return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [null, ''])[1].replace(/\+/g, '%20')) || null;
@@ -360,42 +404,42 @@
 
 
         <div id="fieldSet">
-        <fieldset data-role="controlgroup" data-direction="vertical">
-            <span>Verbal:*</span>
-            <input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a">
-            <label for="checkbox-v-2a">Obedece</label>
-            <input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b">
-            <label for="checkbox-v-2b">Confuso</label>
-            <input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c">
-            <label for="checkbox-v-2c">Inapropiado</label>
-            <input type="checkbox" name="checkbox-v-2d" id="checkbox-v-2d">
-            <label for="checkbox-v-2d">Ninguna</label>
-        </fieldset>
+            <fieldset data-role="controlgroup" data-direction="vertical">
+                <span>Verbal:*</span>
+                <input type="checkbox" name="checkbox-v-2a" id="checkbox-v-2a">
+                <label for="checkbox-v-2a">Obedece</label>
+                <input type="checkbox" name="checkbox-v-2b" id="checkbox-v-2b">
+                <label for="checkbox-v-2b">Confuso</label>
+                <input type="checkbox" name="checkbox-v-2c" id="checkbox-v-2c">
+                <label for="checkbox-v-2c">Inapropiado</label>
+                <input type="checkbox" name="checkbox-v-2d" id="checkbox-v-2d">
+                <label for="checkbox-v-2d">Ninguna</label>
+            </fieldset>
 
-        <fieldset data-role="controlgroup" data-direction="vertical">
-            <span>Motora:*</span>
-            <input type="checkbox" name="checkbox-v-2e" id="checkbox-v-2e">
-            <label for="checkbox-v-2e">Obedece</label>
-            <input type="checkbox" name="checkbox-v-2f" id="checkbox-v-2f">
-            <label for="checkbox-v-2f">Confuso</label>
-            <input type="checkbox" name="checkbox-v-2g" id="checkbox-v-2g">
-            <label for="checkbox-v-2g">Inapropiado</label>
-            <input type="checkbox" name="checkbox-v-2h" id="checkbox-v-2h">
-            <label for="checkbox-v-2h">Ninguna</label>
-        </fieldset>
+            <fieldset data-role="controlgroup" data-direction="vertical">
+                <span>Motora:*</span>
+                <input type="checkbox" name="checkbox-v-2e" id="checkbox-v-2e">
+                <label for="checkbox-v-2e">Obedece</label>
+                <input type="checkbox" name="checkbox-v-2f" id="checkbox-v-2f">
+                <label for="checkbox-v-2f">Confuso</label>
+                <input type="checkbox" name="checkbox-v-2g" id="checkbox-v-2g">
+                <label for="checkbox-v-2g">Inapropiado</label>
+                <input type="checkbox" name="checkbox-v-2h" id="checkbox-v-2h">
+                <label for="checkbox-v-2h">Ninguna</label>
+            </fieldset>
 
-        <fieldset data-role="controlgroup" data-direction="vertical">
-            <span>Ocular:*</span>
-            <input type="checkbox" name="checkbox-v-2i" id="checkbox-v-2i">
-            <label for="checkbox-v-2i">Obedece</label>
-            <input type="checkbox" name="checkbox-v-2j" id="checkbox-v-2j">
-            <label for="checkbox-v-2j">Confuso</label>
-            <input type="checkbox" name="checkbox-v-2k" id="checkbox-v-2k">
-            <label for="checkbox-v-2k">Inapropiado</label>
-            <input type="checkbox" name="checkbox-v-2l" id="checkbox-v-2l">
-            <label for="checkbox-v-2l">Ninguna</label>
-        </fieldset>
-    </div>
+            <fieldset data-role="controlgroup" data-direction="vertical">
+                <span>Ocular:*</span>
+                <input type="checkbox" name="checkbox-v-2i" id="checkbox-v-2i">
+                <label for="checkbox-v-2i">Obedece</label>
+                <input type="checkbox" name="checkbox-v-2j" id="checkbox-v-2j">
+                <label for="checkbox-v-2j">Confuso</label>
+                <input type="checkbox" name="checkbox-v-2k" id="checkbox-v-2k">
+                <label for="checkbox-v-2k">Inapropiado</label>
+                <input type="checkbox" name="checkbox-v-2l" id="checkbox-v-2l">
+                <label for="checkbox-v-2l">Ninguna</label>
+            </fieldset>
+        </div>
 
         <h4 for="id_fc" class="labels">FC:*"</h4>
         <input type="number" data-clear-btn="true" name="id_fc" id="id_fc" value="">

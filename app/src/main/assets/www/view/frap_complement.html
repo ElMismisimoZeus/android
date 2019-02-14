@@ -40,7 +40,7 @@
 
     <!--
     <script>
-		 $(function () {
+       $(function () {
 
 
               $("#dialog1").dialog({
@@ -53,39 +53,39 @@
               });
 
         });
-	</script>
+   </script>
 -->
     <style>
 
-		.ui-dialog-titlebar {
-		  display: none;
-		}
+        .ui-dialog-titlebar {
+            display: none;
+        }
 
 
-		.ui-dialog .ui-dialog-content {
-			border: 0 none;
-		}
+        .ui-dialog .ui-dialog-content {
+            border: 0 none;
+        }
 
-		.ui-widget-overlay.custom-overlay
-		{
-			background-color: black;
-			background-image: none;
-			opacity: 0.7;
-			z-index: 1040;
-		}
+        .ui-widget-overlay.custom-overlay
+        {
+            background-color: black;
+            background-image: none;
+            opacity: 0.7;
+            z-index: 1040;
+        }
 
 
-		.dlg-no-close {
-			text-align: center;
-			background-color:white;
-			border: 0 none;
-		}
+        .dlg-no-close {
+            text-align: center;
+            background-color:white;
+            border: 0 none;
+        }
 
-		.dlg-no-close .ui-dialog-titlebar-close {
-			display: none;
-		}
+        .dlg-no-close .ui-dialog-titlebar-close {
+            display: none;
+        }
 
-	</style>
+    </style>
 
 </head>
 
@@ -246,8 +246,11 @@
         console.log('valores de diagrama de flujo ');
 
         console.log('isNew'+isNew);
-        console.log('estado_frap'+estado_frap);
-        console.log('estado_seccoines'+estado_secciones);
+        console.log('estado_frap ' + estado_frap);
+
+        $.each(estado_secciones, function (key, value){
+            console.log('estado_secciones ' + key + value);
+        });
 
 
         // Paso 2 : Inicializar el objeto frap, para que sea factible el envio en todo momemnto
@@ -260,7 +263,7 @@
 
         // Be careful !!!!!
         // cuando cargue fraps OFFline debe cargar el valor de la base detos como defoult
-        $.jStorage.set("motivo_atencion", String('trauma'),{});
+        //$.jStorage.set("motivo_atencion", String('trauma'),{});
 
         var alto = $(window).height();
         var elementMenu = alto/5;
@@ -295,18 +298,21 @@
 
         iframe.find("#btnNext1").click(function()
         {
+            dataBase.borrarRegistro('INSUMOS_NIVEL_BASICO', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_insumosBasico();
             deltaZ('slide', 'insumos_basicos', 'menu-insumos-basicos', iframe.find("#btnNext1").attr('data-state'))
         });
 
         iframe.find("#btnNext2").click(function()
         {
+            dataBase.borrarRegistro('INSUMOS_NIVEL_INTERMEDIO', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_insumosMedio();
             deltaZ('slide', 'insumos_intermedios', 'menu-insumos-intermedios', iframe.find("#btnNext2").attr('data-state'))
         });
 
         iframe.find("#btnNext3").click(function()
         {
+            dataBase.borrarRegistro('INSUMOS_NIVEL_AVANZADO', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_insumosAvanzado();
             deltaZ('slide', 'insumos_avanzados', 'menu-insumos-avanzados', iframe.find("#btnNext3").attr('data-state'))
         });

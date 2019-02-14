@@ -26,6 +26,16 @@ estado_secciones['PACIENTE'] = 0;
 estado_secciones['EVALUACION_PRIMARIA'] = 0;
 estado_secciones['EVALUACION_SECUNDARIA'] = 0;
 estado_secciones['TRATAMIENTO'] = 0;
+estado_secciones['VIAL'] = 0;
+estado_secciones['GINECOLOGICO'] = 0;
+estado_secciones['TRAUMA'] = 0;
+estado_secciones['CLINICO'] = 0;
+
+
+estado_secciones['INSUMOS_NIVEL_BASICO'] = 0;
+estado_secciones['INSUMOS_NIVEL_INTERMEDIO'] = 0;
+estado_secciones['INSUMOS_NIVEL_AVANZADO'] = 0;
+
 
 
 
@@ -383,12 +393,9 @@ function TRATAMIENTO()
 
 
 
-
 function CLINICO()
 {
-
-
-        this.DIAGNOSTICO_SINDROMATICO = checkText(iframe.find('#diagnostico_sindromatico').val()),
+    this.DIAGNOSTICO_SINDROMATICO = checkText(iframe.find('#diagnostico_sindromatico').val()),
         this.iID_CTLG_ORIGEN_PROBABLE = checkValue(iframe.find('input[name=origen_probable]:checked').val()),
 
         this.OBSERVACIONES = checkText(iframe.find('#ds_observaciones').val())
@@ -396,10 +403,8 @@ function CLINICO()
 
 function TRAUMA()
 {
-    this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
 
-        this.iINTENCIONALIDAD = checkValue(iframe.find('input[name=trauna_intencionalidad]:checked').val()),
+    this.iINTENCIONALIDAD = checkValue(iframe.find('input[name=trauna_intencionalidad]:checked').val()),
         this.iID_CTLG_AGENTE_CAUSAL_GENERAL = checkValue(iframe.find('input[name=trauna_ac]:checked').val()),
         this.iID_CTLG_AGENTE_CAUSAL_ESPECIFICO = checkValue(iframe.find('input[name=trauna_ace]:checked').val()),
         this.OBSERVACIONES = checkText(iframe.find('#trauma_observaciones').val())
@@ -408,45 +413,38 @@ function TRAUMA()
 
 function VIAL()
 {
-        this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
 
-        this.iID_CTLG_TIPO_ACCIDENTE_VIAL = checkValue(iframe.find('input[name=vial_tipo]:checked').val()),
+    this.iID_CTLG_TIPO_ACCIDENTE_VIAL = checkValue(iframe.find('input[name=vial_tipo]:checked').val()),
         this.iID_CTLG_TIPO_LESIONADO = checkValue(iframe.find('input[name=vial_lesionado]:checked').val()),
         this.iID_CTLG_ACTOR_VIAL = checkValue(iframe.find('input[name=vial_actor]:checked').val()),
-
+        this.iID_CTLG_ATROPELLADO_POR = checkValue(iframe.find('input[name=vial_tropella]:checked').val()),
         this.iID_CTLG_IMPACTO = checkValue(iframe.find('input[name=vial_impacto]:checked').val()),
         this.iID_CTLG_VOLANTE = checkValue(iframe.find('input[name=vial_volante]:checked').val()),
         this.iID_CTLG_PARABRISAS = checkValue(iframe.find('input[name=vial_parabrisas]:checked').val()),
         this.iID_CTLG_BOLSA_AIRE = checkValue(iframe.find('input[name=vial_bolsas]:checked').val()),
         this.iID_CTLG_CINTURON_SEGURIDAD = checkValue(iframe.find('input[name=vial_cinturon]:checked').val()),
-            this.OBJETO_FIJO = 0,
-            this.iEYECTADO = checkValue(iframe.find('input[name=vial_eyectado]:checked').val()),
-            this.iDECESOS = checkValue(iframe.find('input[name=vial_decesos]:checked').val()),
-            this.iPRENSADO = checkValue(iframe.find('input[name=vial_presado]:checked').val()),
-            this.iCASCO = checkValue(iframe.find('input[name=vial_casco]:checked').val()),
-            this.OBSERVACIONES = checkText(iframe.find('#vial_observaciones').val())
+        this.iEYECTADO = checkValue(iframe.find('input[name=vial_eyectado]:checked').val()),
+        this.iDECESOS = checkValue(iframe.find('input[name=vial_decesos]:checked').val()),
+        this.iPRENSADO = checkValue(iframe.find('input[name=vial_prensado]:checked').val()),
+        this.iCASCO = checkValue(iframe.find('input[name=vial_casco]:checked').val()),
+        this.OBSERVACIONES = checkText(iframe.find('#vial_observaciones').val())
 
 }
 
 function GINECOLOGICO()
 {
-    this.iID_FRAP = idFRAP,
-        this.TIPO_FRAP = 'online',
 
-        this.iID_GINECOLOGICO = 0,
-
-        this.iGESTA = (iframe.find('#ginecologico_gesta').val() != '') ? iframe.find('#ginecologico_gesta').val() : 0,
+    this.iGESTA = (iframe.find('#ginecologico_gesta').val() != '') ? iframe.find('#ginecologico_gesta').val() : 0,
         this.iPARA = (iframe.find('#ginecologico_para').val() != '') ? iframe.find('#ginecologico_para').val() : 0,
         this.iCESARIA = (iframe.find('#ginecologico_cesarea').val() != '') ? iframe.find('#ginecologico_cesarea').val() : 0,
         this.iABORTOS = (iframe.find('#ginecologico_abortos').val() != '') ? iframe.find('#ginecologico_abortos').val() : 0,
         this.iSEMANAS_GESTACION = (iframe.find('#ginecologico_semanas').val() != '') ? iframe.find('#ginecologico_semanas').val() : 0,
         this.FUM = (iframe.find('#fum').val() != '') ? iframe.find('#fum').val() : '-',
-        //this.HORA_INICIO_CONTRACCIONES = (iframe.find('#ginecologico_hora').val() != '') ? iframe.find('#ginecologico_hora').val() : '-',
+        this.HORA_INICIO_CONTRACCIONES = (iframe.find('#ginecologico_hora').val() != '') ? iframe.find('#ginecologico_hora').val() : '-',
         this.iFRECUENCIA = (iframe.find('#ginecologico_frecuencia').val() != '') ? iframe.find('#ginecologico_frecuencia').val() : 0,
-        this.iDURACION = (iframe.find('#ginecologico_duracion').val() != '') ? iframe.find('#ginecologico_duracion').val() : 0
+        this.iDURACION = (iframe.find('#ginecologico_duracion').val() != '') ? iframe.find('#ginecologico_duracion').val() : 0,
 
-    /*this.HORA_NACIOMIENTO = (iframe.find('#ginecologico_semanas').val() != '') ? iframe.find('#ginecologico_semanas').val() : '-',
+        this.HORA_NACIOMIENTO = (iframe.find('#ginecologico_semanas').val() != '') ? iframe.find('#ginecologico_semanas').val() : '-',
         this.iPLACENTA_EXPULSADA = (iframe.find('input[name=placenta]:checked').size() > 0 ? iframe.find('input[name=placenta]:checked').val(): 0),
         this.LUGAR_NACIMIENTO = (iframe.find('#ginecologico_lugarN').val() != '') ? iframe.find('#ginecologico_lugarN').val() : '-',
         this.iPRODUCTO_VIVO = (iframe.find('input[name=producto]:checked').size() > 0 ? iframe.find('input[name=producto]:checked').val(): 0),
@@ -458,10 +456,10 @@ function GINECOLOGICO()
         this.iAPGAR5 = (iframe.find('#apgar5').val() != '') ? iframe.find('#apgar5').val() : 0,
         this.iAPGAR10 = (iframe.find('#apgar10').val() != '') ? iframe.find('#apgar10').val() : 0,
         this.iSILVERMAN = (iframe.find('#silvermann').val() != '') ? iframe.find('#silvermann').val() : 0,
-        this.iMEMBRANAS_INTEGRAS = (iframe.find('input[name=membranas]:checked').size() > 0 ? iframe.find('input[name=membranas]:checked').val(): 0),
+        this.iMEMBRANAS_INTEGRAS = (iframe.find('input[name=membranas]:checked').val() > 0 ? iframe.find('input[name=membranas]:checked').val(): 0),
         this.OBSERVACIONES = (iframe.find('#ginecologico_observaciones').val() != '') ? iframe.find('#ginecologico_observaciones').val() : '-'
-        */
 }
+
 
 
 function FRAP_LEGAL(imgFirmaRecibe)
@@ -1131,6 +1129,11 @@ function guardar_tratamiento()
     dataBase.saveTable('TRATAMIENTO', tbTratamiento);
 
 
+    // modifica el estado de una entrada del objeto
+    estado_secciones['TRATAMIENTO'] = 1;
+
+    $.jStorage.set("estado_secciones", estado_secciones);
+
     //frap.enviar();
 }
 
@@ -1198,6 +1201,10 @@ function guardar_clinico()
 
     dataBase.saveTable('CLINICO', tbClinico);
 
+    // added by walter
+    estado_secciones['CLINICO'] = 1;
+    $.jStorage.set("estado_secciones", estado_secciones);
+
     //frap.enviar();
 }
 
@@ -1211,6 +1218,10 @@ function guardar_trauma()
     tbTrauma = union1;
 
     dataBase.saveTable('TRAUMA',tbTrauma);
+
+    // added by walter
+    estado_secciones['TRAUMA'] = 1;
+    $.jStorage.set("estado_secciones", estado_secciones);
 
     //frap.enviar();
 
@@ -1228,9 +1239,12 @@ function guardar_vial()
 
     dataBase.saveTable('VIAL', tbVial);
 
+    // added by walter
+    estado_secciones['VIAL'] = 1;
+    $.jStorage.set("estado_secciones", estado_secciones);
+
     //frap.enviar();
 }
-
 
 function guardar_ginecologico()
 {
@@ -1243,6 +1257,12 @@ function guardar_ginecologico()
 
     dataBase.saveTable('GINECOLOGICO', tbGinecologico);
 
+
+    estado_secciones['GINECOLOGICO'] = 1;
+
+    $.jStorage.set("estado_secciones", estado_secciones);
+
+
     //frap.enviar();
 }
 
@@ -1253,30 +1273,61 @@ function guardar_negativa()
 
     dataBase.saveTable('NEGATIVA', tbNegativa);
 }
-
 function guardar_insumosBasico()
 {
+
+    var tbAuxCabecera = new CABECERA();
+
     frap.secciones.insumosBasicos = new INSUMOS_NIVEL_BASICO();
-    tbInsumos_nivelBasico = frap.secciones.insumosBasicos;
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.insumosBasicos);
+
+
+    tbInsumos_nivelBasico = union1;
 
     dataBase.saveTable('INSUMOS_NIVEL_BASICO', tbInsumos_nivelBasico);
+
+    estado_secciones['INSUMOS_NIVEL_BASICO'] = 1;
+
+    $.jStorage.set("estado_secciones", estado_secciones);
 }
+
+
 
 function guardar_insumosMedio()
 {
+    var tbAuxCabecera = new CABECERA();
+
     frap.secciones.insumosMedio = new INSUMOS_NIVEL_INTERMEDIO();
-    tbInsumos_nivelIntermedio = frap.secciones.insumosMedio;
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.insumosMedio);
+
+    tbInsumos_nivelIntermedio = union1;
 
     dataBase.saveTable('INSUMOS_NIVEL_INTERMEDIO', tbInsumos_nivelIntermedio);
+
+    estado_secciones['INSUMOS_NIVEL_INTERMEDIO'] = 1;
+
+    $.jStorage.set("estado_secciones", estado_secciones);
 }
+
 
 function guardar_insumosAvanzado()
 {
+    var tbAuxCabecera = new CABECERA();
+
     frap.secciones.insumosAvanzados = new INSUMOS_NIVEL_AVANZADO();
-    tbInsumos_nivelAvanzado = frap.secciones.insumosAvanzados;
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.insumosAvanzados);
+
+    tbInsumos_nivelAvanzado = union1;
+
+    console.log("tbInsumos_nivelAvanzado");
 
     dataBase.saveTable('INSUMOS_NIVEL_AVANZADO', tbInsumos_nivelAvanzado);
+
+    estado_secciones['INSUMOS_NIVEL_AVANZADO'] = 1;
+
+    $.jStorage.set("estado_secciones", estado_secciones);
 }
+
 
 function guardar_medicamentos()
 {

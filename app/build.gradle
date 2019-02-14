@@ -162,6 +162,7 @@ android {
     defaultConfig {
         versionCode cdvVersionCode ?: new BigInteger("" + privateHelpers.extractIntFromManifest("versionCode"))
         applicationId privateHelpers.extractStringFromManifest("package")
+        minSdkVersion = 16
 
         if (cdvMinSdkVersion != null) {
             minSdkVersion cdvMinSdkVersion
@@ -172,8 +173,8 @@ android {
       abortOnError false;
     }
 
-    compileSdkVersion cdvCompileSdkVersion
-    buildToolsVersion cdvBuildToolsVersion
+    compileSdkVersion 26
+    buildToolsVersion '28.0.3'
 
     //This code exists for Crosswalk and other Native APIs.
     //By default, we multiply the existing version code in the Android Manifest by 10 and 
@@ -257,10 +258,10 @@ android {
 
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: '*.jar')
+    implementation fileTree(include: '*.jar', dir: 'libs')
     // SUB-PROJECT DEPENDENCIES START
-    implementation(project(path: ":CordovaLib"))
-    compile "com.onesignal:OneSignal:3.7.1"
+    implementation project(path: ':CordovaLib')
+    compile 'com.onesignal:OneSignal:3.7.1'
     // SUB-PROJECT DEPENDENCIES END
 }
 

@@ -205,6 +205,12 @@
 
         $(document).on("pageshow","#tratamiento",function(){
 
+            if(frap != null){
+                parent.cargarTRATAMIENTO();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+            }
+
             console.log($.jStorage.get("motivo_atencion"));
             var refMotivo = $.jStorage.get("motivo_atencion");
 
@@ -242,6 +248,62 @@
 
 
         });
+
+
+
+        // funciones by Walter para wl handle del page show
+
+        $(document).on("pageshow","#clinico",function(){
+
+            if(frap != null){
+                parent.cargarCLINICO();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+            }
+        });
+
+
+        $(document).on("pageshow","#trauma",function(){
+
+            if(frap != null){
+                parent.cargarTRAUMA();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+            }
+        });
+
+
+        $(document).on("pageshow","#vial",function(){
+
+            if(frap != null){
+                parent.cargarVIAL();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+            }
+        });
+
+        $(document).on("pageshow","#ginecologico",function(){
+
+            if(frap != null){
+                parent.cargarGINECOLOGICO();
+                //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3655,11 +3717,11 @@
         <div class="ui-panel-inner" style="width: 300px;">
             <h2>Aspiración :</h2>
             <label class="container">Sí
-                <input onclick="CambiarV('#trat_aspiracion','Sì');" type="radio" name="trat_aspiracion" id="aspiracion_si" value="1"  checked="checked" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#trat_aspiracion','Sì');" type="radio" name="aspiracion" id="aspiracion_si" value="1"  checked="checked" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label class="container">No
-                <input onclick="CambiarV('#trat_aspiracion','No');" type="radio" name="trat_aspiracion" id="aspiracion_no" value="2" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#trat_aspiracion','No');" type="radio" name="aspiracion" id="aspiracion_no" value="2" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
 
@@ -3690,7 +3752,7 @@
 
     <div data-role="panel" id="pnlDispositivoAp" data-display="overlay" data-position="right" style=" width: 310px;">
         <div class="ui-panel-inner" style="width: 300px;">
-            <h2>Manejo de vía aerea:</h2>
+            <h2>Dispositivo apertura:</h2>
             <label class="container">No aplica
                 <input onclick="CambiarV('#trat_dispositivo','No aplica');" type="radio" name="dispositivo_apertura" id="disp_no_aplica" value="1"  checked="checked" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
@@ -3720,21 +3782,21 @@
 
     <div data-role="panel" id="pnlDispositivoVen" data-display="overlay" data-position="right" style=" width: 310px;">
         <div class="ui-panel-inner" style="width: 300px;">
-            <h2>Dispositivo de apertura:</h2>
+            <h2>Dispositivo :</h2>
             <label class="container">No necesitó
-                <input onclick="CambiarV('#trat_disp_ven','No necesitó');" type="radio" name="manejo_via_aerea" id="disp_no" value="1"  checked="checked" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#trat_disp_ven','No necesitó');" type="radio" name="dispositivo" id="disp_no" value="1"  checked="checked" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label class="container">Bolsa válvula mascarilla
-                <input onclick="CambiarV('#trat_disp_ven','Bolsa válvula mascarilla');" type="radio" name="manejo_via_aerea" id="disp_mascarilla" value="2" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#trat_disp_ven','Bolsa válvula mascarilla');" type="radio" name="dispositivo" id="disp_mascarilla" value="2" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label class="container">CPAP
-                <input onclick="CambiarV('#trat_disp_ven','CPAP');" type="radio" name="manejo_via_aerea" id="disp_cpap" value="3" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#trat_disp_ven','CPAP');" type="radio" name="dispositivo" id="disp_cpap" value="3" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label  class="container">Ventilador mecánico
-                <input onclick="CambiarV('#trat_disp_ven','Ventilador mecánico');" type="radio" name="manejo_via_aerea" id="disp_ventilador" value="4" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#trat_disp_ven','Ventilador mecánico');" type="radio" name="dispositivo" id="disp_ventilador" value="4" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
         </div>
@@ -5212,7 +5274,7 @@
                         <h4 class="labels">Cesarea:</h4>
                     </div>
                     <div style=" width: 53%;float: left;">
-                        <input type="text" value="" name="ginecologico_cesarea" id="ginecologico_cesarea"
+                        <input type="number" value="" name="ginecologico_cesarea" id="ginecologico_cesarea"
                                style="width: 48%;">
                     </div>
                 </div>
