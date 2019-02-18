@@ -319,8 +319,15 @@
 
         iframe.find("#btnNext4").click(function()
         {
+            dataBase.borrarRegistro('MEDICAMENTOS', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_medicamentos();
             deltaZ('slide', 'medicamentos', 'menu-medicamentos', iframe.find("#btnNext4").attr('data-state'))
+        });
+
+        iframe.find("#btnNext5").click(function()
+        {
+            dataBase.borrarRegistro('REGISTRO_SIGNOS_VITALES', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
+            guardar_medicamentos();
         });
 
     });

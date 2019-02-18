@@ -68,7 +68,7 @@ function cargarPACIENTE() {
     });
 
     console.log('despues');
-*/
+    */
 
     var radios = iframe.find('input[name=motivo_atencion]');
 
@@ -91,17 +91,15 @@ function cargarPACIENTE() {
 
     }
 
-
-
-
-
-
     //DATOS DE DIRECCION
 
     iframe.find('#calle').val(frap.secciones.direccion_paciente.CALLE);
-    iframe.find('#dc_ep_estado_t').val(frap.secciones.direccion_paciente.ESTADO);
-    //iframe.find('#numero').val(frap.secciones.direccion.NUMERO);
-    //iframe.find('#dc_ep_municipio_t').val(frap.secciones.direccion.DELEGACION);
+    iframe.find('#numero_exterior').val(frap.secciones.direccion_paciente.iNUMERO_EXTERIOR);
+    iframe.find('#colonia').val(frap.secciones.direccion_paciente.COLONIA);
+    iframe.find('#delegacion_municipio').val(frap.secciones.direccion_paciente.DELEGACION);
+    iframe.find('#cp').val(frap.secciones.direccion_paciente.iCP);
+
+    //iframe.find('#dc_ep_estado_t').val(frap.secciones.direccion_paciente.ESTADO);
 
 
 };

@@ -162,7 +162,7 @@
         $(document).on("pageshow","#datos_paciente",function(){
 
             // debe setear al valor que se haya recuperado cuando se carga la información del formulario
-            $.jStorage.set("motivo_atencion", String('trauma'),{});
+            //$.jStorage.set("motivo_atencion", String('trauma'),{});
 
             // Oculta la seccion de Media filiacion cuando se carga la seccion
             $('#mostrar_media_filiacion').fadeOut('slow');
@@ -290,21 +290,6 @@
 
             }
         });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1227,7 +1212,24 @@
         </div>
     </div><!-- /panel -->
 
-    <!-- panel:Municipios -->
+
+    <div data-role="panel" id="pnlDatosPacienteSexo" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Sexo:</h2>
+            <label style="background-color: #fff;" class="container">Masculino
+                <input onclick="CambiarV('#sexo','Masculino');" type="radio" name="sexo" id="sexo_m" value="1"  checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label style="background-color: #fff" class="container">Femenino
+                <input onclick="CambiarV('#sexo','Femenino');" type="radio" name="sexo" id="sexo_f" value="2" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+
+        </div>
+    </div><!-- /panel -->
+
+    <!-- panel municipios -->
+    <!-- panel:Municipios
     <div data-role="panel" id="pnlMunicipio" data-display="overlay" data-position="right" style=" width: 310px;">
         <div class="ui-panel-inner" style="width: 300px;">
             <h2>Municipio :</h2>
@@ -1248,7 +1250,7 @@
                 <span class="checkmark"></span>
             </label>
         </div>
-    </div><!-- /panel -->
+    </div>/panel -->
 
     <!-- panel:Estados -->
     <div data-role="panel" id="pnlEstado" data-display="overlay" data-position="right" style=" width: 310px;">
@@ -1486,20 +1488,23 @@
                         <input type="text" value="" name="ocupacion" id="ocupacion" class="colonia" style="width: 48%;">
 
                         <br>
-                        <div class="etiqueta" style="display:inline-block; width:20%;">
-                            <span class="labels">Sexo </span>
-                        </div>
-                        <div class="contenido-direccion-1" >
-                            <label>
-                                <input type="checkbox" name="sexo" id="sexo_masculino" value="1"style=" width: 20%" />
-                                <span class="labels">Masculino</span>
-                            </label>
 
-                            <label>
-                                <input type="checkbox" name="sexo" id="sexo_femenino" value="2" style=" width: 20%"/>
-                                <span >Femenino</span>
-                            </label>
+                        <!--  parte que dibuja el control sexo-->
+                        <div style="width: 100%; height: 65px; ">
+                            <div style=" width: 47%;float: left;">
+                                <h4 class="labels">Sexo</h4>
+                            </div>
+                            <a href="#pnlDatosPacienteSexo">
+                                <div style=" width: 53%;float: left;">
+                                    <div class="fake-input">
+                                        <input id="sexo" disabled type="text" value="Masculino"/>
+                                        <img src="images/right.png" />
+                                    </div>
+                                </div>
+                            </a>
                         </div>
+                        <!--  termina dibujo -->
+
 
                     </div>
 
@@ -2202,18 +2207,13 @@
                     <input type="text" value=""  id="calle" style="width:30%;">
                     <h4 class="labels">Número exterior:</h4>
                     <input type="number" value="" id="numero_exterior" style="width:30%;">
-                    <h4 class="labels">Número interior:</h4>
-                    <input type="number" value=""  id="numero_interior" style="width:30%;">
                     <h4 class="labels">Colonia:</h4>
                     <input type="text" value="" id="colonia" style="width:30%;">
-                    <h4 class="labels">Delegación:</h4>
+                    <h4 class="labels">Delegación o municipio:</h4>
                     <input type="text" value="" id="delegacion_municipio" style="width:30%;">
                     <h4 class="labels">CP:</h4>
                     <input type="text" value="" id="cp" style="width:30%;">
 
-
-
-                    "NUMERO_EXTERIOR INTEGER,"+
 
                 </div >
 
@@ -2236,7 +2236,7 @@
                     </div>
                      termina dibujo -->
 
-
+                    <!--
                     <div style="width: 100%; height: 65px;">
                         <div style=" width: 47%;float: left;">
                             <h4 class="labels">Municipio </h4>
@@ -2250,6 +2250,7 @@
                             </div>
                         </a>
                     </div>
+                    -->
 
                     <!--  parte que dibuja el control COLONIA -->
                    <!-- <div style="width: 100%; height: 65px;">
@@ -2915,19 +2916,6 @@
 
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3696,13 +3684,6 @@
 
     </div>
 </div>
-
-
-
-
-
-
-
 
 
 

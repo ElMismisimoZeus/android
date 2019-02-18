@@ -27,8 +27,8 @@
 
 
     <script type="text/javascript" src="../model/dataBaseApp.js"></script>
-    <script type="text/javascript" src="../objects/frap_object.js"></script>
     <script type="text/javascript" src="../controller/frap_data.js"></script>
+    <script type="text/javascript" src="../objects/frap_object.js"></script>
 
     <script type="text/javascript" src="../controller/frap.js"></script>
 
@@ -152,6 +152,7 @@
     e5d0c3
 
     -->
+
     <div class="element-head" style="background: #3398DC; " id="menu-datos-paciente" data-state="q1" onclick="deltaZ('click', 'datos_paciente', 'menu-datos-paciente', $(this).attr('data-state'))">
         <div class="menu-icon">
             <img src="images/icons-menu/Datos_Basicos1.png"/>
@@ -344,7 +345,6 @@ function homeVehicules(){
         iframe.find("#btnNext1").click(function()
         {
             dataBase.borrarRegistro('PACIENTE', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
-
             guardarMediaFiliacion();
             guardarPaciente();
             deltaZ('slide', 'datos_paciente', 'menu-datos-paciente', iframe.find("#btnNext1").attr('data-state'));
@@ -379,21 +379,19 @@ function homeVehicules(){
 
 
 
-
-
-
-
-
         // termina TRAUMA
         iframe.find("#btnNext5").click(function()
         {
+            dataBase.borrarRegistro('TRAUMA', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_trauma();
             deltaZ('slide', 'motivo_atencion', 'menu-motivo-atencion', iframe.find("#btnNext5").attr('data-state'));
         });
 
+
         // termina CLINICO
         iframe.find("#btnNext6").click(function()
         {
+            dataBase.borrarRegistro('CLINICO', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_clinico();
             deltaZ('slide', 'motivo_atencion', 'menu-motivo-atencion', iframe.find("#btnNext6").attr('data-state'));
         });
@@ -402,6 +400,7 @@ function homeVehicules(){
         // termina VIAL
         iframe.find("#btnNext7").click(function()
         {
+            dataBase.borrarRegistro('VIAL', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_vial();
             deltaZ('slide', 'motivo_atencion', 'menu-motivo-atencion', iframe.find("#btnNext7").attr('data-state'));
         });
@@ -410,6 +409,7 @@ function homeVehicules(){
         // termina GINECOLOGICO
         iframe.find("#btnNext8").click(function()
         {
+            dataBase.borrarRegistro('GINECOLOGICO', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_ginecologico();
             deltaZ('slide', 'motivo_atencion', 'menu-motivo-atencion', iframe.find("#btnNext8").attr('data-state'));
         });

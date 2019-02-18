@@ -125,24 +125,22 @@ function DATOS_PACIENTE(){
         this.OCUPACION = ( iframe.find('#ocupacion').val() != '') ? iframe.find('#ocupacion').val() : ' '
         //this.CORREO_ELECTRONICO = '-'
         //this.iMOTIVO_ATENCION =( iframe.find('input[name=motivo_atencion]:checked').size() > 0 ? iframe.find('input[name=motivo_atencion]:checked').val(): 0)
-        //this.iID_CTLG_SEXOS  = ( iframe.find('input[name=sexo]:checked').size() > 0 ? iframe.find('input[name=sexo]:checked').val(): 0)
+        this.iID_CTLG_SEXOS  = ( iframe.find('input[name=sexo]:checked').val() > 0 ? iframe.find('input[name=sexo]:checked').val(): 0)
 };
 
 function DIRECCION(){
-    //this.iNUMERO_INTERIOR =0,
 
         this.CALLE = ( iframe.find('#calle').val() != '') ? iframe.find('#calle').val() : ' ',
-        //this.iNUMERO_EXTERIOR = ( iframe.find('#numero_exterior').val() != '') ? iframe.find('#numero').val() : 0,
+        this.iNUMERO_EXTERIOR = ( iframe.find('#numero_exterior').val() != '') ? iframe.find('#numero_exterior').val() : 0,
         //this.iNUMERO_INTERIOR = ( iframe.find('#numero').val() != '') ? iframe.find('#numero').val() : 0 ,
-        //his.COLONIA = ( iframe.find('#colonia').val() != '') ? iframe.find('#colonia').val() : ' ',
+        this.COLONIA = ( iframe.find('#colonia').val() != '') ? iframe.find('#colonia').val() : ' ',
         this.DELEGACION = ( iframe.find('#delegacion_municipio').val() != '') ? iframe.find('#delegacion_municipio').val() : ' ',
-        this.ESTADO = ( iframe.find('input[name=estado]:checked').size() > 0 ? iframe.find('input[name=estado]:checked').val(): 0),
+        this.ESTADO = ( iframe.find('input[name=estado]:checked').val() > 0 ? iframe.find('input[name=estado]:checked').val(): 0),
         this.iCP = ((iframe.find('#cp').val() != '') ? iframe.find('#cp').val() : 0)
 };
 
 function MOTIVO_ATENCION()
 {
-    //this.iID_MOTIVO_ATENCION = 0,
     this.iID_CTLG_MOTIVO_ATENCION =( iframe.find('input[name=motivo_atencion]:checked').val() > 0 ? iframe.find('input[name=motivo_atencion]:checked').val(): 0),
         this.MOTIVO = 0
 };
@@ -658,6 +656,7 @@ function guardarPaciente()
 
     console.log(tbPaciente);
     console.log("aquiiiii estoy ");
+
 
 
     dataBase.saveTable('PACIENTE', tbPaciente);

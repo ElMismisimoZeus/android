@@ -159,12 +159,12 @@ frap.auxiliares.Paciente = function(){
 
 frap.auxiliares.Direccion = function(){
     this.CALLE = objAux.CALLE,
-    this.ESTADO = objAux.ESTADO
-    // this.NUMERO_EXTERIOR = objAux.NUMERO_EXTERIOR,
+    this.ESTADO = objAux.ESTADO,
+    this.NUMERO_EXTERIOR = objAux.NUMERO_EXTERIOR,
     // this.NUMERO_INTERIOR = objAux.NUMERO_INTERIOR,
-    //this.COLONIA  = objAux.,
-    // this.DELEGACION  = objAux,
-    //this.iCP = objAux
+    this.COLONIA  = objAux.COLONIA,
+    this.DELEGACION  = objAux.DELEGACION,
+    this.iCP = objAux.ICP
 
 
 };
@@ -523,8 +523,8 @@ frap.initPaciente = function(){
 
 frap.initDireccion = function(){
         this.CALLE =' ',
-        this.iNUMERO_EXTERIOS =0,
-        this.iNUMERO_INTERIOR =0,
+        this.iNUMERO_EXTERIOR =0,
+        //this.iNUMERO_INTERIOR =0,
         this.COLONIA  = '-',
         this.DELEGACION  = '-',
         this.ESTADO ='-',
@@ -943,9 +943,17 @@ frap.recuperacion['PACIENTE']= function(){
             //DIRECCION
 
 
+            //objAux.CALLE = results.rows.item(0).CALLE;
             objAux.CALLE = results.rows.item(0).CALLE;
-            
+            objAux.iNUMERO_EXTERIOR = results.rows.item(0).NUMERO_EXTERIOR;
+            objAux.COLONIA = results.rows.item(0).COLONIA;
+            objAux.DELEGACION = results.rows.item(0).DELEGACION;
+            objAux.iCP = results.rows.item(0).CP;
+            objAux.iID_CTLG_ESTADOS = results.rows.item(0).ID_CTLG_ESTADOS;
 
+
+            console.log( "aquiiiiiiiiii numero " + objAux.iNUMERO_EXTERIOR);
+            console.log( "aquiiiiiiiiii cp " + objAux.iCP);
 
             console.log(objAux.CALLE + "objAux.CALLE");
             console.log(results.rows.item(0).CALLE + "results.rows.item(0).CALLE ");
@@ -1022,7 +1030,7 @@ frap.recuperacion['MEDIA_FILIACION']= function(){
 
     console.log('idFRAP'+idFRAP);
     //dataBase.getTable('MEDIA_FILIACION', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ");
-    dataBase.getTable('MEDIA_FILIACION', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb );
+    dataBase.getTableS('MEDIA_FILIACION', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb );
 
 };
 
@@ -1610,7 +1618,7 @@ frap.cargas.loadDireccion = function(){
         var len = results.rows.length;
         if (len>0){
             frap.secciones.paciente.CALLE = results.rows.item(0).CALLE;
-            frap.secciones.paciente.iNUMERO = results.rows.item(0).NUMERO;
+            frap.secciones.paciente.iNUMERO_EXTERIOR = results.rows.item(0).NUMERO_EXTERIOR;
             frap.secciones.paciente.COLONIA = results.rows.item(0).COLONIA;
             frap.secciones.paciente.DELEGACION = results.rows.item(0).DELEGACION;
             frap.secciones.paciente.iCP = results.rows.item(0).CP;
