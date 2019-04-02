@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <!-- Include meta tag to ensure proper rendering and touch zooming -->
+    <!-- Include meta tag to ensure proper rendering and touch zooming
+     <meta name="viewport" content="width=device-width, initial-scale=1" >
+     -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" >
+
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0" />
     <!-- Include jQuery Mobile stylesheets -->
     <!-- Include the jQuery library -->
     <!-- Include the jQuery Mobile library -->
 
+    <!--
+
+-->
     <link rel="stylesheet" type="text/css" href="dialogos/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="dialogos/jquery-ui.theme.css">
-
 
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css">
     <link rel="stylesheet" type="text/css" href="css/style_forms.css">
@@ -71,6 +76,18 @@
 </head>
 <body>
 
+
+<div style="background-color:rgba(0, 0, 0, 0.0); display: none; height: 319px; padding-bottom: -5px; z-index: 1001;"  id="loading" >
+    <div id="loadingContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray;">
+        <div style="height: 10px; width: 100%;"></div>
+        <div  style="width: 100px; margin: 0 auto;">
+            <img  src="../images/loader_en.gif" width=100 >
+        </div>
+        <div style="height: 5px; width: 100%;"></div>
+        <p id="loadingText" style="text-align: center;">Enviando información</p>
+    </div>
+
+</div>
 
 <div style="background-color:WhiteSmoke; display: none; height: 390px; padding-bottom: -5px;"  id="msgOk" >
     <div id="msgOkContent" style="background-color:WhiteSmoke; border-bottom: 1px solid; border-bottom-color: gray;">
@@ -198,7 +215,7 @@
     </div>
 
 
-    <div class="element-head" style="background: #000000; " id="menu-envio" data-state="q1" onclick="deltaZ('click', 'envio', 'menu-envio',  $(this).attr('data-state'))">
+    <div class="element-head" style="background: #000000; " id="menu-envio" data-state="q1" onclick="deltaZ('click', 'final', 'menu-envio',  $(this).attr('data-state'))">
         <div class="menu-icon">
             <div style="height: 11px; width: 100%;"></div>
             <img src="../images/upload.png"/></div>
@@ -207,7 +224,7 @@
 
 </div>
 <div class="cuerpo" id="content-menu">
-    <iframe src=""  frameborder="0" seamless="" id="frameDemo"></iframe>
+    <iframe src=""  frameborder="0" seamless="" id="frameDemo"  ></iframe>
 </div>
 </body>
 
@@ -305,6 +322,7 @@ function homeVehicules(){
 
         var alto = $(window).height();
         var elementMenu = alto/5;
+
         $('.cabecera').height(elementMenu);
         $('.element-head').height(elementMenu);
         $('.cuerpo').height(alto - elementMenu);
@@ -436,7 +454,34 @@ function homeVehicules(){
         {
             guardar_legal();
             guardar_emergencia_resultado();
+
+            // commented by la Z because need manually change, validation if coud be send is necesary
             deltaZ('slide', 'pertenencias', 'menu-pertenencias', iframe.find("#btnNext10").attr('data-state'));
+
+            $('#frameDemo').attr('src', "frap_content.html?currentId=final");
+
+
+
+            /*
+            // manage if could be send FRAP
+            var send_bloked = 1;
+            // validate if FRAP coud send or not
+            var aux_estado_secciones = $.jStorage.get("estado_secciones"); // MOST IMPORTANT ***
+
+            $.each(aux_estado_secciones, function (key, value){
+                if(value == 0){
+                    send_bloked =0;
+                }
+
+            });
+
+            if(send_bloked == 0)
+                currentId = "final_BLOQUED";
+
+            $('#frameDemo').attr('src', "frap_content.html?currentId="+idPage);
+            window.location.hash = currentId;
+            */
+
         });
 
 

@@ -4,6 +4,8 @@
 
 .cuerpo {
     display: none;
+    /*position: fixed;*/
+    z-index: 1000;
 }   
 .element-head {
     text-align: center;

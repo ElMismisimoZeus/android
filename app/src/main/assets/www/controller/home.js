@@ -755,6 +755,9 @@ function prepareFRAP(paginaInicial){
         dataBase.onSuccess = function(tx, r) {
 
             $.unblockUI();
+            console.log('justo antes');
+            console.log('=======================');
+            console.log(paginaInicial);
             location=paginaInicial;
         };
         dataBase.saveTable('SERVICIO',tabla_frap);
@@ -995,7 +998,7 @@ function openFRAP(frapt){
     console.log('open PDF');
 
     console.log("task="+"getPDF"+"&user="+id_usuario+"&session="+id_sesion+"&state="+estado+"&service="+idService+"&frap="+frapt+"&stateIndex="+25);
-    var dataString="task="+"getPDF"+"&user="+id_usuario+"&session="+id_sesion+"&state="+"SINALOA"+"&service="+idService+"&frap="+frapt+"&stateIndex="+25;
+    var dataString="task="+"getPDF"+"&user="+id_usuario+"&session="+id_sesion+"&state="+estado+"&service="+idService+"&frap="+frapt+"&stateIndex="+25;
 
     // alert(dataString);
 

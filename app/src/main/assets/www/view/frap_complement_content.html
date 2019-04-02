@@ -34,6 +34,29 @@
 
     <script>
 
+        var currentControl = null;
+
+        function CambiarV(control, texto){
+            $(control).val(texto);
+
+
+
+            console.log(control.substring(1));
+
+
+
+            var element = document.getElementById(control.substring(1));
+            element.scrollIntoView(true);
+            //window.location.hash = control;
+
+
+            if(currentControl != null) {
+                $(currentControl).css("border", "3px solid black");
+            }
+            currentControl = control;
+
+            $(currentControl).css("border-color", "#FF5733");
+        }
 
 
 
@@ -45,7 +68,7 @@
 
             if(frap != null){
                 console.log("en recuperacion de insumos_basicos");
-                parent.cargarINSUMOS_NIVEL_BASICO();
+                // parent.cargarINSUMOS_NIVEL_BASICO();
                 //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
             }
         });
@@ -55,7 +78,7 @@
 
             if(frap != null){
                 console.log("en recuperacion de insumos_medios");
-                parent.cargarINSUMOS_NIVEL_MEDIO();
+                // parent.cargarINSUMOS_NIVEL_MEDIO();
                 //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
             }
         });
@@ -65,7 +88,7 @@
 
             if(frap != null){
                 console.log("en recuperacion de insumos_avanzados");
-                parent.cargarINSUMOS_NIVEL_AVANZADO();
+               //  parent.cargarINSUMOS_NIVEL_AVANZADO();
                 //$('#nombre').val(frap.secciones.datos_paciente.NOMBRE);
             }
         });
@@ -219,6 +242,7 @@
             <a href="#insumos_intermedios" data-transition="slide" id="btnNext1" data-state="q2" class="button"  style="color: #000000;">Siguiente</a>
         </center>
 
+        <div style="height: 50px; width: 100%;"></div>
     </div>
 </div>
 
@@ -282,6 +306,7 @@
         </center>
 
 
+        <div style="height: 50px; width: 100%;"></div>
     </div>
 </div>
 
@@ -291,6 +316,8 @@
 <!-- ====================================================================================-->
 <div data-role="page" style="" id="insumos_avanzados">
     <div class="contenido-form">
+
+        <div style=" width: 90%; margin: 0 auto;">
 
         <div data-role="rangeslider" data-track-theme="c">
             <label for="tubo_endrotrauqeal_35">Tubo endrotraqueal 3.5:</label>
@@ -333,6 +360,7 @@
             <a href="#medicamentos" data-transition="slide" id="btnNext3" data-state="q2" class="button"  style="color:    #000000;">Siguiente</a>
         </center>
 
+        </div>
     </div>
 </div>
 
@@ -341,7 +369,69 @@
 <!--    MEDICAMENTOS      -->
 <!-- ====================================================================================-->
 <div data-role="page" style="" id="medicamentos">
+
+    <!-- panel:Servicio médico -->
+    <div data-role="panel" id="pnlViaAdministracion" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2>Vía de administración:</h2>
+            <label class="container">Oral
+                <input onclick="CambiarV('#via_administracion_m','Oral');" type="radio"  name="via_admin" id="oral" value="1" checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Sublingual
+                <input onclick="CambiarV('#via_administracion_m','Sublingual');" type="radio"  name="via_admin" id="sublengual" value="2" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Gastroentérica
+                <input onclick="CambiarV('#via_administracion_m','Gastroentérica');" type="radio" name="via_admin" id="gastroentermica" value="3" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Rectal
+                <input onclick="CambiarV('#via_administracion_m','Rectal');" type="radio" name="via_admin" id="rectal" value="4" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Intravenosa
+                <input onclick="CambiarV('#via_administracion_m','Intravenosa');" type="radio"  name="via_admin" id="intravenosa" value="5" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Intraarterial
+                <input onclick="CambiarV('#via_administracion_m','Intraarterial');" type="radio"  name="via_admin" id="intraerterial" value="6" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Intramuscular
+                <input onclick="CambiarV('#via_administracion_m','Intramuscular');" type="radio"  name="via_admin" id="intramuscular" value="11" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Subcutánea
+                <input onclick="CambiarV('#via_administracion_m','Subcutánea');" type="radio" name="via_admin" id="subcutanea" value="12" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Respiratoria
+                <input onclick="CambiarV('#via_administracion_m','Respiratoria');" type="radio" name="via_admin" id="respiratoria" value="7" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Oftálmica
+                <input onclick="CambiarV('#via_administracion_m','Oftálmica');" type="radio" name="via_admin" id="oftalmica" value="7" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Transdérmica
+                <input onclick="CambiarV('#via_administracion_m','Transdérmica');" type="radio" name="via_admin" id="transdermica" value="7" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+
+            <label  class="container">Óptica
+                <input onclick="CambiarV('#via_administracion_m','Óptica');" type="radio" name="via_admin" id="optica" value="7" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+
+
+        </div>
+    </div><!-- /panel -->
+
+
     <div class="contenido-form">
+        <div style=" width: 90%; margin: 0 auto;">
+
         <label for="time-2">Hora: </label>
         <input type="time" data-clear-btn="true" name="medicamentos_hora" id="medicamentos_hora" value="">
         <label for="medicamento">Medicamento*</label>
@@ -349,15 +439,33 @@
         <label for="dosis">Dosis:</label>
         <input type="text" name="dosis" id="dosis" value="" data-clear-btn="true" placeholder="Dosis">
 
+
+        <!--  parte que dibuja el control -->
+        <div style="width: 100%; height: 65px; ">
+            <div style=" width: 47%;float: left;">
+                <h4 class="labels">Vía de administración</h4>
+            </div>
+            <a href="#pnlViaAdministracion">
+                <div style=" width: 53%;float: left;">
+                    <div class="fake-input">
+                        <input id="via_administracion_m" disabled type="text" value="Oral"/>
+                        <img src="images/right.png" />
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!--  termina dibujo -->
+
+        <!--
         <div class="ui-grid-a my-breakpoint">
             <div class="ui-block-a">
                 <fieldset data-role="controlgroup" data-direction="vertical">
                     <input type="checkbox" name="checkbox_oral" id="checkbox_oral">
                     <label for="checkbox_oral">Oral</label>
                     <input type="checkbox" name="checkbox_sublingual" id="checkbox_sublingual">
-                    <label for="checkbox_sublingual">Sublingual</label>
+                    <label for="checkbox_sublingual"></label>
                     <input type="checkbox" name="checkbox_gastro" id="checkbox_gastro">
-                    <label for="checkbox_gastro">Gastroentérica</label>
+                    <label for="checkbox_gastro"></label>
                     <input type="checkbox" name="checkbox_rectal" id="checkbox_rectal">
                     <label for="checkbox_rectal">Rectal</label>
                     <input type="checkbox" name="checkbox_intravenosa" id="checkbox_intravenosa">
@@ -384,11 +492,15 @@
             </div>
         </div>
 
+        -->
+
         <center>
             <a href="#signos" data-transition="slide" id="btnNext4" data-state="q2" class="button"  style="color:  #000000;">Siguiente</a>
         </center>
 
+            <div style="height: 50px; width: 100%;"></div>
 
+        </div>
     </div>
 </div>
 
@@ -396,13 +508,152 @@
 <!--    SIGNOS VITALES      -->
 <!-- ====================================================================================-->
 <div data-role="page" style="" id="signos">
+
+    <!-- panel: motora-->
+    <div data-role="panel" id="pnlGM" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2 >Motora :</h2>
+            <label class="container">Obedece
+                <input onclick="CambiarV('#dc_es_txtGM','Obedece');" type="radio" name="glasgow_motora" id="ep_motora_obedece" value="1"  checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Localiza
+                <input onclick="CambiarV('#dc_es_txtGM','Localiza');" type="radio" name="glasgow_motora" id="ep_motora_localiza" value="2" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Retira
+                <input onclick="CambiarV('#dc_es_txtGM','Retira');" type="radio" name="glasgow_motora" id="ep_motora_retira" value="3" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Decortización
+                <input onclick="CambiarV('#dc_es_txtGM','Decortización');" type="radio" name="glasgow_motora" id="ep_motora_decortizacion" value="4" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Decerebración
+                <input onclick="CambiarV('#dc_es_txtGM','Decerebración');" type="radio" name="glasgow_motora" id="ep_motora_decerebracion" value="5" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Ninguna
+                <input onclick="CambiarV('#dc_es_txtGM','Ninguna');" type="radio" name="glasgow_motora" id="ep_motora_ninguna" value="6" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div><!-- /panel -->
+
+
+    <!-- panel: verval-->
+    <div data-role="panel" id="pnlGV" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2 >Verbal :</h2>
+            <label class="container">Obedece
+                <input onclick="CambiarV('#dc_es_txtGV','Orientado');" type="radio" name="glasgow_verbal" id="es_verbal_obedece" value="5"  checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Confuso
+                <input onclick="CambiarV('#dc_es_txtGV','Confuso');" type="radio" name="glasgow_verbal" id="es_verval_confuso" value="4" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Inapropiado
+                <input onclick="CambiarV('#dc_es_txtGV','Inapropiado');" type="radio" name="glasgow_verbal" id="es_verval_inapropiado" value="3" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Incomprensible
+                <input onclick="CambiarV('#dc_es_txtGV','Incomprensible');" type="radio" name="glasgow_verbal" id="es_verval_incomprensible" value="2" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Ninguna
+                <input onclick="CambiarV('#dc_es_txtGV','Ninguno');" type="radio" name="glasgow_verbal" id="es_verval_ninguno" value="1" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div><!-- /panel -->
+
+
+    <!-- panel: verval-->
+    <div data-role="panel" id="pnlGO" data-display="overlay" data-position="right" style=" width: 310px;">
+        <div class="ui-panel-inner" style="width: 300px;">
+            <h2 >Ocular :</h2>
+            <label class="container">Espontáneo
+                <input onclick="CambiarV('#dc_es_txtGO','Espontáneo');" type="radio" name="ocular" id="es_ocular_espontaneo" value="4"  checked="checked" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+
+            </label>
+            <label class="container">Verbal
+                <input onclick="CambiarV('#dc_es_txtGO','Verbal');" type="radio" name="ocular" id="es_ocular_verbal" value="3" data-theme="b" data-rel="close">
+
+                <span class="checkmark"></span>
+            </label>
+            <label class="container">Doloroso
+                <input onclick="CambiarV('#dc_es_txtGO','Doloroso');" type="radio" name="ocular" id="es_ocular_doloroso" value="2" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+            <label  class="container">Ninguna
+                <input onclick="CambiarV('#dc_es_txtGO','Ninguna');" type="radio" name="ocular" id="es_ocular_nunguna" value="1" data-theme="b" data-rel="close">
+                <span class="checkmark"></span>
+            </label>
+        </div>
+    </div><!-- /panel -->
+
+
     <div class="contenido-form">
-        <h2 class="seccion" align="center">Escala Glasgow</h2>
+
+        <div style=" width: 90%; margin: 0 auto;">
+
         <h4 class="labels"> Hora:</h4>
-        <input type="time" name="time-2" id="time-2" value=""  style="width:30%;">
+        <input type="time" name="time-2" id="time-2" value=""  style="width:100%;">
 
 
+        <h2 class="seccion" align="center">Escala Glasgow</h2>
 
+        <div style="width: 100%; height: 65px; ">
+            <div style=" width: 47%;float: left;">
+                <h4 class="labels">Motora</h4>
+            </div>
+            <a href="#pnlGM">
+                <div style=" width: 53%;float: left;">
+                    <div class="fake-input">
+                        <input class="seleccion" id="dc_es_txtGM" disabled type="text" value="Obedece"/>
+                        <img src="images/right.png" />
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!--  termina dibujo -->
+
+
+        <!--  parte que dibuja el control -->
+        <div style="width: 100%;">
+            <div    style=" width: 47%;float: left;">
+                <h4 class="labels">Verbal</h4>
+            </div>
+            <a href="#pnlGV">
+                <div style=" width: 53%;float: left;">
+                    <div class="fake-input">
+                        <input class="seleccion" id="dc_es_txtGV" disabled type="text" value="Obedece"/>
+                        <img src="images/right.png" />
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!--  termina dibujo -->
+
+
+        <!--  parte que dibuja el control -->
+        <div style="width: 100%; ">
+            <div style=" width: 47%;float: left;">
+                <h4 class="labels">Ocular</h4>
+            </div>
+            <a href="#pnlGO">
+                <div style=" width: 53%;float: left;">
+                    <div class="fake-input">
+                        <input class="seleccion" id="dc_es_txtGO" disabled type="text" value="Espontáneo"/>
+                        <img src="images/right.png" />
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!--  termina dibujo -->
+        <!--
         <div id="fieldSet">
             <fieldset data-role="controlgroup" data-direction="vertical">
                 <span>Verbal:*</span>
@@ -440,6 +691,7 @@
                 <label for="checkbox-v-2l">Ninguna</label>
             </fieldset>
         </div>
+        -->
 
         <h4 for="id_fc" class="labels">FC:*"</h4>
         <input type="number" data-clear-btn="true" name="id_fc" id="id_fc" value="">
@@ -461,7 +713,10 @@
 
         <center>
             <a href="#signos" data-transition="slide" id="btnNext5" data-state="q2" class="button"  style="color:  #000000;">Guardar</a>
-        </center>   
+        </center>
+
+            <div style="height: 50px; width: 100%;"></div>
+        </div>
 
     </div>
 </div>

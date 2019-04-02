@@ -36,6 +36,19 @@ function msgBoxClose() {
 
 };
 
+$(function () {
+
+    $("#loading").dialog({
+        autoOpen: false,
+        modal: true,
+        dialogClass: "dlg-no-close",
+        open: function() {
+            $('.ui-widget-overlay').addClass('custom-overlay');
+        }
+    });
+
+});
+
 
 
 
@@ -1031,6 +1044,13 @@ function cargarGINECOLOGICO()
 
 
 
+function enviandoInformacion(){
+    $("#loading").dialog('open');
+}
+
+function cierraEnviando(){
+    $("#loading").dialog( 'close' );
+}
 
 
 

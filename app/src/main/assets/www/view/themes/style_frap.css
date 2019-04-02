@@ -16,6 +16,21 @@
     padding-top: 2vmin;
 
 }
+.entrada{
+    font-size: 4.3vmin;
+}
+
+input[type="text"]
+{
+    font-size:4.3vmin;
+}
+
+input[type="number"]
+{
+    font-size:4.3vmin;
+}
+
+
 
 .seleccion{
     font-size: 4vmin;
@@ -100,5 +115,5 @@ text-align: left;
 
 
 .fake-input { position: relative;  width: 90%; }
-.fake-input input { border: solid; border-width: 3px; background:#fff;  display:block; width: 100%; }
+.fake-input input { border: solid; border-width: 3px; background:#fff; font-size: 4.3vmin;  display:block; width: 100%; }
 .fake-input img { position: absolute; top: 12px; right: 5px }

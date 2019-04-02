@@ -36,6 +36,11 @@
 
 
 
+    <script>
+        var contM =0;
+        var contS =0;
+
+    </script>
 
 
     <!--
@@ -155,13 +160,13 @@
     </div>
     <div class="element-head" style="background: #2D3E50;" id="menu-medicamentos" data-state="q1" onclick="deltaZ('click', 'medicamentos', 'menu-medicamentos',  $(this).attr('data-state'))">
         <div class="menu-icon">
-            <img src="images/icons-menu/Medicamentos1.png"/>
+            <img id="imgM" src="images/icons-menu/Medicamentos0.png"/>
         </div>
         <span style="color: white;">Medicamentos</span>
     </div>
     <div class="element-head" style="background: #BEC3C7;" id="menu-signos" data-state="q1" onclick="deltaZ('click', 'signos', 'menu-signos',  $(this).attr('data-state'))">
         <div class="menu-icon">
-            <img src="images/icons-menu/Signos1.png"/>
+            <img id="imgS" src="images/icons-menu/Signos0.png"/>
         </div>
         <span style="color: white;">Signos</span>
     </div>
@@ -204,6 +209,27 @@
         location="home_vehicules.html";
     }
 
+    function CambiarV(control, texto){
+        $(control).val(texto);
+
+
+
+        console.log(control.substring(1));
+
+
+
+        var element = document.getElementById(control.substring(1));
+        element.scrollIntoView(true);
+        //window.location.hash = control;
+
+
+        if(currentControl != null) {
+            $(currentControl).css("border", "3px solid black");
+        }
+        currentControl = control;
+
+        $(currentControl).css("border-color", "#FF5733");
+    }
 
     /*$('#frameDemo').load(function(){
 
@@ -300,34 +326,101 @@
         {
             dataBase.borrarRegistro('INSUMOS_NIVEL_BASICO', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_insumosBasico();
-            deltaZ('slide', 'insumos_basicos', 'menu-insumos-basicos', iframe.find("#btnNext1").attr('data-state'))
+
+            $('#frameDemo').attr('src', "");
+            $("#menu-insumos-basicos").attr('data-state','q1');
+
+            $("#content-menu").slideUp("slow", function() {
+                menuArray.forEach(function(item, index) {
+                    if (item != 'menu-insumos-basicos') {
+                        $( "#"+item ).slideDown("slow");
+                    }
+                });
+            });
+            //deltaZ('slide', 'insumos_basicos', 'menu-insumos-basicos', iframe.find("#btnNext1").attr('data-state'))
         });
 
         iframe.find("#btnNext2").click(function()
         {
             dataBase.borrarRegistro('INSUMOS_NIVEL_INTERMEDIO', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_insumosMedio();
-            deltaZ('slide', 'insumos_intermedios', 'menu-insumos-intermedios', iframe.find("#btnNext2").attr('data-state'))
+
+            $('#frameDemo').attr('src', "");
+            $("#menu-insumos-intermedios").attr('data-state','q1');
+
+            $("#content-menu").slideUp("slow", function() {
+                menuArray.forEach(function(item, index) {
+                    if (item != 'menu-insumos-intermedios') {
+                        $( "#"+item ).slideDown("slow");
+                    }
+                });
+            });
+            //deltaZ('slide', 'insumos_intermedios', 'menu-insumos-intermedios', iframe.find("#btnNext2").attr('data-state'))
         });
 
         iframe.find("#btnNext3").click(function()
         {
             dataBase.borrarRegistro('INSUMOS_NIVEL_AVANZADO', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_insumosAvanzado();
-            deltaZ('slide', 'insumos_avanzados', 'menu-insumos-avanzados', iframe.find("#btnNext3").attr('data-state'))
+
+            $('#frameDemo').attr('src', "");
+            $("#menu-insumos-avanzados").attr('data-state','q1');
+
+            $("#content-menu").slideUp("slow", function() {
+                menuArray.forEach(function(item, index) {
+                    if (item != 'menu-insumos-avanzados') {
+                        $( "#"+item ).slideDown("slow");
+                    }
+                });
+            });
+            //deltaZ('slide', 'insumos_avanzados', 'menu-insumos-avanzados', iframe.find("#btnNext3").attr('data-state'))
         });
 
         iframe.find("#btnNext4").click(function()
         {
-            dataBase.borrarRegistro('MEDICAMENTOS', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
+            // dataBase.borrarRegistro('MEDICAMENTOS', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
             guardar_medicamentos();
-            deltaZ('slide', 'medicamentos', 'menu-medicamentos', iframe.find("#btnNext4").attr('data-state'))
+
+            // se regresa al despliegue de las opciones pues son independientes uno del otro
+            var edit_save = document.getElementById("imgM");
+            contM = contM+1;
+            edit_save.src = "images/icons-menu/Medicamentos"+contM+".png";
+
+            $('#frameDemo').attr('src', "");
+            $("#menu-medicamentos").attr('data-state','q1');
+
+            $("#content-menu").slideUp("slow", function() {
+                menuArray.forEach(function(item, index) {
+                    if (item != 'menu-medicamentos') {
+                        $( "#"+item ).slideDown("slow");
+                    }
+                });
+            });
+
+            //deltaZ('slide', 'medicamentos', 'menu-medicamentos', iframe.find("#btnNext4").attr('data-state'))
         });
 
         iframe.find("#btnNext5").click(function()
         {
-            dataBase.borrarRegistro('REGISTRO_SIGNOS_VITALES', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
-            guardar_medicamentos();
+            // cambiar por guardar signos
+            guardar_signos();
+
+            // se regresa al despliegue de las opciones pues son independientes uno del otro
+            var edit_save = document.getElementById("imgS");
+            contS = contS+1;
+            edit_save.src = "images/icons-menu/Signos"+contS+".png";
+
+            $('#frameDemo').attr('src', "");
+            $("#menu-signos").attr('data-state','q1');
+
+            $("#content-menu").slideUp("slow", function() {
+                menuArray.forEach(function(item, index) {
+                    if (item != 'menu-signos') {
+                        $( "#"+item ).slideDown("slow");
+                    }
+                });
+            });
+
         });
 
     });

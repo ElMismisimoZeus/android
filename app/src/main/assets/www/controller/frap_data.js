@@ -38,6 +38,14 @@ estado_secciones['INSUMOS_NIVEL_AVANZADO'] = 0;
 
 
 
+estado_secciones['MEDICAMENTOS'] = 1;
+estado_secciones['SIGNOS_VITALES'] = 1;
+
+estado_secciones['HALLAZGOS_FISICOS'] = 1;
+estado_secciones['FACTORES'] = 1;
+
+
+
 
 
 
@@ -120,9 +128,10 @@ function DATOS_PACIENTE(){
         this.NOMBRE = (iframe.find('#nombre').val() != '') ? iframe.find('#nombre').val() : ' ',
         this.APELLIDO_PATERNO = ( iframe.find('#a_paterno').val() != '') ? iframe.find('#a_paterno').val() : ' ',
         this.APELLIDO_MATERNO = ( iframe.find('#a_materno').val() != '') ? iframe.find('#a_materno').val() : ' ',
-        this.FECHA_NACIMIENTO = ( iframe.find('#fecha_nacimiento').val() != '') ? iframe.find('#fecha_nacimiento').val() : 0000-00-00,
+        this.FECHA_NACIMIENTO = ( iframe.find('#fecha_nacimiento').val() != '') ? iframe.find('#fecha_nacimiento').val() : "0000-00-00",
         this.TELEFONO = ( iframe.find('#telefono').val() != '') ? iframe.find('#telefono').val() : ' ' ,
-        this.OCUPACION = ( iframe.find('#ocupacion').val() != '') ? iframe.find('#ocupacion').val() : ' '
+        this.OCUPACION = ( iframe.find('#ocupacion').val() != '') ? iframe.find('#ocupacion').val() : ' ',
+        this.CORREO_ELECTRONICO = checkText(iframe.find('#correo').val()),
         //this.CORREO_ELECTRONICO = '-'
         //this.iMOTIVO_ATENCION =( iframe.find('input[name=motivo_atencion]:checked').size() > 0 ? iframe.find('input[name=motivo_atencion]:checked').val(): 0)
         this.iID_CTLG_SEXOS  = ( iframe.find('input[name=sexo]:checked').val() > 0 ? iframe.find('input[name=sexo]:checked').val(): 0)
@@ -179,8 +188,8 @@ function EVALUACION_PRIMARIA()
         this.iID_CTLG_RITMO = (checkValue(iframe.find('input[name = ep_ritmo]:checked').val())),
         this.iID_CTLG_COLORACION = (checkValue(iframe.find('input[name = ep_coloracion]:checked').val())),
         this.iID_CTLG_TEMPERATURA = (checkValue(iframe.find('input[name = ep_temperatura]:checked').val())),
-        this.iID_CTLG_CONDICION = (checkValue(iframe.find('input[name = ep_condicion]:checked').val())),
-            this.iPOSICION = (checkValue(iframe.find('input[name = ep_orientacion]:checked').val()))
+        this.iID_CTLG_CONDICION = (checkValue(iframe.find('input[name = ep_condicion]:checked').val()))//,
+            //this.iPOSICION = (checkValue(iframe.find('input[name = ep_orientacion]:checked').val()))
 }
 
 
@@ -195,6 +204,7 @@ function SEMIOLOGIA_DOLOR()
         this.ALIVIO =  checkText(iframe.find('#sd_alivio').val()),
         this.HORA_INICIO = checkText(iframe.find('#sd_inicio').val()),
         this.iINTENSIDAD = (iframe.find('#sd_intensidad').val() != 'Selecciona un valor') ? iframe.find('#sd_intensidad').val() : 0
+
 }
 
 // Subseccion de: EVALUACION_SECUNDARIA
@@ -278,19 +288,20 @@ function EMERGENCIA_RESULTADO()
 
 function FRAP_OTROS()
 {
-        this.DEPENDENCIA = checkText(iframe.find('#otros_dependencia').val()),
+        this.DEPENDENCIAS = checkText(iframe.find('#otros_dependencia').val()),
         this.UNIDADES = checkText(iframe.find('#otros_unidades').val()),
         this.NOMBRE = checkText(iframe.find('#otros_nombre').val())
 
 }
 
-function CONSENTIMIENTO(imgP, imgT)
+function CONSENTIMIENTO(imgT,imgP)
 {
-
+    var imgConsentimientoFirmaTestigo =  $.jStorage.get("imgConsentimientoFirmaTestigo");
+    var imgConsentimientoFirmaPaciente = $.jStorage.get("imgConsentimientoFirmaPaciente");
         this.NOMBRE_PACIENTE = checkText(iframe.find('#consentimiento_nombre_paciente').val()),
         this.NOMBRE_TESTIGO = checkText(iframe.find('#consentimiento_nombre_testigo').val()),
-        this.FIRMA_PACIENTE = (imgP != '') ? imgP : '-';
-        this.FIRMA_TESTIGO = (imgT != '') ? imgT : '-';
+        this.FIRMA_PACIENTE = (imgConsentimientoFirmaPaciente != '' && imgConsentimientoFirmaPaciente !== null) ? imgConsentimientoFirmaPaciente : '-';
+        this.FIRMA_TESTIGO = (imgConsentimientoFirmaTestigo != '' && imgConsentimientoFirmaTestigo != null) ? imgConsentimientoFirmaTestigo : '-';
 }
 
 
@@ -304,7 +315,7 @@ function MANEJO_VIA_AEREA()
     //this.iID_MANEJO_VIA_AEREA = 0,
         this.iID_CTLG_DISPOSITIVO_APERTURA = checkValue(iframe.find('input[name=dispositivo_apertura]:checked').val()),
         this.iID_CTLG_MANEJO_VIA_AEREA = checkValue(iframe.find('input[name=manejo_via_aerea]:checked').val()),
-        this.iASPIRACION = checkValue(iframe.find('input[name=aspiracion]:checked').val()),
+        this.iASPIRACION = checkValue(iframe.find('input[name=aspiracion]:checked').val()) //,
         this.iID_INTUBACION = 0
 }
 
@@ -318,12 +329,12 @@ function ASISTENCIA_VENTILATORIA()
 
 function OXIGENO_TERAPIA()
 {
-        this.iID_OXIGENO_TERAPIA = 0,
+        //this.iID_OXIGENO_TERAPIA = 0,
         this.iLITROS_MINUTO = (iframe.find('#oxi_litros').val() !='') ? iframe.find('#oxi_litros').val() : 0,
         this.iID_CTLG_OXIGENOTERAPIA = checkText(iframe.find('input[name=tipo_oxigenoterapia]:checked').val())
 }
 
-function DESCOMPRESION_PLEURAL()
+function DESCOMPRENSION_PLEURAL()
 {
     this.iCALIBRE = (iframe.find('#hemitorax_calibre').val() != '') ? iframe.find('#hemitorax_calibre').val() : 0,
         this.iID_CTLG_HEMITORAX = checkValue(iframe.find('input[name=hemitorax]:checked').val()) // verify local
@@ -331,7 +342,8 @@ function DESCOMPRESION_PLEURAL()
 
 function CONTROL_HEMORRAGIAS()
 {
-    this.iID_CTLG_CONTROL_HEMORAGIAS = checkValue(iframe.find('input[name=control_hemorragia]:checked').size()),
+
+    this.iID_CTLG_CONTROL_HEMORRAGIAS = checkValue(iframe.find('input[name=control_hemorragia]:checked').size()),
         this.HORA_COLOCACION = checkText(iframe.find('#control_hemorragia_HORA').val())
 }
 
@@ -345,7 +357,7 @@ function ACCESO_CIRCULATORIO()
         this.iBOMBA_INFUSION = checkValue(iframe.find('input[name=acceso_bomba]:checked').val()),
         this.iCALIBRE = (iframe.find('#acceso_calibre').val() != '' ) ? iframe.find('#acceso_calibre').val() : 0,
         this.iVOLUMEN_INFUNDIDO = (iframe.find('#acceso_volumen').val() !='') ? iframe.find('#acceso_volumen').val() : 0,
-        this.HORA_COLOCACION = (iframe.find('#acceso_hora').val() !='') ? iframe.find('#acceso_hora').val() : '00 : 00'
+        this.HORA_COLOCACION = (iframe.find('#acceso_hora').val() !='') ? iframe.find('#acceso_hora').val() : '00:00:00'
 }
 
 function INTERVENCIONES()
@@ -372,7 +384,7 @@ function TERAPIA_ELECTRICA()
 function TRATAMIENTO()
 {
 
-        this.ID_TRATAMIENTO = 0,
+       // this.ID_TRATAMIENTO = 0,
         /*
         this.MANEJO_VIA_AEREA_ID_MANEJO_VIA_AEREA = [];
         this.ASISTENCIA_VENTILATORIA_ID_ASISTENCIA_VENTILATORIA = [];
@@ -462,10 +474,10 @@ function GINECOLOGICO()
 
 function FRAP_LEGAL(imgFirmaRecibe)
 {
+       var imgFirmaRecibe2 = $.jStorage.get("imgFirmaRecibe");
         this.PERTENENCIAS = checkText(iframe.find('#legal_pertenencias').val()),
         this.NOMBRE = checkText(iframe.find('#recibe_pertenencias').val()),
-
-            this.FIRMA = (imgFirmaRecibe != '') ? imgFirmaRecibe : '-',
+            this.FIRMA = (imgFirmaRecibe2 != '') ? imgFirmaRecibe2 : '-',
 
         this.TOMA_CONOCIMIENTO = checkText(iframe.find('#legal_toma').val()),
         this.OBSERVACIONES = checkText(iframe.find('#legal_observaciones').val())
@@ -563,10 +575,36 @@ function  MEDICAMENTOS()
 {
     this.HORA = checkText(iframe.find('#medicamentos_hora').val()),
     this.MEDICAMENTO = checkText(iframe.find('#medicamento').val()),
-    this.DOSIS = checkText(iframe.find('#dosis').val())
+    this.DOSIS = checkText(iframe.find('#dosis').val()),
+    this.ID_MEDICAMENTO_VIA_ADMINISTRACION =  ( iframe.find('input[name=via_admin]:checked').val() > 0 ? iframe.find('input[name=via_admin]:checked').val(): 0)
     // valores que deben ser recuperados de forma distinta dbido a que son de opcion multiple
     //this.ID_MEDICAMENTO_VIA_ADMINISTRACION = 0
-}
+};
+
+function  SIGNOS()
+{
+        this.HORA = (iframe.find('#time-2').val() != '') ? iframe.find('#time-2').val() : '00:00:00',// checkText(iframe.find('#time-2').val()),
+        this.FC = (iframe.find('#id_fc').val() != '') ? iframe.find('#id_fc').val() : 0, // checkText(iframe.find('#id_fc').val()),
+        this.FR = (iframe.find('#id_fr').val() != '') ? iframe.find('#id_fr').val() : 0, // checkText(iframe.find('#id_fr').val()),
+        this.TAS = (iframe.find('#id_tas').val() != '') ? iframe.find('#id_tas').val() : 0, // checkText(iframe.find('#id_tas').val()),
+        this.TAD = (iframe.find('#id_tada').val() != '') ? iframe.find('#id_tad').val() : 0, // checkText(iframe.find('#id_tad').val()),
+        this.SAO2 = (iframe.find('#id_sao2').val() != '') ? iframe.find('#id_sao2').val() : 0, //checkText(iframe.find('#id_sao2').val()),
+        this.TEMPERATURA = (iframe.find('#id_tmp').val() != '') ? iframe.find('#id_tmp').val() : 0, // checkText(iframe.find('#id_tmp').val()),
+        this.GLUCOSA =  (iframe.find('#id_glucosa').val() != '') ? iframe.find('#id_glucosa').val() : 0, // checkText(iframe.find('#id_glucosa').val()),
+
+        this.iID_CTLG_GLASGOW_MOTRIZ = checkValue(iframe.find('input[name = glasgow_motora]:checked').val()),
+        this.iID_CTLG_GLASGOW_VERBAL = checkValue(iframe.find('input[name = glasgow_verbal]:checked').val()),
+        this.iID_CTLG_GLASGOW_VISUAL = checkValue(iframe.find('input[name = ocular]:checked').val())
+        /*
+        this.CTLG_GLASGOW_MOTRIZ_ID = checkValue(iframe.find('input[name = glasgow_motora]:checked').val()),
+        this.CTLG_GLASGOW_VERBAL_ID = checkValue(iframe.find('input[name = glasgow_verbal]:checked').val()),
+        this.CTLG_GLASGOW_VISUAL_ID = checkValue(iframe.find('input[name = ocular]:checked').val()),
+        this.GLASGOW_TOTAL = checkValue(iframe.find('input[name = glasgow_motora]:checked').val()) + checkValue(iframe.find('input[name = glasgow_verbal]:checked').val()) + checkValue(iframe.find('input[name = ocular]:checked').val())
+        */
+    // valores que deben ser recuperados de forma distinta dbido a que son de opcion multiple
+
+    //this.ID_MEDICAMENTO_VIA_ADMINISTRACION = 0
+};
 
 
 
@@ -646,7 +684,7 @@ function guardarPaciente()
     //tbPaciente = $.extend(frap.secciones.paciente, frap.secciones.direccion);
 
     var union1 = $.extend(tbAuxCabecera, frap.secciones.paciente);
-    var union2 = $.extend(frap.secciones.motivo_atencion, frap.secciones.datos_paciente);
+    var union2 = $.extend({}, frap.secciones.motivo_atencion, frap.secciones.datos_paciente);
     var unionDeUniones1 = $.extend(union1, union2);
     var unionDeUniones2 = $.extend(unionDeUniones1, frap.secciones.direccion_paciente);
 
@@ -733,7 +771,7 @@ function guardarEvaluacion_secundaria()
     var union1 = $.extend(tbAuxCabecera, frap.secciones.evaluacion_secundaria);
 
 
-    tbEvaluacion_secundaria = $.extend(union1, ($.extend(frap.secciones.simbologia_dolor, frap.secciones.sampler)));
+    tbEvaluacion_secundaria = $.extend(union1, ($.extend({},frap.secciones.simbologia_dolor, frap.secciones.sampler)));
 
     // frap.secciones.evaluacion_secundaria = tbEvaluacion_secundaria;
 
@@ -1098,7 +1136,7 @@ function guardar_tratamiento()
     frap.secciones.manejo_via_aerea = new MANEJO_VIA_AEREA();
     frap.secciones.asistencia_ventilatoria = new ASISTENCIA_VENTILATORIA();
     frap.secciones.oxigenoterapia = new OXIGENO_TERAPIA();
-    frap.secciones.desc_ple = new DESCOMPRESION_PLEURAL();
+    frap.secciones.desc_ple = new DESCOMPRENSION_PLEURAL();
     frap.secciones.control_hemorragias = new CONTROL_HEMORRAGIAS();
     frap.secciones.acceso_circulatorio = new ACCESO_CIRCULATORIO();
     frap.secciones.intervenciones = new INTERVENCIONES();
@@ -1111,10 +1149,10 @@ function guardar_tratamiento()
 
     //Pude hacer esto en una linea, pero es mejor para el debug y la corrección de errores
 
-    union1 = $.extend(frap.secciones.manejo_via_aerea, frap.secciones.asistencia_ventilatoria);
-    union2 = $.extend(frap.secciones.oxigenoterapia, frap.desc_ple);
-    union3 = $.extend(frap.secciones.control_hemorragias, frap.secciones.acceso_circulatorio);
-    union4 = $.extend(frap.secciones.intervenciones, frap.secciones.terapia_electrica);
+    union1 = $.extend({},frap.secciones.manejo_via_aerea, frap.secciones.asistencia_ventilatoria);
+    union2 = $.extend({},frap.secciones.oxigenoterapia, frap.desc_ple);
+    union3 = $.extend({},frap.secciones.control_hemorragias, frap.secciones.acceso_circulatorio);
+    union4 = $.extend({},frap.secciones.intervenciones, frap.secciones.terapia_electrica);
 
     unionUniniones = $.extend(union1, union2);
     unionUniniones2 = $.extend(unionUniniones, union3);
@@ -1145,6 +1183,9 @@ function guardar_emergencia_resultado()
 
     tbEmergencia_resultado = union1;
 
+    estado_secciones['EMERGENCIA_RESULTADO'] = 1;
+    $.jStorage.set("estado_secciones", estado_secciones);
+
 
     dataBase.saveTable('EMERGENCIA_RESULTADO', tbEmergencia_resultado);
 }
@@ -1156,6 +1197,9 @@ function guardar_otros()
     var union1 = $.extend(tbAuxCabecera, frap.secciones.otros);
 
     tbFrap_otros = union1;
+
+    estado_secciones['FRAP_OTROS'] = 1;
+    $.jStorage.set("estado_secciones", estado_secciones);
 
     dataBase.saveTable('FRAP_OTROS', tbFrap_otros);
 }
@@ -1170,6 +1214,9 @@ function guardar_legal()
 
     tbFrap_legal = union1;
 
+    estado_secciones['FRAP_LEGAL'] = 1;
+    $.jStorage.set("estado_secciones", estado_secciones);
+
     dataBase.saveTable('FRAP_LEGAL', tbFrap_legal);
 
 }
@@ -1179,11 +1226,17 @@ function guardar_consentimiento()
     var imgConsentimientoFirmaTestigo =  $.jStorage.get("imgConsentimientoFirmaTestigo");
     var imgConsentimientoFirmaPaciente = $.jStorage.get("imgConsentimientoFirmaPaciente");
 
+    //console.log('paciente:'+imgConsentimientoFirmaPaciente);
+
     var tbAuxCabecera = new CABECERA();
     frap.secciones.consentimiento = new CONSENTIMIENTO(imgConsentimientoFirmaTestigo,imgConsentimientoFirmaPaciente);
     var union1 = $.extend(tbAuxCabecera, frap.secciones.consentimiento);
 
     tbConsentimiento = union1;
+
+    estado_secciones['CONSENTIMIENTO'] = 1;
+    $.jStorage.set("estado_secciones", estado_secciones);
+
 
     dataBase.saveTable('CONSENTIMIENTO', tbConsentimiento);
 
@@ -1330,10 +1383,33 @@ function guardar_insumosAvanzado()
 
 function guardar_medicamentos()
 {
+    var tbAuxCabecera = new CABECERA();
+
     frap.secciones.medicamentos = new MEDICAMENTOS();
-    tbMedicamentos = frap.secciones.medicamentos;
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.medicamentos);
+
+    tbMedicamentos = union1;
 
     dataBase.saveTable('MEDICAMENTOS', tbMedicamentos);
+
+    estado_secciones['MEDICAMENTOS'] = 1;
+
+    $.jStorage.set("estado_secciones", estado_secciones);
+}
+
+function guardar_signos(){
+    var tbAuxCabecera = new CABECERA();
+
+    frap.secciones.signos_vitales = new SIGNOS();
+    var union1 = $.extend(tbAuxCabecera, frap.secciones.signos_vitales);
+
+    tbSignos = union1;
+
+    dataBase.saveTable('REGISTRO_SIGNOS_VITALES', tbSignos);
+
+    estado_secciones['SIGNOS_VITALES'] = 1;
+
+    $.jStorage.set("estado_secciones", estado_secciones);
 }
 
 
@@ -1491,7 +1567,7 @@ function enviarFRAP(){
     var fs ={};
     fs['FRAP']=[];
 
-    fs['DIRECCION']=[];
+    fs['DIRECCION_PACIENTE']=[];
     fs['PACIENTE']=[];
 
     fs['EVALUACION_PRIMARIA']=[];
@@ -1556,7 +1632,7 @@ function enviarFRAP(){
 
 
 
-    frap_elementos["DIRECCION"] ={"intentos":0,"enviado":false, "datos" :sec_direccion};
+    frap_elementos["DIRECCION_PACIENTE"] ={"intentos":0,"enviado":false, "datos" :sec_direccion};
     frap_elementos["PACIENTE"] ={"intentos":0,"enviado":false, "datos" :sec_paciente};
 
 

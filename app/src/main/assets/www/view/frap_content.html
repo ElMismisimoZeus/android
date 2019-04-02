@@ -19,6 +19,10 @@
 
     <link rel="stylesheet" type="text/css" href="css/botones.css">
 
+
+    <link rel="stylesheet" type="text/css" href="dialogos/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="dialogos/jquery-ui.theme.css">
+
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
 
@@ -50,7 +54,10 @@
 
     <script type="text/javascript" src="../objects/frap_object.js"></script>
 
+
+    <script src="dialogos/jquery-ui.js"></script>
     <!--
+
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     -->
@@ -59,6 +66,9 @@
 
 
     <script>
+
+
+
 
 
         var frap;
@@ -80,7 +90,7 @@
                 if(imgConsentimientoFirmaPaciente !== '')
                     $('#standFirmaPaciente').attr("src", imgConsentimientoFirmaPaciente);
 
-                if(imgConsentimientoFirmaPaciente !== '')
+                if(imgConsentimientoFirmaTestigo !== '')
                     $('#standFirmaTestigo').attr("src", imgConsentimientoFirmaTestigo);
             }else{
                 /*
@@ -100,7 +110,7 @@
 
 
             $.jStorage.set("imgConsentimientoFirmaPaciente", imgConsentimientoFirmaPaciente,{});
-            $.jStorage.set("imgConsentimientoFirmaPaciente", imgConsentimientoFirmaPaciente,{});
+            $.jStorage.set("imgConsentimientoFirmaTestigo", imgConsentimientoFirmaTestigo,{});
 
 
             /*
@@ -361,7 +371,29 @@
                 window.location.hash = seccion_motivo;
              }
              else{
-                window.location.hash = currentId;
+
+
+                if(currentId == "final"){
+                    var send_bloked = 1;
+                    // validate if FRAP coud send or not
+                    estado_secciones = $.jStorage.get("estado_secciones"); // MOST IMPORTANT ***
+
+                    $.each(estado_secciones, function (key, value){
+                        if(value == 0 && key != 'SIGNOS_VITALES' && key != 'INSUMOS_NIVEL_AVANZADO' && key != 'INSUMOS_NIVEL_INTERMEDIO' && key != 'INSUMOS_NIVEL_BASICO' && key != 'MEDICAMENTOS'){
+                            console.log('bloeado por: '+key);
+                            send_bloked =0;
+                        }
+
+                    });
+
+                    if(send_bloked == 0)
+                        currentId = "final_BLOQUED";
+
+                    window.location.hash = currentId;
+                }
+                else {
+                    window.location.hash = currentId;
+                }
              }
 
             $.mobile.initializePage();
@@ -371,6 +403,8 @@
 
     <script type="text/javascript" src="js/jquery.mobile-1.4.5.js"></script>
 </head>
+
+
 <body>
 
 
@@ -379,7 +413,6 @@
                                 DATOS PACIENTE
     =======================================================================================
     -->
-
 
 <!-- panel datos paciente-->
 <div data-role="page" style="" id="datos_paciente">
@@ -1463,7 +1496,7 @@
 
             <label>
                 <input type="checkbox" id="dmedia" name="cbmostrar" class="fantasma" unchecked />
-                Media filiación
+                <span class="labels">Media filiación</span>
             </label>
 
             <div id="dvMostrar">
@@ -1471,10 +1504,12 @@
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <div class="box">
                         <h4 class="labels">Nombre:</h4>
-                        <input type="text" name="nombre" id="nombre" value="" data-clear-btn="true">
+                        <input class="" type="text" name="nombre" id="nombre" value="" data-clear-btn="true">
+
                         <br>
                         <h4 class="labels">Apellido Paterno :</h4>
                         <input type="text"  name="a_paterno" id="a_paterno" value="" data-clear-btn="true">
+
                         <h4 class="labels">Apellido Materno :</h4>
                         <input type="text" name="a_materno" id="a_materno" value="" data-clear-btn="true">
                         <br>
@@ -1482,10 +1517,15 @@
                         <input type="date" name="inputDate" id="fecha_nacimiento" value="" data-clear-btn="true" placeholder="">
                         <br>
                         <h4 class="labels" >Telefóno:</h4>
-                        <input type="number" value="" name="telefono" id="telefono" class="municipio" style="width: 48%;">
+                        <input type="number" value="" name="telefono" id="telefono" class="municipio" style="width: 100%;">
                         <br>
                         <h4 class="labels" >Ocupación:</h4>
-                        <input type="text" value="" name="ocupacion" id="ocupacion" class="colonia" style="width: 48%;">
+                        <input type="text" value="" name="ocupacion" id="ocupacion" class="colonia" style="width: 100%;">
+
+                        <h4 class="labels" >Correo Electrónico:</h4>
+                        <input type="text" value="" name="correo" id="correo" data-clear-btn="true" style="width: 100%;">
+
+
 
                         <br>
 
@@ -2192,7 +2232,7 @@
             <!-- seccion que dibuja los controles de media filiacion -->
             <!-- ============================================================================= -->
 
-            <label>
+            <label class="labels">
                 <input type="checkbox" id="optDir" name="optDir" class="fantasmaDir" unchecked />
                 No Proporciona dirección
             </label>
@@ -2204,15 +2244,15 @@
 
                 <div class="contenido-direccion-1">
                     <h4 class="labels">Calle:</h4>
-                    <input type="text" value=""  id="calle" style="width:30%;">
+                    <input type="text" value=""  id="calle" style="width:100%;">
                     <h4 class="labels">Número exterior:</h4>
-                    <input type="number" value="" id="numero_exterior" style="width:30%;">
+                    <input type="number" value="" id="numero_exterior" style="width:100%;">
                     <h4 class="labels">Colonia:</h4>
-                    <input type="text" value="" id="colonia" style="width:30%;">
+                    <input type="text" value="" id="colonia" style="width:100%;">
                     <h4 class="labels">Delegación o municipio:</h4>
-                    <input type="text" value="" id="delegacion_municipio" style="width:30%;">
+                    <input type="text" value="" id="delegacion_municipio" style="width:100%;">
                     <h4 class="labels">CP:</h4>
-                    <input type="text" value="" id="cp" style="width:30%;">
+                    <input type="text" value="" id="cp" style="width:100%;">
 
 
                 </div >
@@ -2329,17 +2369,31 @@
 
         </div>
 
+        <div style="height: 30px; width: 100%;"></div>
 
         <!--<a href="#evaluacion_primaria" data-transition="slide" id="boton1" data-state="q2" class="ui-btn ui-corner-all ui-shadow ui-btn-inline">dialog</a>
         -->
         <center>
-            <a href="#evaluacion_primaria" data-transition="slide" id="btnNext1" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
+            <a href="#evaluacion_primaria" data-transition="slide" id="btnNext1" data-state="q2" class="button"  style="color:	#000000; font-size: 4.3vmin;">Guardar</a>
         </center>
 
         <div style="height: 50px; width: 100%;"></div>
 
     </div>
+    <div data-role="footer" data-position="fixed">
+        <div style="height: 10px; width: 100%;"></div>
+    </div>
+
+
 </div>
+
+
+
+
+
+
+
+
 
 
 <!---
@@ -2903,19 +2957,23 @@
         </div>
 
 
-        <div style="height: 30px; width: 100%;"></div>
+        <div style="height: 50px; width: 100%;"></div>
 
         <!--
         <a href="#evaluacion_primaria" data-transition="slide" id="dboton1" data-state="q2" class="button next" >Siguiente</a>
         -->
         <center>
-            <a href="#evaluacion_secundaria" data-transition="slide" id="btnNext2" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
+            <a href="#evaluacion_secundaria" data-transition="slide" id="btnNext2" data-state="q2" class="button"  style="color: #000000; font-size: 4.3vmin;">Guardar</a>
         </center>
 
         <div style="height: 50px; width: 100%;"></div>
 
     </div>
 </div>
+
+
+
+
 
 
 
@@ -2964,11 +3022,11 @@
         <div class="ui-panel-inner" style="width: 300px;">
             <h2 >Verbal :</h2>
             <label class="container">Obedece
-                <input onclick="CambiarV('#dc_es_txtGV','Obedece');" type="radio" name="glasgow_verbal" id="es_verbal_obedece" value="1"  checked="checked" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#dc_es_txtGV','Orientado');" type="radio" name="glasgow_verbal" id="es_verbal_obedece" value="5"  checked="checked" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label class="container">Confuso
-                <input onclick="CambiarV('#dc_es_txtGV','Confuso');" type="radio" name="glasgow_verbal" id="es_verval_confuso" value="2" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#dc_es_txtGV','Confuso');" type="radio" name="glasgow_verbal" id="es_verval_confuso" value="4" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label class="container">Inapropiado
@@ -2976,11 +3034,11 @@
                 <span class="checkmark"></span>
             </label>
             <label  class="container">Incomprensible
-                <input onclick="CambiarV('#dc_es_txtGV','Incomprensible');" type="radio" name="glasgow_verbal" id="es_verval_incomprensible" value="4" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#dc_es_txtGV','Incomprensible');" type="radio" name="glasgow_verbal" id="es_verval_incomprensible" value="2" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label  class="container">Ninguna
-                <input onclick="CambiarV('#dc_es_txtGV','Ninguno');" type="radio" name="glasgow_verbal" id="es_verval_ninguno" value="6" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#dc_es_txtGV','Ninguno');" type="radio" name="glasgow_verbal" id="es_verval_ninguno" value="1" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
         </div>
@@ -2992,21 +3050,21 @@
         <div class="ui-panel-inner" style="width: 300px;">
             <h2 >Ocular :</h2>
             <label class="container">Espontáneo
-                <input onclick="CambiarV('#dc_es_txtGO','Espontáneo');" type="radio" name="ocular" id="es_ocular_espontaneo" value="1"  checked="checked" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#dc_es_txtGO','Espontáneo');" type="radio" name="ocular" id="es_ocular_espontaneo" value="4"  checked="checked" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
 
             </label>
             <label class="container">Verbal
-                <input onclick="CambiarV('#dc_es_txtGO','Verbal');" type="radio" name="ocular" id="es_ocular_verbal" value="2" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#dc_es_txtGO','Verbal');" type="radio" name="ocular" id="es_ocular_verbal" value="3" data-theme="b" data-rel="close">
 
                 <span class="checkmark"></span>
             </label>
             <label class="container">Doloroso
-                <input onclick="CambiarV('#dc_es_txtGO','Doloroso');" type="radio" name="ocular" id="es_ocular_doloroso" value="3" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#dc_es_txtGO','Doloroso');" type="radio" name="ocular" id="es_ocular_doloroso" value="2" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label  class="container">Ninguna
-                <input onclick="CambiarV('#dc_es_txtGO','Ninguna');" type="radio" name="ocular" id="es_ocular_nunguna" value="4" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#dc_es_txtGO','Ninguna');" type="radio" name="ocular" id="es_ocular_nunguna" value="1" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
         </div>
@@ -3379,12 +3437,12 @@
             <h4 class="seccion" align="center"><strong>Hallazgos Físicos</strong></h4>
 
 
-            <span>Desplazate con el dedo sobre la imagen</span>
+            <span class="labels">Desplazate con el dedo sobre la imagen</span>
 
 
             <div style="width: 5px; height: 500px; margin-top: 20px;">
                 <canvas id="myCanvas" style=" border:1px solid #d3d3d3; background: url(../images/cuerpo_humano_2.gif) no-repeat center center;">
-                    Your browser does not support the HTML5 canvas tag.
+                    funcionalidad no soportada por el dispositivo
                     img/fondo.jpg
 
 
@@ -3408,6 +3466,7 @@
                 <ul data-role="listview" data-theme="b" style="z-index: 191924;">
                     <li style="background-color: #c37d0e"><a onclick="eliminarA()"> <h2>Borrar</h2></a></li>
                     <li><a onclick="agregarA(15, 'D')">DEFORMIDADES</a></li>
+                    <li><a onclick="agregarA(16, 'H')">HERIDAS</a></li>
                     <li><a onclick="agregarA(1, 'C')">CONTUSIONES</a></li>
                     <li><a onclick="agregarA(2, 'A')">ABRASIONES</a></li>
                     <li><a onclick="agregarA(3, 'P')">PENETRACIONES</a></li>
@@ -3481,7 +3540,9 @@
 
 										        ctx.fillStyle = "#FFFFFF";
 										        ctx.font="bold 13px Verdana";
-										        ctx.fillText(clave,x, y );
+										        ctx.fillText(clave,(x - aux_x), (y - aux_y));
+
+                                                console.log('aux_y:'+aux_y+"  aux_X:"+aux_x);
 
 										        ctx.closePath();
 										        //alert('pinto');
@@ -3491,8 +3552,8 @@
                                                     "iFRAP_ID" : idFRAP,
                                                     "TIPO_FRAP" : tipoFRAP,
                                                     "iCTLG_LESIONES_ID" : lesion,
-                                                    "iCOORDENADA_X" : (x-13),
-                                                    "iCOORDENADA_Y" : (y-2690)
+                                                    "iCOORDENADA_X" : (x - aux_x), // (x-13),
+                                                    "iCOORDENADA_Y" :(y - aux_y) // (y-2690)
                                                 };
                                                 //guardarLocal('HALLAZGOS_FISICOS',tabla_frap);
                                                 console.log('idFRAP'+idFRAP);
@@ -3554,27 +3615,64 @@
             </div>
 
             <div class="semiologia-dolor-section">
+                <br>
+                <h4 class="labels">Hora de inicio :</h4>
+                <input class="input-text-box input-red-border" type="time" name="time" align="center" name="sd_inicio" id="sd_inicio">
+
+                <!--
                 <div class="resize-input">
-                    <h5 class="botonInicial" for="sd_inicio" >Hora de inicio : </h5>
+                    <label  for="sd_inicio" class="labels">Hora de inicio : </label>
                     <input class="input-text-box input-red-border" type="time" name="time" align="center" name="sd_inicio" id="sd_inicio">
                 </div>
+
                 <div class="resize-input">
-                    <h5 class="botonInicial" for="sd_irradiacionn">Localización:</h5>
+                    <label  for="sd_localizacion" class="labels">Localización:</label>
                     <input type="text" class="input-text-box input-red-border" name="sd_localizacion" id="sd_localizacion">
                 </div>
+
                 <div class="resize-input">
-                    <h5 class="botonInicial" for="sd_localizacion">Irradiación:</h5>
+                    <label  for="sd_irradiacion" class="labels">Irradiación:</label>
                     <input type="text" class="input-text-box input-red-border" name="sd_irradiacion" id="sd_irradiacion">
                 </div>
+
                 <div class="resize-input">
-                    <h5 class="botonInicial" for="sd_caracteristicas">Características:</h5>
+                    <label  for="sd_caracteristicas" class="labels">Características:</label>
                     <input type="text" name="sd_caracteristicas" class="input-text-box input-red-border" id="sd_caracteristicas">
                 </div>
+
                 <div class="resize-input">
-                    <h5 class="botonInicial" for="sd_alivio">Alivio:</h5>
+                    <labels  for="sd_alivio" class="labels">Alivio:</labels>
                     <input type="text" name="sd_alivio" class="input-text-box input-red-border" id="sd_alivio">
                 </div>
-                <h5 class="botonInicial" >Intensidad (EVA):</h5>
+                -->
+                <br>
+                <h4 class="labels">Localización:</h4>
+                <input type="text" class="input-text-box input-red-border" name="sd_localizacion" id="sd_localizacion">
+
+
+                <br>
+                <h4 class="labels">Irradiación:</h4>
+                <input type="text" class="input-text-box input-red-border" name="sd_irradiacion" id="sd_irradiacion">
+
+
+                <br>
+                <h4 class="labels">Características:</h4>
+                <input type="text" name="sd_caracteristicas" class="input-text-box input-red-border" id="sd_caracteristicas">
+
+
+                <br>
+                <h4 class="labels">Alivio:</h4>
+                <input type="text" name="sd_alivio" class="input-text-box input-red-border" id="sd_alivio">
+
+
+
+
+
+
+
+
+
+                <h5 class="botonInicial" class="labels" >Intensidad (EVA):</h5>
                 <select data-native-menu="false" id="sd_intensidad">
                     <option>Selecciona un valor</option>
                     <option>1</option>
@@ -3670,12 +3768,12 @@
 
 
 
-            <div style="height: 30px; width: 100%;"></div>
+            <div style="height: 40px; width: 100%;"></div>
             <!--
             <a href="#evaluacion_primaria" data-transition="slide" id="boton1" data-state="q2" class="ui-btn ui-btn-raised clr-primary" style="background: green;">Siguiente</a>
             -->
             <center>
-                <a href="#tratamiento" data-transition="slide" id="btnNext3" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
+                <a href="#tratamiento" data-transition="slide" id="btnNext3" data-state="q2" class="button"  style="color:	#000000; font-size: 4.3vmin;">Guardar</a>
             </center>
 
             <div style="height: 50px; width: 100%;"></div>
@@ -4064,7 +4162,7 @@
                         <h4 class="labels">Manejo de vía aerea </h4>
                     </div>
                     <a href="#pnlMAnejoVia">
-                        <div style=" width: 53%;float: left;">
+                        <div style=" width: 53%;float: left; padding-top: 1.5vmin;">
                             <div class="fake-input">
                                 <input id="trat_manejo" disabled type="text" value="No necesitó" />
                                 <img src="images/right.png" />
@@ -4087,6 +4185,7 @@
                     </a>
                 </div>
 
+                <div style=" width: 100%; height: 20px;"></div>
                 <h3 style="text-align:center"><strong>Aistencia ventilatoria</strong></h3>
 
                 <div style="width: 100%; height: 65px;">
@@ -4108,7 +4207,7 @@
                         <h4 class="labels">Frecuencia</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="asistencia_frecuencia" id="asistencia_frecuencia" style="width:30%;">
+                        <input type="number" name="asistencia_frecuencia" id="asistencia_frecuencia" style="width:100%;">
                     </div>
                 </div>
 
@@ -4117,7 +4216,7 @@
                         <h4 class="labels">Volumén</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="asistencia_volumen" id="asistencia_volumen" style="width:30%;">
+                        <input type="number" name="asistencia_volumen" id="asistencia_volumen" style="width:100%;">
                     </div>
                 </div>
 
@@ -4126,10 +4225,12 @@
                         <h4 class="labels">Modalidad</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="text" name="asistencia_modalidad" id="asistencia_modalidad" style="width:30%;">
+                        <input type="text" name="asistencia_modalidad" id="asistencia_modalidad" style="width:100%;">
                     </div>
                 </div>
 
+
+                <div style=" width: 100%; height: 20px;"></div>
                 <h3 style="text-align:center"><strong>Oxigenoterapia</strong></h3>
 
 
@@ -4152,7 +4253,7 @@
                         <h4 class="labels">Litros por minuto</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="oxi_litros" id="ox_ilitros" style="width:30%;">
+                        <input type="number" name="oxi_litros" id="ox_ilitros" style="width:100%;">
                     </div>
                 </div>
 
@@ -4177,7 +4278,7 @@
                         <h4 class="labels">Calibre</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="hemitorax_calibre" id="hemitorax_calibre" style="width:30%;">
+                        <input type="number" name="hemitorax_calibre" id="hemitorax_calibre" style="width:100%;">
                     </div>
                 </div>
 
@@ -4199,10 +4300,10 @@
 
                 <div style="width: 100%; height: 65px;">
                     <div style=" width: 47%;float: left;">
-                        <h4 class="labels">Hora de colocación</h4>
+                        <label class="labels">Hora de colocación</label>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="time" name="control_hemorragia_HORA" id="control_hemorragia_HORA" style="width:30%;">
+                        <input type="time" name="control_hemorragia_HORA" id="control_hemorragia_HORA" style="width:100%;">
                     </div>
                 </div>
 
@@ -4210,7 +4311,7 @@
 
                 <div style="width: 100%; height: 65px;">
                     <div style=" width: 47%;float: left;">
-                        <h4 class="labels">Vía de acceso</h4>
+                        <label class="labels">Vía de acceso</label>
                     </div>
                     <a href="#pnlAccesoCir">
                         <div style=" width: 53%;float: left;">
@@ -4269,7 +4370,7 @@
                         <h4 class="labels">Calibre</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="acceso_calibre" id="acceso_calibre" style="width:30%;">
+                        <input type="number" name="acceso_calibre" id="acceso_calibre" style="width:100%;">
                     </div>
                 </div>
 
@@ -4278,7 +4379,7 @@
                         <h4 class="labels">Volumén infundido</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="acceso_volumen" id="acceso_volumen" style="width:30%;">
+                        <input type="number" name="acceso_volumen" id="acceso_volumen" style="width:100%;">
                     </div>
                 </div>
 
@@ -4287,7 +4388,7 @@
                         <h4 class="labels">Hora de colocación</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="time" name="acceso_hora" id="acceso_hora" style="width:30%;">
+                        <input type="time" name="acceso_hora" id="acceso_hora" style="width:100%;">
                     </div>
                 </div>
 
@@ -4370,7 +4471,7 @@
                         <h4 class="labels">Descargas</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="terapia_descargas" id="terapia_descargas" style="width:30%;">
+                        <input type="number" name="terapia_descargas" id="terapia_descargas" style="width:100%;">
                     </div>
                 </div>
 
@@ -4379,7 +4480,7 @@
                         <h4 class="labels">Joules</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="terapia_joules" id="terapia_joules" style="width:30%;">
+                        <input type="number" name="terapia_joules" id="terapia_joules" style="width:100%;">
                     </div>
                 </div>
 
@@ -4388,7 +4489,7 @@
                         <h4 class="labels">mA</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="terapia_ma" id="terapia_ma" style="width:30%;">
+                        <input type="number" name="terapia_ma" id="terapia_ma" style="width:100%;">
                     </div>
                 </div>
 
@@ -4397,7 +4498,7 @@
                         <h4 class="labels">Frecuencia</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="terapia_ma" id="terapia_frecuencia" style="width:30%;">
+                        <input type="number" name="terapia_ma" id="terapia_frecuencia" style="width:100%;">
                     </div>
                 </div>
 
@@ -5269,7 +5370,7 @@
                         <h4 class="labels"> FUM:</h4>
                     </div>
                     <div style=" width: 53%;float: left;">
-                        <input type="text" value="" id="fum" style="width:30%;">
+                        <input type="text" value="" id="fum" style="width:100%;">
                     </div>
                 </div>
                 <br>
@@ -5673,11 +5774,11 @@
                 <span class="checkmark"></span>
             </label>
             <label class="container" >Animal
-                <input onclick="CambiarV('#t_causal,','Animal');" type="radio" name="trauna_ace"  id="trauna_ace_animal" value="14" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#t_causal','Animal');" type="radio" name="trauna_ace"  id="trauna_ace_animal" value="14" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label class="container" >Otro
-                <input onclick="CambiarV('#t_causal,','Otro');" type="radio" name="trauna_ace"  id="trauna_ace_otro" value="15" data-theme="b" data-rel="close">
+                <input onclick="CambiarV('#t_causal','Otro');" type="radio" name="trauna_ace"  id="trauna_ace_otro" value="15" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
 
@@ -5858,22 +5959,22 @@
             <h2 style="font-size:5vw; text-align: center;">Autoridades que toman conocimiento</h2>
 
             <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="box">
-                    <label>Dependencia:</label>
+                <div >
+                    <label class="labels">Dependencia:</label>
                     <input type="text"  name="otros_dependencia" id="otros_dependencia" value="" data-clear-btn="true">
                     <br>
-                    <label>Unidades:</label>
+                    <label class="labels">Unidades:</label>
                     <input type="text" name="otros_unidades" id="otros_unidades" data-clear-btn="true">
                     <br>
-                    <label>Nombre y placa del oficial:</label>
+                    <label class="labels">Nombre y placa del oficial:</label>
                     <input type="text" name="otros_nombre" id="otros_nsombre" data-clear-btn="true">
                 </div>
             </div>
-            <label>Observaciones:</label>
+            <label class="labels">Observaciones:</label>
             <input type="text" name="otros_nombre" id="otros_nombre" data-clear-btn="true">
 
                 <center>
-                    <a href="#pertenencias" data-transition="slide" id="btnNext9" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
+                    <a href="#pertenencias" data-transition="slide" id="btnNext9" data-state="q2" class="button"  style="color:	#000000; font-size:4.3vmin;">Guardar</a>
                 </center>
 
                 <div style="height: 50px; width: 100%;"></div>
@@ -5954,7 +6055,7 @@
 
 
                 <center>
-                    <a href="#final" data-transition="slide" id="btnNext10" data-state="q2" class="button"  style="color:	#000000;">Guardar</a>
+                    <a  data-transition="slide" id="btnNext10" data-state="q2" class="button"  style="color:	#000000; font-size:4.3vmin;">Guardar</a>
                 </center>
 
                 <div style="height: 50px; width: 100%;"></div>
@@ -5969,9 +6070,25 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 <!--    PÁGINA FINAL      -->
 <!-- ====================================================================================-->
 <div div data-role="page" style="" id="final">
+
+    <div data-role="page-content" style="z-index: 1000;">
+
+
+        <div style=" width: 90%; margin: 0 auto;">
+
 
         <h2 align="center">PÁGINA FINAL</h2>
 
@@ -5986,7 +6103,7 @@
     <div style="height: 30px; width: 100%;"></div>
 
     <center>
-        <a href="#final" data-transition="slide" id="btnSend" data-state="q2" class="button"  style="color:	#000000;">Enviar FRAP</a>
+        <a  data-transition="slide" id="btnSend" data-state="q2" class="button"  style="color:	#000000;">Enviar FRAP</a>
     </center>
 
     <div style="height: 50px; width: 100%;"></div>
@@ -5998,7 +6115,73 @@
 
         </div>
 -->
+        </div>
+    </div>
 </div>
+
+
+<!--    PÁGINA FINAL  BLOQUEADA    -->
+<!-- ====================================================================================-->
+<div div data-role="page" style="" id="final_BLOQUED">
+
+    <div data-role="page-content" style="z-index: 1000;">
+
+
+        <div style=" width: 90%; margin: 0 auto;">
+
+        <h2 align="center">¡ DATOS INCOMPLETOS !</h2>
+
+        <p> El FRAP no esta listo para su envío, se requiere que se guarden los datos de cada sección </p>
+
+
+        <div style="width: 190px; margin: 0 auto;">
+            <img src="../images/error.png" width="190"/>
+        </div>
+
+
+        <div style="height: 30px; width: 100%;"></div>
+
+
+        <div style="height: 50px; width: 100%;"></div>
+
+        <!--
+                <div class="content full-bottom half-top" onclick="guardarFRAP();">
+
+                    <a  href="" class="button button-round button-red button-full half-top full-bottom"><h4>Guardar FRAP</h4></a>
+
+                </div>
+        -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!---
@@ -6403,13 +6586,12 @@
     </div>
 
     <div data-role="footer" data-position="fixed">
+        <div style="height: 10px; width: 100%;"></div>
     </div>
 </div>
 
 
 
 </body>
-
-
 
 </html>

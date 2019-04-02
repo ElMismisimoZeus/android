@@ -27,6 +27,7 @@ frap.secciones.sampler = [];
 frap.secciones.evaluacion_secundaria = [];
 
 frap.secciones.hallazgos = [];
+frap.secciones.factores = [];
 
 //frap.secciones.evaluacion_secundaria.factores =[];
 
@@ -51,9 +52,12 @@ frap.secciones.ginecologico = [];
 
 
 
+
 frap.secciones.insumosBasicos = [];
 frap.secciones.insumosMedio = [];
 frap.secciones.insumosAvanzados = [];
+
+frap.secciones.signos_vitales = [];
 
 
 
@@ -106,12 +110,13 @@ frap.secciones.init = function(){
 //============================================================================
 
 
-frap.initFRAP = function (status, validation, number){
+frap.initFRAP = function (status, validation, number, servicio){
         this.FOLIO = number,
         this.ESTATUS = status,
         this.VALIDACION = validation,
-        this.iCTLG_TIPO_SERVICIO = idService,
-        this.iID_SERVICIO_MEDICO = ( iframe.find('input[name=servicio_medico]:checked').size() > 0 ? iframe.find('input[name=servicio_medico]:checked').val(): 0)
+        this.iCTLG_TIPO_SERVICIO = 1,
+            this.ID_SERVICIO =servicio // obtenerlo de ruben idService
+        //this.iID_SERVICIO_MEDICO = ( iframe.find('input[name=servicio_medico]:checked').size() > 0 ? iframe.find('input[name=servicio_medico]:checked').val(): 0)
         //( iframe.find('input[name=motivo_atencion]:checked').size() > 0 ? iframe.find('input[name=motivo_atencion]:checked').val(): 0)
         //this.iCTLG_MOTIVO_ATENCION = ($('input[name=motivo_atencion]:checked').size() > 0 ? $('input[name=motivo_atencion]:checked').val(): 0)
 };
@@ -313,7 +318,7 @@ frap.auxiliares.DESCOMPRESION_PLEURAL = function()
 frap.auxiliares.CONTROL_HEMORRAGIAS = function()
 {
     this.HORA_COLOCACION = objAux.HORA_COLOCACION;
-    this.iID_CTLG_CONTROL_HEMORAGIAS = objAux.iID_CTLG_CONTROL_HEMORAGIAS;
+    this.iID_CTLG_CONTROL_HEMORRAGIAS = objAux.iID_CTLG_CONTROL_HEMORAGIAS;
 
 };
 
@@ -498,7 +503,30 @@ frap.auxiliares.Insumos_Nivel_Avanzado = function()
 
 
 
+// added by laZ
 
+frap.auxiliares.OTROS = function()
+{
+    this.DEPENDENCIAS = objAux.DEPENDENCIAS;
+    this.UNIDADES = objAux.UNIDADES;
+    this.NOMBRE = objAux.NOMBRE;
+};
+
+frap.auxiliares.CONSENTIMIENTO = function()
+{
+    this.NOMBRE_PACIENTE = objAux.NOMBRE_PACIENTE;
+    this.NOMBRE_TESTIGO = objAux.NOMBRE_TESTIGO;
+    this.FIRMA_PACIENTE = objAux.FIRMA_PACIENTE;
+    this.FIRMA_TESTIGO= objAux.FIRMA_TESTIGO;
+};
+
+
+
+// recuperando MULTI-REGISTROS
+
+frap.auxiliares.FACTORES = function (){
+
+};
 
 
 
@@ -556,10 +584,9 @@ frap.initDatosPaciente = function(){
     this.CORREO_ELECTRONICO = '-',
     this.EDAD = 0,
     this.FECHA_NACIMIENTO = 0000-00-00,
-    this.FECHA_NACIMIENTO = 0000-00-00,
     this.TELEFONO =  0,
     this.OCUPACION = '-'
-    this.iID_CTLG_SEXOS  = 0
+    this.iID_CTLG_SEXOS  = 1
     //this.iMOTIVO_ATENCION =0
     //this.CORREO_ELECTRONICO = '-'
 };
@@ -578,25 +605,25 @@ frap.initMotivoAtencion = function()
 
 frap.initEvaluacionPrimaria = function(){
 
-    this.iID_CTLG_NIVEL_CONCIENCIA = 0,
-    this.iID_CTLG_VENTILACION = 0,
-    this.iID_CTLG_CALIDAD_VENTILACION = 0,
-    this.iID_CTLG_PULSOS = 0,
-    this.iID_CTLG_COLORACION = 0,
-    this.iID_CTLG_CONDICION = 0,
-    this.iID_CTLG_TEMPERATURA = 0,
-    this.iPOSICION = 0,
-    this.iID__CTLG_PRIORIDAD = 0,
-    this.iID_CTLG_PULSOS_CALIDAD = 0,
-    this.iID_CTLG_RITMO = 0,
-    this.iID_CTLG_VIA_AEREA = 0
+    this.iID_CTLG_NIVEL_CONCIENCIA = 1,
+    this.iID_CTLG_VENTILACION = 1,
+    this.iID_CTLG_CALIDAD_VENTILACION = 1,
+    this.iID_CTLG_PULSOS = 1,
+    this.iID_CTLG_COLORACION = 1,
+    this.iID_CTLG_CONDICION = 1,
+    this.iID_CTLG_TEMPERATURA = 1,
+    //this.iPOSICION = 1,
+    this.iID_CTLG_PRIORIDAD = 1,
+    this.iID_CTLG_PULSOS_CALIDAD = 1,
+    this.iID_CTLG_RITMO = 1,
+    this.iID_CTLG_VIA_AEREA = 1
     //this.iID_CTLG_EMERGENCIA_MOTIVOS = 0
 
 };
 
 
 frap.initSEMIOLOGIA_DOLOR = function (){
-    this.iID_SEMIOLOGIA_DOLOR = 0,
+   // this.iID_SEMIOLOGIA_DOLOR = 0,
     //this.iAPARICION = 0,
     this.LOCALIZACION = '-',
     this.IRRADIACION = '-',
@@ -608,7 +635,7 @@ frap.initSEMIOLOGIA_DOLOR = function (){
 
 frap.initSAMPLER = function ()
 {
-    this.iID_SAMPLER = 0,
+    //this.iID_SAMPLER = 0,
 
     this.SINTOMAS = '-',
     this.ALERGIAS = '-',
@@ -621,19 +648,19 @@ frap.initSAMPLER = function ()
 frap.initEVALUACION_SECUNDARIA = function (){
     this.DIAGNOSTICO_ELECTROGRAFICO = '-',
     this.iDERIVACIONES = 0,
-    this.iCTLG_GLASGOW_MOTRIZ_ID =  0,
-    this.iCTLG_GLASGOW_VERBAL_ID = 0,
-    this.iCTLG_GLASGOW_VISUAL_ID = 0,
+    this.iCTLG_GLASGOW_MOTRIZ = 6,
+    this.iCTLG_GLASGOW_VERBAL = 5,
+    this.iCTLG_GLASGOW_VISUAL = 4,
     this.EVALUACION_GLASGOW = '-',
-    this.iCTLG_SIGNOS_NEUROLOGICOS_ID = 0,
+    this.iCTLG_SIGNOS_NEUROLOGICOS = 5,
     this.iPUPILAS_IZQUIERDA = 0,
     this.iPUPILAS_DERECHA = 0,
     this.iRITMO = 0,
     this.iPERISTALSIS = 0,
     this.iFRECUENCIA_CARDIACA = 0,
     this.iTEMPERATURA = 0,
-    this.iGLUCOMETRIA = 0,
-        this.factores = []
+    this.iGLUCOMETRIA = 0
+    //    this.factores = []
 };
 
 
@@ -660,7 +687,7 @@ frap.initOXIGENO_TERAPIA = function()
 {
     this.iID_OXIGENO_TERAPIA = 0,
     this.iLITROS_MINUTO = 0,
-    this.iID_CTLG_OXIGENOTERAPIA = 0
+    this.iID_CTLG_OXIGENOTERAPIA = 1
 };
 
 frap.initDESCOMPRESION_PLEURAL = function(){
@@ -808,6 +835,77 @@ frap.initGINECOLOGICO = function()
     this.OBSERVACIONES = '-' */
 };
 
+frap.iniINSUMOS_NIVEL_BASICO = function(){
+    // verify all local ***
+
+    //this.iID_INSUMOS_NIVEL_BASICO = 0,
+    this.SONDA_ASPIRACION = 0,
+        this.PUNTAS_NASALES = 0,
+        this.MASCARILLA_ADULTO = 0,
+        this.PUNZOCATH_14 = 0,
+        this.PUNZOCATH_16 = 0,
+        this.PUNZOCATH_18 = 0,
+        this.PUNZOCATH_20 = 0,
+        this.PUNZOCATH_22 = 0,
+        this.VENOPACK_NORMOGOTERO = 0,
+        this.JERINGA_5_CC = 0,
+        this.JERINGA_10_CC = 0,
+        this.GUANTES = 0,
+        this.GASA_SIMPLE = 0,
+        this.VENDA_ELASTICA_5_CM = 0,
+        this.VENDA_ELASTICA_10_CM = 0,
+        this.VENDA_ELASTICA_30_CM = 0,
+        this.TIRA_REACTIVA = 0,
+        this.LANCETA = 0,
+        this.NaCL_9 = 0,
+        this.HARTMANN = 0,
+        this.GLUCOSA_5 = 0,
+        this.GLUCOSA_10 = 0,
+        this.GLUCOSA_50 = 0,
+        this.MIXTA = 0,
+        this.SABANA_DESECHABLE = 0,
+        this.EQUIPO_PARTO = 0
+};
+frap.iniINSUMOS_NIVEL_INTERMEDIO = function() {
+    // verify all local ***
+
+    //this.iID_INSUMOS_NIVEL_INTERMEDIO = 0,
+    this.TUBO_ENDROTRAQUEAL_75 = 0,
+        this.TUBO_ENDROTRAQUEAL_8 = 0,
+        this.TUBO_ENDROTRAQUEAL_85 = 0,
+        this.MASCARILLA_LARINGEA = 0,
+        this.MASCARILLA_PEDIATRICA = 0,
+        this.CANULA_OROFARINGEA = 0,
+        this.VENOPACK_MICROGOTERO = 0,
+        this.JERINGA_INSULINA = 0,
+        this.CLAMPS_UMBILICALES = 0,
+        this.ELECTRODOS_ADULTO = 0,
+        this.ELECTRODOS_PEDIATRICOS = 0,
+        this.FORMATO_REGISTRO_ATENCION_PREHOSPITALARIA = 0
+};
+
+
+frap.initINSUMOS_NIVEL_AVANZADO = function() {
+    // verify all local ***
+    //this.iID_INSUMOS_NIVEL_AVANZADO = 0,
+    this.TUBO_ENDROTRAQUEAL_35 = 0,
+        this.TUBO_ENDROTRAQUEAL_4 = 0,
+        this.TROCAR_TORACICO_14 = 0,
+        this.TROCAR_TORACICO_16 = 0,
+        this.TROCAR_TORACICO_18 = 0,
+        this.SONDA_NASOGASTRICA = 0,
+        this.PARCHES_MARCAPASOS = 0,
+        this.OTRO = 0
+};
+
+
+
+
+
+
+
+
+
 
 
 
@@ -865,14 +963,24 @@ frap.cargas.loadES_Factores = function (){
 
         }
         //console.log(len);
+
+        /*
+         Error Verificar !!!!!! comented by la Z
         frap.secciones.evaluacion_secundaria.factores = [];
 
         if(len !=0){
             frap.secciones.evaluacion_secundaria.factores = factores;
         }
+        */
+        frap.secciones.factores =[];
+        if(len !=0){
+            frap.secciones.factores = factores;
+        }
 
-        //console.log('en rescate factores');
-        //console.log(frap.secciones.evaluacion_secundaria.factores);
+
+
+        console.log('en rescate factores');
+        console.log(frap.secciones.factores);
 
         //frap.enviar();
 
@@ -1286,7 +1394,7 @@ frap.recuperacion['TRAUMA'] = function()
 
             frap.secciones.trauma = new frap.auxiliares.Trauma();
 
-            console.log(frap);
+            console.log(frap.secciones.trauma);
 
             //$.jStorage.set("frap", frap);
 
@@ -1331,7 +1439,7 @@ frap.recuperacion['VIAL'] = function()
 
             frap.secciones.vial = new frap.auxiliares.Vial();
 
-            console.log(frap);
+            console.log(frap.secciones.vial);
 
             //$.jStorage.set("frap", frap);
 
@@ -1390,7 +1498,7 @@ frap.recuperacion['GINECOLOGICO'] = function()
             frap.secciones.ginecologico = new frap.auxiliares.Ginecologico();
 
 
-            console.log(frap);
+            console.log(frap.secciones.ginecologico);
 
             //$.jStorage.set("frap", frap);
 
@@ -1461,7 +1569,7 @@ frap.recuperacion['INSUMOS_NIVEL_BASICO'] = function()
             frap.secciones.insumosBasicos = new frap.auxiliares.Insumos_Nivel_Basico();
 
 
-            console.log(frap);
+            console.log(frap.secciones.insumosBasicos);
 
             //$.jStorage.set("frap", frap);
 
@@ -1510,7 +1618,7 @@ frap.recuperacion['INSUMOS_NIVEL_INTERMEDIO'] = function()
 
 
 
-        console.log(frap);
+        console.log(frap.secciones.insumosMedio);
 
         //$.jStorage.set("frap", frap);
     };
@@ -1518,7 +1626,266 @@ frap.recuperacion['INSUMOS_NIVEL_INTERMEDIO'] = function()
     dataBase.getTableS('INSUMOS_NIVEL_INTERMEDIO', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
 };
 
+
 frap.recuperacion['INSUMOS_NIVEL_AVANZADO'] = function()
+{
+    console.log("en recuperacion de insumos_avanzado de FRAP_OBJECT");
+
+    console.log('dentro de la funcion paciente');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
+
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0)
+        {
+            objAux.TUBO_ENDROTRAQUEAL_35 = results.rows.item(0).TUBO_ENDROTRAQUEAL_35;
+            objAux.TUBO_ENDROTRAQUEAL_4 = results.rows.item(0).TUBO_ENDROTRAQUEAL_4;
+            objAux.TROCAR_TORACICO_14 = results.rows.item(0).TROCAR_TORACICO_14;
+            objAux.TROCAR_TORACICO_16 = results.rows.item(0).TROCAR_TORACICO_16;
+            objAux.TROCAR_TORACICO_18 = results.rows.item(0).TROCAR_TORACICO_18;
+            objAux.SONDA_NASOGASTRICA = results.rows.item(0).SONDA_NASOGASTRICA;
+            objAux.PARCHES_MARCAPASOS = results.rows.item(0).PARCHES_MARCAPASOS;
+            objAux.OTRO = results.rows.item(0).OTRO;
+
+
+            frap.secciones.insumosAvanzados = new frap.auxiliares.Insumos_Nivel_Avanzado();
+
+        }
+
+        console.log(frap.secciones.insumosAvanzados);
+
+        //$.jStorage.set("frap", frap);
+    };
+
+    dataBase.getTableS('INSUMOS_NIVEL_AVANZADO', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+
+
+// added by la Z
+
+frap.recuperacion['FRAP_OTROS'] = function()
+{
+    console.log("en recuperacion de FRAP_OTROS");
+
+    console.log('dentro de la funcion FRAP_OTROS');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
+
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0)
+        {
+            objAux.DEPENDENCIAS = results.rows.item(0).DEPENDENCIAS;
+            objAux.UNIDADES = results.rows.item(0).UNIDADES;
+            objAux.NOMBRE = results.rows.item(0).NOMBRE;
+
+            frap.secciones.otros = new frap.auxiliares.OTROS();
+
+        }
+
+        console.log(frap.secciones.otros);
+
+        //$.jStorage.set("frap", frap);
+    };
+
+    dataBase.getTableS('FRAP_OTROS', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+
+
+
+
+// =====================================================================================================================
+// Recuperando MULTI-REGISTROS
+// =====================================================================================================================
+// =====================================================================================================================
+
+frap.recuperacion['MEDICAMENTOS'] = function()
+{
+    console.log("en recuperacion de MEDICAMENTOS");
+
+    console.log('dentro de la funcion MEDICAMENTOS');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
+
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+        var  medicamento ={};
+
+        var len = results.rows.length;
+
+        //alert('long:'+len +" id:"+idFRAP);
+        for (var i = 0; i < len; i++) {
+
+            medicamento["registro"+i]={ "HORA":results.rows.item(i).HORA, "MEDICAMENTO":results.rows.item(i).MEDICAMENTO, "DOSIS":results.rows.item(i).DOSIS};
+            //medicamento["registro"+i]={ "HORA":results.rows.item(i).HORA, "MEDICAMENTO":results.rows.item(i).MEDICAMENTO, "DOSIS":results.rows.item(i).DOSIS, "iID_MEDICAMENTO_VIA_ADMINISTRACION":results.rows.item(i).ID_MEDICAMENTO_VIA_ADMINISTRACION};
+
+        }
+
+        frap.secciones.medicamentos = [];
+
+        if(len !=0){
+            frap.secciones.medicamentos = medicamento;
+        }
+
+
+
+
+        console.log(frap.secciones.medicamentos);
+
+        //$.jStorage.set("frap", frap);
+    };
+
+    dataBase.getTableS('MEDICAMENTOS', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+
+frap.recuperacion['HALLAZGOS_FISICOS'] = function()
+{
+    console.log("en recuperacion de insumos_avanzado de HALLAZGOS_FISICOS");
+
+    console.log('dentro de la funcion HALLAZGOS_FISICOS');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
+
+    var cb = function(tx, results)
+    {
+
+        console.log(results.rows);
+        console.log(results.rows.item);
+
+
+        var  hallazgos ={};
+
+        var len = results.rows.length;
+
+        for (var i = 0; i < len; i++) {
+
+            hallazgos["registro"+i]={ "iCTLG_LESIONES_ID":results.rows.item(i).CTLG_LESIONES_ID, "iCOORDENADA_X":(results.rows.item(i).COORDENADA_X), "iCOORDENADA_Y":(results.rows.item(i).COORDENADA_Y)};
+            console.log(hallazgos["registro"+i]);
+
+        }
+        //console.log(len);
+        frap.secciones.hallazgos = [];
+
+        if(len !=0){
+            frap.secciones.hallazgos = hallazgos;
+        }
+
+        console.log(frap.secciones.hallazgos);
+
+        //$.jStorage.set("frap", frap);
+    };
+
+    dataBase.getTableS('HALLAZGOS_FISICOS', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+frap.recuperacion['SIGNOS_VITALES'] = function()
+{
+    console.log("en recuperacion de insumos_avanzado de SIGNOS_VITALES");
+
+    console.log('dentro de la funcion SIGNOS_VITALES');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
+
+    var cb = function(tx, results)
+    {
+
+        console.log(results.rows);
+        console.log(results.rows.item);
+
+
+        var  signos ={};
+
+        var len = results.rows.length;
+
+        for (var i = 0; i < len; i++) {
+
+            signos["registro"+i]={ "HORA":results.rows.item(i).HORA, "iFC":results.rows.item(i).FC, "iFR":results.rows.item(i).FR, "iTAS":results.rows.item(i).TAS, "iTAD":results.rows.item(i).TAD, "iSAO2":results.rows.item(i).SAO2, "iTEMPERATURA":results.rows.item(i).TEMPERATURA, "iGLUCOSA":results.rows.item(i).GLUCOSA, "iID_CTLG_GLASGOW_MOTRIZ":results.rows.item(i).ID_CTLG_GLASGOW_MOTRIZ, "iID_CTLG_GLASGOW_VERBAL":results.rows.item(i).ID_CTLG_GLASGOW_VERBAL, "iID_CTLG_GLASGOW_VISUAL":results.rows.item(i).ID_CTLG_GLASGOW_VISUAL};
+            //signos["registro"+i]={ "iCTLG_LESIONES_ID":results.rows.item(i).CTLG_LESIONES_ID, "iCOORDENADA_X":(results.rows.item(i).COORDENADA_X), "iCOORDENADA_Y":(results.rows.item(i).COORDENADA_Y)};
+            console.log(signos["registro"+i]);
+
+        }
+        //console.log(len);
+        frap.secciones.signos_vitales = [];
+
+        if(len !=0){
+            frap.secciones.signos_vitales = signos;
+        }
+
+        console.log(frap.secciones.signos_vitales);
+
+        //$.jStorage.set("frap", frap);
+    };
+
+    dataBase.getTableS('REGISTRO_SIGNOS_VITALES', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+
+frap.recuperacion['FACTORES'] = function()
+{
+    console.log("en recuperacion de insumos_avanzado de FACTORES");
+
+    console.log('dentro de la funcion FACTORES');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
+
+    var cb = function(tx, results)
+    {
+
+        console.log(results.rows);
+        console.log(results.rows.item);
+
+        var  factores ={};
+
+        var len = rs.rows.length;
+
+        for (var i = 0; i < len; i++) {
+
+            factores["registro"+i]={ "iCTLG_FACTOR_RIESGO":results.rows.item(i).CTLG_LESIONES_ID};
+
+        }
+
+
+        //console.log(len);
+        frap.secciones.factores = [];
+
+        if(len !=0){
+            frap.secciones.factores = factores;
+        }
+
+        console.log(frap.secciones.factores);
+
+        //$.jStorage.set("frap", frap);
+    };
+
+    dataBase.getTableS('FACTORES', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+/*
+frap.recuperacion['EMERGENCIA_RESULTADO'] = function()
 {
     console.log("en recuperacion de insumos_avanzado de FRAP_OBJECT");
 
@@ -1558,6 +1925,68 @@ frap.recuperacion['INSUMOS_NIVEL_AVANZADO'] = function()
 
     dataBase.getTableS('INSUMOS_NIVEL_AVANZADO', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
 };
+
+frap.recuperacion['FRAP_LEGAL'] = function()
+{
+    console.log("en recuperacion de insumos_avanzado de FRAP_OBJECT");
+
+    console.log('dentro de la funcion paciente');
+    console.log('idFRAP    '+ idFRAP);
+    console.log('TIPO_FRAP    '+ tipoFRAP);
+
+    var cb = function(tx, results)
+    {
+        var len = results.rows.length;
+
+        console.log(results.rows);
+
+        console.log(results.rows.item);
+
+
+        if (len > 0)
+        {
+            objAux.TUBO_ENDROTRAQUEAL_35 = results.rows.item(0).TUBO_ENDROTRAQUEAL_35;
+            objAux.TUBO_ENDROTRAQUEAL_4 = results.rows.item(0).TUBO_ENDROTRAQUEAL_4;
+            objAux.TROCAR_TORACICO_14 = results.rows.item(0).TROCAR_TORACICO_14;
+            objAux.TROCAR_TORACICO_16 = results.rows.item(0).TROCAR_TORACICO_16;
+            objAux.TROCAR_TORACICO_18 = results.rows.item(0).TROCAR_TORACICO_18;
+            objAux.SONDA_NASOGASTRICA = results.rows.item(0).SONDA_NASOGASTRICA;
+            objAux.PARCHES_MARCAPASOS = results.rows.item(0).PARCHES_MARCAPASOS;
+            objAux.OTRO = results.rows.item(0).OTRO;
+
+
+            frap.secciones.insumosAvanzados = new frap.auxiliares.Insumos_Nivel_Avanzado();
+
+        }
+
+        console.log(frap);
+
+        //$.jStorage.set("frap", frap);
+    };
+
+    dataBase.getTableS('INSUMOS_NIVEL_AVANZADO', '*', " WHERE ID_FRAP ="+idFRAP+ " AND TIPO_FRAP='"+tipoFRAP+"' ", cb);
+};
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1696,25 +2125,25 @@ fs['FRAP']=[];
 
 fs['MOTIVO_ATENCION']=[];
 fs['PACIENTE']=[];
-fs['DATOS_PACIENTE']=[];
 fs['DIRECCION_PACIENTE']=[];
+fs['DATOS_PACIENTE']=[];
+
 fs['MEDIA_FILIACION']=[];
 
 
 fs['EVALUACION_PRIMARIA']=[];
 
 
-
-
-
+fs['EVALUACION_SECUNDARIA']=[];
 fs['SEMIOLOGIA_DOLOR']=[]; // correcto SIMBOLIGIA_DOLOR pero nbo jala :) por el nombre de la tabla maestro
 fs['SAMPLER']=[];
-fs['EVALUACION_SECUNDARIA']=[];
+
 
 fs['MANEJO_VIA_AEREA']=[];
 fs['ASISTENCIA_VENTILATORIA']=[];
 fs['OXIGENO_TERAPIA']=[];
-fs['DESCOMPRESION_PLEURAL']=[];
+fs['DESCOMPRENSION_PLEURAL']=[];
+
 fs['CONTROL_HEMORRAGIAS']=[];
 fs['ACCESO_CIRCULATORIO']=[];
 fs['INTERVENCIONES']=[];
@@ -1722,8 +2151,9 @@ fs['TERAPIA_ELECTRICA']=[];
 
 fs['TRATAMIENTO']=[];
 
-fs['FACTORES_RIESGO']=[];
 
+
+fs['FACTORES_RIESGO']=[];
 fs['HALLAZGOS_FISICOS']=[];
 
 
@@ -1739,6 +2169,15 @@ fs['EMERGENCIA_RESULTADO']=[];
 fs['FRAP_LEGAL']=[];
 
 
+
+fs['INSUMOS_NIVEL_BASICO']=[];
+fs['INSUMOS_NIVEL_INTERMEDIO']=[];
+fs['INSUMOS_NIVEL_AVANZADO']=[];
+
+fs['REGISTRO_SIGNOS_VITALES']=[];
+fs['MEDICAMENTOS']=[];
+
+fs['AUDITORIA']=[];
 
 
 
@@ -1760,6 +2199,9 @@ frap.preparar = function (){
     frap_elementos["MOTIVO_ATENCION"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.motivo_atencion};
     frap_elementos["PACIENTE"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.paciente};
     frap_elementos["DATOS_PACIENTE"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.datos_paciente};
+
+    console.log('fijate DIRECCION_PACIENTE');
+    console.log(frap.secciones.direccion_paciente);
     frap_elementos["DIRECCION_PACIENTE"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.direccion_paciente};
     frap_elementos["MEDIA_FILIACION"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.media_filiacion};
 
@@ -1769,14 +2211,20 @@ frap.preparar = function (){
 
     frap_elementos["EVALUACION_PRIMARIA"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.evaluacion_primaria};
 
+    console.log('SEMIOLOGIA_DOLOR');
+    console.log(frap.secciones.simbologia_dolor);
     frap_elementos["SEMIOLOGIA_DOLOR"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.simbologia_dolor};
     frap_elementos["SAMPLER"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.sampler};
     frap_elementos["EVALUACION_SECUNDARIA"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.evaluacion_secundaria};
 
+
+    console.log('MANEJO_VIA_AEREA');
+    console.log(frap.secciones.manejo_via_aerea);
     frap_elementos["MANEJO_VIA_AEREA"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.manejo_via_aerea};
     frap_elementos["ASISTENCIA_VENTILATORIA"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.asistencia_ventilatoria};
     frap_elementos["OXIGENO_TERAPIA"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.oxigenoterapia};
-    frap_elementos["DESCOMPRESION_PLEURAL"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.desc_ple};
+    frap_elementos["DESCOMPRENSION_PLEURAL"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.desc_ple};
+
     frap_elementos["CONTROL_HEMORRAGIAS"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.control_hemorragias};
     frap_elementos["ACCESO_CIRCULATORIO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.acceso_circulatorio};
     frap_elementos["INTERVENCIONES"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.intervenciones};
@@ -1784,8 +2232,8 @@ frap.preparar = function (){
     frap_elementos["TRATAMIENTO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.tratamiento};
 
     console.log('fiajte factores');
-    console.log(frap.secciones.evaluacion_secundaria.factores);
-    frap_elementos["FACTORES_RIESGO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.evaluacion_secundaria.factores};
+    console.log(frap.secciones.factores);
+    frap_elementos["FACTORES_RIESGO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.factores};
 
 
 
@@ -1813,6 +2261,15 @@ frap.preparar = function (){
     frap_elementos["FRAP_LEGAL"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.legal};
 
 
+    frap_elementos["INSUMOS_NIVEL_BASICO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.insumosBasicos};
+    frap_elementos["INSUMOS_NIVEL_INTERMEDIO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.insumosMedio};
+    frap_elementos["INSUMOS_NIVEL_AVANZADO"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.insumosAvanzados};
+
+    frap_elementos["MEDICAMENTOS"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.medicamentos};
+    frap_elementos["REGISTRO_SIGNOS_VITALES"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.signos_vitales};
+
+
+
 
 
 };
@@ -1829,6 +2286,11 @@ frap.preparar = function (){
 //JSON.stringify({"fragmento":"FRAP_OBJECT","id":"1", "datos":fs})
 
 frap.enviar = function() {
+
+    parent.enviandoInformacion();
+
+
+
 
     frap.preparar();
 
@@ -1879,18 +2341,22 @@ frap.enviar = function() {
                     contentType: "application/json; charset=utf-8",
                     success: function (data, textStatus, jqXHR) {
 
+                        var numF = '';
 
                         console.log(data.status);
                         console.log(data.validation);
                         console.log(data.number);
+
+                        numF = data.number;
+
                         if(data.status){
-                            frap.secciones.frap =  new frap.initFRAP(data.status, data.validation, data.number);
+                            frap.secciones.frap =  new frap.initFRAP(data.status, data.validation, data.number, idService);
                         }else{
-                            frap.secciones.frap =  new frap.initFRAP('true', '22222', '23');
+                            frap.secciones.frap =  new frap.initFRAP('true', '22222', '23', 1);
                         }
 
                         //frap.secciones.frap =  new frap.initFRAP(data.status, data.validation, data.number);
-                        frap_elementos["FRAP"] ={"intentos":0,"enviado":false, "datos" :frap.secciones.frap};
+                        frap_elementos["FRAP"] = {"intentos":0,"enviado":false, "datos" :frap.secciones.frap};
 
                         console.log('fiajte frap');
                         console.log(frap.secciones.frap);
@@ -1958,14 +2424,15 @@ frap.enviar = function() {
 
                                 $.when.apply(null, promises).done(function () {
 
-                                    $("#msgOk").dialog('open');
+                                    //$("#msgOk").dialog('open');
 
                                     // alert('se guardo FRAP con éxito');
 
                                     // location = "home_vehicules.html";
                                     // alert('FINISH-close-change');
 
-                                    // Commit(id);
+                                    frap.commit(id, url_con, numF);
+                                     //Commit(id);
 
                                 }).fail(function () {
                                     alert('unexpected error must close');
@@ -2039,10 +2506,120 @@ frap.enviar = function() {
 };
 
 
-frap.commit = new function(){
+frap.commit = function(id, url_con, numF){
+
+   // alert (JSON.stringify({"idFD": id}) );
+    $.ajax({
+        type: 'POST',
+        url: url_con + '/commit',
+        dataType: "json",
+        data: JSON.stringify({"idFD": id}),
+        contentType: "application/json; charset=utf-8",
+        success: function (data, textStatus, jqXHR) {
+
+            frap.setFRAP(url_con, data.idFS, numF);
+            //alert('succes commit');
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 0) {
+
+                alert('Not connect: Verify Network.');
+
+            } else if (jqXHR.status == 404) {
+
+                alert('Requested page not found [404]');
+
+            } else if (jqXHR.status == 500) {
+
+                alert('Internal Server Error [500].');
+
+            } else if (textStatus === 'parsererror') {
+
+                alert('Requested JSON parse failed.');
+
+            } else if (textStatus === 'timeout') {
+
+                alert('Time out error.');
+
+            } else if (textStatus === 'abort') {
+
+                alert('Ajax request aborted.');
+
+            } else {
+
+                alert('Uncaught Error: ' + jqXHR.responseText);
+
+            }
+
+            alert('Error SND01: Comunicacion con el servidor');
+        }
+    });
+
+
 
 };
 
-frap.set = new function(){
+frap.setFRAP =  function(url_con, idFS, numeroF){
+
+
+    //alert (JSON.stringify({"idFD": id}) );
+    $.ajax({
+        type: 'POST',
+        url: url_con + '/setFRAP',
+        dataType: "json",
+        data: JSON.stringify({"ID_usuario": id_usuario,
+            "session":id_sesion,
+            "estado":estado,
+            "ID_servicio":idService,
+            "ID_frap":idFS,
+            "Numero":numeroF
+        }),
+        contentType: "application/json; charset=utf-8",
+        success: function (data, textStatus, jqXHR) {
+
+            parent.cierraEnviando();
+            $("#msgOk").dialog('open');
+
+
+
+            //alert('success set');
+
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            if (jqXHR.status === 0) {
+
+                alert('Not connect: Verify Network.');
+
+            } else if (jqXHR.status == 404) {
+
+                alert('Requested page not found [404]');
+
+            } else if (jqXHR.status == 500) {
+
+                alert('Internal Server Error [500].');
+
+            } else if (textStatus === 'parsererror') {
+
+                alert('Requested JSON parse failed.');
+
+            } else if (textStatus === 'timeout') {
+
+                alert('Time out error.');
+
+            } else if (textStatus === 'abort') {
+
+                alert('Ajax request aborted.');
+
+            } else {
+
+                alert('Uncaught Error: ' + jqXHR.responseText);
+
+            }
+
+            alert('Error SND01: Comunicacion con el servidor');
+        }
+    });
+
 
 };
