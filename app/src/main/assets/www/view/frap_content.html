@@ -69,6 +69,16 @@
 
 
 
+        // Función para agregar elementos dinamicamente en el DOM
+        function create(htmlStr) {
+            var frag = document.createDocumentFragment(),
+                temp = document.createElement('div');
+            temp.innerHTML = htmlStr;
+            while (temp.firstChild) {
+                frag.appendChild(temp.firstChild);
+            }
+            return frag;
+        }
 
 
         var frap;
@@ -366,8 +376,8 @@
             if( currentId == "motivo_atencion"){
 
                 seccion_motivo  = $.jStorage.get("motivo_atencion");
-                console.log('dentro ' +currentId);
-                console.log('tipo ' +seccion_motivo);
+                //console.log('dentro ' +currentId);
+                //console.log('tipo ' +seccion_motivo);
                 window.location.hash = seccion_motivo;
              }
              else{
@@ -380,8 +390,12 @@
 
                     $.each(estado_secciones, function (key, value){
                         if(value == 0 && key != 'SIGNOS_VITALES' && key != 'INSUMOS_NIVEL_AVANZADO' && key != 'INSUMOS_NIVEL_INTERMEDIO' && key != 'INSUMOS_NIVEL_BASICO' && key != 'MEDICAMENTOS'){
-                            console.log('bloeado por: '+key);
+                           // console.log('bloeado por: '+key);
                             send_bloked =0;
+                            fragment = create('<li data-theme="a"  >'+
+                                    ' '+key+
+                                '</li>');
+                            document.getElementById("faltantes").appendChild(fragment);
                         }
 
                     });
@@ -2668,21 +2682,7 @@
 
 
 
-    <!-- panel:Pocisón orientación -->
-    <div data-role="panel" id="pnlPocision" data-display="overlay" data-position="right" style=" width: 310px;">
-        <div class="ui-panel-inner" style="width: 300px;">
-            <h2>Posición, orientación (dónde y cómo encontro al paciente):</h2>
-            <label class="container">Acostado
-                <input onclick="CambiarV('#ep_orientacion','Acostado');" type="radio" name="ep_pocision" id="ep_pocision_a" value="1" checked="checked" data-theme="b" data-rel="close">
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">Comprometida
-                <input onclick="CambiarV('#ep_orientacion','Comprometida');" type="radio" name="ep_pocision" id="ep_pocision_b" value="2" data-theme="b" data-rel="close">
-                <span class="checkmark"></span>
-            </label>
 
-        </div>
-    </div><!-- /panel -->
 
 
 
@@ -2883,24 +2883,25 @@
 
 
 
-                    <!--  parte que dibuja el control -->
+                    <!--  parte que dibuja el control
                     <div style="width: 100%; height: 65px; ">
                         <div style=" width: 47%;float: left;">
                             <h4 class="labels">Posición, orientación (dónde y cómo encontro al paciente)</h4>
                         </div>
-                        <a href="#pnlPocision">
-                            <div style=" width: 53%;float: left;">
-                                <div class="fake-input">
-                                    <input class="seleccion" id="ep_orientacion" disabled type="text" value="recostado"/>
-                                    <img src="images/right.png" />
-                                </div>
-                            </div>
-                        </a>
+                        <input type="text"  name="posicion" id="posicion" value="" data-clear-btn="true">
+
                     </div>
-                    <!--  termina dibujo -->
+                      termina dibujo -->
 
 
 
+                    <div class="col-xs-12 col-sm-6 col-md-4">
+                        <div class="box">
+                            <h4 class="labels">Posición, orientación (dónde y cómo encontro al paciente):</h4>
+                            <input class="" type="text" name="posicion" id="posicion" value="" data-clear-btn="true">
+                        </div>
+
+                    </div>
 
 
 
@@ -3542,7 +3543,7 @@
 										        ctx.font="bold 13px Verdana";
 										        ctx.fillText(clave,(x - aux_x), (y - aux_y));
 
-                                                console.log('aux_y:'+aux_y+"  aux_X:"+aux_x);
+                                                console.log('aux_y:'+(y - aux_y)+"  aux_X:"+(x - aux_x));
 
 										        ctx.closePath();
 										        //alert('pinto');
@@ -3556,8 +3557,8 @@
                                                     "iCOORDENADA_Y" :(y - aux_y) // (y-2690)
                                                 };
                                                 //guardarLocal('HALLAZGOS_FISICOS',tabla_frap);
-                                                console.log('idFRAP'+idFRAP);
-                                                console.log('tipoFRAP'+tipoFRAP);
+                                               // console.log('idFRAP'+idFRAP);
+                                               // console.log('tipoFRAP'+tipoFRAP);
 
                                                 dataBase.openDb();
 
@@ -3598,15 +3599,15 @@
                 <div class="col">
                     <div class="col-container" >
                         <div class="col">
-                            <input class="radioB_3" style="margin-top: 1vmin;" type="radio" name="sd_aparicion" id="sd_aparicion_no" value="3" checked="checked" onclick="hide_sd();">
-                            <span class="labels_3" for="sd_aparicion_no">N/A</span>
+                            <input class="radioB_3" style="margin-top: 1vmin;" type="radio" name="sd_aparicion" id="sd_aparicion_no" value="3" checked="checked" >
+                            <span class="labels_3" for="sd_aparicion_no">No aplica</span>
                         </div>
                         <div class="col">
-                            <input class="radioB_3" style="margin-top: 1vmin;" type="radio" name="sd_aparicion" id="sd_aparicion_cronico" value="1" onclick="show_sd();">
+                            <input class="radioB_3" style="margin-top: 1vmin;" type="radio" name="sd_aparicion" id="sd_aparicion_cronico" value="1" >
                             <span class="labels_3" for="sd_aparicion_cronico">Crónico</span>
                         </div>
                         <div class="col">
-                            <input class="radioB_3" style="margin-top: 1vmin;" type="radio" name="sd_aparicion" id="sd_aparicion_agudo" value="2" onclick="show_sd();">
+                            <input class="radioB_3" style="margin-top: 1vmin;" type="radio" name="sd_aparicion" id="sd_aparicion_agudo" value="2" >
                             <span class="labels_3" for="sd_aparicion_agudo">Agudo</span>
                         </div>
 
@@ -3686,7 +3687,7 @@
                     <option>9</option>
                     <option >10</option>
                 </select>
-            </div>
+            </div>  <!-- semiologia-dolor-section-->
 
 
             <br>
@@ -3702,7 +3703,7 @@
             <h5 class="labels" for="sampler_padecimientos">Padecimientos : </h5>
             <input type="text" class="input-text-box input-red-border" name="sampler_padecimientos" id="sampler_padecimientos">
             <h5 class="labels" for="sampler_ultima_comida">Última comida : </h5>
-            <input type="text" class="input-text-box input-red-border" name="sampler_ultima_comida" id="sampler_ultima_comida">
+            <input type="time" class="input-text-box input-red-border" name="sampler_ultima_comida" id="sampler_ultima_comida">
             <h5 class="labels" for="sampler_eventos_relacionados" >Eventos relacionados : </h5>
             <input type="text" class="input-text-box input-red-border" type="text" name="sampler_eventos_relacionados" id="sampler_eventos_relacionados">
 
@@ -4253,7 +4254,7 @@
                         <h4 class="labels">Litros por minuto</h4>
                     </div>
                     <div style=" width: 47%;float: left;">
-                        <input type="number" name="oxi_litros" id="ox_ilitros" style="width:100%;">
+                        <input type="number" name="oxi_litros" id="oxi_litros" style="width:100%;">
                     </div>
                 </div>
 
@@ -4459,7 +4460,7 @@
                     <a href="#pnlTerapia">
                         <div style=" width: 53%;float: left;">
                             <div class="fake-input">
-                                <input id="trat_terapia" disabled type="text" value="No necesitó" />
+                                <input  id="trat_terapia" disabled type="text" value="No necesitó" />
                                 <img src="images/right.png" />
                             </div>
                         </div>
@@ -5303,12 +5304,12 @@
             </label>
             <label class="container">Masculino
                 <input onclick="CambiarV('#g_sexo','Masculino');" type="radio" name="producto_sexo"
-                       id="producto_sexo_femenino" value="2" data-theme="b" data-rel="close">
+                       id="producto_sexo_femenino" value="3" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
             <label class="container">Femenino
                 <input onclick="CambiarV('#g_sexo','Femenino');" type="radio" name="producto_sexo"
-                       id="producto_sexo_masculino" value="3" data-theme="b" data-rel="close">
+                       id="producto_sexo_masculino" value="2" data-theme="b" data-rel="close">
                 <span class="checkmark"></span>
             </label>
         </div>
@@ -5370,7 +5371,7 @@
                         <h4 class="labels"> FUM:</h4>
                     </div>
                     <div style=" width: 53%;float: left;">
-                        <input type="text" value="" id="fum" style="width:100%;">
+                        <input type="date" value="" id="fum" style="width:100%;">
                     </div>
                 </div>
                 <br>
@@ -5516,6 +5517,20 @@
                 <!--  termina dibujo -->
 
                 <div class="linea-separadora"></div>
+
+                <div style="width: 100%; height: 65px; ">
+                    <div style=" width: 47%;float: left;">
+                        <h4 class="botonInicial" for="paro_hora">Hora de nacimiento: </h4>
+                    </div>
+                    <div style=" width: 53%;float: left;">
+                        <input class="input-text-box input-red-border" type="time" align="center" name="ginecologico_hora_nacimiento"
+                               id="ginecologico_hora_nacimiento" style="width: 48%;">
+                    </div>
+                </div>
+                <br>
+
+                <div class="linea-separadora"></div>
+
 
                 <h5 class="seccion" align="center"><strong> Datos del producto </strong></h5>
 
@@ -6131,7 +6146,9 @@
 
         <h2 align="center">¡ DATOS INCOMPLETOS !</h2>
 
-        <p> El FRAP no esta listo para su envío, se requiere que se guarden los datos de cada sección </p>
+        <p> El FRAP no esta listo para su envío, se requiere que se guarden los datos de cada sección, las secciones faltantes son:</p>
+            <ul data-theme="a" data-role="listview" id="faltantes">
+            </ul>
 
 
         <div style="width: 190px; margin: 0 auto;">

@@ -50,7 +50,44 @@ function CaptureBCK() {
     window.plugins.CameraPictureBackground.takePicture(success, onFail, options);
 }
 
+function dibujarH(x, y, clave){
+    //console.log('DH lesion:'+lesion);
+    //console.log('DH clave'+clave);
 
+
+    var aux_y = $("#myCanvas").offset().top;
+    var aux_x = $("#myCanvas").offset().left;
+
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+
+    //alert('x:'+x +'  x_off:'+aux_x+'   resta:'+ (x - aux_x));
+    //alert('y:'+y+'  y_off:'+aux_y+'   resta:'+ (y - aux_y));
+
+
+
+    ctx.fillStyle = "#c82124";
+    ctx.arc( (x ), (y ), 12, 0, 2 * Math.PI, true);
+    ctx.fill();
+/*
+    ctx.fillStyle = "#FFFFFF";
+    ctx.font="bold 13px Verdana";
+    ctx.fillText(clave,(x ), (y ));
+*/
+//    console.log('aux_y:'+(y )+"  aux_X:"+(x ));
+
+    ctx.closePath();
+
+
+
+}
+
+function show_sd() {
+    $('.semiologia-dolor-section').removeClass('hidden');
+}
+function hide_sd() {
+    $('.semiologia-dolor-section').addClass('hidden');
+}
 
 
 

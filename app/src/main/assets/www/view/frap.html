@@ -296,14 +296,15 @@ function homeVehicules(){
         estado_secciones = $.jStorage.get("estado_secciones"); // MOST IMPORTANT ***
 
 
+        $.each(estado_secciones, function (key, value){
+            console.log('estado_secciones ' + key + value);
+        });
 
+       // console.log('valores de diagrama de flujo ');
 
-
-        console.log('valores de diagrama de flujo ');
-
-        console.log('isNew'+isNew);
-        console.log('estado_frap'+estado_frap);
-        console.log('estado_seccoines'+estado_secciones);
+       // console.log('isNew'+isNew);
+       // console.log('estado_frap'+estado_frap);
+       // console.log('estado_seccoines'+estado_secciones);
 
 
         // Paso 2 : Inicializar el objeto frap, para que sea factible el envio en todo momemnto
@@ -391,7 +392,12 @@ function homeVehicules(){
         iframe.find("#btnNext4").click(function()
         {
             dataBase.borrarRegistro('TRATAMIENTO', " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
+            dataBase.borrarRegistro("CONTROL_HEMORRAGIAS", " WHERE ID_FRAP = "+idFRAP+" and TIPO_FRAP='"+tipoFRAP+"' ");
+
             guardar_tratamiento();
+            guardar_control_hremorragias();
+
+
             deltaZ('slide', 'tratamiento', 'menu-tratamiento', iframe.find("#btnNext4").attr('data-state'));
         });
 

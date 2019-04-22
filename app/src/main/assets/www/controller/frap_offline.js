@@ -17,11 +17,17 @@ $( document ).ready(function() {
             //alert('loadFRAP('+t +')');
 
             fragment = create(
-                '<li class="collection-item avatar" onclick="loadFRAP(\''+t+'\', '+w+', \'TRUE\')" >'+
+                '<li class="collection-item" style="margin-right:1%;" onclick="loadFRAP(\''+t+'\', '+w+', \'TRUE\')" >'+
+                '<div style="width: 150px; height: 100%; padding-top: 20px; float: left; ">'+
+                '<img src="../images/eliminar.png" width="71" style="float: left;">'+
+                '<img src="../images/editar_4.png" width="61" style="float: left; margin-top: 7px;">'+
+                '</div>'+
+                //'<div style=" height: 100%; float: left;">'+
                 '<span class="title">'+results.rows.item(i).CAUSA +'</span>'+
-                '<p>'+results.rows.item(i).FECHA +' <br>'+
+                '<p>'+results.rows.item(i).FECHA +//' <br>'+
                 ' '+ results.rows.item(i).COLONIA+' - '+results.rows.item(i).MUNICIPIO +
                 '</p>'+
+                //'</div>'+
                 '</li>'
             );
 

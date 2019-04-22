@@ -33,7 +33,7 @@ var sql_edo_secciones ="CREATE TABLE IF NOT EXISTS EDO_SECCIONES ("+
     "CONSENTIMIENTO INTEGER"+
     "FRAP_OTROS INTEGER,"+
     "FRAP_LEGAL INTEGER,"+
-    "NEGATIVA TEXT,"+
+    "NEGATIVA INTEGER,"+
     "INSUMOS_NIVEL_BASICO INTEGER,"+
     "INSUMOS_NIVEL_INTERMEDIO INTEGER,"+
     "INSUMOS_NIVEL_AVANZADO INTEGER,"+
@@ -142,7 +142,7 @@ var sql_evaluacion_primaria = "CREATE TABLE IF NOT EXISTS EVALUACION_PRIMARIA("+
     "ID_CTLG_COLORACION INTEGER,"+
     "ID_CTLG_TEMPERATURA INTEGER,"+
     "ID_CTLG_CONDICION INTEGER,"+
-    "POSICION INTEGER"+
+    "POSICION TEXT"+
     ")";
 
 var sql_evaluacion_secundaria = "CREATE TABLE IF NOT EXISTS EVALUACION_SECUNDARIA("+
@@ -183,6 +183,15 @@ var sql_evaluacion_secundaria = "CREATE TABLE IF NOT EXISTS EVALUACION_SECUNDARI
     ")";
 
 
+
+var sql_control_de_hemorragias = "CREATE TABLE IF NOT EXISTS CONTROL_HEMORRAGIAS("+
+
+    "ID_FRAP INTEGER, " +
+    "TIPO_FRAP TEXT, " +
+
+    "ID_CTLG_CONTROL_HEMORRAGIAS INTEGER, " +
+    "HORA_COLOCACION TEXT" +
+    ")";
 
 /////////////////7
 ////////////////7 Aqui agregaremos nuevas tablas
@@ -316,6 +325,7 @@ var sql_tratamiento =   "CREATE TABLE IF NOT EXISTS TRATAMIENTO ("+
     "MARCAPASOS_TRANSCUTANEO INTEGER,"+
     "MA INTEGER,"+
     "FRECUENCIA INTEGER,"+
+    "ID_CTLG_TIPO_TERAPIA INTEGER,"+
     "ID_TRATAMIENTO INTEGER," +
     "OBSERVACIONES TEXT "+
 
@@ -625,6 +635,9 @@ dataBase.createSchema = function(){
 
 
         // cambios de las nuevas tablas
+        //cambios by JC
+        dataBase.tableName = 'sql_control_de_hemorragias';
+        tx.executeSql(sql_control_de_hemorragias,[], dataBase.onSuccess, dataBase.onError);
 
 
         dataBase.tableName ='sql_clinico';
@@ -907,8 +920,8 @@ dataBase.onSuccess = function(tx, ResultSet) {
     for (var property in tx) {
         opcionest = opcionest+property+' , ';
     }
-    console.log("aqui es el primer onsucces");
-    console.log(" defult: Your SQLite query was successful!"+opcionest+'   '+opciones );
+    //console.log("aqui es el primer onsucces");
+    //console.log(" defult: Your SQLite query was successful!"+opcionest+'   '+opciones );
 //    alert(" defult: Your SQLite query was successful!");
 
     if(dataBase.tableName != ''){

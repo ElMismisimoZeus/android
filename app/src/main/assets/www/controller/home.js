@@ -520,24 +520,51 @@ function cargarServiciosVehiculo(id_t){
                                             }
                                             */
                                             $.each(data.fraps, function(key,value){
-                                                /*
-                                                console.log(value);
-                                                console.log(key);
-                                                console.log(value.ID_FRAPS);
-                                                console.log(value.FRAP_NUMERO);
-                                                console.log(value.date);
-                                                console.log(value.dateLegend);
-                                                console.log(value.name);
-                                                */
 
-                                                fragment = create(
-                                                    '<div style="height: 123px; padding-top: 13px;" >'+
-                                                    '<div> '+
-                                                    '<b>Número de FRAP</b> <p>'+value.FRAP_NUMERO+' - '+value.dateLegend+'</p><img src="../images/PDF-Icon.png" width="35" onclick="openFRAP('+value.ID_FRAPS+')"> '+
-                                                    '</div>'+
-                                                    '</div>'
-                                                );
-                                                document.getElementById('local_fraps').appendChild(fragment);
+                                               // console.log('longitud frap:'+value.length);
+                                                if (typeof value.length !== 'undefined'){
+                                                    console.log('se debe iterar');
+                                                    for (var i in value)
+                                                    {
+                                                        console.log(value[i].ID_FRAPS);
+                                                        console.log(value[i].FRAP_NUMERO);
+                                                        console.log(value[i].date);
+                                                        console.log(value[i].dateLegend);
+                                                        console.log(value[i].name);
+                                                        fragment = create(
+                                                            '<div style="height: 123px; padding-top: 13px;" >'+
+                                                            '<div> '+
+                                                            '<b>Número de FRAP</b> <p>'+value[i].FRAP_NUMERO+' - '+value[i].dateLegend+'</p><img src="../images/PDF-Icon.png" width="35" onclick="openFRAP('+value[i].ID_FRAPS+')"> '+
+                                                            '</div>'+
+                                                            '</div>'
+                                                        );
+                                                        document.getElementById('local_fraps').appendChild(fragment);
+                                                    }
+
+                                                }else{
+                                                    console.log(key);
+                                                    console.log(value.ID_FRAPS);
+                                                    console.log(value.FRAP_NUMERO);
+                                                    console.log(value.date);
+                                                    console.log(value.dateLegend);
+                                                    console.log(value.name);
+
+                                                    fragment = create(
+                                                        '<div style="height: 123px; padding-top: 13px;" >'+
+                                                        '<div> '+
+                                                        '<b>Número de FRAP</b> <p>'+value.FRAP_NUMERO+' - '+value.dateLegend+'</p><img src="../images/PDF-Icon.png" width="35" onclick="openFRAP('+value.ID_FRAPS+')"> '+
+                                                        '</div>'+
+                                                        '</div>'
+                                                    );
+                                                    document.getElementById('local_fraps').appendChild(fragment);
+
+                                                }
+
+
+
+
+
+
                                             });
 
 
@@ -746,6 +773,23 @@ function prepareFRAP(paginaInicial){
         estado_secciones['EVALUACION_PRIMARIA'] = 0;
         estado_secciones['EVALUACION_SECUNDARIA'] = 0;
         estado_secciones['TRATAMIENTO'] = 0;
+        //estado_secciones['VIAL'] = 0;
+        //estado_secciones['GINECOLOGICO'] = 0;
+        //estado_secciones['TRAUMA'] = 0;
+        //estado_secciones['CLINICO'] = 0;
+
+
+        estado_secciones['INSUMOS_NIVEL_BASICO'] = 0;
+        estado_secciones['INSUMOS_NIVEL_INTERMEDIO'] = 0;
+        estado_secciones['INSUMOS_NIVEL_AVANZADO'] = 0;
+
+
+
+        estado_secciones['MEDICAMENTOS'] = 1;
+        estado_secciones['SIGNOS_VITALES'] = 1;
+
+        estado_secciones['HALLAZGOS_FISICOS'] = 1;
+        estado_secciones['FACTORES'] = 1;
 
         $.jStorage.set("estado_secciones", estado_secciones);
 

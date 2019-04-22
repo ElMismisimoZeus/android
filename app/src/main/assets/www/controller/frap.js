@@ -64,6 +64,8 @@ function cargarPACIENTE() {
     iframe.find('#telefono').val(frap.secciones.datos_paciente.TELEFONO);
     iframe.find('#ocupacion').val(frap.secciones.datos_paciente.OCUPACION);
 
+    iframe.find('#correo').val(frap.secciones.datos_paciente.CORREO_ELECTRONICO);
+
     ///
 
     /*
@@ -468,6 +470,48 @@ function cargarEVALUACION_SECUNDARIA(){
         }
 
     }
+
+
+    // Dibujando los hallazgos físicos
+    //console.log("hallazgos");
+    //console.log(frap.secciones.hallazgos);
+
+    $.each(frap.secciones.hallazgos, function (key, value){
+
+            //console.log('registro'+frap.secciones.hallazgos[key].iCOORDENADA_X);
+
+        var cx = frap.secciones.hallazgos[key].iCOORDENADA_X;
+        var cy = frap.secciones.hallazgos[key].iCOORDENADA_Y;
+        var idL = frap.secciones.hallazgos[key].iCTLG_LESIONES_ID;
+
+        //console.log(frap.secciones.hallazgos["registro"+i]);
+
+        var $f = $("#frameDemo");
+        $f[0].contentWindow.dibujarH(cx, cy, idL);  //works
+
+        //iframe[0].dibujarH(cx, cy, idL);
+/*
+        var aux_y = iframe.find("#myCanvas").offset().top;
+        var aux_x = iframe.find("#myCanvas").offset().left;
+        console.log('top :'+aux_y);
+
+        //var c = iframe.find("#myCanvas").getContext("2d");
+        var ctx = iframe.find("#myCanvas").getContext("2d");
+
+        ctx.beginPath();
+
+        ctx.fillStyle = "#c82124";
+        ctx.arc(cx+aux_x, cy+aux_y, 12, 0, 2 * Math.PI, true);
+        ctx.fill();
+
+        ctx.fillStyle = "#FFFFFF";
+        ctx.font="bold 13px Verdana";
+        ctx.fillText('Z',x+aux_x, y+aux_y);
+
+        ctx.closePath();*/
+
+    });
+
 
 
 
