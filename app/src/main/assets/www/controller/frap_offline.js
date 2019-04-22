@@ -17,10 +17,10 @@ $( document ).ready(function() {
             //alert('loadFRAP('+t +')');
 
             fragment = create(
-                '<li class="collection-item" style="margin-right:1%;" onclick="loadFRAP(\''+t+'\', '+w+', \'TRUE\')" >'+
+                '<li class="collection-item" style="margin-right:1%;"  >'+
                 '<div style="width: 150px; height: 100%; padding-top: 20px; float: left; ">'+
-                '<img src="../images/eliminar.png" width="71" style="float: left;">'+
-                '<img src="../images/editar_4.png" width="61" style="float: left; margin-top: 7px;">'+
+                '<img src="../images/eliminar.png" width="71" style="float: left;" onclick="loadFRAP(\\\'\'+t+\'\\\', \'+w+\', \\\'TRUE\\\')">'+
+                '<img src="../images/editar_4.png" width="61" style="float: left; margin-top: 7px;" onclick="loadFRAP(\\\'\'+t+\'\\\', \'+w+\', \\\'TRUE\\\')">'+
                 '</div>'+
                 //'<div style=" height: 100%; float: left;">'+
                 '<span class="title">'+results.rows.item(i).CAUSA +'</span>'+

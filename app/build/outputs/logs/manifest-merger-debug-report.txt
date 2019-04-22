@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-36:12
 MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:2:1-106:12
 MERGED from [:CordovaLib] /Users/zeus/Documents/CRM-FRAP/platforms/android/CordovaLib/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:20:1-27:12
 MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:16:1-24:12
@@ -20,9 +20,9 @@ MERGED from [com.android.support:support-core-utils:26.1.0] /Users/zeus/.gradle/
 MERGED from [com.android.support:support-core-ui:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-core-ui-26.1.0.aar/8f1929dda161fcdc8537e2e62474a18a/AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:17:1-30:12
-INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
-INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-36:12
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:1-36:12
 	package
 		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:2:102-127
 		INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
@@ -64,7 +64,7 @@ MERGED from [com.google.android.gms:play-services-iid:11.2.2] /Users/zeus/.gradl
 	android:name
 		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:4:22-64
 application
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:5-21:19
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:5-25:19
 MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:49:5-104:19
 MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:49:5-104:19
 MERGED from [com.google.android.gms:play-services-gcm:11.2.2] /Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-gcm-11.2.2.aar/e7453d6d139fb0d3c1ba0f030b4b338c/AndroidManifest.xml:23:5-19
@@ -104,67 +104,94 @@ MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/tr
 	android:icon
 		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:5:53-80
 activity#net.opower.FRAP.MainActivity
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:9-11:20
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:9-14:20
 	android:label
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:97-134
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:97-134
 	android:launchMode
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:135-165
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:135-165
 	android:windowSoftInputMode
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:257-299
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:258-301
 	android:configChanges
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:19-96
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:19-96
 	android:theme
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:194-256
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:194-256
 	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:6:166-193
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:166-193
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:7:13-10:29
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:10:13-13:29
 	android:label
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:7:28-65
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:10:28-65
 action#android.intent.action.MAIN
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:8:17-69
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:11:17-69
 	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:8:25-66
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:11:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:17-77
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:17-77
 	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:9:27-74
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:27-74
 amazon:enable-feature
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:9-159
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:16:9-159
 	xmlns:amazon
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:100-156
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:16:100-156
 	android:required
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:75-99
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:16:75-99
 	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:12:32-74
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:16:32-74
 service#com.onesignal.ADMMessageHandler
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:13:9-92
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:17:9-92
 	android:exported
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:13:18-42
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:17:18-42
 	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:13:43-89
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:17:43-89
 receiver#com.onesignal.ADMMessageHandler$Receiver
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:14:9-20:20
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:18:9-24:20
 	android:permission
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:14:75-139
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:18:75-139
 	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:14:19-74
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:18:19-74
 intent-filter#action:name:com.amazon.device.messaging.intent.RECEIVE+action:name:com.amazon.device.messaging.intent.REGISTRATION+category:name:net.opower.FRAP
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:15:13-19:29
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:19:13-23:29
 action#com.amazon.device.messaging.intent.REGISTRATION
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:16:17-90
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:20:17-90
 	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:16:25-87
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:20:25-87
 action#com.amazon.device.messaging.intent.RECEIVE
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:17:17-85
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:21:17-85
 	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:17:25-82
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:21:25-82
 category#net.opower.FRAP
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:18:17-60
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:17-60
 	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:18:27-57
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:27-57
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:30:5-81
+	android:name
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:30:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:31:5-79
+	android:name
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:31:22-76
+uses-feature#android.hardware.location.gps
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:32:5-66
+	android:name
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:32:19-63
+uses-permission#com.amazon.device.messaging.permission.RECEIVE
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:33:5-86
+	android:name
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:33:22-83
+permission#net.opower.FRAP.permission.RECEIVE_ADM_MESSAGE
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:34:5-117
+	android:protectionLevel
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:34:79-114
+	android:name
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:34:17-78
+uses-permission#net.opower.FRAP.permission.RECEIVE_ADM_MESSAGE
+ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:35:5-86
+	android:name
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:35:22-83
 uses-sdk
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:5-74
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
 MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:5:5-44
 MERGED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:5:5-44
 MERGED from [:CordovaLib] /Users/zeus/Documents/CRM-FRAP/platforms/android/CordovaLib/build/intermediates/merged_manifests/debug/processDebugManifest/merged/AndroidManifest.xml:25:5-44
@@ -197,38 +224,15 @@ MERGED from [com.android.support:support-compat:26.1.0] /Users/zeus/.gradle/cach
 MERGED from [com.android.support:support-compat:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/AndroidManifest.xml:21:5-23:58
 MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:20:5-22:41
 MERGED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:20:5-22:41
+INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.android.support:support-v4:26.1.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/support-v4-26.1.0.aar/6cd096cd2ea4893f087dd41170d6b054/AndroidManifest.xml:23:9-51
 	android:targetSdkVersion
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:42-71
+		ADDED from [android.arch.lifecycle:runtime:1.0.0] /Users/zeus/.gradle/caches/transforms-1/files-1.1/runtime-1.0.0.aar/223e3a00967900deff8330d9d5ea79c2/AndroidManifest.xml:22:9-38
 	android:minSdkVersion
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:22:15-41
-uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:23:5-81
-	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:23:22-78
-uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:24:5-79
-	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:24:22-76
-uses-feature#android.hardware.location.gps
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:25:5-66
-	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:25:19-63
-uses-permission#com.amazon.device.messaging.permission.RECEIVE
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:26:5-86
-	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:26:22-83
-permission#net.opower.FRAP.permission.RECEIVE_ADM_MESSAGE
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:27:5-117
-	android:protectionLevel
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:27:79-114
-	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:27:17-78
-uses-permission#net.opower.FRAP.permission.RECEIVE_ADM_MESSAGE
-ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:28:5-86
-	android:name
-		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml:28:22-83
+		INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
+		ADDED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
+		INJECTED from /Users/zeus/Documents/CRM-FRAP/platforms/android/app/src/main/AndroidManifest.xml
 permission#${applicationId}.permission.C2D_MESSAGE
 ADDED from [com.onesignal:OneSignal:3.7.1] /Users/zeus/.gradle/caches/transforms-1/files-1.1/OneSignal-3.7.1.aar/d8c49d325568eb52697d5aa211e508e4/AndroidManifest.xml:8:5-10:47
 	android:protectionLevel

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <instant-run
-    abi="arm64-v8a,armeabi-v7a,armeabi"
-    api-level="27"
+    abi="armeabi-v7a,armeabi"
+    api-level="24"
     build-mode="COLD"
-    density="xxhdpi"
+    density="xhdpi"
     format="10"
     plugin-version="3.2.1"
-    timestamp="1547748607186"
+    timestamp="1555961974562"
     token="-7298914075265520128"
     verifier="COLD_SWAP_REQUESTED" >
 
@@ -23,9 +23,13 @@
         name="verifier"
         duration="0" />
 
+    <artifact
+        location="/Users/zeus/Documents/CRM-FRAP/platforms/android/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
+        type="SPLIT_MAIN" />
+
     <build
         build-mode="FULL"
-        timestamp="1547743156879"
+        timestamp="1555961745069"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/zeus/Documents/CRM-FRAP/platforms/android/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
@@ -52,9 +56,6 @@
             location="/Users/zeus/Documents/CRM-FRAP/platforms/android/app/build/intermediates/split-apk/debug/slices/slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="/Users/zeus/Documents/CRM-FRAP/platforms/android/app/build/intermediates/resources/instant-run/debug/resources-debug.apk"
-            type="SPLIT" />
-        <artifact
             location="/Users/zeus/Documents/CRM-FRAP/platforms/android/app/build/intermediates/split-apk/debug/slices/slice_3.apk"
             type="SPLIT" />
         <artifact
@@ -69,15 +70,11 @@
     </build>
     <build
         build-mode="COLD"
-        timestamp="1547748366798"
+        timestamp="1555961974562"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="/Users/zeus/Documents/CRM-FRAP/platforms/android/app/build/intermediates/instant-run-apk/debug/app-debug.apk"
             type="SPLIT_MAIN" />
     </build>
-    <build
-        build-mode="COLD"
-        timestamp="1547748607186"
-        verifier="COLD_SWAP_REQUESTED" />
 
 </instant-run>

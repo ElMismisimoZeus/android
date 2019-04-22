@@ -384,10 +384,6 @@
         "source": "/Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
-        "merged": "/Users/zeus/Documents/CRM-FRAP/platforms/android/app/build/intermediates/res/merged/debug/layout_notification_template_custom_big.xml.flat",
-        "source": "/Users/zeus/.gradle/caches/transforms-1/files-1.1/support-compat-26.1.0.aar/8ed3d6ea29c0ce55419027eacf0e6e51/res/layout/notification_template_custom_big.xml"
-    },
-    {
         "merged": "/Users/zeus/Documents/CRM-FRAP/platforms/android/app/build/intermediates/res/merged/debug/drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
         "source": "/Users/zeus/.gradle/caches/transforms-1/files-1.1/play-services-base-11.2.2.aar/17ecee6d786372f4bd3476a13cb7187b/res/drawable-xxhdpi-v4/common_google_signin_btn_icon_light_normal_background.9.png"
     },

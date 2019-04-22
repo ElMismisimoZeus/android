@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: __local_aars__:/Users/Zeus.Ogarrio/Documents/CRM-FRAP/platforms/android/app/libs/sqlite-connector.jar:unspecified@jar">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/libs/sqlite-connector.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
